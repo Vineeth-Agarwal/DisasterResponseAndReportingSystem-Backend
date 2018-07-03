@@ -1,3 +1,5 @@
+// schema for the applicants who applied for the CERT
+
 const mongoose = require("mongoose")
 var Schema = mongoose.Schema;
 
