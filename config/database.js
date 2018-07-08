@@ -1,8 +1,12 @@
 const mongoose = require("mongoose")
 
-module.exports = mongoose.connect("mongodb+srv://admin:admin123@cluster0-5iafy.mongodb.net/drrs?retryWrites=true"
-    , success => {
-        console.log("DB Connected")
+module.exports = mongoose.connect("mongodb+srv://admin:admin@cluster0-zlyhn.mongodb.net/DRRS?retryWrites=true")    
+    .then(() => {
+        console.log("DB connected")
     }, err => {
-        console.log("error")
-    })
+        console.log("DB error"+  err)
+    }
+    )
+
+
+
