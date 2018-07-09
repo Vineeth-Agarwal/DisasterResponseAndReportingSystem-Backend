@@ -2,11 +2,72 @@ var express = require('express');
 var router = express.Router();
 var applicant = require("../model/applicant");
 var incident = require("../model/incident");
+var membere = require("../model/members");
+var signup = require("../model/signup")
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+// save signup- Hemanth
+router.post('/saveSignup', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide member details" })
+  }
+  var signupObj = new signup(req.body);
+  signupObj.save(function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "Members record saved successfully", data: data })
+    }
+  });
+})
+
+// get signup- Hemanth
+router.get('/getSignupList', function (req, res, next) {
+  signup.find({}, function (err, results) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err })
+    }
+    else {
+      res.status(200).json({ msg: "member record fetched successfully", data: results })
+    }
+  })
+});
+
+
+// save members- Hemanth
+router.post('/saveMembers', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide member details" })
+  }
+  var memberObj = new membere(req.body);
+  memberObj.save(function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "Members record saved successfully", data: data })
+    }
+  });
+})
+
+// get member List- Hemanth
+router.get('/getMemberList', function (req, res, next) {
+  membere.find({}, function (err, results) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err })
+    }
+    else {
+      res.status(200).json({ msg: "member record fetched successfully", data: results })
+    }
+  })
+});
+
 
 // save applicant
 router.post('/saveApplicant', function (req, res, next) {
@@ -87,6 +148,41 @@ router.get('/getIncidentsList', function (req, res, next) {
     }
   })
 });
+
+// save signup- Hemanth
+router.post('/saveSignup', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide member details" })
+  }
+  var signupObj = new signup(req.body);
+  signupObj.save(function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "Members record saved successfully", data: data })
+    }
+  });
+})
+
+// get signup- Hemanth
+router.get('/getSignupList', function (req, res, next) {
+  signup.find({}, function (err, results) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err })
+    }
+    else {
+      res.status(200).json({ msg: "member record fetched successfully", data: results })
+    }
+  })
+});
+
+
+
+
+
+
+module.exports = router;
 
 
 module.exports = router;
