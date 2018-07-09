@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var applicant = require("../model/applicant");
 var incident = require("../model/incident");
+var team = require("../model/team");
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -87,6 +88,35 @@ router.get('/getIncidentsList', function (req, res, next) {
     }
   })
 });
+
+//save team
+router.post('/saveTeam', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide team details" })
+  }
+  var teamObj = new team(req.body);
+  teamObj.save(function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "team record saved successfully", data: data })
+    }
+  });
+})
+
+// get team list
+router.get('/getTeamList', function (req, res, next) {
+  team.find({}, function (err, results) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err })
+    }
+    else {
+      res.status(200).json({ msg: "team record fetched successfully", data: results })
+    }
+  })
+});
+
 
 
 module.exports = router;
