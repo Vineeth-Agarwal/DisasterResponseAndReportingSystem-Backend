@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var applicant = require("../model/applicant");
 var incident = require("../model/incident");
+var report = require("../model/report");
 var team = require("../model/team");
 
 /* GET home page. */
@@ -89,6 +90,36 @@ router.get('/getIncidentsList', function (req, res, next) {
   })
 });
 
+// save report
+router.post('/saveReport', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide details for report" })
+  }
+  var reportObj = new report(req.body);
+  reportObj.save(function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "Report saved successfully", data: data })
+    }
+  });
+})
+
+
+
+// get reports List
+router.get('/getReportsList', function (req, res, next) {
+  report.find({}, function (err, results) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err })
+    }
+    else {
+      res.status(200).json({ msg: "Rports are fetched successfully", data: results })
+    }
+  })
+});
+
 //save team
 router.post('/saveTeam', function (req, res, next) {
   if (req && !req.body) {
@@ -104,7 +135,6 @@ router.post('/saveTeam', function (req, res, next) {
     }
   });
 })
-
 // get team list
 router.get('/getTeamList', function (req, res, next) {
   team.find({}, function (err, results) {
