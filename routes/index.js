@@ -180,28 +180,40 @@ router.get('/getReportsList', function (req, res, next) {
   })
 });
 
-//save team
+//save team-Sreevani Anoohya Tadiboina
 router.post('/saveTeam', function (req, res, next) {
+  // Cheks of the request has been made and the request has no body
   if (req && !req.body) {
+    // returns a message asking the user to enter the team details
     return res.status(403).json({ msg: "Please provide team details" })
   }
+  // Creating an object for the team model
   var teamObj = new team(req.body);
+  
   teamObj.save(function (err, data) {
+    // Checks for an error 
     if (err) {
+      // Displaying an error message 
       res.status(403).json({ msg: "something bad", err: err })
     }
+    // if no error message
     else {
+      // Saves the data successfully
       res.status(200).json({ msg: "team record saved successfully", data: data })
     }
   });
 })
-// get team list
+// get team list-Sreevani Anoohya Tadiboina
 router.get('/getTeamList', function (req, res, next) {
   team.find({}, function (err, results) {
+    // Cheks for an error 
     if (err) {
+      // Displays an error message
       res.status(403).json({ msg: "something bad", err })
     }
+    // if no error 
     else {
+      // fetches the respective requested record successfully
       res.status(200).json({ msg: "team record fetched successfully", data: results })
     }
   })

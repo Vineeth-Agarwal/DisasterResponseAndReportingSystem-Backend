@@ -1,3 +1,6 @@
+// @author Sreevani Anoohya Tadiboina
+//   This page refers to development of schema for the team model
+
 const mongoose = require("mongoose")
 var Schema = mongoose.Schema;
 
