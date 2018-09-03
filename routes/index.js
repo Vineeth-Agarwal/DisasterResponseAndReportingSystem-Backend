@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// save signup- Hemanth
+// signup new Mobile User - Hemanth
 router.post('/saveSignup', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide member details" })
@@ -29,7 +29,7 @@ router.post('/saveSignup', function (req, res, next) {
   });
 })
 
-// get signup- Hemanth
+// get signup - Hemanth
 router.get('/getSignupList', function (req, res, next) {
   signup.find({}, function (err, results) {
     if (err) {
@@ -43,6 +43,7 @@ router.get('/getSignupList', function (req, res, next) {
 
 
 // save members- Hemanth
+// These are the one who are selected for CERT team
 router.post('/saveMembers', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide member details" })
@@ -59,6 +60,7 @@ router.post('/saveMembers', function (req, res, next) {
 })
 
 // get member List- Hemanth
+// These are the one who are selected for CERT team
 router.get('/getMemberList', function (req, res, next) {
   membere.find({}, function (err, results) {
     if (err) {
@@ -72,6 +74,7 @@ router.get('/getMemberList', function (req, res, next) {
 
 
 // save applicant
+// These are the one who are applying for CERT Team
 router.post('/saveApplicant', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide applicant details" })
@@ -88,6 +91,7 @@ router.post('/saveApplicant', function (req, res, next) {
 })
 
 // get applicants List
+// These are the one who are applying for CERT Team
 router.get('/getApplicantsList', function (req, res, next) {
   applicant.find({}, function (err, results) {
     if (err) {
@@ -152,7 +156,6 @@ router.get('/getIncidentsList', function (req, res, next) {
 });
 
 // save report
-
 router.post('/saveReport', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide details for report" })
@@ -203,6 +206,7 @@ router.post('/saveTeam', function (req, res, next) {
     }
   });
 })
+
 // get team list-Sreevani Anoohya Tadiboina
 router.get('/getTeamList', function (req, res, next) {
   team.find({}, function (err, results) {
