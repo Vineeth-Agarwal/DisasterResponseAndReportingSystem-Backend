@@ -105,7 +105,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n    Assinged to Kishan\r\n -->\r\n<div class=\"container-fluid\">\r\n    <!-- Navigation bar for the web application -->\r\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n        <a class=\"navbar-brand\">DRMS</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\r\n            aria-label=\"Toggle navigation\"> \r\n            <span class=\"navbar-toggler-icon\"></span></button>\r\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\r\n                <ul class=\"navbar-nav\">\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/dashboard\">Dashboard</a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/reviewApplication\">Review Applications</a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/teams\">Teams</a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"\">Logout</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n    </nav>\r\n    <router-outlet></router-outlet>\r\n</div>"
+module.exports = "<!-- \r\n    Assinged to Kishan\r\n -->\r\n<div class=\"container-fluid\">\r\n    <!-- Navigation bar for the web application -->\r\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n        <a class=\"navbar-brand\">DRMS</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\r\n            aria-label=\"Toggle navigation\"> \r\n            <span class=\"navbar-toggler-icon\"></span></button>\r\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\r\n                <ul class=\"navbar-nav\">\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/dashboard\">Dashboard</a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/reviewApplication\">Review Applications</a>\r\n                    </li>\r\n                    <!-- <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/teams\">Teams</a>\r\n                    </li> -->\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"\">Logout</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n    </nav>\r\n    <router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -431,6 +431,10 @@ var DataService = /** @class */ (function () {
         //   http call
         return this.http.get("https://drrs.herokuapp.com/getIncidentsList");
     };
+    DataService.prototype.saveIncident = function (data) {
+        // http call
+        return this.http.post("https://drrs.herokuapp.com/saveIncident", data);
+    };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root',
@@ -438,6 +442,30 @@ var DataService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], DataService);
     return DataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/common/incident.ts":
+/*!************************************!*\
+  !*** ./src/app/common/incident.ts ***!
+  \************************************/
+/*! exports provided: Incident */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Incident", function() { return Incident; });
+// Assigned to Kishan
+var Incident = /** @class */ (function () {
+    function Incident(values) {
+        if (values === void 0) { values = {}; }
+        /*Constructor initialization*/
+        Object.assign(this, values);
+    }
+    return Incident;
 }());
 
 
@@ -462,7 +490,7 @@ module.exports = ".createContainer {\r\n    padding-left: 30em;\r\n    padding-r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"container\">\r\n   <!-- Header for the Create Incident page -->\r\n    <h1>Create Incident</h1>\r\n    <hr>\r\n  </div>\r\n \r\n <div class=\"createContainer\">\r\n\r\n<!-- Form provided to input details for incident details -->\r\n<form novalidate (ngSubmit)=\"onCreate(createInc)\" #createInc=\"ngForm\">\r\n\r\n  <div class=\"form-group\">\r\n    <label for=\"incident\">\r\n      <b>Incident Name</b>\r\n    </label>\r\n    <!-- Input for incident name -->\r\n    <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.incident\" name=\"incident\" incident #incident=\"ngModel\" id=\"inputincident\"\r\n      placeholder=\"Enter incident\" required>\r\n    <!-- \r\n      incident error block \r\n      by Kishan\r\n    -->\r\n    <!-- Input validation for incident name-->\r\n    <div *ngIf=\"(incident.invalid && ( incident.touched || incident.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"incident.errors?.required\">\r\n        Please enter the incident\r\n      </div>\r\n    </div>\r\n\r\n    <label for=\"location\">\r\n      <b>Location</b>\r\n    </label>\r\n    <!-- Input field for location name -->\r\n    <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.location\" name=\"location\" location #location=\"ngModel\" id=\"inputlocation\"\r\n      placeholder=\"Enter location\" required>\r\n    <!-- \r\n      location error block \r\n      by Kishan\r\n    -->\r\n    <!-- Input validation for location -->\r\n    <div *ngIf=\"(location.invalid && ( location.touched || location.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"location.errors?.required\">\r\n        Please enter the location\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Selection for certTeam block -->\r\n    <label for=\"certTeam\">\r\n      <b>CERT Team</b>\r\n    </label>\r\n    <select id=\"certTeam\" class=\"form-control\" [ngModel]=\"user.certTeam\" name=\"certTeam\" required>\r\n      <option value=\"Team 01\">Team 01</option>\r\n      <option value=\"Team 02\">Team 02</option>\r\n      <option value=\"Team 03\">Team 03</option>\r\n      <option value=\"Team 04\">Team 04</option>\r\n      <option value=\"Team 05\">Team 05</option>\r\n    </select>\r\n\r\n    <!-- Select date block -->\r\n    <label for=\"date\">\r\n      <b>Date</b>\r\n    </label>\r\n    <input type=\"date\" class=\"form-control\" [ngModel]=\"user.date\" name=\"date\" #date=\"ngModel\" id=\"inputdate\" placeholder=\"Select date\"\r\n      required>\r\n    <!-- \r\n      date error block \r\n      by Kishan\r\n    -->\r\n    <!-- Validtion for date block -->\r\n    <div *ngIf=\"(date.invalid && ( date.touched || date.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"date.errors?.required\">\r\n        Please enter the date\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Select time block -->\r\n    <label for=\"time\">\r\n      <b>Time</b>\r\n    </label>\r\n    <input type=\"time\" class=\"form-control\" [ngModel]=\"user.time\" name=\"time\" #time=\"ngModel\" id=\"inputtime\" placeholder=\"Select time\"\r\n      required>\r\n    <!-- \r\n      time error block \r\n      by Kishan\r\n    -->\r\n    <!-- Validation for time block -->\r\n    <div *ngIf=\"(time.invalid && ( time.touched || time.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"time.errors?.required\">\r\n        Please enter the time\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <!-- Button provided to Create Incident -->\r\n  <button class=\"btn primary\"> Create </button>\r\n  \r\n</form>\r\n</div>\r\n"
+module.exports = "<!-- \r\n  Assigned to Hemanth\r\n -->\r\n<div class=\"container\">\r\n  <!-- Header for the Create Incident page -->\r\n  <h1>Create Incident</h1>\r\n  <hr>\r\n</div>\r\n\r\n<div class=\"createContainer\">\r\n\r\n  <!-- Form provided to input details for incident details -->\r\n  <form novalidate (ngSubmit)=\"onCreate(createInc)\" #createInc=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"incidentName\">\r\n        <b>Incident Name</b>\r\n      </label>\r\n      <!-- Input for incident name -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.incidentName\" name=\"incidentName\" #incidentName=\"ngModel\" id=\"inputincidentName\"\r\n        placeholder=\"Enter incident\" required>\r\n      <!-- \r\n      incident name error block \r\n      by Kishan\r\n    -->\r\n      <!-- Input validation for incident name-->\r\n      <div *ngIf=\"(incidentName.invalid && ( incidentName.touched || incidentName.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"incidentName.errors?.required\">\r\n          Please enter the incident Name\r\n        </div>\r\n      </div>\r\n\r\n      <label for=\"location\">\r\n        <b>Location</b>\r\n      </label>\r\n      <!-- Input field for location name -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.location\" name=\"location\" location #location=\"ngModel\" id=\"inputlocation\"\r\n        placeholder=\"Enter location\" required>\r\n      <!-- \r\n      location error block \r\n      by Kishan\r\n    -->\r\n      <!-- Input validation for location -->\r\n      <div *ngIf=\"(location.invalid && ( location.touched || location.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"location.errors?.required\">\r\n          Please enter the location\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Select date block -->\r\n      <label for=\"date\">\r\n        <b>Date</b>\r\n      </label>\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.date\" name=\"date\" #date=\"ngModel\" id=\"inputdate\" value=\"incident.date\"\r\n        disabled>\r\n      <!-- \r\n      date error block \r\n      by Kishan\r\n    -->\r\n      <!-- Validtion for date block -->\r\n      <!-- <div *ngIf=\"(date.invalid && ( date.touched || date.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"date.errors?.required\">\r\n        Please enter the date\r\n      </div>\r\n    </div> -->\r\n\r\n      <!-- Select time block -->\r\n      <label for=\"time\">\r\n        <b>Time</b>\r\n      </label>\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.time\" name=\"time\" #time=\"ngModel\" id=\"inputtime\" value=\"incident.date\"\r\n        disabled>\r\n      <!-- \r\n      time error block \r\n      by Kishan\r\n    -->\r\n      <!-- Validation for time block -->\r\n      <!-- <div *ngIf=\"(time.invalid && ( time.touched || time.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"time.errors?.required\">\r\n        Please enter the time\r\n      </div>\r\n    </div> -->\r\n\r\n      <label for=\"description\">\r\n        <b>Description</b>\r\n      </label>\r\n      <!-- Input field for description name -->\r\n      <textarea type=\"text\" class=\"form-control\" [ngModel]=\"incident.description\" name=\"description\" description #description=\"ngModel\"\r\n        id=\"inputdescription\" placeholder=\"Enter description\" required></textarea>\r\n      <!-- \r\n        description error block \r\n        by Kishan\r\n      -->\r\n      <!-- Input validation for description -->\r\n      <div *ngIf=\"(description.invalid && ( description.touched || description.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"description.errors?.required\">\r\n          Please enter the description\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Button provided to Create Incident -->\r\n    <button class=\"btn primary\"> Create </button>\r\n  </form>\r\n    <button class=\"btn btn-danger\" routerLink=\"/dashboard\"> Cancle </button>\r\n</div>"
 
 /***/ }),
 
@@ -478,6 +506,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateIncidentComponent", function() { return CreateIncidentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _common_incident__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/incident */ "./src/app/common/incident.ts");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -489,15 +519,42 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var CreateIncidentComponent = /** @class */ (function () {
-    function CreateIncidentComponent(router) {
+    function CreateIncidentComponent(router, dataService) {
         this.router = router;
+        this.dataService = dataService;
+        this.date = new Date;
+        this.incident = new _common_incident__WEBPACK_IMPORTED_MODULE_2__["Incident"]({
+            incidentID: '',
+            incidentName: '',
+            location: '',
+            date: this.date,
+            time: this.date,
+            description: '',
+        });
     }
     CreateIncidentComponent.prototype.ngOnInit = function () {
     };
-    CreateIncidentComponent.prototype.onCreate = function (createInc) {
-        alert("Incident module created successfully");
-        this.router.navigate(['/dashboard']);
+    CreateIncidentComponent.prototype.onCreate = function (_a) {
+        var _this = this;
+        var value = _a.value, valid = _a.valid;
+        // alert("Incident module created successfully");
+        // this.router.navigate(['/dashboard']);
+        this.incident = value;
+        console.log(this.incident);
+        // make http req. only if form is valid
+        if (valid) {
+            this.dataService.saveIncident(this.incident)
+                .subscribe(function (data) {
+                console.log(data);
+                console.log("success");
+                _this.router.navigate(['/dashboard']);
+            }, function (error) {
+                console.log("Error Occured");
+            });
+        }
     };
     CreateIncidentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -505,7 +562,7 @@ var CreateIncidentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create-incident.component.html */ "./src/app/create-incident/create-incident.component.html"),
             styles: [__webpack_require__(/*! ./create-incident.component.css */ "./src/app/create-incident/create-incident.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
     ], CreateIncidentComponent);
     return CreateIncidentComponent;
 }());
@@ -591,7 +648,7 @@ var CreateTeamsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Assigned to Mouli and Kishan*/\r\n\r\n/* cards */\r\n\r\n.example-card {\r\n    max-width: 235px;\r\n}\r\n\r\n/* for buttons - Create incident and Archived Incidents */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n}"
+module.exports = "/* Assigned to Mouli and Kishan*/\r\n\r\n/* cards */\r\n\r\n.incident-card {\r\n    /* max-width: 235px; */\r\n    width: 235px;\r\n    margin-top: 2em;\r\n}\r\n\r\n/* for buttons - Create incident and Archived Incidents */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n    \r\n}\r\n\r\nmat-grid-tile {\r\n    background: lightblue;\r\n  }"
 
 /***/ }),
 
@@ -602,7 +659,7 @@ module.exports = "/* Assigned to Mouli and Kishan*/\r\n\r\n/* cards */\r\n\r\n.e
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1>Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <div class=\"col-3 text-center\">\r\n      <!-- The incident modules are shown using cards. Card has image of incident,\r\n      brief description and two buttons edit and archive -->\r\n      <mat-card class=\"example-card\">\r\n        <a routerLink=\"/dashboard\">\r\n          <!-- Image of incident -->\r\n          <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n        </a>\r\n        <mat-card-content>\r\n          <!-- Name of incident -->\r\n          <h2>Earthquake</h2>\r\n          <p>\r\n            <!-- Brief description of incident -->\r\n            Magnitude 5.7 earthquake 1238 miles from Salvador, Falkland Islands (Islas Malvinas) · Jun 25, 8:48 PM\r\n          </p>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <!-- Edit button is provided to edit features of the incident module-->\r\n          <button mat-raised-button color=\"primary\">Edit</button>\r\n          <!-- Archive button is provided to archive the incident module -->\r\n          <button mat-raised-button color=\"warn\">Archive</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n    </div>\r\n    <div class=\"col-3 text-center\">\r\n      <!-- The incident modules are shown using cards. Card has image of incident,\r\n      brief description and two buttons edit and archive -->\r\n      <mat-card class=\"example-card\">\r\n        <a routerLink=\"/dashboard\">\r\n          <!-- Image of incident -->\r\n          <img mat-card-image src=\"assets/images/incidents/img.2.jpg\" alt=\"Earthquake\">\r\n        </a>\r\n        <mat-card-content>\r\n          <h2>Wildfires</h2>\r\n          <p>\r\n            <!-- Brief description of incident -->\r\n            Sardinas Canyon Fire: Sardinas Canyon Fire, June 28,2018 Acres: Approximately 1672\r\n          </p>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <!-- Edit button is provided to edit features of the incident module-->\r\n          <button mat-raised-button color=\"primary\">Edit</button>\r\n          <!-- Archive button is provided to archive the incident module -->\r\n          <button mat-raised-button color=\"warn\">Archive</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<!-- \r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1>Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card class=\"incident-card\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p>\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/#\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <button mat-raised-button color=\"warn\" routerLink=\"/#\">Archive</button>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -617,6 +674,7 @@ module.exports = "<!-- \r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author C
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -627,10 +685,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(dataService) {
+        this.dataService = dataService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataService.getIncidentsList()
+            .subscribe(function (data) {
+            _this.incidents = data['data'];
+        });
     };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -638,7 +703,7 @@ var DashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -1026,7 +1091,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\s530945\Desktop\Wednesday\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\Backend\drrs\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
