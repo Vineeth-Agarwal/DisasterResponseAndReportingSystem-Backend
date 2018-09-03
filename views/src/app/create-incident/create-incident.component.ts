@@ -37,7 +37,7 @@ export class CreateIncidentComponent implements OnInit {
         .subscribe((data) => {
           console.log(data)
           console.log("success")
-          // this.router.navigate(['/users'])
+          this.router.navigate(['/dashboard'])
         },
           error => {
             console.log("Error Occured")
