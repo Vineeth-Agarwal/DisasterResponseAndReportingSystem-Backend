@@ -3,41 +3,86 @@
  -->
 <!-- @Author Chandra Mouli Kantipudi -->
 <!-- Page not yet completed -->
- <div class="container">
-   <!-- Header for the page -->
-    <h1>Create Team</h1>
-    <hr>
-    
-    <!-- Form to input the team details -->
-    <form novalidate (ngSubmit)="onCreate(createTeam)" #createTeam="ngForm">
-    
-      <div class="form-group">
-        <label for="team">
+<div class="container">
+  <!-- Header for the page -->
+  <h1>Create Team</h1>
+  <hr>
+
+  <!-- Form to input the team details -->
+  <form novalidate (ngSubmit)="onCreate(createTeam)" #createTeam="ngForm">
+
+    <div class="form-group">
+      <!-- <label for="team">
           <b>Team Name</b>
         </label>
-        <!-- Input for team name -->
-        <input type="text" class="form-control" [ngModel]="team.teamname" name="team name" teamname #teamname="ngModel" id="inputteamname"
+        Input for team name -->
+      <!-- <input type="text" class="form-control" [ngModel]="team.teamname" name="team name" teamname #teamname="ngModel" id="inputteamname"
           placeholder="Enter Team Name" required>
-      
-          <!-- Validation for the team name -->
-        <div *ngIf="(incident.invalid && ( incident.touched || incident.dirty)) || isSubmitted" class="col-sm-6 text-danger">
+       -->
+      <!-- Validation for the team name -->
+      <!-- <div *ngIf="(incident.invalid && ( incident.touched || incident.dirty)) || isSubmitted" class="col-sm-6 text-danger">
           <div *ngIf="incident.errors?.required">
             Please enter the incident
           </div>
-        </div><br>
-    
-        <!-- TeamID should autogenerate -->
-        <label for="teamid">
-          <b>Team ID</b>
-        </label>
-        <input type="text" class="form-control" [ngModel]="team.teamid" name="teamid" teamid #teamid="ngModel" id="teamid"
-          placeholder="Team ID" required><br>
+        </div><br> -->
 
-      </div>
-
-      
-    <!-- Button provided to create team -->
-      <button class="btn primary"> Create Team</button>
-    </form>
+      <!-- TeamID should autogenerate -->
+      <label for="teamID">
+        <b>Team ID</b>
+      </label>
+      <!-- <input type="text" class="form-control" [ngModel]="team.teamID" name="teamID" teamID #teamID="ngModel" id="teamID" placeholder="Team ID"
+        required><br> -->
+        <input type="text" class="form-control" name="teamid" value="team001" disabled>
     </div>
-    
+
+    <!-- Table -->
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.firstName }} </mat-cell>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastName }} </mat-cell>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+
+      <!-- Date of Birth Column -->
+      <ng-container matColumnDef="dob">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Date of Birth </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dob}} </mat-cell>
+      </ng-container>
+
+      <!-- County Column -->
+      <ng-container matColumnDef="county">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> County </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.county}} </mat-cell>
+      </ng-container>
+
+      <!-- Skills Column -->
+      <ng-container matColumnDef="skills">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> skills </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.skills}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClicked(row)"></mat-row>
+    </mat-table>
+
+
+    <!-- Button provided to create team -->
+    <button class="btn primary"> Create Team</button>
+  </form>
+</div>
