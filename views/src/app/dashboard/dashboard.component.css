@@ -4,13 +4,22 @@
 .incident-card {
     /* max-width: 235px; */
     width: 235px;
+    min-height: 397px;
     margin-top: 2em;
 }
   
 /* for buttons - Create incident and Archived Incidents */
 .buttons {
     font-size: 1em;
-    
+}
+
+/* Describtion height */
+.p-height{
+    height: 6em;
+}
+
+.mt-archive{
+    margin-top: 0.4em;
 }
 
 mat-grid-tile {

@@ -33,7 +33,7 @@
           <mat-card-content>
             <!-- Name of incident -->
             <h2>{{ item.incidentName }}</h2>
-            <p>
+            <p class="p-height">
               <!-- Brief description of incident -->
               {{ item.description }}
             </p>
@@ -44,7 +44,9 @@
             <!-- Team button is provided to view team and its members in the incident module -->
             <button mat-raised-button color="primary" routerLink="/teams">Team</button>
             <!-- Archive button is provided to archive the incident module -->
-            <button mat-raised-button color="warn" routerLink="/#">Archive</button>
+            <div class="mt-archive">
+              <button mat-raised-button color="warn" routerLink="/#">Archive</button>
+            </div>
           </mat-card-actions>
         </mat-card>
       </div>
