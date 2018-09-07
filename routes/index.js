@@ -6,12 +6,22 @@ var report = require("../model/report");
 var membere = require("../model/members");
 var team = require("../model/team");
 var signup = require("../model/signup")
+var users = require('../controller/user-controller')
 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+// Signin route for a user
+router.route('/signin').post(users.signin,users.saveTokenNRespond);
+
+// Signup route for a user
+router.route('/signup').post(users.signup);
+
+// Check user logged in or not
+router.route('/isLoggedIn').get(users.isLoggedIn);
 
 // signup new Mobile User - Hemanth
 router.post('/saveSignup', function (req, res, next) {
