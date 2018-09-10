@@ -51,7 +51,7 @@ var userSchema = new mongoose.Schema({
         type: String
     },
     files: {
-        type: String
+        type: [String]
     },
     limitations: {
         type: String
