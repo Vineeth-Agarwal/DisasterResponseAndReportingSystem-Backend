@@ -105,7 +105,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n    Assinged to Kishan\r\n -->\r\n<div class=\"container-fluid\">\r\n    <!-- Navigation bar for the web application -->\r\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n        <a class=\"navbar-brand\">DRMS</a>\r\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\r\n            aria-label=\"Toggle navigation\"> \r\n            <span class=\"navbar-toggler-icon\"></span></button>\r\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\r\n                <ul class=\"navbar-nav\">\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/dashboard\">Dashboard</a>\r\n                    </li>\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/reviewApplication\">Review Applications</a>\r\n                    </li>\r\n                    <!-- <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"/teams\">Teams</a>\r\n                    </li> -->\r\n                    <li class=\"nav-item\">\r\n                        <a class=\"nav-link\" routerLink=\"\">Logout</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n    </nav>\r\n    <router-outlet></router-outlet>\r\n</div>"
+module.exports = "<!--\r\n    Assinged to Kishan\r\n -->\r\n<div>\r\n    <app-nav-bar></app-nav-bar>\r\n    <router-outlet></router-outlet>\r\n    <p></p>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -173,12 +173,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -236,7 +238,6 @@ var DemoMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"],
             ],
-            declarations: []
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -249,6 +250,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_17__["NavBarComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"],
                 _create_incident_create_incident_component__WEBPACK_IMPORTED_MODULE_8__["CreateIncidentComponent"],
@@ -256,7 +258,7 @@ var AppModule = /** @class */ (function () {
                 _teams_teams_component__WEBPACK_IMPORTED_MODULE_10__["TeamsComponent"],
                 _create_teams_create_teams_component__WEBPACK_IMPORTED_MODULE_11__["CreateTeamsComponent"],
                 _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_12__["Team1DetailsComponent"],
-                _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__["ArchivedIncidentsComponent"]
+                _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__["ArchivedIncidentsComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -479,7 +481,7 @@ var Incident = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".createContainer {\r\n    padding-left: 30em;\r\n    padding-right: 29em;\r\n}\r\n\r\n.primary{\r\n    background: #673ab7;\r\n    color: white;\r\n    font-size: 1em;\r\n}"
+module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.createContainer {\r\n    padding-left: 30em;\r\n    padding-right: 29em;\r\n}\r\n\r\n/* .primary{\r\n    background: #673ab7;\r\n    color: white;\r\n    font-size: 1em;\r\n} */\r\n\r\n.button-row button {\r\n  margin-right: 8px;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -490,7 +492,7 @@ module.exports = ".createContainer {\r\n    padding-left: 30em;\r\n    padding-r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Hemanth\r\n -->\r\n<div class=\"container\">\r\n  <!-- Header for the Create Incident page -->\r\n  <h1>Create Incident</h1>\r\n  <hr>\r\n</div>\r\n\r\n<div class=\"createContainer\">\r\n\r\n  <!-- Form provided to input details for incident details -->\r\n  <form novalidate (ngSubmit)=\"onCreate(createInc)\" #createInc=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"incidentName\">\r\n        <b>Incident Name</b>\r\n      </label>\r\n      <!-- Input for incident name -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.incidentName\" name=\"incidentName\" #incidentName=\"ngModel\" id=\"inputincidentName\"\r\n        placeholder=\"Enter incident\" required>\r\n      <!-- \r\n      incident name error block \r\n      by Kishan\r\n    -->\r\n      <!-- Input validation for incident name-->\r\n      <div *ngIf=\"(incidentName.invalid && ( incidentName.touched || incidentName.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"incidentName.errors?.required\">\r\n          Please enter the incident Name\r\n        </div>\r\n      </div>\r\n\r\n      <label for=\"location\">\r\n        <b>Location</b>\r\n      </label>\r\n      <!-- Input field for location name -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.location\" name=\"location\" location #location=\"ngModel\" id=\"inputlocation\"\r\n        placeholder=\"Enter location\" required>\r\n      <!-- \r\n      location error block \r\n      by Kishan\r\n    -->\r\n      <!-- Input validation for location -->\r\n      <div *ngIf=\"(location.invalid && ( location.touched || location.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"location.errors?.required\">\r\n          Please enter the location\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Select date block -->\r\n      <label for=\"date\">\r\n        <b>Date</b>\r\n      </label>\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.date\" name=\"date\" #date=\"ngModel\" id=\"inputdate\" value=\"incident.date\"\r\n        disabled>\r\n      <!-- \r\n      date error block \r\n      by Kishan\r\n    -->\r\n      <!-- Validtion for date block -->\r\n      <!-- <div *ngIf=\"(date.invalid && ( date.touched || date.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"date.errors?.required\">\r\n        Please enter the date\r\n      </div>\r\n    </div> -->\r\n\r\n      <!-- Select time block -->\r\n      <label for=\"time\">\r\n        <b>Time</b>\r\n      </label>\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.time\" name=\"time\" #time=\"ngModel\" id=\"inputtime\" value=\"incident.date\"\r\n        disabled>\r\n      <!-- \r\n      time error block \r\n      by Kishan\r\n    -->\r\n      <!-- Validation for time block -->\r\n      <!-- <div *ngIf=\"(time.invalid && ( time.touched || time.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"time.errors?.required\">\r\n        Please enter the time\r\n      </div>\r\n    </div> -->\r\n\r\n      <label for=\"description\">\r\n        <b>Description</b>\r\n      </label>\r\n      <!-- Input field for description name -->\r\n      <textarea type=\"text\" class=\"form-control\" [ngModel]=\"incident.description\" name=\"description\" description #description=\"ngModel\"\r\n        id=\"inputdescription\" placeholder=\"Enter description\" required></textarea>\r\n      <!-- \r\n        description error block \r\n        by Kishan\r\n      -->\r\n      <!-- Input validation for description -->\r\n      <div *ngIf=\"(description.invalid && ( description.touched || description.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"description.errors?.required\">\r\n          Please enter the description\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Button provided to Create Incident -->\r\n    <button class=\"btn primary\"> Create </button>\r\n  </form>\r\n    <button class=\"btn btn-danger\" routerLink=\"/dashboard\"> Cancle </button>\r\n</div>"
+module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n<div class=\"container\">\r\n  <!-- Header for the Create Incident page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Create Incident</h1>\r\n  <hr>\r\n</div>\r\n\r\n<div class=\"createContainer\">\r\n\r\n  <!-- Form provided to input details for incident details -->\r\n  <form novalidate (submit)=\"onCreate(createInc)\" #createInc=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"incidentName\">\r\n        <b>Incident Name</b>\r\n      </label>\r\n      <!-- Input for incident name -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.incidentName\" name=\"incidentName\" #incidentName=\"ngModel\"\r\n        id=\"inputincidentName\" placeholder=\"Enter incident\" required>\r\n      <!--\r\n      incident name error block\r\n      by Kishan\r\n    -->\r\n      <!-- Input validation for incident name-->\r\n      <div *ngIf=\"(incidentName.invalid && ( incidentName.touched || incidentName.dirty)) || isSubmitted\" class=\"col-sm-7 text-danger\">\r\n        <div *ngIf=\"incidentName.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the incident Name\r\n        </div>\r\n      </div>\r\n\r\n      <label for=\"location\">\r\n        <b>Location</b>\r\n      </label>\r\n      <!-- Input field for location name -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.location\" name=\"location\" location #location=\"ngModel\"\r\n        id=\"inputlocation\" placeholder=\"Enter location\" required>\r\n      <!--\r\n      location error block\r\n      by Kishan\r\n    -->\r\n      <!-- Input validation for location -->\r\n      <div *ngIf=\"(location.invalid && ( location.touched || location.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n        <div *ngIf=\"location.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the location\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Select date block -->\r\n      <label for=\"date\">\r\n        <b>Date</b>\r\n      </label>\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.date\" name=\"date\" #date=\"ngModel\" id=\"inputdate\"\r\n        value=\"incident.date\" disabled>\r\n      <!--\r\n      date error block\r\n      by Kishan\r\n    -->\r\n      <!-- Validtion for date block -->\r\n      <!-- <div *ngIf=\"(date.invalid && ( date.touched || date.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"date.errors?.required\">\r\n        Please enter the date\r\n      </div>\r\n    </div> -->\r\n\r\n      <!-- Select time block -->\r\n      <label for=\"time\">\r\n        <b>Time</b>\r\n      </label>\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"incident.time\" name=\"time\" #time=\"ngModel\" id=\"inputtime\"\r\n        value=\"incident.date\" disabled>\r\n      <!--\r\n      time error block\r\n      by Kishan\r\n    -->\r\n      <!-- Validation for time block -->\r\n      <!-- <div *ngIf=\"(time.invalid && ( time.touched || time.dirty)) || isSubmitted\" class=\"col-sm-6 text-danger\">\r\n      <div *ngIf=\"time.errors?.required\">\r\n        Please enter the time\r\n      </div>\r\n    </div> -->\r\n\r\n      <label for=\"description\">\r\n        <b>Description</b>\r\n      </label>\r\n      <!-- Input field for description name -->\r\n      <textarea type=\"text\" class=\"form-control\" [ngModel]=\"incident.description\" name=\"description\" description\r\n        #description=\"ngModel\" id=\"inputdescription\" placeholder=\"Enter description\" required></textarea>\r\n      <!--\r\n        description error block\r\n        by Kishan\r\n      -->\r\n      <!-- Input validation for description -->\r\n      <div *ngIf=\"(description.invalid && ( description.touched || description.dirty)) || isSubmitted\" class=\"col-sm-7 text-danger\">\r\n        <div *ngIf=\"description.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the description\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Button provided to Create Incident -->\r\n    <div class=\"button-row\">\r\n      <button mat-raised-button color=\"primary\" type=\"submit\"> Create </button>\r\n      <button mat-raised-button color=\"warn\" routerLink=\"/dashboard\"> Cancle </button>\r\n    </div>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -549,10 +551,10 @@ var CreateIncidentComponent = /** @class */ (function () {
             this.dataService.saveIncident(this.incident)
                 .subscribe(function (data) {
                 console.log(data);
-                console.log("success");
+                console.log('success');
                 _this.router.navigate(['/dashboard']);
             }, function (error) {
-                console.log("Error Occured");
+                console.log('Error Occured');
             });
         }
     };
@@ -675,7 +677,7 @@ var CreateTeamsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Assigned to Mouli and Kishan*/\r\n\r\n/* cards */\r\n\r\n.incident-card {\r\n    /* max-width: 235px; */\r\n    width: 235px;\r\n    min-height: 397px;\r\n    margin-top: 2em;\r\n}\r\n\r\n/* for buttons - Create incident and Archived Incidents */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n}\r\n\r\n/* Describtion height */\r\n\r\n.p-height{\r\n    height: 6em;\r\n}\r\n\r\n.mt-archive{\r\n    margin-top: 0.4em;\r\n}\r\n\r\nmat-grid-tile {\r\n    background: lightblue;\r\n  }"
+module.exports = "/* Assigned to Mouli and Kishan*/\r\n.container {\r\n  margin-top: 1em;\r\n}\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n/* cards */\r\n.incident-card {\r\n    /* max-width: 235px; */\r\n    width: 235px;\r\n    min-height: 397px;\r\n    margin-top: 2em;\r\n}\r\n/* for buttons - Create incident and Archived Incidents */\r\n.buttons {\r\n    font-size: 1em;\r\n}\r\n/* Describtion height */\r\n.p-height{\r\n    height: 6em;\r\n}\r\n.mt-archive{\r\n    margin-top: 0.4em;\r\n}\r\nmat-grid-tile {\r\n    background: lightblue;\r\n  }\r\n"
 
 /***/ }),
 
@@ -686,7 +688,7 @@ module.exports = "/* Assigned to Mouli and Kishan*/\r\n\r\n/* cards */\r\n\r\n.i
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1>Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card class=\"incident-card\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/#\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" routerLink=\"/#\">Archive</button>\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card class=\"incident-card mat-elevation-z5\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/#\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" routerLink=\"/#\">Archive</button>\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -746,7 +748,7 @@ var DashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".loginContainer {\r\n    padding-left: 30em;\r\n    padding-right: 29em;\r\n    padding-top: 6em;\r\n}\r\n\r\n.primary{\r\n    background: #673ab7;\r\n    color: white;\r\n    font-size: 1em;\r\n}"
+module.exports = ".logo {\r\n  width: 30%;\r\n  margin: 1em auto;\r\n  text-align: center;\r\n}\r\n\r\nimg {\r\n  width: 30%;\r\n}\r\n\r\n.loginContainer {\r\n    padding-left: 30em;\r\n    padding-right: 29em;\r\n    /* padding-top: 6em; */\r\n}\r\n\r\n/* .primary{\r\n    background: #673ab7;\r\n    color: white;\r\n    font-size: 1em;\r\n} */\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.form-group {\r\n  margin-top: 1em;\r\n}\r\n"
 
 /***/ }),
 
@@ -757,7 +759,7 @@ module.exports = ".loginContainer {\r\n    padding-left: 30em;\r\n    padding-ri
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"loginContainer\">\r\n   <!-- Header for login page -->\r\n  <h1>Login </h1>\r\n  <!-- Form provided to input login details -->\r\n  <form novalidate (ngSubmit)=\"onLogin(loginForm)\" #loginForm=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">\r\n        <b>Email</b>\r\n      </label>\r\n      <!-- Input for emailID -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.email\" name=\"email\" email #email=\"ngModel\" id=\"inputEmail\" placeholder=\"Email\"\r\n        pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" required>\r\n      <!-- \r\n        Email error block \r\n        by kishan\r\n      -->\r\n      <!-- Validation for emailID -->\r\n      <div *ngIf=\"(email.invalid && ( email.touched || email.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"email.errors?.required\">\r\n          Please enter the email id\r\n        </div>\r\n        <div *ngIf=\"email.errors?.pattern &&  email.dirty\">\r\n            Please enter the valid email id\r\n        </div>\r\n      </div>\r\n\r\n      <!-- \r\n        Password block \r\n        by kishan\r\n      -->\r\n      <label for=\"password\">\r\n        <b>Password</b>\r\n      </label>\r\n      <!-- Input for password -->\r\n      <input type=\"password\" class=\"form-control\" [ngModel]=\"applicant.password\" name=\"password\" #password=\"ngModel\" id=\"inputpassword\"\r\n        placeholder=\"Password\" pattern=\"(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\" required>\r\n      <!-- password error block -->\r\n      <!-- Validation for password -->\r\n      <div *ngIf=\"(password.invalid && ( password.touched || password.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"password.errors?.required\">\r\n          Please enter the password\r\n        </div>\r\n        <!-- <div *ngIf=\"password.errors?.pattern && password.dirty\">\r\n          Password must have UpperCase, LowerCase, Number/SpecialChar and mininmum 8 characters.\r\n        </div> -->\r\n      </div>\r\n      </div>\r\n      <!-- Button provided to submit login details -->\r\n     <button class=\"btn primary\"> Login </button>\r\n  </form>\r\n  </div>"
+module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"logo\">\r\n    <img src=\"assets/images/EOC_logo.gif\" alt=\"EOC_logo\">\r\n </div>\r\n\r\n <div class=\"loginContainer\">\r\n   <!-- Header for login page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Login </h1>\r\n  <!-- Form provided to input login details -->\r\n  <form novalidate (ngSubmit)=\"onLogin(loginForm)\" #loginForm=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">\r\n        <b class=\"mat-title\">Email</b>\r\n      </label>\r\n      <!-- Input for emailID -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.email\" name=\"email\" email #email=\"ngModel\" id=\"inputEmail\" placeholder=\"Email\"\r\n        pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" required>\r\n      <!--\r\n        Email error block\r\n        by kishan\r\n      -->\r\n      <!-- Validation for emailID -->\r\n      <div *ngIf=\"(email.invalid && ( email.touched || email.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"email.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the email id\r\n        </div>\r\n        <div *ngIf=\"email.errors?.pattern &&  email.dirty\" class=\"mat-body-1\">\r\n            Please enter the valid email id\r\n        </div>\r\n      </div>\r\n\r\n      <!--\r\n        Password block\r\n        by kishan\r\n      -->\r\n      <label for=\"password\">\r\n        <b class=\"mat-title\">Password</b>\r\n      </label>\r\n      <!-- Input for password -->\r\n      <input type=\"password\" class=\"form-control\" [ngModel]=\"applicant.password\" name=\"password\" #password=\"ngModel\" id=\"inputpassword\"\r\n        placeholder=\"Password\" pattern=\"(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\" required>\r\n      <!-- password error block -->\r\n      <!-- Validation for password -->\r\n      <div *ngIf=\"(password.invalid && ( password.touched || password.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"password.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the password\r\n        </div>\r\n        <!-- <div *ngIf=\"password.errors?.pattern && password.dirty\">\r\n          Password must have UpperCase, LowerCase, Number/SpecialChar and mininmum 8 characters.\r\n        </div> -->\r\n      </div>\r\n    </div>\r\n      <!-- Button provided to submit login details -->\r\n     <button mat-raised-button color=\"primary\" class=\"btn primary\"> Login </button>\r\n  </form>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -807,7 +809,7 @@ var LoginComponent = /** @class */ (function () {
             this.router.navigate(['/dashboard']);
         }
         else {
-            console.log("something went wrong");
+            console.log('something went wrong');
         }
     };
     LoginComponent = __decorate([
@@ -825,6 +827,69 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/nav-bar/nav-bar.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/nav-bar/nav-bar.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".title {\r\n  margin: auto;\r\n}\r\n\r\n.spacer {\r\n  flex: 1 1 auto;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: white;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/nav-bar/nav-bar.component.html":
+/*!************************************************!*\
+  !*** ./src/app/nav-bar/nav-bar.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z10\">\n  <span class=\"title mat-title\">\n    <a routerLink=\"/dashboard\">DRRS</a>\n  </span>\n  <span class=\"spacer\"></span>\n  <a mat-button routerLink=\"/dashboard\" routerLinkActive=\"mat-stroked-button\">Dashboard</a>\n  <a mat-button routerLink=\"/reviewApplication\" routerLinkActive=\"mat-stroked-button\">Review Application</a>\n  <a mat-button routerLink=\"/login\">Logout</a>\n</mat-toolbar>\n"
+
+/***/ }),
+
+/***/ "./src/app/nav-bar/nav-bar.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/nav-bar/nav-bar.component.ts ***!
+  \**********************************************/
+/*! exports provided: NavBarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavBarComponent", function() { return NavBarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavBarComponent = /** @class */ (function () {
+    function NavBarComponent() {
+    }
+    NavBarComponent.prototype.ngOnInit = function () {
+    };
+    NavBarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-nav-bar',
+            template: __webpack_require__(/*! ./nav-bar.component.html */ "./src/app/nav-bar/nav-bar.component.html"),
+            styles: [__webpack_require__(/*! ./nav-bar.component.css */ "./src/app/nav-bar/nav-bar.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NavBarComponent);
+    return NavBarComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/review-application/review-application.component.css":
 /*!*********************************************************************!*\
   !*** ./src/app/review-application/review-application.component.css ***!
@@ -832,7 +897,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Assigned to kishan */\r\n\r\n.example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n\r\n.table-header{\r\n  font-size: 18px;\r\n  color: black;\r\n}"
+module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;\r\n}\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n.example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n.table-header{\r\n  font-size: 18px;\r\n  color: black;\r\n}\r\n"
 
 /***/ }),
 
@@ -843,7 +908,7 @@ module.exports = "/* Assigned to kishan */\r\n\r\n.example-container {\r\n    di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Sreevani and kishan\r\n -->\r\n<!-- <table class=\"userTable table-bordered\">\r\n  <tr>\r\n    <th>First Name</th>\r\n    <th>Last Name</th>\r\n    <th>Email</th>\r\n    <th>Date of Birth</th>\r\n    <th>Address line1</th>\r\n    <th>Address Line2</th>\r\n    <th>Country</th>\r\n    <th>State</th>\r\n    <th>City</th>\r\n    <th>County</th>\r\n    <th>Phone Number</th>\r\n    <th>Skills</th>\r\n    <th>License</th>\r\n    <th>Certification</th>\r\n    <th>File Upload</th>\r\n    <th>Limitations</th>\r\n  </tr>\r\n  <tr *ngFor=\"let applicant of applicants\">\r\n      <td> {{ applicant.firstName }} </td>\r\n      <td> {{ applicant.lastName }} </td>\r\n      <td> {{ applicant.email }} </td>\r\n      <td> {{ applicant.dob | date:'MM-dd-yyyy'}} </td>\r\n      <td> {{ applicant.address1 }} </td>\r\n      <td> {{ applicant.address2 }} </td>\r\n      <td> {{ applicant.country }} </td>\r\n      <td> {{ applicant.state }} </td>\r\n      <td> {{ applicant.city }} </td>\r\n      <td> {{ applicant.county }} </td>\r\n      <td> {{ applicant.phone }} </td>\r\n      <td> {{ applicant.skills }} </td>\r\n      <td> {{ applicant.lisence }} </td>\r\n      <td> {{ applicant.certification }} </td>\r\n      <td> {{ applicant.fileUpload }} </td>\r\n      <td> {{ applicant.limitations }} </td>\r\n  </tr>\r\n</table> -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1>Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <div class=\"example-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>"
+module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <div class=\"example-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1118,7 +1183,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530469\OneDrive - nwmissouri.edu\Fall 2018\GDP-2\Working branch\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\Backend-Working Version\New\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -12,8 +12,9 @@ import { ReviewApplicationComponent } from './review-application/review-applicat
 import { TeamsComponent } from './teams/teams.component';
 import { CreateTeamsComponent } from './create-teams/create-teams.component';
 
+
 import { Team1DetailsComponent } from './team1-details/team1-details.component';
-import {CdkTableModule} from '@angular/cdk/table'
+import {CdkTableModule} from '@angular/cdk/table';
 
 import {
   MatAutocompleteModule,
@@ -52,6 +53,7 @@ import {
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   exports: [
@@ -89,13 +91,13 @@ import { ArchivedIncidentsComponent } from './archived-incidents/archived-incide
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: []
 })
 export class DemoMaterialModule {}
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
     LoginComponent,
     DashboardComponent,
     CreateIncidentComponent,
@@ -103,7 +105,7 @@ export class DemoMaterialModule {}
     TeamsComponent,
     CreateTeamsComponent,
     Team1DetailsComponent,
-    ArchivedIncidentsComponent
+    ArchivedIncidentsComponent,
   ],
   imports: [
     BrowserModule,

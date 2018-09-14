@@ -14,24 +14,24 @@ export class LoginComponent implements OnInit {
   // for validation
   isSubmitted = false;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     this.applicant = new Applicant({
-      email: ''})
+      email: ''});
   }
 
   ngOnInit() {
   }
 
   onLogin({ value, valid }: { value: Applicant, valid: boolean })  {
-    console.log(value)
-    console.log(valid)
+    console.log(value);
+    console.log(valid);
     this.isSubmitted = true;
-    if(value){
+    if (value) {
       console.log(value);
-      this.router.navigate(['/dashboard']);     
+      this.router.navigate(['/dashboard']);
     } else {
-      console.log("something went wrong");
+      console.log('something went wrong');
     }
-    
+
   }
 }

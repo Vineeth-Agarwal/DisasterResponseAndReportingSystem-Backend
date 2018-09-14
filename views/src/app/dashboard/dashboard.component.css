@@ -1,4 +1,11 @@
 /* Assigned to Mouli and Kishan*/
+.container {
+  margin-top: 1em;
+}
+
+.pageHeading {
+  margin: auto;
+}
 
 /* cards */
 .incident-card {
@@ -7,7 +14,7 @@
     min-height: 397px;
     margin-top: 2em;
 }
-  
+
 /* for buttons - Create incident and Archived Incidents */
 .buttons {
     font-size: 1em;

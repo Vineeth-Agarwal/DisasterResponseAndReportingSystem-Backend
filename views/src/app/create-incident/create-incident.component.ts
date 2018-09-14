@@ -35,12 +35,12 @@ export class CreateIncidentComponent implements OnInit {
     if (valid) {
       this.dataService.saveIncident(this.incident)
         .subscribe((data) => {
-          console.log(data)
-          console.log("success")
-          this.router.navigate(['/dashboard'])
+          console.log(data);
+          console.log('success');
+          this.router.navigate(['/dashboard']);
         },
           error => {
-            console.log("Error Occured")
+            console.log('Error Occured');
           });
     }
   }

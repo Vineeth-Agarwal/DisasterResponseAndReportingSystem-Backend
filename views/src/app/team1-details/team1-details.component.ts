@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class Team1DetailsComponent implements OnInit {
 
   // applicants = applicant;
-  
+
   constructor() { }
 
   ngOnInit() {

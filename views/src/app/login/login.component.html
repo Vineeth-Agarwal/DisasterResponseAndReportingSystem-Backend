@@ -1,39 +1,43 @@
-<!-- 
+<!--
   Assigned to Hemanth
  -->
+ <div class="logo">
+    <img src="assets/images/EOC_logo.gif" alt="EOC_logo">
+ </div>
+
  <div class="loginContainer">
    <!-- Header for login page -->
-  <h1>Login </h1>
+  <h1 class="pageHeading mat-display-1">Login </h1>
   <!-- Form provided to input login details -->
   <form novalidate (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
 
     <div class="form-group">
       <label for="email">
-        <b>Email</b>
+        <b class="mat-title">Email</b>
       </label>
       <!-- Input for emailID -->
       <input type="text" class="form-control" [ngModel]="applicant.email" name="email" email #email="ngModel" id="inputEmail" placeholder="Email"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-      <!-- 
-        Email error block 
+      <!--
+        Email error block
         by kishan
       -->
       <!-- Validation for emailID -->
       <div *ngIf="(email.invalid && ( email.touched || email.dirty)) || isSubmitted" class="text-danger">
-        <div *ngIf="email.errors?.required">
+        <div *ngIf="email.errors?.required" class="mat-body-1">
           Please enter the email id
         </div>
-        <div *ngIf="email.errors?.pattern &&  email.dirty">
+        <div *ngIf="email.errors?.pattern &&  email.dirty" class="mat-body-1">
             Please enter the valid email id
         </div>
       </div>
 
-      <!-- 
-        Password block 
+      <!--
+        Password block
         by kishan
       -->
       <label for="password">
-        <b>Password</b>
+        <b class="mat-title">Password</b>
       </label>
       <!-- Input for password -->
       <input type="password" class="form-control" [ngModel]="applicant.password" name="password" #password="ngModel" id="inputpassword"
@@ -41,15 +45,15 @@
       <!-- password error block -->
       <!-- Validation for password -->
       <div *ngIf="(password.invalid && ( password.touched || password.dirty)) || isSubmitted" class="text-danger">
-        <div *ngIf="password.errors?.required">
+        <div *ngIf="password.errors?.required" class="mat-body-1">
           Please enter the password
         </div>
         <!-- <div *ngIf="password.errors?.pattern && password.dirty">
           Password must have UpperCase, LowerCase, Number/SpecialChar and mininmum 8 characters.
         </div> -->
       </div>
-      </div>
+    </div>
       <!-- Button provided to submit login details -->
-     <button class="btn primary"> Login </button>
+     <button mat-raised-button color="primary" class="btn primary"> Login </button>
   </form>
   </div>
