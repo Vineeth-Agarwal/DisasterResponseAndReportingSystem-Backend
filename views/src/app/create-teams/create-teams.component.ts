@@ -16,9 +16,24 @@ export class CreateTeamsComponent implements OnInit {
 
   // team: Team;
   applicants: Applicant[];
-  displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
+  //  displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
+  displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
   dataSource = new MatTableDataSource<Applicant>(this.applicants)
   selection = new SelectionModel<Applicant>(true, []);
+
+   /** Whether the number of selected elements matches the total number of rows. */
+   isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
 
   constructor(private router: Router, private dataService: DataService) {
     // this.team = new Team({
