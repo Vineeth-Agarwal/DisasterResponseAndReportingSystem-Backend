@@ -103,20 +103,26 @@
     </table>
 
     <br>
-    <select>
-      <option value="#">Select Leader</option>
-      <option value="#">Option 1</option>
-      <option value="#">Option 2</option>
-      <option value="#">Option 3</option>
-    </select>
-    <br><br>
-    <select>
-      <option value="#">Select Asst. Leader</option>
-      <option value="#">Option 1</option>
-      <option value="#">Option 2</option>
-      <option value="#">Option 3</option>
-    </select>
-    <br><br>
+
+    <mat-form-field>
+      <mat-select placeholder="Select Leader">
+        <mat-option *ngFor="let leader of members" [value]="leader.value">
+          {{leader.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <mat-select placeholder="Select Assistant Leader">
+        <mat-option *ngFor="let asstLeader of members" [value]="asstLeader.value">
+          {{asstLeader.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
 
     <!-- Button provided to create team -->
     <button class="btn primary"> Create Team</button>

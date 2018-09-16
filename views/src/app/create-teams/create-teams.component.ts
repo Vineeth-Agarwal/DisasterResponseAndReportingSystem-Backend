@@ -6,6 +6,11 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { DataService } from '../common/dataService';
 import { Team } from '../common/team';
 
+export interface Members {
+  value: string;
+  viewValue: string;
+}
+
 
 @Component({
   selector: 'app-create-teams',
@@ -20,6 +25,12 @@ export class CreateTeamsComponent implements OnInit {
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
   dataSource = new MatTableDataSource<Applicant>(this.applicants)
   selection = new SelectionModel<Applicant>(true, []);
+
+  members: Members[] = [
+    {value: 'Option1-0', viewValue: 'Option1'},
+    {value: 'Option-1', viewValue: 'Option2'},
+    {value: 'Option1-2', viewValue: 'Option3'}
+  ];
 
    /** Whether the number of selected elements matches the total number of rows. */
    isAllSelected() {
