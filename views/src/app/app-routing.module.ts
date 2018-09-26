@@ -10,6 +10,7 @@ import { ReviewApplicationComponent } from './review-application/review-applicat
 import { TeamsComponent } from './teams/teams.component';
 import { Team1DetailsComponent } from './team1-details/team1-details.component';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   { path: 'createIncident', component: CreateIncidentComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'team1Details', component: Team1DetailsComponent },
   { path: 'archivedIncidents', component: ArchivedIncidentsComponent },
+  { path: 'report', component: ReportComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

@@ -54,6 +54,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   exports: [
@@ -91,6 +92,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatToolbarModule,
     MatTooltipModule,
   ],
+  declarations: [ReportComponent],
 })
 export class DemoMaterialModule {}
 
