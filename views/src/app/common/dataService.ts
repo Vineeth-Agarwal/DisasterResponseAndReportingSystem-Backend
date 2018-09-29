@@ -10,17 +10,17 @@ export class DataService {
     constructor(private http: HttpClient) { }
     getApplicantsList() {
         //   http call
-        return this.http.get("https://drrs.herokuapp.com/getApplicantsList");
+        return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
     }
 
     getIncidentsList() {
         //   http call
-        return this.http.get("https://drrs.herokuapp.com/getIncidentsList");
+        return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
     }
 
-    saveIncident(data: Incident){
+    saveIncident(data: Incident) {
         // http call
-        return this.http.post("https://drrs.herokuapp.com/saveIncident", data);
+        return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
     }
 }
 
