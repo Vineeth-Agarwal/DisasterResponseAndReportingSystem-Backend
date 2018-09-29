@@ -38,8 +38,8 @@ router.post('/upload', function (req, res, next) {
   // var bodyData = JOSN req.body
   
   var userObj = new User(JSON.parse(req.body.data));
-  req.files.forEach(element => {
-     userObj.files.push(element.path);
+  req.files.forEach(ele => {
+     userObj.files.push("/assets/upload/" + ele.filename);
   });
   userObj.save(function (err, data) {
     if (err) {
