@@ -425,15 +425,15 @@ var DataService = /** @class */ (function () {
     }
     DataService.prototype.getApplicantsList = function () {
         //   http call
-        return this.http.get("https://drrs.herokuapp.com/getApplicantsList");
+        return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
     };
     DataService.prototype.getIncidentsList = function () {
         //   http call
-        return this.http.get("https://drrs.herokuapp.com/getIncidentsList");
+        return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
     };
     DataService.prototype.saveIncident = function (data) {
         // http call
-        return this.http.post("https://drrs.herokuapp.com/saveIncident", data);
+        return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
     };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1118,7 +1118,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\Backend\drrs\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\BackEnd-Backup\Backend\drrs\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
