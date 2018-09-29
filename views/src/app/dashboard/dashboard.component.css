@@ -10,7 +10,7 @@
 /* cards */
 .incident-card {
     /* max-width: 235px; */
-    width: 235px;
+    width: 255px;
     min-height: 397px;
     margin-top: 2em;
 }

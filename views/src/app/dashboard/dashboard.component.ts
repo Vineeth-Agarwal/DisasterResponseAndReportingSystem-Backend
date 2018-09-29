@@ -10,12 +10,14 @@ import { Incident } from '../common/incident';
 export class DashboardComponent implements OnInit {
 
   incidents: Incident[];
+  isLoading = false;
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getIncidentsList()
-      .subscribe((data) =>{
+      .subscribe((data) => {
         this.incidents = data['data'];
+        this.isLoading = false;
       });
   }
 

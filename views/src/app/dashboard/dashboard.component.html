@@ -21,11 +21,12 @@
 
   <br>
   <div class="row">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
     <div *ngFor="let item of incidents">
       <div class="col-4 text-center">
         <!-- The incident modules are shown using cards. Card has image of incident,
         brief description and two buttons edit and archive -->
-        <mat-card class="incident-card mat-elevation-z5">
+        <mat-card *ngIf="incidents.length > 0 && !isLoading" class="incident-card mat-elevation-z5">
           <a routerLink="/dashboard">
             <!-- Image of incident -->
             <img mat-card-image src="assets/images/incidents/img.1.jpg" alt="Earthquake">
