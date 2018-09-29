@@ -14,15 +14,15 @@ var User = require("../model/user")
 
 // file upload
 var upload = multer({
-  storage: multer.diskStorage({
-      destination: function (req, file, callback) {
-          callback(null, "./public/uploads");
-      },
-      filename: function (req, file, callback) {
-        var ext = path.extname(file.originalname);
-          callback(null, Date.now()+ext);
-      }
-  }),
+  // storage: multer.diskStorage({
+  //     destination: function (req, file, callback) {
+  //         callback(null, "./public/uploads");
+  //     },
+  //     filename: function (req, file, callback) {
+  //       var ext = path.extname(file.originalname);
+  //         callback(null, Date.now()+ext);
+  //     }
+  // }),
 }).array("file");
 
 router.post('/upload', function (req, res, next) {
