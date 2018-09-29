@@ -6,12 +6,65 @@ var report = require("../model/report");
 var membere = require("../model/members");
 var team = require("../model/team");
 var signup = require("../model/signup")
+var users = require('../controller/user-controller')
+var multer  = require('multer')
+var upload = multer({ dest: '/public/uploads' })
+var path = require("path")
+var User = require("../model/user")
 
+// file upload
+var upload = multer({
+  storage: multer.diskStorage({
+      destination: function (req, file, callback) {
+          callback(null, "./public/uploads");
+      },
+      filename: function (req, file, callback) {
+        var ext = path.extname(file.originalname);
+          callback(null, Date.now()+ext);
+      }
+  }),
+}).array("file");
+
+router.post('/upload', function (req, res, next) {
+  upload(req, res, function (err) {
+    if (err) {
+        return res.status(403).json({ message: err });
+    }
+    console.log(req.files)
+  // res.send();
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide applicant details" })
+  }
+  // var bodyData = JOSN req.body
+  
+  var userObj = new User(JSON.parse(req.body.data));
+  req.files.forEach(element => {
+     userObj.files.push(element.path);
+  });
+  userObj.save(function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "user record saved successfully", data: data })
+    }
+  });
+});
+})
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+// Signin route for a user
+router.route('/signin').post(users.signin,users.saveTokenNRespond);
+
+// Signup route for a user
+router.route('/signup').post(users.signup);
+
+// Check user logged in or not
+router.route('/isLoggedIn').get(users.isLoggedIn);
 
 // signup new Mobile User - Hemanth
 router.post('/saveSignup', function (req, res, next) {
