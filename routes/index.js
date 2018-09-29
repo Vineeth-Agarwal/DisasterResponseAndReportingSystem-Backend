@@ -8,7 +8,7 @@ var team = require("../model/team");
 var signup = require("../model/signup")
 var users = require('../controller/user-controller')
 var multer  = require('multer')
-var upload = multer({ dest: '/public/uploads' })
+
 var path = require("path")
 var User = require("../model/user")
 
