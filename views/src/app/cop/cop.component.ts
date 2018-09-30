@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class COPComponent implements OnInit {
   
   zoom:number=9 ;
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat=40.349841283655195;
+  lng=-94.8827696546299;
   // Markers
   markers:marker[]=[
     {

@@ -11,7 +11,66 @@
          (markerClick) will do something we write when a marker is clicked.
 
      -->
-<!-- 
-    <agm-map >
+     <agm-map [latitude]="lat" [longitude]="lng"  [zoomControl]="true">
 
-    </agm-map> -->
+        <agm-marker *ngFor="let m of markers; let i=index" [latitude]="m.lat" [longitude]="m.lng">
+            <agm-info-window>
+                <strong>
+                    <table style ="width:30%">
+                        <tr>
+                            <!-- <th>
+                                {{m.name}}
+                            </th> -->
+                            <th>
+                                Count
+                            </th>
+                        </tr>
+                        <tr id="black_row">
+                            <!-- <td>
+                                Deceased:
+                            </td> -->
+                            <td align="center">
+                                {{m.deceased}}
+                            </td>
+                        </tr>
+                        <tr id="red_row">
+                            <!-- <td>
+                                Immediate:
+                            </td> -->
+                            <td align="center">
+                                {{m.immediate}}
+                            </td>
+                        </tr>
+                        <tr id="yellow_row">
+                            <!-- <td>
+                                Delayed:
+                            </td> -->
+                            <td align="center">
+                                {{m.delayed}}
+                            </td>
+                        </tr>
+                        <tr id="green_row">
+                            <!-- <td>
+                                Minor:
+                            </td> -->
+                            <td align="center">
+                                {{m.minor}}
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <ol>
+                      <ins> {{m.name}}</ins>     
+                        <li>
+                            Deceased(Black): {{m.deceased}}</li>
+                        <li>
+                            Immediate(Red): {{m.immediate}}</li>
+                        <li>
+                            Delayed(Yellow): {{m.delayed}}</li>
+                        <li>
+                            Minor(Green): {{m.minor}}</li>
+                    </ol> -->
+                </strong>
+            </agm-info-window>
+    
+        </agm-marker>
+    </agm-map>

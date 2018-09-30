@@ -11,6 +11,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { Team1DetailsComponent } from './team1-details/team1-details.component';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { ReportComponent } from './report/report.component';
+import { COPComponent } from './cop/cop.component';
 
 const routes: Routes = [
   { path: 'createIncident', component: CreateIncidentComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'team1Details', component: Team1DetailsComponent },
   { path: 'archivedIncidents', component: ArchivedIncidentsComponent },
   { path: 'report', component: ReportComponent },
+  { path: 'cop', component: COPComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

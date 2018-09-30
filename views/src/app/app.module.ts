@@ -55,6 +55,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReportComponent } from './report/report.component';
+import { COPComponent } from './cop/cop.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   exports: [
@@ -108,6 +110,7 @@ export class DemoMaterialModule {}
     CreateTeamsComponent,
     Team1DetailsComponent,
     ArchivedIncidentsComponent,
+    COPComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,12 @@ export class DemoMaterialModule {}
     MatButtonModule,
     DemoMaterialModule,
     MatNativeDateModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
+    ,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
+    })
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

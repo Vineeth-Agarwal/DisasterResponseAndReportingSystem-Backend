@@ -24,7 +24,7 @@ Disaster Response And Reporting System Mobile(For mobile application):    https:
   
 ## 
 
-# Drs
+# DRRS
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 

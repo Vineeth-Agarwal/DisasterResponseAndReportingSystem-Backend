@@ -44,6 +44,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./team1-details/team1-details.component */ "./src/app/team1-details/team1-details.component.ts");
 /* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
 /* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
+/* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
 // Assigned to Kishan
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -51,6 +52,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -72,6 +74,7 @@ var routes = [
     { path: 'team1Details', component: _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_8__["Team1DetailsComponent"] },
     { path: 'archivedIncidents', component: _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_9__["ArchivedIncidentsComponent"] },
     { path: 'report', component: _report_report_component__WEBPACK_IMPORTED_MODULE_10__["ReportComponent"] },
+    { path: 'cop', component: _cop_cop_component__WEBPACK_IMPORTED_MODULE_11__["COPComponent"] },
     { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -178,12 +181,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
 /* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
 /* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
+/* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -265,6 +272,7 @@ var AppModule = /** @class */ (function () {
                 _create_teams_create_teams_component__WEBPACK_IMPORTED_MODULE_11__["CreateTeamsComponent"],
                 _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_12__["Team1DetailsComponent"],
                 _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__["ArchivedIncidentsComponent"],
+                _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__["COPComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -276,6 +284,9 @@ var AppModule = /** @class */ (function () {
                 DemoMaterialModule,
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatNativeDateModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
+                _agm_core__WEBPACK_IMPORTED_MODULE_20__["AgmCoreModule"].forRoot({
+                    apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
+                })
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -474,6 +485,121 @@ var Incident = /** @class */ (function () {
         Object.assign(this, values);
     }
     return Incident;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/cop/cop.component.css":
+/*!***************************************!*\
+  !*** ./src/app/cop/cop.component.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "agm-map{\r\n    height: 620px;\r\n}\r\n\r\n th, td {\r\n    border: 1px solid black;\r\n}\r\n\r\n #black_row{\r\n    background-color:black; \r\n    color: white\r\n}\r\n\r\n #red_row{\r\n    background-color:#ff0000; \r\n    color: white\r\n}\r\n\r\n #yellow_row{\r\n    background-color:yellow; \r\n}\r\n\r\n #green_row{\r\n    background-color:green; \r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/cop/cop.component.html":
+/*!****************************************!*\
+  !*** ./src/app/cop/cop.component.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\n\n<!-- \n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\n         [markerDraggable] is used to drag the marker on the map.\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \n         we might write in markerDragEnd()\n         (markerClick) will do something we write when a marker is clicked.\n\n     -->\n     <agm-map [latitude]=\"lat\" [longitude]=\"lng\"  [zoomControl]=\"true\">\n\n        <agm-marker *ngFor=\"let m of markers; let i=index\" [latitude]=\"m.lat\" [longitude]=\"m.lng\">\n            <agm-info-window>\n                <strong>\n                    <table style =\"width:30%\">\n                        <tr>\n                            <!-- <th>\n                                {{m.name}}\n                            </th> -->\n                            <th>\n                                Count\n                            </th>\n                        </tr>\n                        <tr id=\"black_row\">\n                            <!-- <td>\n                                Deceased:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.deceased}}\n                            </td>\n                        </tr>\n                        <tr id=\"red_row\">\n                            <!-- <td>\n                                Immediate:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.immediate}}\n                            </td>\n                        </tr>\n                        <tr id=\"yellow_row\">\n                            <!-- <td>\n                                Delayed:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.delayed}}\n                            </td>\n                        </tr>\n                        <tr id=\"green_row\">\n                            <!-- <td>\n                                Minor:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.minor}}\n                            </td>\n                        </tr>\n                    </table>\n                    <!-- <ol>\n                      <ins> {{m.name}}</ins>     \n                        <li>\n                            Deceased(Black): {{m.deceased}}</li>\n                        <li>\n                            Immediate(Red): {{m.immediate}}</li>\n                        <li>\n                            Delayed(Yellow): {{m.delayed}}</li>\n                        <li>\n                            Minor(Green): {{m.minor}}</li>\n                    </ol> -->\n                </strong>\n            </agm-info-window>\n    \n        </agm-marker>\n    </agm-map>"
+
+/***/ }),
+
+/***/ "./src/app/cop/cop.component.ts":
+/*!**************************************!*\
+  !*** ./src/app/cop/cop.component.ts ***!
+  \**************************************/
+/*! exports provided: COPComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COPComponent", function() { return COPComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var COPComponent = /** @class */ (function () {
+    function COPComponent() {
+        this.zoom = 9;
+        this.lat = 40.349841283655195;
+        this.lng = -94.8827696546299;
+        // Markers
+        this.markers = [
+            {
+                name: 'Report1',
+                deceased: 0,
+                immediate: 2,
+                delayed: 3,
+                minor: 10,
+                lat: 40.349841283655195,
+                lng: -94.8827696546299
+                // ,draggable=true
+            },
+            {
+                name: 'Report2',
+                deceased: 0,
+                immediate: 2,
+                delayed: 3,
+                minor: 10,
+                lat: 40.549841283655195,
+                lng: -94.6827696546299
+            },
+            {
+                name: 'Report3',
+                deceased: 0,
+                immediate: 2,
+                delayed: 3,
+                minor: 10,
+                lat: 40.549841283655195,
+                lng: -94.4827696546299
+            },
+            {
+                name: 'Report4',
+                deceased: 0,
+                immediate: 2,
+                delayed: 3,
+                minor: 10,
+                lat: 40.249841283655195,
+                lng: -94.9827696546299
+            },
+            {
+                name: 'Report5',
+                deceased: 0,
+                immediate: 2,
+                delayed: 3,
+                minor: 10,
+                lat: 40.249841283655195,
+                lng: -94.2827696546299
+            }
+        ];
+    }
+    COPComponent.prototype.ngOnInit = function () {
+    };
+    COPComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-cop',
+            template: __webpack_require__(/*! ./cop.component.html */ "./src/app/cop/cop.component.html"),
+            styles: [__webpack_require__(/*! ./cop.component.css */ "./src/app/cop/cop.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], COPComponent);
+    return COPComponent;
 }());
 
 
@@ -872,7 +998,7 @@ module.exports = ".title {\r\n  margin: auto;\r\n}\r\n\r\n.spacer {\r\n  flex: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z10\">\r\n  <span class=\"title mat-title\">\r\n    <a routerLink=\"/dashboard\">DRRS</a>\r\n  </span>\r\n  <span class=\"spacer\"></span>\r\n  <a mat-button routerLink=\"/dashboard\" routerLinkActive=\"mat-stroked-button\">Dashboard</a>\r\n  <a mat-button routerLink=\"/reviewApplication\" routerLinkActive=\"mat-stroked-button\">Review Application</a>\r\n  <a mat-button routerLink=\"/login\">Logout</a>\r\n</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z10\">\r\n  <span class=\"title mat-title\">\r\n    <a routerLink=\"/dashboard\">DRRS</a>\r\n  </span>\r\n  <span class=\"spacer\"></span>\r\n  <a mat-button routerLink=\"/dashboard\" routerLinkActive=\"mat-stroked-button\">Dashboard</a>\r\n  <a mat-button routerLink=\"/reviewApplication\" routerLinkActive=\"mat-stroked-button\">Review Application</a>\r\n  <a mat-button routerLink=\"/cop\" routerLinkActive=\"mat-stroked-button\">Common Operating Picture</a>\r\n  <a mat-button routerLink=\"/login\">Logout</a>\r\n</mat-toolbar>\r\n"
 
 /***/ }),
 
