@@ -16,7 +16,7 @@ var User = require("../model/user")
 var upload = multer({
   storage: multer.diskStorage({
       destination: function (req, file, callback) {
-          callback(null, "./views/dist/drs/assets/upload");
+          callback(null, "./views/dist/drrs/assets/upload");
       },
       filename: function (req, file, callback) {
         var ext = path.extname(file.originalname);
