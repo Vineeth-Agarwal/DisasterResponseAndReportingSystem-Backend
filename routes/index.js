@@ -231,7 +231,7 @@ router.get('/getReportsList', function (req, res, next) {
       res.status(403).json({ msg: "something bad", err })
     }
     else {
-      res.status(200).json({ msg: "Rports are fetched successfully", data: results })
+      res.status(200).json({ msg: "Reports are fetched successfully", data: results })
     }
   })
 });

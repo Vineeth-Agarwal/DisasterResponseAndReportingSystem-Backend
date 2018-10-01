@@ -18,6 +18,11 @@ export class DataService {
         return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
     }
 
+    getReportsList() {
+        //   http call
+        return this.http.get('https://drrs.herokuapp.com/getReportsList');
+    }
+
     saveIncident(data: Incident) {
         // http call
         return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
