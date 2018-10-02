@@ -15,7 +15,7 @@ import {  MyDialogComponentComponent} from '../my-dialog-component/my-dialog-com
   styleUrls: ['./review-application.component.css']
 })
 export class ReviewApplicationComponent implements OnInit {
-  dialogResult="";
+  dialogResult = '';
 
   applicants: Applicant[];
   displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];

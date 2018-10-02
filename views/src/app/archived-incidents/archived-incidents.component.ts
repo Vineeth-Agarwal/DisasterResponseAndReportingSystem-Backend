@@ -14,7 +14,7 @@ export class ArchivedIncidentsComponent implements OnInit {
   incidents: Incident[];
   events: string[] = []; // for date filter
   displayedColumns = ['incidentName', 'location', 'date', 'time', 'description'];
-  dataSource: MatTableDataSource<Incident>
+  dataSource: MatTableDataSource<Incident>;
   selection = new SelectionModel<Incident>(true, []);
 
   @ViewChild(MatSort) sort: MatSort;
@@ -23,7 +23,7 @@ export class ArchivedIncidentsComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getIncidentsList()
-      .subscribe((data) =>{
+      .subscribe((data) => {
         this.incidents = data['data'];
         this.dataSource = new MatTableDataSource<Incident>(this.incidents);
         // console.log(this.incidents)
@@ -31,7 +31,7 @@ export class ArchivedIncidentsComponent implements OnInit {
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log(type + " " + event.value);
+    console.log(type + ' ' + event.value);
   }
 
   applyFilter(filterValue: string) {
