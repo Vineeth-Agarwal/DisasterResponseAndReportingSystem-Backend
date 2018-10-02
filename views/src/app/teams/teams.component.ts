@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../common/dataService';
+import { Team } from '../common/team';
 
 @Component({
   selector: 'app-teams',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamsComponent implements OnInit {
 
-  constructor() { }
+  teams: Team[];
+  isLoading = false;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getTeamList()
+      .subscribe((data) => {
+        this.teams = data['data'];
+        this.isLoading = false;
+      });
   }
 
 }

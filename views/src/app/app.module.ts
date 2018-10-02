@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,6 +58,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReportComponent } from './report/report.component';
 import { COPComponent } from './cop/cop.component';
 import { AgmCoreModule } from '@agm/core';
+import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-component.component';
 
 
 @NgModule({
@@ -111,8 +113,10 @@ export class DemoMaterialModule {}
     CreateTeamsComponent,
     Team1DetailsComponent,
     ArchivedIncidentsComponent,
-    COPComponent
+    COPComponent,
+    MyDialogComponentComponent
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -122,14 +126,17 @@ export class DemoMaterialModule {}
     MatButtonModule,
     DemoMaterialModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
-    ,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
-    })
-    
+    }),
+  ],
+  entryComponents: [
+    MyDialogComponentComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
+
+  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

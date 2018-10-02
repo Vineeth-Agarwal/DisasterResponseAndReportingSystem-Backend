@@ -1,10 +1,11 @@
 <!--
-  This page is to show past incidents 
-  Assigned to Kishan 
+  This page is to show past incidents
+  Assigned to Kishan
 -->
 <div class="container">
    <!-- Header for the Archived Incidents page -->
-  <h1>Archived Incidents</h1>
+  <!-- <h1>Archived Incidents</h1> -->
+  <h1 class="pageHeading mat-display-1">Archived Incidents</h1>
   <hr>
 
   <div class="row">
@@ -17,7 +18,7 @@
             <!-- Picker is added to select the date from calendar -->
             <input matInput [matDatepicker]="picker" placeholder="Choose a start date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker touchUi="true" #picker></mat-datepicker>           
+            <mat-datepicker touchUi="true" #picker></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
@@ -69,7 +70,7 @@
   <div class="row">
     <div class="col text-center">
       <!-- Button is provided to download the archived incidents to excel sheet -->
-    <button mat-raised-button color="primary" class="buttons">Download</button>
+    <a mat-raised-button color="primary" class="buttons" href="http://drrs.herokuapp.com/incidentReport">Download</a>
   </div>
   </div>
 </div>

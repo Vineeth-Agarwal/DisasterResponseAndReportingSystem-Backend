@@ -183,12 +183,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
 /* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./my-dialog-component/my-dialog-component.component */ "./src/app/my-dialog-component/my-dialog-component.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -250,7 +253,7 @@ var DemoMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"],
             ],
-            declarations: [_report_report_component__WEBPACK_IMPORTED_MODULE_18__["ReportComponent"]],
+            declarations: [_report_report_component__WEBPACK_IMPORTED_MODULE_18__["ReportComponent"], _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"]],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -286,10 +289,14 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
                 _agm_core__WEBPACK_IMPORTED_MODULE_20__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
-                })
+                }),
+            ],
+            entryComponents: [
+                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]]
         })
     ], AppModule);
     return AppModule;
@@ -509,7 +516,7 @@ module.exports = "agm-map{\r\n    height: 620px;\r\n}\r\n\r\n th, td {\r\n    bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\n\n<!-- \n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\n         [markerDraggable] is used to drag the marker on the map.\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \n         we might write in markerDragEnd()\n         (markerClick) will do something we write when a marker is clicked.\n\n     -->\n     <agm-map [latitude]=\"lat\" [longitude]=\"lng\"  [zoomControl]=\"true\">\n\n        <agm-marker *ngFor=\"let m of markers; let i=index\" [latitude]=\"m.lat\" [longitude]=\"m.lng\">\n            <agm-info-window>\n                <strong>\n                    <table style =\"width:30%\">\n                        <tr>\n                            <!-- <th>\n                                {{m.name}}\n                            </th> -->\n                            <th>\n                                Count\n                            </th>\n                        </tr>\n                        <tr id=\"black_row\">\n                            <!-- <td>\n                                Deceased:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.deceased}}\n                            </td>\n                        </tr>\n                        <tr id=\"red_row\">\n                            <!-- <td>\n                                Immediate:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.immediate}}\n                            </td>\n                        </tr>\n                        <tr id=\"yellow_row\">\n                            <!-- <td>\n                                Delayed:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.delayed}}\n                            </td>\n                        </tr>\n                        <tr id=\"green_row\">\n                            <!-- <td>\n                                Minor:\n                            </td> -->\n                            <td align=\"center\">\n                                {{m.minor}}\n                            </td>\n                        </tr>\n                    </table>\n                    <!-- <ol>\n                      <ins> {{m.name}}</ins>     \n                        <li>\n                            Deceased(Black): {{m.deceased}}</li>\n                        <li>\n                            Immediate(Red): {{m.immediate}}</li>\n                        <li>\n                            Delayed(Yellow): {{m.delayed}}</li>\n                        <li>\n                            Minor(Green): {{m.minor}}</li>\n                    </ol> -->\n                </strong>\n            </agm-info-window>\n    \n        </agm-marker>\n    </agm-map>"
+module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\r\n\r\n<!-- \r\n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\r\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\r\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\r\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\r\n         [markerDraggable] is used to drag the marker on the map.\r\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \r\n         we might write in markerDragEnd()\r\n         (markerClick) will do something we write when a marker is clicked.\r\n\r\n     -->\r\n     <agm-map [latitude]=\"lat\" [longitude]=\"lng\"  [zoomControl]=\"true\">\r\n\r\n        <agm-marker *ngFor=\"let m of markers; let i=index\" [latitude]=\"m.lat\" [longitude]=\"m.lng\">\r\n            <agm-info-window>\r\n                <strong>\r\n                    <table style =\"width:30%\">\r\n                        <tr>\r\n                            <!-- <th>\r\n                                {{m.name}}\r\n                            </th> -->\r\n                            <th>\r\n                                Count\r\n                            </th>\r\n                        </tr>\r\n                        <tr id=\"black_row\">\r\n                            <!-- <td>\r\n                                Deceased:\r\n                            </td> -->\r\n                            <td align=\"center\">\r\n                                {{m.deceased}}\r\n                            </td>\r\n                        </tr>\r\n                        <tr id=\"red_row\">\r\n                            <!-- <td>\r\n                                Immediate:\r\n                            </td> -->\r\n                            <td align=\"center\">\r\n                                {{m.immediate}}\r\n                            </td>\r\n                        </tr>\r\n                        <tr id=\"yellow_row\">\r\n                            <!-- <td>\r\n                                Delayed:\r\n                            </td> -->\r\n                            <td align=\"center\">\r\n                                {{m.delayed}}\r\n                            </td>\r\n                        </tr>\r\n                        <tr id=\"green_row\">\r\n                            <!-- <td>\r\n                                Minor:\r\n                            </td> -->\r\n                            <td align=\"center\">\r\n                                {{m.minor}}\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                    <!-- <ol>\r\n                      <ins> {{m.name}}</ins>     \r\n                        <li>\r\n                            Deceased(Black): {{m.deceased}}</li>\r\n                        <li>\r\n                            Immediate(Red): {{m.immediate}}</li>\r\n                        <li>\r\n                            Delayed(Yellow): {{m.delayed}}</li>\r\n                        <li>\r\n                            Minor(Green): {{m.minor}}</li>\r\n                    </ol> -->\r\n                </strong>\r\n            </agm-info-window>\r\n    \r\n        </agm-marker>\r\n    </agm-map>"
 
 /***/ }),
 
@@ -980,6 +987,85 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/my-dialog-component/my-dialog-component.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/my-dialog-component/my-dialog-component.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/my-dialog-component/my-dialog-component.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/my-dialog-component/my-dialog-component.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <h2 mat-dialog-title>My Dialog </h2>\n    <hr>\n    <mat-dialog-content>\n      <!-- <div class=\"row\">\n        <div class=\"col\"></div>\n        </div> -->\n    <strong>{{data}}</strong>\n  </mat-dialog-content>\n  <hr>\n  <mat-dialog-actions>\n    <button mat-raised-button (click)=\"close()\">confirm</button>\n    <button mat-raised-button (click)=\"clos()\">deny</button>\n  </mat-dialog-actions>\n  </div>\n  "
+
+/***/ }),
+
+/***/ "./src/app/my-dialog-component/my-dialog-component.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/my-dialog-component/my-dialog-component.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: MyDialogComponentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyDialogComponentComponent", function() { return MyDialogComponentComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+// import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
+
+var MyDialogComponentComponent = /** @class */ (function () {
+    function MyDialogComponentComponent(thisDialogRef, data) {
+        this.thisDialogRef = thisDialogRef;
+        this.data = data;
+    }
+    MyDialogComponentComponent.prototype.ngOnInit = function () {
+    };
+    MyDialogComponentComponent.prototype.close = function () {
+        this.thisDialogRef.close('confirm');
+    };
+    MyDialogComponentComponent.prototype.clos = function () {
+        this.thisDialogRef.close('deny');
+    };
+    MyDialogComponentComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-my-dialog-component',
+            template: __webpack_require__(/*! ./my-dialog-component.component.html */ "./src/app/my-dialog-component/my-dialog-component.component.html"),
+            styles: [__webpack_require__(/*! ./my-dialog-component.component.css */ "./src/app/my-dialog-component/my-dialog-component.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], String])
+    ], MyDialogComponentComponent);
+    return MyDialogComponentComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/nav-bar/nav-bar.component.css":
 /*!***********************************************!*\
   !*** ./src/app/nav-bar/nav-bar.component.css ***!
@@ -1142,6 +1228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
 /* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../my-dialog-component/my-dialog-component.component */ "./src/app/my-dialog-component/my-dialog-component.component.ts");
 // Assigned to Kishan
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1157,9 +1244,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var ReviewApplicationComponent = /** @class */ (function () {
-    function ReviewApplicationComponent(dataService) {
+    function ReviewApplicationComponent(dataService, dialog) {
         this.dataService = dataService;
+        this.dialog = dialog;
+        this.dialogResult = "";
         this.displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.applicants);
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["SelectionModel"](true, []);
@@ -1182,11 +1273,22 @@ var ReviewApplicationComponent = /** @class */ (function () {
         this.dataSource.filter = filterValue;
     };
     ReviewApplicationComponent.prototype.rowClicked = function (row) {
+        var _this = this;
         console.log(row);
-        confirm("First Name: " + row.firstName + "\n" +
-            "Last Name: " + row.lastName + "\n" +
-            "County: " + row.county + "\n" +
-            "Phone Number: " + row.skills);
+        //   confirm("First Name: " + row.firstName +"\n"+
+        //           "Last Name: " + row.lastName +"\n"+
+        //           "County: " + row.county +"\n"+
+        //           "Phone Number: " + row.skills
+        // );
+        var dialogRef = this.dialog.open(_my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_4__["MyDialogComponentComponent"], {
+            width: '600px',
+            height: '600px',
+            data: 'hello '
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log('dialog closed: ${result}');
+            _this.dialogResult = result;
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
@@ -1202,7 +1304,7 @@ var ReviewApplicationComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./review-application.component.html */ "./src/app/review-application/review-application.component.html"),
             styles: [__webpack_require__(/*! ./review-application.component.css */ "./src/app/review-application/review-application.component.css")]
         }),
-        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_3__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], ReviewApplicationComponent);
     return ReviewApplicationComponent;
 }());
@@ -1399,7 +1501,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
