@@ -12,65 +12,40 @@
 
      -->
      <agm-map [latitude]="lat" [longitude]="lng"  [zoomControl]="true">
+            <!-- <agm-map [latitude]=40.349841283655195 [longitude]=-94.8827696546299  [zoomControl]="true"> -->
 
-        <agm-marker *ngFor="let m of markers; let i=index" [latitude]="m.lat" [longitude]="m.lng">
+        <!-- <agm-marker *ngFor="let m of reports; let i=index" [latitude]="m.location.lat" [longitude]="m.location.lng">
             <agm-info-window>
                 <strong>
                     <table style ="width:30%">
                         <tr>
-                            <!-- <th>
-                                {{m.name}}
-                            </th> -->
                             <th>
-                                Count
+                                {{m.reportID}}
                             </th>
                         </tr>
                         <tr id="black_row">
-                            <!-- <td>
-                                Deceased:
-                            </td> -->
                             <td align="center">
-                                {{m.deceased}}
+                                {{m.casualties.deceased}}
                             </td>
                         </tr>
                         <tr id="red_row">
-                            <!-- <td>
-                                Immediate:
-                            </td> -->
                             <td align="center">
-                                {{m.immediate}}
+                                {{m.casualties.immediate}}
                             </td>
                         </tr>
                         <tr id="yellow_row">
-                            <!-- <td>
-                                Delayed:
-                            </td> -->
                             <td align="center">
-                                {{m.delayed}}
+                                {{m.casualties.delayed}}
                             </td>
                         </tr>
                         <tr id="green_row">
-                            <!-- <td>
-                                Minor:
-                            </td> -->
                             <td align="center">
-                                {{m.minor}}
+                                {{m.casualties.minor}}
                             </td>
                         </tr>
                     </table>
-                    <!-- <ol>
-                      <ins> {{m.name}}</ins>     
-                        <li>
-                            Deceased(Black): {{m.deceased}}</li>
-                        <li>
-                            Immediate(Red): {{m.immediate}}</li>
-                        <li>
-                            Delayed(Yellow): {{m.delayed}}</li>
-                        <li>
-                            Minor(Green): {{m.minor}}</li>
-                    </ol> -->
                 </strong>
             </agm-info-window>
     
-        </agm-marker>
+        </agm-marker> -->
     </agm-map>

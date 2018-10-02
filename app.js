@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views/dist/drs'));
+app.set('views', path.join(__dirname, 'views/dist/drrs'));
 app.engine("html", require("ejs").renderFile);
 app.set('view engine', 'html');
 
@@ -31,7 +31,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'views/dist/drs')));
+app.use(express.static(path.join(__dirname, 'views/dist/drrs')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

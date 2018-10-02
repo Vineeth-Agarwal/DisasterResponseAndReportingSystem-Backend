@@ -19,24 +19,25 @@ export class ReviewApplicationComponent implements OnInit {
 
   applicants: Applicant[];
   displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
-  dataSource = new  MatTableDataSource<Applicant>(this.applicants)
+  dataSource = new  MatTableDataSource<Applicant>(this.applicants);
   selection = new SelectionModel<Applicant>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;  
-  
-  
+  @ViewChild(MatSort) sort: MatSort;
+
+
   constructor(private dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataService.getApplicantsList()
-      .subscribe((data) =>{
+      .subscribe((data) => {
         this.applicants = data['data'];
         this.dataSource = new MatTableDataSource<Applicant>(this.applicants);
       });
 
   }
 
-  
+
+  // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -50,20 +51,10 @@ export class ReviewApplicationComponent implements OnInit {
 
   rowClicked(row: any): void {
     console.log(row);
-  //   confirm("First Name: " + row.firstName +"\n"+
-  //           "Last Name: " + row.lastName +"\n"+
-  //           "County: " + row.county +"\n"+
-  //           "Phone Number: " + row.skills
-  // );
-  let dialogRef=this.dialog.open(MyDialogComponentComponent,{
-    width:'900px',
-    height:'600px',
-    data:'hello '
-
-  });
-  dialogRef.afterClosed().subscribe(result =>{
-    console.log('dialog closed: ${result}');
-    this.dialogResult=result;
-  })
+    confirm('First Name: ' + row.firstName + '\n' +
+            'Last Name: ' + row.lastName + '\n' +
+            'County: ' + row.county + '\n' +
+            'Phone Number: ' + row.skills
+  );
   }
 }

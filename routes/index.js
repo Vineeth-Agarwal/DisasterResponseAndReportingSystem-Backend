@@ -16,7 +16,7 @@ var User = require("../model/user")
 var upload = multer({
   storage: multer.diskStorage({
       destination: function (req, file, callback) {
-          callback(null, "./views/dist/drs/assets/upload");
+          callback(null, "./views/dist/drrs/assets/upload");
       },
       filename: function (req, file, callback) {
         var ext = path.extname(file.originalname);
@@ -231,7 +231,7 @@ router.get('/getReportsList', function (req, res, next) {
       res.status(403).json({ msg: "something bad", err })
     }
     else {
-      res.status(200).json({ msg: "Rports are fetched successfully", data: results })
+      res.status(200).json({ msg: "Reports are fetched successfully", data: results })
     }
   })
 });
@@ -276,5 +276,10 @@ router.get('/getTeamList', function (req, res, next) {
   })
 });
 
+// report generator
+router.get('/incidentReport', function (req, res, next) {
+  // fetches the respective requested record successfully
+  res.download("./public/assets/incidentsReport.xlsx");
+});
 
 module.exports = router;
