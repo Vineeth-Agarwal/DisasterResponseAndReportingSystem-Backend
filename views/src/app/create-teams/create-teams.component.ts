@@ -11,15 +11,15 @@ export interface Members {
   viewValue: string;
 }
 
-
 @Component({
   selector: 'app-create-teams',
   templateUrl: './create-teams.component.html',
   styleUrls: ['./create-teams.component.css']
 })
+
 export class CreateTeamsComponent implements OnInit {
 
-  // team: Team;
+  team: Team;
   applicants: Applicant[];
   //  displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
@@ -43,21 +43,20 @@ export class CreateTeamsComponent implements OnInit {
   masterToggle() {
     this.isAllSelected() ?
         this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+        this.dataSource.data.forEach(row => {
+          this.selection.select(row); 
+         // console.log(row);
+        });
+        // console.log(this.selection);
+        
   }
 
+ 
   constructor(private router: Router, private dataService: DataService) {
-    // this.team = new Team({
-    //   teamID: '',
-    //   // teamName: '',
-    //   // members: {
-    //   //   firstName: '',
-    //   //   lastName: '',
-    //   //   email: '',
-    //   //   county: '',
-    //   //   role: '',// drop down { leader, asst. leader, member }
-    //   // }
-    // });
+    this.team = new Team({
+      teamID: '',
+      members: []
+    });
   }
 
   ngOnInit() {
@@ -68,9 +67,25 @@ export class CreateTeamsComponent implements OnInit {
       });
   }
 
-  onCreate(createTeam) {
-    alert("Team created successfully");
-    this.router.navigate(['/teams']);
-
+  onCreate({ value, valid }: { value: Team, valid: boolean }) {
+    // alert("Incident module created successfully");
+    // this.router.navigate(['/dashboard']);
+    
+    this.team.teamID = "Team8707";
+    this.team.members = this.selection.selected;
+        
+    console.log(this.team);
+    // make http req. only if form is valid
+    if (valid) {
+      this.dataService.saveTeam(this.team)
+        .subscribe((data) => {
+          console.log(data);
+          console.log('success');
+          this.router.navigate(['/teams']);
+        },
+          error => {
+            console.log('Error Occured');
+          });
+    }
   }
 }

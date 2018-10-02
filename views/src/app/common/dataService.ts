@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Incident } from './incident';
+import { Team } from './team';
 
 
 @Injectable({
@@ -27,5 +28,11 @@ export class DataService {
         // http call
         return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
     }
+
+    saveTeam(data: Team) {
+        // http call
+        return this.http.post('http://localhost:3000/saveTeam', data);
+    }
+
 }
 
