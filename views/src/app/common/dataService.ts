@@ -24,6 +24,11 @@ export class DataService {
         return this.http.get('https://drrs.herokuapp.com/getReportsList');
     }
 
+    getTeamList() {
+        //   http call
+        return this.http.get('http://localhost:3000/getTeamList');
+    }
+
     saveIncident(data: Incident) {
         // http call
         return this.http.post('https://drrs.herokuapp.com/saveIncident', data);

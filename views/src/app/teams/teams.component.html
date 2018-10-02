@@ -4,19 +4,32 @@
  <!-- @Author Chandra Mouli Kantipudi -->
  <div class="container">
     <!-- Header for the dashboard page -->
- <h1>Teams</h1>
+ <h1 class="pageHeading mat-display-1">Teams</h1>
  <hr>
+ <div class="row">
+    <div class="col">
  <!-- Create team button provided to route to create team page -->
  <button routerLink = "/createTeams" mat-raised-button color = "primary">Create Team</button>
- <br><br>
+    </div>
+ </div>
+
+ <br>
+
+ <div class ="row">
+   <mat-spinner *ngIf = "isLoading"></mat-spinner>
+   <div *ngFor="let item of teams">
+     <div class="col-4 text-center">
  <!-- The team modules are shown using cards. Card has image of team and team name -->
- <mat-card class="example-card" >
+ <mat-card *ngIf ="teams.length > 0 && !isLoading" class="incident-card mat-elevation-z5" >
     <!-- Image for team is provided when clicked on image it redirects to the team page -->
    <a routerLink = "/team1Details">
    <img mat-card-image src="assets/images/teams/img1.jpg" alt="Team1"></a>
    <mat-card-content >
      <!-- Team name -->
-     <h2>Team 1</h2>
+     <h2>{{ item.teamId }}</h2>
    </mat-card-content>
  </mat-card>
+     </div>
+   </div>
+ </div>
  </div>
