@@ -276,5 +276,10 @@ router.get('/getTeamList', function (req, res, next) {
   })
 });
 
+// report generator
+router.get('/incidentReport', function (req, res, next) {
+  // fetches the respective requested record successfully
+  res.download("./public/assets/incidentsReport.xlsx");
+});
 
 module.exports = router;
