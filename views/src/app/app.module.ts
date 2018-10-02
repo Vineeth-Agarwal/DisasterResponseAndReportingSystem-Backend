@@ -58,6 +58,7 @@ import { ReportComponent } from './report/report.component';
 import { COPComponent } from './cop/cop.component';
 import { AgmCoreModule } from '@agm/core';
 
+
 @NgModule({
   exports: [
     CdkTableModule,
