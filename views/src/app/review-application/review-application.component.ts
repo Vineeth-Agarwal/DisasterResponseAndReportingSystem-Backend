@@ -6,6 +6,8 @@ import {MatPaginator, MatTableDataSource, MatSort} from '@angular/material';
 import { Applicant } from '../common/applicant';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DataService } from '../common/dataService';
+import { MatDialog} from '@angular/material';
+import {  MyDialogComponentComponent} from '../my-dialog-component/my-dialog-component.component';
 
 @Component({
   selector: 'app-review-application',
@@ -13,6 +15,7 @@ import { DataService } from '../common/dataService';
   styleUrls: ['./review-application.component.css']
 })
 export class ReviewApplicationComponent implements OnInit {
+  dialogResult="";
 
   applicants: Applicant[];
   displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
@@ -22,7 +25,7 @@ export class ReviewApplicationComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;  
   
   
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataService.getApplicantsList()
@@ -47,10 +50,20 @@ export class ReviewApplicationComponent implements OnInit {
 
   rowClicked(row: any): void {
     console.log(row);
-    confirm("First Name: " + row.firstName +"\n"+
-            "Last Name: " + row.lastName +"\n"+
-            "County: " + row.county +"\n"+
-            "Phone Number: " + row.skills
-  );
+  //   confirm("First Name: " + row.firstName +"\n"+
+  //           "Last Name: " + row.lastName +"\n"+
+  //           "County: " + row.county +"\n"+
+  //           "Phone Number: " + row.skills
+  // );
+  let dialogRef=this.dialog.open(MyDialogComponentComponent,{
+    width:'900px',
+    height:'600px',
+    data:'hello '
+
+  });
+  dialogRef.afterClosed().subscribe(result =>{
+    console.log('dialog closed: ${result}');
+    this.dialogResult=result;
+  })
   }
 }
