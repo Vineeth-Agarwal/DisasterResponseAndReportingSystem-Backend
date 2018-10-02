@@ -131,13 +131,12 @@ export class DemoMaterialModule {}
       apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
     }),
   ],
-  
-  entryComponents:[
+  entryComponents: [
     MyDialogComponentComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
-  
+
   // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

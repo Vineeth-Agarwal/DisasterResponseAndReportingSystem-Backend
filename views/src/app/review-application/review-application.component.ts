@@ -51,10 +51,15 @@ export class ReviewApplicationComponent implements OnInit {
 
   rowClicked(row: any): void {
     console.log(row);
-    confirm('First Name: ' + row.firstName + '\n' +
-            'Last Name: ' + row.lastName + '\n' +
-            'County: ' + row.county + '\n' +
-            'Phone Number: ' + row.skills
-  );
+    const dialogRef = this.dialog.open(MyDialogComponentComponent, {
+        width: '950px',
+        height: '600px',
+        data: 'hello '
+
+    });
+    dialogRef.afterClosed().subscribe(result  => {
+        console.log('dialog closed: ${result}');
+        this.dialogResult = result;
+    });
   }
 }
