@@ -19,18 +19,13 @@ export interface Members {
 
 export class CreateTeamsComponent implements OnInit {
 
+  a = Math.floor((Math.random() * 10000) + 1);
   team: Team;
   applicants: Applicant[];
   //  displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
   dataSource = new MatTableDataSource<Applicant>(this.applicants)
   selection = new SelectionModel<Applicant>(true, []);
-
-  members: Members[] = [
-    {value: 'Option1-0', viewValue: 'Option1'},
-    {value: 'Option-1', viewValue: 'Option2'},
-    {value: 'Option1-2', viewValue: 'Option3'}
-  ];
 
    /** Whether the number of selected elements matches the total number of rows. */
    isAllSelected() {
@@ -51,7 +46,6 @@ export class CreateTeamsComponent implements OnInit {
         
   }
 
- 
   constructor(private router: Router, private dataService: DataService) {
     this.team = new Team({
       teamID: '',
@@ -71,7 +65,7 @@ export class CreateTeamsComponent implements OnInit {
     // alert("Incident module created successfully");
     // this.router.navigate(['/dashboard']);
     
-    this.team.teamID = "Team8707";
+    this.team.teamID = "Team"+this.a;
     this.team.members = this.selection.selected;
         
     console.log(this.team);
