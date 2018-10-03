@@ -1,4 +1,4 @@
-<!-- 
+<!--
   Assigned to Chandra mouli
  -->
 <!-- @Author Chandra Mouli Kantipudi -->
@@ -88,7 +88,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
       </tr>
-    </table>  
+    </table>
     <br>
 
     <mat-form-field>
@@ -112,7 +112,11 @@
     <br>
 
     <!-- Button provided to create team -->
-    <button class="btn primary"> Create Team</button>
+    <!-- <button class="btn primary"> Create Team</button> -->
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="submit"> Create </button>
+      <button mat-raised-button color="warn" routerLink="/teams"> Cancel </button>
+    </div>
 
   </form>
 </div>

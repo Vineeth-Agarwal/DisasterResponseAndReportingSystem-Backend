@@ -10,11 +10,11 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {firstName: "Jim", lastName: 'Williams', Email: "WilliamsJ@gmail.com", County: 'Nodway', Skills: "CERT Firefighter"},
-  {firstName: "Jules", lastName: 'Verne', Email: "Verne.J@Outlook.com", County: 'Vernon', Skills: "CERT EMT-B"},
-  {firstName: "Kate", lastName: 'Tomlins', Email: "Katet@gmail.com", County: 'Nodway', Skills: "CERT"},
-  {firstName: "Amy", lastName: 'Yates', Email: "Yates@yahoomail.com", County: 'Saint Louis', Skills: "CERT LPN"},
-  {firstName: "David", lastName: 'Cameron', Email: "David@gmail.com", County: 'Nodway', Skills: "CERT"},
+  {firstName: 'Jim', lastName: 'Williams', Email: 'WilliamsJ@gmail.com', County: 'Nodway', Skills: 'CERT Firefighter'},
+  {firstName: 'Jules', lastName: 'Verne', Email: 'Verne.J@Outlook.com', County: 'Vernon', Skills: 'CERT EMT-B'},
+  {firstName: 'Kate', lastName: 'Tomlins', Email: 'Katet@gmail.com', County: 'Nodway', Skills: 'CERT'},
+  {firstName: 'Amy', lastName: 'Yates', Email: 'Yates@yahoomail.com', County: 'Saint Louis', Skills: 'CERT LPN'},
+  {firstName: 'David', lastName: 'Cameron', Email: 'David@gmail.com', County: 'Nodway', Skills: 'CERT'},
 ];
 
 @Component({
