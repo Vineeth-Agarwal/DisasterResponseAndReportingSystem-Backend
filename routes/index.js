@@ -311,4 +311,10 @@ router.get('/incidentReport', function (req, res, next) {
   res.download("./public/assets/incidentsReport.xlsx");
 });
 
+// certification
+router.get('/certification', function (req, res, next) {
+  // fetches the respective requested record successfully
+  res.download("./public/assets/cert-certificate.jpg");
+});
+
 module.exports = router;
