@@ -13,7 +13,7 @@ export class ArchivedIncidentsComponent implements OnInit {
 
   incidents: Incident[];
   events: string[] = []; // for date filter
-  displayedColumns = ['incidentName', 'location', 'date', 'time', 'description'];
+  displayedColumns = ['incidentName', 'location', 'date', 'description'];
   dataSource: MatTableDataSource<Incident>;
   selection = new SelectionModel<Incident>(true, []);
 
