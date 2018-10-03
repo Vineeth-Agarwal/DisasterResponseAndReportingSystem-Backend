@@ -11,41 +11,42 @@
          (markerClick) will do something we write when a marker is clicked.
 
      -->
-     <agm-map [latitude]="lat" [longitude]="lng"  [zoomControl]="true">
-            <!-- <agm-map [latitude]=40.349841283655195 [longitude]=-94.8827696546299  [zoomControl]="true"> -->
 
-        <!-- <agm-marker *ngFor="let m of reports; let i=index" [latitude]="m.location.lat" [longitude]="m.location.lng">
-            <agm-info-window>
-                <strong>
-                    <table style ="width:30%">
-                        <tr>
-                            <th>
-                                {{m.reportID}}
-                            </th>
-                        </tr>
-                        <tr id="black_row">
-                            <td align="center">
-                                {{m.casualties.deceased}}
-                            </td>
-                        </tr>
-                        <tr id="red_row">
-                            <td align="center">
-                                {{m.casualties.immediate}}
-                            </td>
-                        </tr>
-                        <tr id="yellow_row">
-                            <td align="center">
-                                {{m.casualties.delayed}}
-                            </td>
-                        </tr>
-                        <tr id="green_row">
-                            <td align="center">
-                                {{m.casualties.minor}}
-                            </td>
-                        </tr>
-                    </table>
-                </strong>
-            </agm-info-window>
-    
-        </agm-marker> -->
-    </agm-map>
+<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]="true"> -->
+<agm-map  [latitude]=lat [longitude]=lng [zoomControl]="true">
+
+    <agm-marker *ngFor="let m of reports; let i=index" [latitude]=m.location.lat [longitude]=m.location.lng>
+        <agm-info-window>
+            <strong>
+                <table style="width:30%">
+                    <tr>
+                        <th>
+                            {{m.reportID}}
+                        </th>
+                    </tr>
+                    <tr id="black_row">
+                        <td align="center">
+                            {{m.casualties.black}}
+                        </td>
+                    </tr>
+                    <tr id="red_row">
+                        <td align="center">
+                            {{m.casualties.red}}
+                        </td>
+                    </tr>
+                    <tr id="yellow_row">
+                        <td align="center">
+                            {{m.casualties.yellow}}
+                        </td>
+                    </tr>
+                    <tr id="green_row">
+                        <td align="center">
+                            {{m.casualties.green}}
+                        </td>
+                    </tr>
+                </table>
+            </strong>
+        </agm-info-window>
+
+    </agm-marker>
+</agm-map>

@@ -23,10 +23,10 @@
  <mat-card *ngIf ="teams.length > 0 && !isLoading" class="incident-card mat-elevation-z5" >
     <!-- Image for team is provided when clicked on image it redirects to the team page -->
    <a routerLink = "/team1Details">
-   <img mat-card-image src="assets/images/teams/img1.jpg" alt="Team1"></a>
+   <img mat-card-image src='assets/images/teams/{{1}}.jpg' alt="Team1"></a>
    <mat-card-content >
      <!-- Team name -->
-     <h2>{{ item.teamId }}</h2>
+     <h2>{{ item.teamID }}</h2>
    </mat-card-content>
  </mat-card>
      </div>
