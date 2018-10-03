@@ -7,50 +7,58 @@ var membere = require("../model/members");
 var team = require("../model/team");
 var signup = require("../model/signup")
 var users = require('../controller/user-controller')
-var multer  = require('multer')
+var multer = require('multer')
+// push notification
+var FCM = require('fcm-node')
+var serverKey = require('../config/service-account.json') //put the generated private key path here    
+var fcm = new FCM(serverKey)
 
 var path = require("path")
 var User = require("../model/user")
 
+
+
 // file upload
 var upload = multer({
   storage: multer.diskStorage({
-      destination: function (req, file, callback) {
-          callback(null, "./views/dist/drrs/assets/upload");
-      },
-      filename: function (req, file, callback) {
-        var ext = path.extname(file.originalname);
-          callback(null, Date.now()+ext);
-      }
+    destination: function (req, file, callback) {
+      callback(null, "./views/dist/drrs/assets/upload");
+    },
+    filename: function (req, file, callback) {
+      var ext = path.extname(file.originalname);
+      callback(null, Date.now() + ext);
+    }
   }),
 }).array("file");
 
 router.post('/upload', function (req, res, next) {
   upload(req, res, function (err) {
     if (err) {
-        return res.status(403).json({ message: err });
+      return res.status(403).json({ message: err });
     }
     console.log(req.files)
-  // res.send();
-  if (req && !req.body) {
-    return res.status(403).json({ msg: "Please provide applicant details" })
-  }
-  // var bodyData = JOSN req.body
-  
-  var userObj = new User(JSON.parse(req.body.data));
-  req.files.forEach(ele => {
-     userObj.files.push("/assets/upload/" + ele.filename);
-  });
-  userObj.save(function (err, data) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err: err })
+    // res.send();
+    if (req && !req.body) {
+      return res.status(403).json({ msg: "Please provide applicant details" })
     }
-    else {
-      res.status(200).json({ msg: "user record saved successfully", data: data })
-    }
+    // var bodyData = JOSN req.body
+
+    var userObj = new User(JSON.parse(req.body.data));
+    req.files.forEach(ele => {
+      userObj.files.push("/assets/upload/" + ele.filename);
+    });
+    userObj.save(function (err, data) {
+      if (err) {
+        res.status(403).json({ msg: "something bad", err: err })
+      }
+      else {
+        res.status(200).json({ msg: "user record saved successfully", data: data })
+      }
+    });
   });
-});
 })
+
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -58,7 +66,7 @@ router.get('/', function (req, res, next) {
 });
 
 // Signin route for a user
-router.route('/signin').post(users.signin,users.saveTokenNRespond);
+router.route('/signin').post(users.signin, users.saveTokenNRespond);
 
 // Signup route for a user
 router.route('/signup').post(users.signup);
@@ -186,12 +194,32 @@ router.post('/saveIncident', function (req, res, next) {
     return res.status(403).json({ msg: "Please provide incident details" })
   }
   var incidentObj = new incident(req.body);
+  // push notification
+  const messageDetails = {
+    //this may vary according to the message type 
+    //(single recipient, multicast, topic, et cetera)
+    to: 'ecsP0uw6aI8:APA91bGLGajaVNpht3JeoPTirvf3mway8CSBPMfBg4Vj0RXjZzi4lD3gM9XrwynBl-6L-pzoMcsE7lrkrlVM1-tWt5th040Xy9FWbqUYFxN75yNI63btSfG_3jMucKe9UMeqkqdTaX3R',
+
+    data: {
+      title: 'Disaster has Occurred',
+      body: 'Are you available ?'
+    },
+  }
   incidentObj.save(function (err, data) {
     if (err) {
       res.status(403).json({ msg: "something bad", err: err })
     }
     else {
-      res.status(200).json({ msg: "incident record saved successfully", data: data })
+      fcm.send(messageDetails, function (err, response) {
+        if (err) {
+          console.log("Something has gone wrong!", err)
+          res.status(200).json({ msg: "incident record saved successfully - no message", data: err })
+        } else {
+          console.log("Successfully sent with response: ", response)
+          res.status(200).json({ msg: "incident record saved successfully", data: data })
+        }
+      })
+
     }
   });
 })
@@ -245,7 +273,7 @@ router.post('/saveTeam', function (req, res, next) {
   }
   // Creating an object for the team model
   var teamObj = new team(req.body);
-  
+
   teamObj.save(function (err, data) {
     // Checks for an error 
     if (err) {
