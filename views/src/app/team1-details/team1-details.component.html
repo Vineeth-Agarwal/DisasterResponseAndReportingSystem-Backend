@@ -6,7 +6,9 @@
  <div class="container">
  <h1 class="pageHeading mat-display-1">Team1 Members</h1>
  <hr>
- 
+ <b>Leader:</b> Jim Willaims
+ <br>
+ <b>Assistant Leader:</b> Jules Verne
  <div class="example-container mat-elevation-z8">
  <!-- Table is provide with the team members details -->
  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -47,11 +49,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
- </div>
-
- <br>
-  <b>Leader:</b> Jim Willaims
-  <br>
-  <b>Assistant Leader:</b> Jules Verne
-  
+ </div> 
   </div>
