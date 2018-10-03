@@ -8,7 +8,7 @@ import { Team } from '../common/team';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-
+ 
   teams: Team[];
   isLoading = false;
   constructor(private dataService: DataService) { }
@@ -20,5 +20,4 @@ export class TeamsComponent implements OnInit {
         this.isLoading = false;
       });
   }
-
 }
