@@ -26,9 +26,12 @@ export class CreateIncidentComponent implements OnInit {
   ngOnInit() {
   }
 
+  
   onCreate({ value, valid }: { value: Incident, valid: boolean }) {
     // alert("Incident module created successfully");
     // this.router.navigate(['/dashboard']);
+    value.incidentID=value.incidentName+"_"+this.convert(this.date);
+    // console.log(value.incidentName+this.convert(this.date));
     this.incident = value;
     console.log(this.incident);
     // make http req. only if form is valid
@@ -44,4 +47,11 @@ export class CreateIncidentComponent implements OnInit {
           });
     }
   }
+
+   convert(str) {
+    var date = new Date(str),
+        mnth = ("0" + (date.getMonth()+1)).slice(-2),
+        day  = ("0" + date.getDate()).slice(-2);
+    return [ date.getFullYear(), mnth, day ].join("");
+}
 }
