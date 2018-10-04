@@ -558,7 +558,7 @@ module.exports = "agm-map{\r\n    height: 620px;\r\n}\r\n\r\n th, td {\r\n    bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\r\n\r\n<!-- \r\n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\r\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\r\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\r\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\r\n         [markerDraggable] is used to drag the marker on the map.\r\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \r\n         we might write in markerDragEnd()\r\n         (markerClick) will do something we write when a marker is clicked.\r\n\r\n     -->\r\n\r\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\r\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\r\n\r\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\r\n        <agm-info-window>\r\n            <strong>\r\n                <table style=\"width:30%\">\r\n                    <tr>\r\n                        <th>\r\n                            {{m.reportID}}\r\n                        </th>\r\n                    </tr>\r\n                    <tr id=\"black_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.black}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"red_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.red}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"yellow_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.yellow}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"green_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.green}}\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </strong>\r\n        </agm-info-window>\r\n\r\n    </agm-marker>\r\n</agm-map>"
+module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\n\n<!-- \n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\n         [markerDraggable] is used to drag the marker on the map.\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \n         we might write in markerDragEnd()\n         (markerClick) will do something we write when a marker is clicked.\n\n     -->\n\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\n\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\n        <agm-info-window>\n            <strong>\n                <table style=\"width:30%\">\n                    <tr>\n                        <th>\n                            {{m.reportID}}\n                        </th>\n                    </tr>\n                    <tr id=\"black_row\">\n                        <td align=\"center\">\n                            {{m.casualties.black}}\n                        </td>\n                    </tr>\n                    <tr id=\"red_row\">\n                        <td align=\"center\">\n                            {{m.casualties.red}}\n                        </td>\n                    </tr>\n                    <tr id=\"yellow_row\">\n                        <td align=\"center\">\n                            {{m.casualties.yellow}}\n                        </td>\n                    </tr>\n                    <tr id=\"green_row\">\n                        <td align=\"center\">\n                            {{m.casualties.green}}\n                        </td>\n                    </tr>\n                </table>\n            </strong>\n        </agm-info-window>\n\n    </agm-marker>\n</agm-map>"
 
 /***/ }),
 
@@ -684,6 +684,8 @@ var CreateIncidentComponent = /** @class */ (function () {
         var value = _a.value, valid = _a.valid;
         // alert("Incident module created successfully");
         // this.router.navigate(['/dashboard']);
+        value.incidentID = value.incidentName + "_" + this.convert(this.date);
+        // console.log(value.incidentName+this.convert(this.date));
         this.incident = value;
         console.log(this.incident);
         // make http req. only if form is valid
@@ -697,6 +699,10 @@ var CreateIncidentComponent = /** @class */ (function () {
                 console.log('Error Occured');
             });
         }
+    };
+    CreateIncidentComponent.prototype.convert = function (str) {
+        var date = new Date(str), mnth = ("0" + (date.getMonth() + 1)).slice(-2), day = ("0" + date.getDate()).slice(-2);
+        return [date.getFullYear(), mnth, day].join("");
     };
     CreateIncidentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1526,7 +1532,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\Backend-Working Version\New\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
