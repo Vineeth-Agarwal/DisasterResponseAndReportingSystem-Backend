@@ -10,6 +10,7 @@ var incidentSchema = new Schema({
   date: { type: Date, default: Date.now },
   time: String,
   description: String,
+  isActive: Boolean
 });
 
 module.exports = mongoose.model('incidents', incidentSchema);

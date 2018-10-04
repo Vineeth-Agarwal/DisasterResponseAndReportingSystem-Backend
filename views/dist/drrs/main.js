@@ -675,6 +675,7 @@ var CreateIncidentComponent = /** @class */ (function () {
             date: this.date,
             time: this.date,
             description: '',
+            isActive: false
         });
     }
     CreateIncidentComponent.prototype.ngOnInit = function () {
@@ -685,6 +686,7 @@ var CreateIncidentComponent = /** @class */ (function () {
         // alert("Incident module created successfully");
         // this.router.navigate(['/dashboard']);
         value.incidentID = value.incidentName + "_" + this.convert(this.date);
+        value.isActive = true;
         // console.log(value.incidentName+this.convert(this.date));
         this.incident = value;
         console.log(this.incident);

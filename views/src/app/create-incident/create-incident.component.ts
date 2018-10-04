@@ -20,6 +20,7 @@ export class CreateIncidentComponent implements OnInit {
       date: this.date,
       time: this.date,
       description: '',
+      isActive:false
     });
   }
 
@@ -31,6 +32,7 @@ export class CreateIncidentComponent implements OnInit {
     // alert("Incident module created successfully");
     // this.router.navigate(['/dashboard']);
     value.incidentID=value.incidentName+"_"+this.convert(this.date);
+    value.isActive=true
     // console.log(value.incidentName+this.convert(this.date));
     this.incident = value;
     console.log(this.incident);
