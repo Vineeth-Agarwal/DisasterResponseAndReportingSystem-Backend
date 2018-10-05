@@ -237,6 +237,19 @@ router.get('/getIncidentsList', function (req, res, next) {
   })
 });
 
+// get archive incident - kishan
+router.get('/getArchiveIncidents', function (req, res, next) {
+  incident.find({isActive: 'false'}, function (err, results) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err })
+    }
+    else {
+      console.log(results)
+      res.status(200).json({ msg: "Incident record fetched successfully", data: results })
+    }
+  })
+});
+
 // archive incident
 router.put('/archiveIncident', function (req, res, next) {
   if (req && !req.body) {

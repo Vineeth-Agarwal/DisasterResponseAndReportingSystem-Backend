@@ -22,11 +22,11 @@ export class ArchivedIncidentsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getIncidentsList()
+    this.dataService.getArciveIncident()
       .subscribe((data) => {
         this.incidents = data['data'];
         this.dataSource = new MatTableDataSource<Incident>(this.incidents);
-        // console.log(this.incidents)
+        // console.log(this.incidents);
       });
   }
 
