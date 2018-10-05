@@ -20,8 +20,13 @@ export class DataService {
         //   http call
         return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
         // return this.http.get('http://localhost:3000/getIncidentsList');
-
     }
+
+    archiveIncident(data) {
+      //   http call
+      return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
+      // return this.http.put('http://localhost:3000/archiveIncident', data);
+  }
 
     getReportsList() {
         //   http call

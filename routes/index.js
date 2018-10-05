@@ -200,7 +200,6 @@ router.post('/saveIncident', function (req, res, next) {
     //this may vary according to the message type 
     //(single recipient, multicast, topic, et cetera)
     to: 'ey1YEcNTJNo:APA91bG2wrq6UbINgalBJpRuMkXdb8UqIr2Ni2pILod7xxWA_EuNEvNQlz902KJKPsgt5KLmwDL2ZuF84UjTkOK_uNl2tjaS9IjSd1ag75WARpwiBdA4G48Ytf5OeHSHI1SAiLatBOOC',
-
     data: {
       title: 'Disaster has Occurred',
       body: 'Are you available ?'
@@ -227,15 +226,31 @@ router.post('/saveIncident', function (req, res, next) {
 
 // get incident - kishan
 router.get('/getIncidentsList', function (req, res, next) {
-  incident.find({}, function (err, results) {
+  incident.find({isActive: 'true'}, function (err, results) {
     if (err) {
       res.status(403).json({ msg: "something bad", err })
     }
     else {
+      console.log(results)
       res.status(200).json({ msg: "Incident record fetched successfully", data: results })
     }
   })
 });
+
+// archive incident
+router.put('/archiveIncident', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide details for report" })
+  }
+  incident.findByIdAndUpdate(req.body, {isActive: 'false'}, function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "Incident updated successfully", data: data })
+    }
+  });
+})
 
 // save report
 router.post('/saveReport', function (req, res, next) {

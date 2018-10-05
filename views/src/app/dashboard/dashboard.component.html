@@ -21,9 +21,9 @@
 
   <br>
   <div class="row">
-    <mat-spinner *ngIf="isLoading"></mat-spinner>
-    <div *ngFor="let item of incidents">
-      <div class="col-4 text-center">
+    <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+    <div *ngFor="let item of incidents" >
+      <div class="col-4 text-center" *ngIf="item.isActive">
         <!-- The incident modules are shown using cards. Card has image of incident,
         brief description and two buttons edit and archive -->
         <mat-card *ngIf="incidents.length > 0 && !isLoading" class="incident-card mat-elevation-z5">
@@ -46,11 +46,12 @@
             <button mat-raised-button color="primary" routerLink="/teams">Team</button>
             <!-- Archive button is provided to archive the incident module -->
             <div class="mt-archive">
-              <button mat-raised-button color="warn" routerLink="/#">Archive</button>
+              <button mat-raised-button color="warn" (click)="onArchive(item)">Archive</button>
             </div>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
+    <p class="mat-title" *ngIf = "!incidents?.length">No incident to show!</p>
   </div>
 </div>

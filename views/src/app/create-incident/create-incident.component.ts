@@ -20,19 +20,19 @@ export class CreateIncidentComponent implements OnInit {
       date: this.date,
       time: this.date,
       description: '',
-      isActive:false
+      isActive: false
     });
   }
 
   ngOnInit() {
   }
 
-  
+
   onCreate({ value, valid }: { value: Incident, valid: boolean }) {
     // alert("Incident module created successfully");
     // this.router.navigate(['/dashboard']);
-    value.incidentID=value.incidentName+"_"+this.convert(this.date);
-    value.isActive=true
+    value.incidentID = value.incidentName + '_' + this.convert(this.date);
+    value.isActive = true;
     // console.log(value.incidentName+this.convert(this.date));
     this.incident = value;
     console.log(this.incident);
@@ -50,10 +50,13 @@ export class CreateIncidentComponent implements OnInit {
     }
   }
 
-   convert(str) {
-    var date = new Date(str),
-        mnth = ("0" + (date.getMonth()+1)).slice(-2),
-        day  = ("0" + date.getDate()).slice(-2);
-    return [ date.getFullYear(), mnth, day ].join("");
-}
+  convert(str) {
+    // tslint:disable-next-line:prefer-const
+    let date = new Date(str),
+      // tslint:disable-next-line:prefer-const
+      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
+      // tslint:disable-next-line:prefer-const
+      day = ('0' + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join('');
+  }
 }
