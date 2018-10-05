@@ -30,7 +30,7 @@ export class DataService {
 
   archiveIncident(data) {
     //   http call
-    return this.http.get('https://drrs.herokuapp.com/archiveIncident');
+    return this.http.put('https://drrs.herokuapp.com/archiveIncident', data);
     // return this.http.put('http://localhost:3000/archiveIncident', data);
   }
 
