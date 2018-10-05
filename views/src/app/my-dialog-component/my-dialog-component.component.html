@@ -4,25 +4,26 @@
     <hr>
     <mat-dialog-content>
       <!-- <div class="container"> -->
-  <div class="row">
+  <div class="row text-style">
     <div class="col">
       <h3><u>Personal Details:</u></h3>
-      <p><b>First Name: </b>John</p>
-      <p><b>Second Name: </b>Wog</p>
-      <p><b>Email Id: </b>jwog@gamil.com</p>
-      <p><b>Date of Birth: </b> 09/09/1995</p>
-      <p><b>Mobile Number: </b> 660-529-0608</p>
+      <p><b>First Name: </b>{{ user.firstName }}</p>
+      <p><b>Second Name: </b>{{ user.lastName }}</p>
+      <p><b>Email Id: </b>{{ user.email }}</p>
+      <p><b>Date of Birth: </b>{{ user.dob | date: 'dd/MM/yyyy' }}</p>
+      <p><b>Mobile Number: </b> {{ user.mobileNumber }}</p>
       <h3><u>Address: </u></h3>
-      NWMSU,<br>
-      800 University Drive,<br>
-      Maryville, MO 64468
+      {{ user.address1 }},<br>
+      {{ user.address2 }}, {{ user.county }},<br>
+      {{ user.city }}, {{ user.state }}, {{ user.country }}
     </div>
     <div class="col">
       <h3><u>Additional Details:</u></h3>
-      <p><b>Skills: </b>CERT, EMR, Firefghter,EMT-B, EMT-A </p>
-      <p><b>Lisence Number: </b>1234677889dgf586 </p>
-      <p><b>Limitations: </b>Deaf</p>
-      <p><b>Certification: </b><a href="http://localhost:3000/certification">FEMA</a></p>
+      <p><b>Skills: </b> {{ user.skills }} </p>
+      <p><b>Lisence Number: </b> {{ user.licenseNumber }} </p>
+      <p><b>Limitations: </b>{{ user.limitations }}</p>
+      <p *ngIf='user.files'><b>Certification: </b><a href="http://localhost:3000/certification">{{ user.files }}</a></p>
+      <p *ngIf='!user.files'><b>Certification: </b>No files uploaded</p>
     </div>
   </div>
   <!-- </div> -->
@@ -30,7 +31,7 @@
   </mat-dialog-content>
   <hr>
   <mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="close()">Accept</button>
-    <button mat-raised-button color="warn" (click)="clos()">Deny</button>
+    <button mat-raised-button color="primary" (click)="accept()">Accept</button>
+    <button mat-raised-button color="warn" (click)="deny()">Deny</button>
   </mat-dialog-actions>
   </div>

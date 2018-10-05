@@ -54,11 +54,10 @@ export class ReviewApplicationComponent implements OnInit {
     const dialogRef = this.dialog.open(MyDialogComponentComponent, {
         width: '950px',
         height: '600px',
-        data: 'hello '
-
+        data: row
     });
     dialogRef.afterClosed().subscribe(result  => {
-        console.log('dialog closed: ${result}');
+        console.log(result);
         this.dialogResult = result;
     });
   }

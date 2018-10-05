@@ -7,19 +7,19 @@
   margin: auto;
 }
 
-.example-container {
+.table-container {
     display: flex;
     flex-direction: column;
     min-width: 300px;
   }
 
-.example-header {
+.filter-header {
   min-height: 64px;
   padding: 8px 24px 0;
 }
 
 .mat-form-field {
-  font-size: 14px;
+  font-size: 20px;
   width: 100%;
 }
 
@@ -29,6 +29,11 @@
 }
 
 .table-header{
-  font-size: 18px;
+  font-size: 25px;
   color: black;
+  font-weight: bold;
+}
+
+.table-cell {
+  font-size: 18px;
 }

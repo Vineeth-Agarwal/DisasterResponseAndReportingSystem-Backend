@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 // import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { User } from '../common/user';
 
 
 @Component({
@@ -11,18 +12,18 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class MyDialogComponentComponent implements OnInit {
 
-  constructor(public thisDialogRef: MatDialogRef<MyDialogComponentComponent>,@Inject(MAT_DIALOG_DATA) public data:string) { }
+  user: User;
+  constructor(public thisDialogRef: MatDialogRef<MyDialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
 
   ngOnInit() {
+    this.user = this.data;
   }
-  close()
-  {
+
+  accept() {
    this.thisDialogRef.close('confirm');
   }
-  clos()
-  {
+
+  deny() {
     this.thisDialogRef.close('deny');
-
   }
-
 }
