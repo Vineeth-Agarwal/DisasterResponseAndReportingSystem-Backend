@@ -314,7 +314,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Assigned to kishan */\r\n\r\n.example-container {\r\n    display: flex;\r\n    /* flex-direction: column;\r\n    min-width: 300px; */\r\n  }\r\n\r\n.pageHeading {\r\n    margin: auto;\r\n  }\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n\r\n.table-header{\r\n  font-size: 18px;\r\n  color: black;\r\n}\r\n\r\n/* for buttons - download */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n}\r\n"
+module.exports = "/* Assigned to kishan */\r\n\r\n.example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 1110px;\r\n  }\r\n\r\n.pageHeading {\r\n    margin: 13px auto;\r\n  }\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n  min-width: 400px;\r\n}\r\n\r\n.table-header{\r\n  font-size: 25px;\r\n  color: black;\r\n  font-weight: bold;\r\n}\r\n\r\n.table-cell {\r\n  font-size: 15px;\r\n}\r\n\r\n/* for buttons - download */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n}\r\n"
 
 /***/ }),
 
@@ -325,7 +325,7 @@ module.exports = "/* Assigned to kishan */\r\n\r\n.example-container {\r\n    di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  This page is to show past incidents\r\n  Assigned to Kishan\r\n-->\r\n<div class=\"container\">\r\n   <!-- Header for the Archived Incidents page -->\r\n  <!-- <h1>Archived Incidents</h1> -->\r\n  <h1 class=\"pageHeading mat-display-1\">Archived Incidents</h1>\r\n  <hr>\r\n\r\n  <div class=\"row\">\r\n\r\n    <div class=\"example-container mat-elevation-z8\">\r\n      <div class=\"col-sm-3\">\r\n        <div class=\"example-header\">\r\n          <mat-form-field>\r\n            <!-- <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\"> -->\r\n            <!-- Picker is added to select the date from calendar -->\r\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a start date\">\r\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n            <mat-datepicker touchUi=\"true\" #picker></mat-datepicker>\r\n          </mat-form-field>\r\n        </div>\r\n      </div>\r\n      <div class=\"col\">\r\n        <!-- Table contains details of the archived incidents -->\r\n        <mat-table #table [dataSource]=\"dataSource\">\r\n\r\n          <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n          <!-- Incident Name Column -->\r\n          <ng-container matColumnDef=\"incidentName\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Incident Name </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\"> {{element.incidentName }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- Location Name Column -->\r\n          <ng-container matColumnDef=\"location\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Location </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\"> {{element.location }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- Date Column -->\r\n          <ng-container matColumnDef=\"date\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Date </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\"> {{element.date | date }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- Time Column -->\r\n          <!-- <ng-container matColumnDef=\"time\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Time </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\"> {{element.time }} </mat-cell>\r\n          </ng-container> -->\r\n\r\n          <!-- Description Column -->\r\n          <ng-container matColumnDef=\"description\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Description </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\"> {{element.description }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- When clicked on any row a popup is displayed showing the details of incident -->\r\n          <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n          <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"rowClicked(row)\"></mat-row>\r\n        </mat-table>\r\n      </div>\r\n    </div>\r\n  </div>\r\n<hr>\r\n  <div class=\"row\">\r\n    <div class=\"col text-center\">\r\n      <!-- Button is provided to download the archived incidents to excel sheet -->\r\n    <a mat-raised-button color=\"primary\" class=\"buttons\" href=\"http://drrs.herokuapp.com/incidentReport\">Download</a>\r\n  </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  This page is to show past incidents\r\n  Assigned to Kishan\r\n-->\r\n<div class=\"container\">\r\n  <!-- Header for the Archived Incidents page -->\r\n  <!-- <h1>Archived Incidents</h1> -->\r\n  <h1 class=\"pageHeading mat-display-1\">Archived Incidents</h1>\r\n  <hr>\r\n\r\n  <div class=\"row\">\r\n\r\n    <div class=\"example-header\">\r\n      <mat-form-field>\r\n        <!-- <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\"> -->\r\n        <!-- Picker is added to select the date from calendar -->\r\n        <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a start date\">\r\n        <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n        <mat-datepicker touchUi=\"true\" #picker></mat-datepicker>\r\n      </mat-form-field>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"example-container mat-elevation-z8\">\r\n\r\n        <!-- Table contains details of the archived incidents -->\r\n        <mat-table #table [dataSource]=\"dataSource\">\r\n\r\n          <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n          <!-- Incident Name Column -->\r\n          <ng-container matColumnDef=\"incidentName\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Incident Name </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.incidentName }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- Location Name Column -->\r\n          <ng-container matColumnDef=\"location\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Location </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.location }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- Date Column -->\r\n          <ng-container matColumnDef=\"date\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Date </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.date | date }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- Time Column -->\r\n          <!-- <ng-container matColumnDef=\"time\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Time </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\"> {{element.time }} </mat-cell>\r\n          </ng-container> -->\r\n\r\n          <!-- Description Column -->\r\n          <ng-container matColumnDef=\"description\">\r\n            <mat-header-cell *matHeaderCellDef class=\"table-header\"> Description </mat-header-cell>\r\n            <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.description }} </mat-cell>\r\n          </ng-container>\r\n\r\n          <!-- When clicked on any row a popup is displayed showing the details of incident -->\r\n          <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n          <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"rowClicked(row)\"></mat-row>\r\n        </mat-table>\r\n\r\n    </div>\r\n  </div>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col text-center\">\r\n      <!-- Button is provided to download the archived incidents to excel sheet -->\r\n      <a mat-raised-button color=\"primary\" class=\"buttons\" href=\"http://drrs.herokuapp.com/incidentReport\">Download</a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -365,11 +365,11 @@ var ArchivedIncidentsComponent = /** @class */ (function () {
     }
     ArchivedIncidentsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dataService.getIncidentsList()
+        this.dataService.getArciveIncident()
             .subscribe(function (data) {
             _this.incidents = data['data'];
             _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](_this.incidents);
-            // console.log(this.incidents)
+            // console.log(this.incidents);
         });
     };
     ArchivedIncidentsComponent.prototype.addEvent = function (type, event) {
@@ -460,6 +460,16 @@ var DataService = /** @class */ (function () {
         return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
         // return this.http.get('http://localhost:3000/getIncidentsList');
     };
+    DataService.prototype.getArciveIncident = function () {
+        //   http call
+        return this.http.get('https://drrs.herokuapp.com/getArchiveIncidents');
+        // return this.http.get('http://localhost:3000/getArchiveIncidents');
+    };
+    DataService.prototype.archiveIncident = function (data) {
+        //   http call
+        return this.http.put('https://drrs.herokuapp.com/archiveIncident', data);
+        // return this.http.put('http://localhost:3000/archiveIncident', data);
+    };
     DataService.prototype.getReportsList = function () {
         //   http call
         return this.http.get('https://drrs.herokuapp.com/getReportsList');
@@ -540,6 +550,29 @@ var Team = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/common/user.ts":
+/*!********************************!*\
+  !*** ./src/app/common/user.ts ***!
+  \********************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User(values) {
+        if (values === void 0) { values = {}; }
+        /*Constructor initialization*/
+        Object.assign(this, values);
+    }
+    return User;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/cop/cop.component.css":
 /*!***************************************!*\
   !*** ./src/app/cop/cop.component.css ***!
@@ -558,7 +591,7 @@ module.exports = "agm-map{\r\n    height: 620px;\r\n}\r\n\r\n th, td {\r\n    bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\n\n<!-- \n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\n         [markerDraggable] is used to drag the marker on the map.\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \n         we might write in markerDragEnd()\n         (markerClick) will do something we write when a marker is clicked.\n\n     -->\n\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\n\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\n        <agm-info-window>\n            <strong>\n                <table style=\"width:30%\">\n                    <tr>\n                        <th>\n                            {{m.reportID}}\n                        </th>\n                    </tr>\n                    <tr id=\"black_row\">\n                        <td align=\"center\">\n                            {{m.casualties.black}}\n                        </td>\n                    </tr>\n                    <tr id=\"red_row\">\n                        <td align=\"center\">\n                            {{m.casualties.red}}\n                        </td>\n                    </tr>\n                    <tr id=\"yellow_row\">\n                        <td align=\"center\">\n                            {{m.casualties.yellow}}\n                        </td>\n                    </tr>\n                    <tr id=\"green_row\">\n                        <td align=\"center\">\n                            {{m.casualties.green}}\n                        </td>\n                    </tr>\n                </table>\n            </strong>\n        </agm-info-window>\n\n    </agm-marker>\n</agm-map>"
+module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\r\n\r\n<!-- \r\n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\r\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\r\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\r\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\r\n         [markerDraggable] is used to drag the marker on the map.\r\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \r\n         we might write in markerDragEnd()\r\n         (markerClick) will do something we write when a marker is clicked.\r\n\r\n     -->\r\n\r\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\r\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\r\n\r\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\r\n        <agm-info-window>\r\n            <strong>\r\n                <table style=\"width:30%\">\r\n                    <tr>\r\n                        <th>\r\n                            {{m.reportID}}\r\n                        </th>\r\n                    </tr>\r\n                    <tr id=\"black_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.black}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"red_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.red}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"yellow_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.yellow}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"green_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.green}}\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </strong>\r\n        </agm-info-window>\r\n\r\n    </agm-marker>\r\n</agm-map>"
 
 /***/ }),
 
@@ -685,7 +718,7 @@ var CreateIncidentComponent = /** @class */ (function () {
         var value = _a.value, valid = _a.valid;
         // alert("Incident module created successfully");
         // this.router.navigate(['/dashboard']);
-        value.incidentID = value.incidentName + "_" + this.convert(this.date);
+        value.incidentID = value.incidentName + '_' + this.convert(this.date);
         value.isActive = true;
         // console.log(value.incidentName+this.convert(this.date));
         this.incident = value;
@@ -703,8 +736,13 @@ var CreateIncidentComponent = /** @class */ (function () {
         }
     };
     CreateIncidentComponent.prototype.convert = function (str) {
-        var date = new Date(str), mnth = ("0" + (date.getMonth() + 1)).slice(-2), day = ("0" + date.getDate()).slice(-2);
-        return [date.getFullYear(), mnth, day].join("");
+        // tslint:disable-next-line:prefer-const
+        var date = new Date(str), 
+        // tslint:disable-next-line:prefer-const
+        mnth = ('0' + (date.getMonth() + 1)).slice(-2), 
+        // tslint:disable-next-line:prefer-const
+        day = ('0' + date.getDate()).slice(-2);
+        return [date.getFullYear(), mnth, day].join('');
     };
     CreateIncidentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -866,7 +904,7 @@ module.exports = "/* Assigned to Mouli and Kishan*/\r\n.container {\r\n  margin-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <mat-spinner *ngIf=\"isLoading\"></mat-spinner>\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/report\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" routerLink=\"/#\">Archive</button>\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\" >\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/report\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" (click)=\"onArchive(item)\">Archive</button>\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf = \"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -897,6 +935,7 @@ var DashboardComponent = /** @class */ (function () {
     function DashboardComponent(dataService) {
         this.dataService = dataService;
         this.isLoading = false;
+        this.id = { _id: String };
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -904,6 +943,24 @@ var DashboardComponent = /** @class */ (function () {
             .subscribe(function (data) {
             _this.incidents = data['data'];
             _this.isLoading = false;
+        });
+    };
+    DashboardComponent.prototype.onArchive = function (item) {
+        var _this = this;
+        this.id = { _id: item._id };
+        // console.log(this.id);
+        this.dataService.archiveIncident(this.id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.dataService.getIncidentsList()
+                .subscribe(function (dataInci) {
+                _this.incidents = dataInci['data'];
+                _this.isLoading = false;
+            });
+            item.isActive = false;
+            console.log('success');
+        }, function (error) {
+            console.log('Error Occured');
         });
     };
     DashboardComponent = __decorate([
@@ -1014,7 +1071,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".pageHeading {\r\n  margin: auto;\r\n}\r\n"
+module.exports = ".pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.text-style {\r\n  font-size: 20px;\r\n}\r\n"
 
 /***/ }),
 
@@ -1025,7 +1082,7 @@ module.exports = ".pageHeading {\r\n  margin: auto;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <h1 class=\"pageHeading mat-display-1\">Applicant Details:</h1>\r\n    <!-- mat-dialog-title -->\r\n    <hr>\r\n    <mat-dialog-content>\r\n      <!-- <div class=\"container\"> -->\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <h3><u>Personal Details:</u></h3>\r\n      <p><b>First Name: </b>John</p>\r\n      <p><b>Second Name: </b>Wog</p>\r\n      <p><b>Email Id: </b>jwog@gamil.com</p>\r\n      <p><b>Date of Birth: </b> 09/09/1995</p>\r\n      <p><b>Mobile Number: </b> 660-529-0608</p>\r\n      <h3><u>Address: </u></h3>\r\n      NWMSU,<br>\r\n      800 University Drive,<br>\r\n      Maryville, MO 64468\r\n    </div>\r\n    <div class=\"col\">\r\n      <h3><u>Additional Details:</u></h3>\r\n      <p><b>Skills: </b>CERT, EMR, Firefghter,EMT-B, EMT-A </p>\r\n      <p><b>Lisence Number: </b>1234677889dgf586 </p>\r\n      <p><b>Limitations: </b>Deaf</p>\r\n      <p><b>Certification: </b><a href=\"http://localhost:3000/certification\">FEMA</a></p>\r\n    </div>\r\n  </div>\r\n  <!-- </div> -->\r\n    <!-- <strong>{{data}}</strong> -->\r\n  </mat-dialog-content>\r\n  <hr>\r\n  <mat-dialog-actions>\r\n    <button mat-raised-button color=\"primary\" (click)=\"close()\">Accept</button>\r\n    <button mat-raised-button color=\"warn\" (click)=\"clos()\">Deny</button>\r\n  </mat-dialog-actions>\r\n  </div>\r\n"
+module.exports = "<div>\r\n    <h1 class=\"pageHeading mat-display-1\">Applicant Details:</h1>\r\n    <!-- mat-dialog-title -->\r\n    <hr>\r\n    <mat-dialog-content>\r\n      <!-- <div class=\"container\"> -->\r\n  <div class=\"row text-style\">\r\n    <div class=\"col\">\r\n      <h3><u>Personal Details:</u></h3>\r\n      <p><b>First Name: </b>{{ user.firstName }}</p>\r\n      <p><b>Second Name: </b>{{ user.lastName }}</p>\r\n      <p><b>Email Id: </b>{{ user.email }}</p>\r\n      <p><b>Date of Birth: </b>{{ user.dob | date: 'dd/MM/yyyy' }}</p>\r\n      <p><b>Mobile Number: </b> {{ user.mobileNumber }}</p>\r\n      <h3><u>Address: </u></h3>\r\n      {{ user.address1 }},<br>\r\n      {{ user.address2 }}, {{ user.county }},<br>\r\n      {{ user.city }}, {{ user.state }}, {{ user.country }}\r\n    </div>\r\n    <div class=\"col\">\r\n      <h3><u>Additional Details:</u></h3>\r\n      <p><b>Skills: </b> {{ user.skills }} </p>\r\n      <p><b>Lisence Number: </b> {{ user.licenseNumber }} </p>\r\n      <p><b>Limitations: </b>{{ user.limitations }}</p>\r\n      <p *ngIf='user.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ user.files }}</a></p>\r\n      <p *ngIf='!user.files'><b>Certification: </b>No files uploaded</p>\r\n    </div>\r\n  </div>\r\n  <!-- </div> -->\r\n    <!-- <strong>{{data}}</strong> -->\r\n  </mat-dialog-content>\r\n  <hr>\r\n  <mat-dialog-actions>\r\n    <button mat-raised-button color=\"primary\" (click)=\"accept()\">Accept</button>\r\n    <button mat-raised-button color=\"warn\" (click)=\"deny()\">Deny</button>\r\n  </mat-dialog-actions>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -1041,6 +1098,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyDialogComponentComponent", function() { return MyDialogComponentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _common_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/user */ "./src/app/common/user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1057,17 +1115,19 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 // import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
 
+
 var MyDialogComponentComponent = /** @class */ (function () {
     function MyDialogComponentComponent(thisDialogRef, data) {
         this.thisDialogRef = thisDialogRef;
         this.data = data;
     }
     MyDialogComponentComponent.prototype.ngOnInit = function () {
+        this.user = this.data;
     };
-    MyDialogComponentComponent.prototype.close = function () {
+    MyDialogComponentComponent.prototype.accept = function () {
         this.thisDialogRef.close('confirm');
     };
-    MyDialogComponentComponent.prototype.clos = function () {
+    MyDialogComponentComponent.prototype.deny = function () {
         this.thisDialogRef.close('deny');
     };
     MyDialogComponentComponent = __decorate([
@@ -1077,7 +1137,7 @@ var MyDialogComponentComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./my-dialog-component.component.css */ "./src/app/my-dialog-component/my-dialog-component.component.css")]
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], String])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_2__["User"]])
     ], MyDialogComponentComponent);
     return MyDialogComponentComponent;
 }());
@@ -1219,7 +1279,7 @@ var ReportComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;\r\n}\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n.example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n.table-header{\r\n  font-size: 18px;\r\n  color: black;\r\n}\r\n"
+module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;\r\n}\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n.table-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.filter-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n.mat-form-field {\r\n  font-size: 20px;\r\n  width: 100%;\r\n}\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n.table-header{\r\n  font-size: 22px;\r\n  color: black;\r\n  font-weight: bold;\r\n}\r\n.table-cell {\r\n  font-size: 15px;\r\n}\r\n"
 
 /***/ }),
 
@@ -1230,7 +1290,7 @@ module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <div class=\"example-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1299,10 +1359,10 @@ var ReviewApplicationComponent = /** @class */ (function () {
         var dialogRef = this.dialog.open(_my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_4__["MyDialogComponentComponent"], {
             width: '950px',
             height: '600px',
-            data: 'hello '
+            data: row
         });
         dialogRef.afterClosed().subscribe(function (result) {
-            console.log('dialog closed: ${result}');
+            console.log(result);
             _this.dialogResult = result;
         });
     };
@@ -1534,7 +1594,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\Backend-Working Version\New\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
