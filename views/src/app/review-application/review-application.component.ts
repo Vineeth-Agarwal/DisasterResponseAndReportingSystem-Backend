@@ -57,7 +57,7 @@ export class ReviewApplicationComponent implements OnInit {
         data: row
     });
     dialogRef.afterClosed().subscribe(result  => {
-        console.log(result);
+        console.log("result");
         this.dialogResult = result;
     });
   }

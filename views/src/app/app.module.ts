@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -59,6 +60,8 @@ import { ReportComponent } from './report/report.component';
 import { COPComponent } from './cop/cop.component';
 import { AgmCoreModule } from '@agm/core';
 import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-component.component';
+import { ApplicantacceptedComponent } from './applicantaccepted/applicantaccepted.component';
+import { ApplicantdeniedComponent } from './applicantdenied/applicantdenied.component';
 
 
 @NgModule({
@@ -97,7 +100,10 @@ import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-comp
     MatToolbarModule,
     MatTooltipModule,
   ],
+  
+
   declarations: [ReportComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class DemoMaterialModule {}
 
@@ -114,7 +120,9 @@ export class DemoMaterialModule {}
     Team1DetailsComponent,
     ArchivedIncidentsComponent,
     COPComponent,
-    MyDialogComponentComponent
+    MyDialogComponentComponent,
+    ApplicantacceptedComponent,
+    ApplicantdeniedComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
@@ -132,8 +140,13 @@ export class DemoMaterialModule {}
     }),
   ],
   entryComponents: [
-    MyDialogComponentComponent
+    MyDialogComponentComponent,
+    ApplicantacceptedComponent,
+    ApplicantdeniedComponent
+
   ],
+
+  
   providers: [],
   bootstrap: [AppComponent],
 

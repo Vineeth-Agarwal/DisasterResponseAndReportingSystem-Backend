@@ -184,12 +184,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 /* harmony import */ var _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./my-dialog-component/my-dialog-component.component */ "./src/app/my-dialog-component/my-dialog-component.component.ts");
+/* harmony import */ var _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./applicantaccepted/applicantaccepted.component */ "./src/app/applicantaccepted/applicantaccepted.component.ts");
+/* harmony import */ var _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./applicantdenied/applicantdenied.component */ "./src/app/applicantdenied/applicantdenied.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -253,7 +257,8 @@ var DemoMaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"],
             ],
-            declarations: [_report_report_component__WEBPACK_IMPORTED_MODULE_18__["ReportComponent"]],
+            declarations: [_report_report_component__WEBPACK_IMPORTED_MODULE_18__["ReportComponent"], _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__["ApplicantacceptedComponent"], _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__["ApplicantdeniedComponent"]],
+            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -301,6 +306,132 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/applicantaccepted/applicantaccepted.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/applicantaccepted/applicantaccepted.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/applicantaccepted/applicantaccepted.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/applicantaccepted/applicantaccepted.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<mat-card>\n  <mat-card-header>\n    <mat-card-title>\n      <h3>\n      Result:\n    </h3>\n    </mat-card-title>\n  </mat-card-header>\n  <hr>\n\n  <mat-card-content>\n      <div div style=\"text-align:center\">\n          Applicant Accepted!\n          <br>\n          \n        </div>\n        \n    <button mat-raised-button>OK</button>\n    \n  </mat-card-content>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/applicantaccepted/applicantaccepted.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/applicantaccepted/applicantaccepted.component.ts ***!
+  \******************************************************************/
+/*! exports provided: ApplicantacceptedComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicantacceptedComponent", function() { return ApplicantacceptedComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ApplicantacceptedComponent = /** @class */ (function () {
+    function ApplicantacceptedComponent() {
+    }
+    ApplicantacceptedComponent.prototype.ngOnInit = function () {
+    };
+    ApplicantacceptedComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-applicantaccepted',
+            template: __webpack_require__(/*! ./applicantaccepted.component.html */ "./src/app/applicantaccepted/applicantaccepted.component.html"),
+            styles: [__webpack_require__(/*! ./applicantaccepted.component.css */ "./src/app/applicantaccepted/applicantaccepted.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ApplicantacceptedComponent);
+    return ApplicantacceptedComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/applicantdenied/applicantdenied.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/applicantdenied/applicantdenied.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/applicantdenied/applicantdenied.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/applicantdenied/applicantdenied.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<mat-card>\n    <mat-card-header>\n      <mat-card-title>\n        <h3>\n        Result:\n      </h3>\n      </mat-card-title>\n    </mat-card-header>\n    <hr>\n  \n    <mat-card-content>\n        <div div style=\"text-align:center\">\n            Applicant Denied!\n            <br>\n            \n          </div>\n          \n      <button mat-raised-button>OK</button>\n      \n    </mat-card-content>\n  </mat-card>\n  "
+
+/***/ }),
+
+/***/ "./src/app/applicantdenied/applicantdenied.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/applicantdenied/applicantdenied.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ApplicantdeniedComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicantdeniedComponent", function() { return ApplicantdeniedComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ApplicantdeniedComponent = /** @class */ (function () {
+    function ApplicantdeniedComponent() {
+    }
+    ApplicantdeniedComponent.prototype.ngOnInit = function () {
+    };
+    ApplicantdeniedComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-applicantdenied',
+            template: __webpack_require__(/*! ./applicantdenied.component.html */ "./src/app/applicantdenied/applicantdenied.component.html"),
+            styles: [__webpack_require__(/*! ./applicantdenied.component.css */ "./src/app/applicantdenied/applicantdenied.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ApplicantdeniedComponent);
+    return ApplicantdeniedComponent;
 }());
 
 
@@ -1099,6 +1230,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _common_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/user */ "./src/app/common/user.ts");
+/* harmony import */ var _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../applicantaccepted/applicantaccepted.component */ "./src/app/applicantaccepted/applicantaccepted.component.ts");
+/* harmony import */ var _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../applicantdenied/applicantdenied.component */ "./src/app/applicantdenied/applicantdenied.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1116,19 +1249,40 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 // import { DialogDemoComponent } from '../dialog-demo/dialog-demo.component';
 
 
+
+
+
 var MyDialogComponentComponent = /** @class */ (function () {
-    function MyDialogComponentComponent(thisDialogRef, data) {
+    function MyDialogComponentComponent(dialog, thisDialogRef, data) {
+        this.dialog = dialog;
         this.thisDialogRef = thisDialogRef;
         this.data = data;
+        this.dialogResult = "";
     }
     MyDialogComponentComponent.prototype.ngOnInit = function () {
         this.user = this.data;
     };
     MyDialogComponentComponent.prototype.accept = function () {
-        this.thisDialogRef.close('confirm');
+        var _this = this;
+        var dialogReff = this.dialog.open(_applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_3__["ApplicantacceptedComponent"], {
+            width: '600px',
+            data: 'hellooo'
+        });
+        dialogReff.afterClosed().subscribe(function (result) {
+            // console.log('Dialog closed: ${result}');
+            _this.dialogResult = result;
+        });
     };
     MyDialogComponentComponent.prototype.deny = function () {
-        this.thisDialogRef.close('deny');
+        var _this = this;
+        var dialogReff = this.dialog.open(_applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_4__["ApplicantdeniedComponent"], {
+            width: '600px',
+            data: 'hellooo'
+        });
+        dialogReff.afterClosed().subscribe(function (result) {
+            // console.log('Dialog closed: ${result}');
+            _this.dialogResult = result;
+        });
     };
     MyDialogComponentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1136,8 +1290,8 @@ var MyDialogComponentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./my-dialog-component.component.html */ "./src/app/my-dialog-component/my-dialog-component.component.html"),
             styles: [__webpack_require__(/*! ./my-dialog-component.component.css */ "./src/app/my-dialog-component/my-dialog-component.component.css")]
         }),
-        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_2__["User"]])
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_2__["User"]])
     ], MyDialogComponentComponent);
     return MyDialogComponentComponent;
 }());
@@ -1362,7 +1516,7 @@ var ReviewApplicationComponent = /** @class */ (function () {
             data: row
         });
         dialogRef.afterClosed().subscribe(function (result) {
-            console.log(result);
+            console.log("result");
             _this.dialogResult = result;
         });
     };
@@ -1594,7 +1748,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530468\Desktop\Backend-Working Version\New\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
