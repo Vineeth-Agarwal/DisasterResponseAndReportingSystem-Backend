@@ -17,6 +17,7 @@ import { CreateTeamsComponent } from './create-teams/create-teams.component';
 
 import { Team1DetailsComponent } from './team1-details/team1-details.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import { ReportComponent } from './report/report.component';
 
 import {
   MatAutocompleteModule,
@@ -56,7 +57,6 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { ReportComponent } from './report/report.component';
 import { COPComponent } from './cop/cop.component';
 import { AgmCoreModule } from '@agm/core';
 import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-component.component';
@@ -100,10 +100,6 @@ import { ApplicantdeniedComponent } from './applicantdenied/applicantdenied.comp
     MatToolbarModule,
     MatTooltipModule,
   ],
-  
-
-  declarations: [ReportComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class DemoMaterialModule {}
 
@@ -122,7 +118,8 @@ export class DemoMaterialModule {}
     COPComponent,
     MyDialogComponentComponent,
     ApplicantacceptedComponent,
-    ApplicantdeniedComponent
+    ApplicantdeniedComponent,
+    ReportComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
