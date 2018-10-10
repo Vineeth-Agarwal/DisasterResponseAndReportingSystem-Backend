@@ -121,6 +121,7 @@ export class DemoMaterialModule {}
     ApplicantdeniedComponent,
     ReportComponent
   ],
+  
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
@@ -136,13 +137,12 @@ export class DemoMaterialModule {}
       apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
     }),
   ],
+
   entryComponents: [
     MyDialogComponentComponent,
     ApplicantacceptedComponent,
     ApplicantdeniedComponent
-
   ],
-
   
   providers: [],
   bootstrap: [AppComponent],

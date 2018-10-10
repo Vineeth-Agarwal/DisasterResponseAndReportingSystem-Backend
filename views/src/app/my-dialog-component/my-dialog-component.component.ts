@@ -26,7 +26,7 @@ export class MyDialogComponentComponent implements OnInit {
   accept() {
     let dialogReff=this.dialog.open(ApplicantacceptedComponent,{
       width:'600px',
-      data:'hellooo'
+      data:this.user
   
     });
     dialogReff.afterClosed().subscribe(result=>{
