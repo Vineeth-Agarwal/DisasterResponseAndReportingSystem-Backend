@@ -16,44 +16,9 @@ import { CreateTeamsComponent } from './create-teams/create-teams.component';
 
 
 import { Team1DetailsComponent } from './team1-details/team1-details.component';
-import {CdkTableModule} from '@angular/cdk/table';
+
 import { ReportComponent } from './report/report.component';
 
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatDividerModule,
-  MatExpansionModule,
-  MatGridListModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatSortModule,
-  MatStepperModule,
-  MatTableModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-} from '@angular/material';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -62,46 +27,8 @@ import { AgmCoreModule } from '@agm/core';
 import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-component.component';
 import { ApplicantacceptedComponent } from './applicantaccepted/applicantaccepted.component';
 import { ApplicantdeniedComponent } from './applicantdenied/applicantdenied.component';
+import { Material } from './app.material';
 
-
-@NgModule({
-  exports: [
-    CdkTableModule,
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-  ],
-})
-export class DemoMaterialModule {}
 
 @NgModule({
   declarations: [
@@ -128,10 +55,7 @@ export class DemoMaterialModule {}
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    DemoMaterialModule,
-    MatNativeDateModule,
+    Material,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
