@@ -28,6 +28,7 @@ export class ReviewApplicationComponent implements OnInit {
   constructor(private dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
     this.dataService.getApplicantsList()
       .subscribe((data) => {
         this.applicants = data['data'];
@@ -47,6 +48,9 @@ export class ReviewApplicationComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   rowClicked(row: any): void {

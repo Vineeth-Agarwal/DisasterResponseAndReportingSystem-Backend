@@ -34,6 +34,10 @@
           <mat-card-content>
             <!-- Name of incident -->
             <h2>{{ item.incidentName }}</h2>
+            <p>
+              <!-- Brief description of incident -->
+              <i class="fa fa-map-marker" aria-hidden="true"></i> {{ item.location }}
+            </p>
             <p class="p-height">
               <!-- Brief description of incident -->
               {{ item.description }}
