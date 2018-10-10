@@ -28,6 +28,7 @@ import { MyDialogComponentComponent } from './my-dialog-component/my-dialog-comp
 import { ApplicantacceptedComponent } from './applicantaccepted/applicantaccepted.component';
 import { ApplicantdeniedComponent } from './applicantdenied/applicantdenied.component';
 import { Material } from './app.material';
+import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { Material } from './app.material';
     MyDialogComponentComponent,
     ApplicantacceptedComponent,
     ApplicantdeniedComponent,
-    ReportComponent
+    ReportComponent,
+    ReportDialogComponent
   ],
   
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -65,7 +67,8 @@ import { Material } from './app.material';
   entryComponents: [
     MyDialogComponentComponent,
     ApplicantacceptedComponent,
-    ApplicantdeniedComponent
+    ApplicantdeniedComponent,
+    ReportDialogComponent
   ],
   
   providers: [],

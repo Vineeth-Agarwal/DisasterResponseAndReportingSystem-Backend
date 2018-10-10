@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { DataService } from '../common/dataService';
 import { Report } from '../common/report';
 import { Router } from '@angular/router';
+import { ReportDialogComponent } from '../report-dialog/report-dialog.component';
 
 export interface UserData {
   id: string;
@@ -17,18 +18,25 @@ export interface UserData {
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
+
 export class ReportComponent implements OnInit {
   reports: Report[];
   displayedColumns: string[] = ['incidentName', 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
   dataSource = new MatTableDataSource<Report>(this.reports);
+  dialogResult: '';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private router: Router, private dataService: DataService) {
+  
+
+  constructor(
+    private router: Router, 
+    private dataService: DataService,
+    public dialog: MatDialog) {
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource<Report>(this.reports);
-   }
+  }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
@@ -46,5 +54,18 @@ export class ReportComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  rowClicked(row) {
+    console.log(row);
+    const dialogRef = this.dialog.open(ReportDialogComponent, {
+      width: '950px',
+      height: '600px',
+      data: row
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("result");
+      this.dialogResult = result;
+    });
   }
 }
