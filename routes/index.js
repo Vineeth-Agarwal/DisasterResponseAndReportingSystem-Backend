@@ -305,6 +305,22 @@ router.get('/getTeamList', function (req, res, next) {
   })
 });
 
+// get team by id
+router.get('/getTeam/:id', function (req, res, next) {
+  team.findById(req.params.id, function (err, results) {
+    // Cheks for an error 
+    if (err) {
+      // Displays an error message
+      res.status(403).json({ msg: "something bad", err })
+    }
+    // if no error 
+    else {
+      // fetches the respective requested record successfully
+      res.status(200).json({ msg: "team record fetched successfully", data: results })
+    }
+  })
+});
+
 // report generator
 router.get('/incidentReport', function (req, res, next) {
   // fetches the respective requested record successfully
