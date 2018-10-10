@@ -75,34 +75,6 @@ router.route('/signup').post(users.signup);
 // Check user logged in or not
 router.route('/isLoggedIn').get(users.isLoggedIn);
 
-// signup new Mobile User - Hemanth
-router.post('/saveSignup', function (req, res, next) {
-  if (req && !req.body) {
-    return res.status(403).json({ msg: "Please provide member details" })
-  }
-  var signupObj = new signup(req.body);
-  signupObj.save(function (err, data) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err: err })
-    }
-    else {
-      res.status(200).json({ msg: "Members record saved successfully", data: data })
-    }
-  });
-})
-
-// get signup - Hemanth
-router.get('/getSignupList', function (req, res, next) {
-  signup.find({}, function (err, results) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err })
-    }
-    else {
-      res.status(200).json({ msg: "member record fetched successfully", data: results })
-    }
-  })
-});
-
 
 // save members- Hemanth
 // These are the one who are selected for CERT team
