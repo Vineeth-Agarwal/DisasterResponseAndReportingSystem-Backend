@@ -176,11 +176,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _create_teams_create_teams_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./create-teams/create-teams.component */ "./src/app/create-teams/create-teams.component.ts");
 /* harmony import */ var _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./team1-details/team1-details.component */ "./src/app/team1-details/team1-details.component.ts");
 /* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
-/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
+/* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
 /* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 /* harmony import */ var _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./my-dialog-component/my-dialog-component.component */ "./src/app/my-dialog-component/my-dialog-component.component.ts");
@@ -224,41 +224,39 @@ var DemoMaterialModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             exports: [
                 _angular_cdk_table__WEBPACK_IMPORTED_MODULE_13__["CdkTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatAutocompleteModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatChipsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatStepperModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatExpansionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatGridListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatProgressBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatRadioModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatRippleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSidenavModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSliderModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSlideToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSnackBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTabsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatAutocompleteModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatChipsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatRippleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSidenavModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSliderModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSlideToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatTooltipModule"],
             ],
-            declarations: [_report_report_component__WEBPACK_IMPORTED_MODULE_18__["ReportComponent"], _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__["ApplicantacceptedComponent"], _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__["ApplicantdeniedComponent"]],
-            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -271,7 +269,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_17__["NavBarComponent"],
+                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_18__["NavBarComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"],
                 _create_incident_create_incident_component__WEBPACK_IMPORTED_MODULE_8__["CreateIncidentComponent"],
@@ -279,9 +277,12 @@ var AppModule = /** @class */ (function () {
                 _teams_teams_component__WEBPACK_IMPORTED_MODULE_10__["TeamsComponent"],
                 _create_teams_create_teams_component__WEBPACK_IMPORTED_MODULE_11__["CreateTeamsComponent"],
                 _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_12__["Team1DetailsComponent"],
-                _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_16__["ArchivedIncidentsComponent"],
+                _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_17__["ArchivedIncidentsComponent"],
                 _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__["COPComponent"],
-                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"]
+                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"],
+                _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__["ApplicantacceptedComponent"],
+                _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__["ApplicantdeniedComponent"],
+                _report_report_component__WEBPACK_IMPORTED_MODULE_14__["ReportComponent"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
             imports: [
@@ -289,17 +290,19 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"],
                 DemoMaterialModule,
-                _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatNativeDateModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatNativeDateModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__["BrowserAnimationsModule"],
                 _agm_core__WEBPACK_IMPORTED_MODULE_20__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
                 }),
             ],
             entryComponents: [
-                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"]
+                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"],
+                _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__["ApplicantacceptedComponent"],
+                _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__["ApplicantdeniedComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -319,7 +322,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".button\r\n{\r\n  /* width: 150px; */\r\n  text-align: center;\r\n  size: 100px;\r\n  \r\n  /* margin-:0 auto; */\r\n  margin-left: 220px;\r\n  margin-top: 50px;\r\n\r\n}\r\n\r\n.text\r\n{\r\n  font-size: 50px;\r\n}"
 
 /***/ }),
 
@@ -330,7 +333,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card>\n  <mat-card-header>\n    <mat-card-title>\n      <h3>\n      Result:\n    </h3>\n    </mat-card-title>\n  </mat-card-header>\n  <hr>\n\n  <mat-card-content>\n      <div div style=\"text-align:center\">\n          Applicant Accepted!\n          <br>\n          \n        </div>\n        \n    <button mat-raised-button>OK</button>\n    \n  </mat-card-content>\n</mat-card>\n"
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Applicant Accepted!\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button\" mat-mini-fab color=\"primary\" (click)=\"onClick()\">Ok</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -345,6 +348,7 @@ module.exports = "\n<mat-card>\n  <mat-card-header>\n    <mat-card-title>\n     
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicantacceptedComponent", function() { return ApplicantacceptedComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -355,10 +359,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ApplicantacceptedComponent = /** @class */ (function () {
-    function ApplicantacceptedComponent() {
+    function ApplicantacceptedComponent(ref) {
+        this.ref = ref;
     }
     ApplicantacceptedComponent.prototype.ngOnInit = function () {
+    };
+    ApplicantacceptedComponent.prototype.onClick = function () {
+        this.ref.closeAll();
+        // let dialogRef=this.ref.open(ReviewApplicationComponent,{
+        //   // width:'600px',
+        //   // data:'hellooo',
+        //   // duration: '2000'
+        // });
+        // // dialogRef.afterClosed().subscribe(result=>{
+        // //   // console.log('Dialog closed: ${result}');
+        // //   // this.dialogResult=result;
+        // // })
     };
     ApplicantacceptedComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -366,7 +384,7 @@ var ApplicantacceptedComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./applicantaccepted.component.html */ "./src/app/applicantaccepted/applicantaccepted.component.html"),
             styles: [__webpack_require__(/*! ./applicantaccepted.component.css */ "./src/app/applicantaccepted/applicantaccepted.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], ApplicantacceptedComponent);
     return ApplicantacceptedComponent;
 }());
@@ -382,7 +400,7 @@ var ApplicantacceptedComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".button\r\n{\r\n  /* width: 150px; */\r\n  text-align: center;\r\n  size: 100px;\r\n  \r\n  /* margin-:0 auto; */\r\n  margin-left: 220px;\r\n  margin-top: 50px;\r\n\r\n}\r\n\r\n.text\r\n{\r\n  font-size: 50px;\r\n}"
 
 /***/ }),
 
@@ -393,7 +411,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card>\n    <mat-card-header>\n      <mat-card-title>\n        <h3>\n        Result:\n      </h3>\n      </mat-card-title>\n    </mat-card-header>\n    <hr>\n  \n    <mat-card-content>\n        <div div style=\"text-align:center\">\n            Applicant Denied!\n            <br>\n            \n          </div>\n          \n      <button mat-raised-button>OK</button>\n      \n    </mat-card-content>\n  </mat-card>\n  "
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Applicant Denied!\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button\" mat-mini-fab color=\"primary\" (click)=\"onClickk()\">Ok</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -408,6 +426,7 @@ module.exports = "\n<mat-card>\n    <mat-card-header>\n      <mat-card-title>\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicantdeniedComponent", function() { return ApplicantdeniedComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -418,10 +437,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ApplicantdeniedComponent = /** @class */ (function () {
-    function ApplicantdeniedComponent() {
+    function ApplicantdeniedComponent(variable) {
+        this.variable = variable;
     }
     ApplicantdeniedComponent.prototype.ngOnInit = function () {
+    };
+    ApplicantdeniedComponent.prototype.onClickk = function () {
+        this.variable.closeAll();
     };
     ApplicantdeniedComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -429,7 +453,7 @@ var ApplicantdeniedComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./applicantdenied.component.html */ "./src/app/applicantdenied/applicantdenied.component.html"),
             styles: [__webpack_require__(/*! ./applicantdenied.component.css */ "./src/app/applicantdenied/applicantdenied.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], ApplicantdeniedComponent);
     return ApplicantdeniedComponent;
 }());
@@ -722,7 +746,7 @@ module.exports = "agm-map{\r\n    height: 620px;\r\n}\r\n\r\n th, td {\r\n    bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\r\n\r\n<!-- \r\n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\r\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\r\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\r\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\r\n         [markerDraggable] is used to drag the marker on the map.\r\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \r\n         we might write in markerDragEnd()\r\n         (markerClick) will do something we write when a marker is clicked.\r\n\r\n     -->\r\n\r\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\r\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\r\n\r\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\r\n        <agm-info-window>\r\n            <strong>\r\n                <table style=\"width:30%\">\r\n                    <tr>\r\n                        <th>\r\n                            {{m.reportID}}\r\n                        </th>\r\n                    </tr>\r\n                    <tr id=\"black_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.black}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"red_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.red}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"yellow_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.yellow}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"green_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.green}}\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </strong>\r\n        </agm-info-window>\r\n\r\n    </agm-marker>\r\n</agm-map>"
+module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\n\n<!-- \n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\n         [markerDraggable] is used to drag the marker on the map.\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \n         we might write in markerDragEnd()\n         (markerClick) will do something we write when a marker is clicked.\n\n     -->\n\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\n\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\n        <agm-info-window>\n            <strong>\n                <table style=\"width:30%\">\n                    <tr>\n                        <th>\n                            {{m.reportID}}\n                        </th>\n                    </tr>\n                    <tr id=\"black_row\">\n                        <td align=\"center\">\n                            {{m.casualties.black}}\n                        </td>\n                    </tr>\n                    <tr id=\"red_row\">\n                        <td align=\"center\">\n                            {{m.casualties.red}}\n                        </td>\n                    </tr>\n                    <tr id=\"yellow_row\">\n                        <td align=\"center\">\n                            {{m.casualties.yellow}}\n                        </td>\n                    </tr>\n                    <tr id=\"green_row\">\n                        <td align=\"center\">\n                            {{m.casualties.green}}\n                        </td>\n                    </tr>\n                </table>\n            </strong>\n        </agm-info-window>\n\n    </agm-marker>\n</agm-map>"
 
 /***/ }),
 
@@ -1266,7 +1290,7 @@ var MyDialogComponentComponent = /** @class */ (function () {
         var _this = this;
         var dialogReff = this.dialog.open(_applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_3__["ApplicantacceptedComponent"], {
             width: '600px',
-            data: 'hellooo'
+            data: this.user
         });
         dialogReff.afterClosed().subscribe(function (result) {
             // console.log('Dialog closed: ${result}');
@@ -1370,7 +1394,7 @@ var NavBarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.table-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n\r\n.filter-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 20px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n\r\n.table-header{\r\n  font-size: 22px;\r\n  color: black;\r\n  font-weight: bold;\r\n}\r\n\r\n.table-cell {\r\n  font-size: 15px;\r\n}\r\n\r\ntd, th {\r\n  width: 25%;\r\n}"
 
 /***/ }),
 
@@ -1381,7 +1405,7 @@ module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n  <h1 class=\"pageHeading mat-display-1\">Report Details</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- <h3><u>Personal Details:</u></h3> -->\r\n      <p><b>Report ID: </b>FLOODS_0907</p>\r\n      <p><b>Repoted by: </b>John</p>\r\n      <p><b>Incident: </b>Floods</p>\r\n      <p><b>GPS: </b> 43.493940, -88.546990</p>\r\n      <p><b>Casualities: </b></p>\r\n      <ul>\r\n        <li>Red: 2</li>\r\n        <li>Yellow: 1</li>\r\n        <li>Green: 0</li>\r\n        <li>Black: 0</li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col\">\r\n      <p><b>Structure Damage: </b>Medium</p>\r\n      <p><b>Fire: </b>Small</p>\r\n      <p><b>Utilities: </b>Electricity</p>\r\n      <p><b>HazMat: </b>None</p>\r\n      <p><b>Others: </b>None</p>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Reports</h1>\r\n  <hr>\r\n\r\n<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" matSort class=\"mat-elevation-z8\">\r\n\r\n    <!-- Incident Name Column -->\r\n    <ng-container matColumnDef=\"incidentName\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Incident Name </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.incidentName}} </td>\r\n    </ng-container>\r\n\r\n<!-- Reported By Column -->\r\n<ng-container matColumnDef=\"reportedBy\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Reported By </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.reportedBy}} </td>\r\n</ng-container>\r\n\r\n<!-- Structural Damage Column -->\r\n<ng-container matColumnDef=\"structuralDamage\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Structural Damage </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.structuralDamage}} </td>\r\n</ng-container>\r\n\r\n<!-- Fire Column -->\r\n<ng-container matColumnDef=\"fire\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Fire </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.fire}} </td>\r\n</ng-container>\r\n\r\n<!-- Utilities Column -->\r\n<ng-container matColumnDef=\"utilities\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Utilities </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.utilities}} </td>\r\n</ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n</div>"
 
 /***/ }),
 
@@ -1396,6 +1420,9 @@ module.exports = "<div class=\"container\">\r\n  <!-- Header for Review Applicat
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportComponent", function() { return ReportComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1406,18 +1433,50 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+/** Constants used to fill up our data base. */
 var ReportComponent = /** @class */ (function () {
-    function ReportComponent() {
+    function ReportComponent(router, dataService) {
+        this.router = router;
+        this.dataService = dataService;
+        this.displayedColumns = ['incidentName', 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.reports);
+        // Assign the data to the data source for the table to render
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.reports);
     }
     ReportComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.dataService.getReportsList()
+            .subscribe(function (data) {
+            _this.reports = data['data'];
+            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](_this.reports);
+        });
     };
+    ReportComponent.prototype.applyFilter = function (filterValue) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
+    ], ReportComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
+    ], ReportComponent.prototype, "sort", void 0);
     ReportComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-report',
             template: __webpack_require__(/*! ./report.component.html */ "./src/app/report/report.component.html"),
             styles: [__webpack_require__(/*! ./report.component.css */ "./src/app/report/report.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"]])
     ], ReportComponent);
     return ReportComponent;
 }());
@@ -1748,7 +1807,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
