@@ -91,3 +91,6 @@ Vineeth Agarwal
 vineeth.agarwal06@gmail.com	
 S530671@nwmissouri.edu
 
+#
+
+Angular version when we started 6.0.8
