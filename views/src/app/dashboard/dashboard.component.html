@@ -50,7 +50,8 @@
             <button mat-raised-button color="primary" routerLink="/teams">Team</button>
             <!-- Archive button is provided to archive the incident module -->
             <div class="mt-archive">
-              <button mat-raised-button color="warn" (click)="onArchive(item)">Archive</button>
+              <button mat-raised-button color="warn" (click)="dialog(item)">Archive</button>
+              <!-- onArchive(item) -->
             </div>
           </mat-card-actions>
         </mat-card>

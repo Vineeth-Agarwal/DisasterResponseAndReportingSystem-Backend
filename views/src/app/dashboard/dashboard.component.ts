@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../common/dataService';
 import { Incident } from '../common/incident';
+import { MatDialog } from '@angular/material';
+import { ArchivedialogComponent } from '../archivedialog/archivedialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ export class DashboardComponent implements OnInit {
   incidents: Incident[];
   isLoading = false;
   id = { _id: String };
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public dialogref: MatDialog) { }
 
   ngOnInit() {
     this.dataService.getIncidentsList()
@@ -39,6 +41,14 @@ export class DashboardComponent implements OnInit {
         error => {
           console.log('Error Occured');
         });
+  }
+
+  dialog(item)
+  {
+    this.dialogref.open(ArchivedialogComponent, {
+      width:'600px',
+      data:item
+  });
   }
 
 }

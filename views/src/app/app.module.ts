@@ -29,6 +29,7 @@ import { ApplicantacceptedComponent } from './applicantaccepted/applicantaccepte
 import { ApplicantdeniedComponent } from './applicantdenied/applicantdenied.component';
 import { Material } from './app.material';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
+import { ArchivedialogComponent } from './archivedialog/archivedialog.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ReportDialogComponent } from './report-dialog/report-dialog.component';
     ApplicantacceptedComponent,
     ApplicantdeniedComponent,
     ReportComponent,
-    ReportDialogComponent
+    ReportDialogComponent,
+    ArchivedialogComponent
   ],
   
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -68,7 +70,8 @@ import { ReportDialogComponent } from './report-dialog/report-dialog.component';
     MyDialogComponentComponent,
     ApplicantacceptedComponent,
     ApplicantdeniedComponent,
-    ReportDialogComponent
+    ReportDialogComponent,
+    ArchivedialogComponent
   ],
   
   providers: [],
