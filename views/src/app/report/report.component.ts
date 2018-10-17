@@ -57,7 +57,7 @@ export class ReportComponent implements OnInit {
   }
 
   rowClicked(row) {
-    console.log(row);
+    // console.log(row);
     const dialogRef = this.dialog.open(ReportDialogComponent, {
       width: '950px',
       height: '600px',
