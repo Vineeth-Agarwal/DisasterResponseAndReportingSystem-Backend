@@ -20,4 +20,8 @@ export class TeamsComponent implements OnInit {
         this.isLoading = false;
       });
   }
+
+  onClick(item){
+    console.log(item._id);
+  }
 }

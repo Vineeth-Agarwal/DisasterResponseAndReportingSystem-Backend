@@ -61,5 +61,9 @@ export class DataService {
     // return this.http.post('http://localhost:3000/saveTeam', data);
   }
 
+  getTeamById(data: string) {
+    return this.http.get('http://drrs.herokuapp.com/getTeam/' + data);
+  }
+
 }
 
