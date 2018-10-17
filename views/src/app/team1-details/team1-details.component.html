@@ -31,20 +31,20 @@
     <!-- Email Column -->
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
 
     <!-- County Column -->
     <ng-container matColumnDef="county">
       <th mat-header-cell *matHeaderCellDef> County </th>
-      <td mat-cell *matCellDef="let element"> {{element.County}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.county}} </td>
     </ng-container>
 
     <!-- Skills Column -->
-    <ng-container matColumnDef="skills">
+    <!-- <ng-container matColumnDef="skills">
         <th mat-header-cell *matHeaderCellDef> Skills </th>
-        <td mat-cell *matCellDef="let element"> {{element.Skills}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let element"> {{element.skills}} </td>
+      </ng-container> -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

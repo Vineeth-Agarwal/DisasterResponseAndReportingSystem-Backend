@@ -17,6 +17,7 @@ export class ReportDialogComponent implements OnInit {
 
   ngOnInit() {
     this.report = this.data;
+    console.log(this.report);
   }
 
   onOk() {
