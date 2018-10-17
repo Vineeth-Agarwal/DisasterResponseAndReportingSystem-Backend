@@ -151,16 +151,86 @@ var AppComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/app.module.ts":
-/*!*******************************!*\
-  !*** ./src/app/app.module.ts ***!
-  \*******************************/
-/*! exports provided: DemoMaterialModule, AppModule */
+/***/ "./src/app/app.material.ts":
+/*!*********************************!*\
+  !*** ./src/app/app.material.ts ***!
+  \*********************************/
+/*! exports provided: Material */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DemoMaterialModule", function() { return DemoMaterialModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Material", function() { return Material; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var Material = /** @class */ (function () {
+    function Material() {
+    }
+    Material = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            exports: [
+                _angular_cdk_table__WEBPACK_IMPORTED_MODULE_1__["CdkTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatAutocompleteModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatChipsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSliderModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSlideToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTooltipModule"],
+            ],
+        })
+    ], Material);
+    return Material;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/app.module.ts":
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
+/*! exports provided: AppModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
@@ -175,17 +245,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _teams_teams_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./teams/teams.component */ "./src/app/teams/teams.component.ts");
 /* harmony import */ var _create_teams_create_teams_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./create-teams/create-teams.component */ "./src/app/create-teams/create-teams.component.ts");
 /* harmony import */ var _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./team1-details/team1-details.component */ "./src/app/team1-details/team1-details.component.ts");
-/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
-/* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
-/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
-/* harmony import */ var _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./my-dialog-component/my-dialog-component.component */ "./src/app/my-dialog-component/my-dialog-component.component.ts");
-/* harmony import */ var _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./applicantaccepted/applicantaccepted.component */ "./src/app/applicantaccepted/applicantaccepted.component.ts");
-/* harmony import */ var _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./applicantdenied/applicantdenied.component */ "./src/app/applicantdenied/applicantdenied.component.ts");
+/* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
+/* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./my-dialog-component/my-dialog-component.component */ "./src/app/my-dialog-component/my-dialog-component.component.ts");
+/* harmony import */ var _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./applicantaccepted/applicantaccepted.component */ "./src/app/applicantaccepted/applicantaccepted.component.ts");
+/* harmony import */ var _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./applicantdenied/applicantdenied.component */ "./src/app/applicantdenied/applicantdenied.component.ts");
+/* harmony import */ var _app_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./app.material */ "./src/app/app.material.ts");
+/* harmony import */ var _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./report-dialog/report-dialog.component */ "./src/app/report-dialog/report-dialog.component.ts");
+/* harmony import */ var _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./archivedialog/archivedialog.component */ "./src/app/archivedialog/archivedialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -217,50 +288,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var DemoMaterialModule = /** @class */ (function () {
-    function DemoMaterialModule() {
-    }
-    DemoMaterialModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            exports: [
-                _angular_cdk_table__WEBPACK_IMPORTED_MODULE_13__["CdkTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatAutocompleteModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatChipsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatStepperModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDatepickerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatExpansionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatGridListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatProgressBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatRadioModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatRippleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSidenavModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSliderModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSlideToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSnackBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatTooltipModule"],
-            ],
-        })
-    ], DemoMaterialModule);
-    return DemoMaterialModule;
-}());
 
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -269,7 +296,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_18__["NavBarComponent"],
+                _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_16__["NavBarComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"],
                 _create_incident_create_incident_component__WEBPACK_IMPORTED_MODULE_8__["CreateIncidentComponent"],
@@ -277,12 +304,14 @@ var AppModule = /** @class */ (function () {
                 _teams_teams_component__WEBPACK_IMPORTED_MODULE_10__["TeamsComponent"],
                 _create_teams_create_teams_component__WEBPACK_IMPORTED_MODULE_11__["CreateTeamsComponent"],
                 _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_12__["Team1DetailsComponent"],
-                _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_17__["ArchivedIncidentsComponent"],
-                _cop_cop_component__WEBPACK_IMPORTED_MODULE_19__["COPComponent"],
-                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"],
-                _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__["ApplicantacceptedComponent"],
-                _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__["ApplicantdeniedComponent"],
-                _report_report_component__WEBPACK_IMPORTED_MODULE_14__["ReportComponent"]
+                _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_15__["ArchivedIncidentsComponent"],
+                _cop_cop_component__WEBPACK_IMPORTED_MODULE_17__["COPComponent"],
+                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_19__["MyDialogComponentComponent"],
+                _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_20__["ApplicantacceptedComponent"],
+                _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__["ApplicantdeniedComponent"],
+                _report_report_component__WEBPACK_IMPORTED_MODULE_13__["ReportComponent"],
+                _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
+                _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
             imports: [
@@ -290,19 +319,18 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"],
-                DemoMaterialModule,
-                _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatNativeDateModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__["BrowserAnimationsModule"],
-                _agm_core__WEBPACK_IMPORTED_MODULE_20__["AgmCoreModule"].forRoot({
+                _app_material__WEBPACK_IMPORTED_MODULE_22__["Material"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__["BrowserAnimationsModule"],
+                _agm_core__WEBPACK_IMPORTED_MODULE_18__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyB954EX24ldvc9K55mjhdei_wg8Ly5shKQ'
                 }),
             ],
             entryComponents: [
-                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_21__["MyDialogComponentComponent"],
-                _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_22__["ApplicantacceptedComponent"],
-                _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_23__["ApplicantdeniedComponent"]
+                _my_dialog_component_my_dialog_component_component__WEBPACK_IMPORTED_MODULE_19__["MyDialogComponentComponent"],
+                _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_20__["ApplicantacceptedComponent"],
+                _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__["ApplicantdeniedComponent"],
+                _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
+                _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -554,6 +582,110 @@ var ArchivedIncidentsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/archivedialog/archivedialog.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/archivedialog/archivedialog.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".button1{\r\n    margin-left: 350px;\r\n    \r\n}\r\n\r\n.button2{\r\n    margin-left: 380px;\r\n    \r\n}"
+
+/***/ }),
+
+/***/ "./src/app/archivedialog/archivedialog.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/archivedialog/archivedialog.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<mat-card>\n  \n\n  <mat-card-content>\n      <div class=\"text\" style=\"text-align:center\">\n          Do you want to archive the incident?\n          <br>\n          \n        </div>\n        \n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\n    \n  </mat-card-content>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/archivedialog/archivedialog.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/archivedialog/archivedialog.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ArchivedialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArchivedialogComponent", function() { return ArchivedialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _common_incident__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/incident */ "./src/app/common/incident.ts");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var ArchivedialogComponent = /** @class */ (function () {
+    function ArchivedialogComponent(dataService, ref, data, thisMatDialogRef) {
+        this.dataService = dataService;
+        this.ref = ref;
+        this.data = data;
+        this.thisMatDialogRef = thisMatDialogRef;
+        this.isLoading = false;
+        this.id = { _id: String };
+    }
+    ArchivedialogComponent.prototype.ngOnInit = function () {
+        this.incident = this.data;
+        this.incidents = this.data['data'];
+        this.isLoading = false;
+    };
+    ArchivedialogComponent.prototype.yes = function (item) {
+        var _this = this;
+        this.thisMatDialogRef.close();
+        this.id = { _id: item._id };
+        console.log(this.id);
+        this.dataService.archiveIncident(this.id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.dataService.getIncidentsList()
+                .subscribe(function (dataInci) {
+                _this.incidents = dataInci['data'];
+                _this.isLoading = false;
+            });
+            item.isActive = false;
+            console.log('success');
+        }, function (error) {
+            console.log('Error Occured');
+        });
+    };
+    ArchivedialogComponent.prototype.no = function () {
+        this.ref.closeAll();
+    };
+    ArchivedialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-archivedialog',
+            template: __webpack_require__(/*! ./archivedialog.component.html */ "./src/app/archivedialog/archivedialog.component.html"),
+            styles: [__webpack_require__(/*! ./archivedialog.component.css */ "./src/app/archivedialog/archivedialog.component.css")]
+        }),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_3__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _common_incident__WEBPACK_IMPORTED_MODULE_2__["Incident"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]])
+    ], ArchivedialogComponent);
+    return ArchivedialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/common/applicant.ts":
 /*!*************************************!*\
   !*** ./src/app/common/applicant.ts ***!
@@ -682,6 +814,30 @@ var Incident = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/common/report.ts":
+/*!**********************************!*\
+  !*** ./src/app/common/report.ts ***!
+  \**********************************/
+/*! exports provided: Report */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Report", function() { return Report; });
+// Assigned to Vineeth
+var Report = /** @class */ (function () {
+    function Report(values) {
+        if (values === void 0) { values = {}; }
+        /*Constructor initialization*/
+        Object.assign(this, values);
+    }
+    return Report;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/common/team.ts":
 /*!********************************!*\
   !*** ./src/app/common/team.ts ***!
@@ -746,7 +902,7 @@ module.exports = "agm-map{\r\n    height: 620px;\r\n}\r\n\r\n th, td {\r\n    bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\n\n<!-- \n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\n         [markerDraggable] is used to drag the marker on the map.\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \n         we might write in markerDragEnd()\n         (markerClick) will do something we write when a marker is clicked.\n\n     -->\n\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\n\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\n        <agm-info-window>\n            <strong>\n                <table style=\"width:30%\">\n                    <tr>\n                        <th>\n                            {{m.reportID}}\n                        </th>\n                    </tr>\n                    <tr id=\"black_row\">\n                        <td align=\"center\">\n                            {{m.casualties.black}}\n                        </td>\n                    </tr>\n                    <tr id=\"red_row\">\n                        <td align=\"center\">\n                            {{m.casualties.red}}\n                        </td>\n                    </tr>\n                    <tr id=\"yellow_row\">\n                        <td align=\"center\">\n                            {{m.casualties.yellow}}\n                        </td>\n                    </tr>\n                    <tr id=\"green_row\">\n                        <td align=\"center\">\n                            {{m.casualties.green}}\n                        </td>\n                    </tr>\n                </table>\n            </strong>\n        </agm-info-window>\n\n    </agm-marker>\n</agm-map>"
+module.exports = "<!-- <agm-map [latitude]=\"latitude\" [longitude]=\"longitude\" (mapClick)=\"onChoseLocation($event)\"> -->\r\n\r\n<!-- \r\n        [latitude] is an agm-map object taking values of lat metioned in component.ts.\r\n        [Zoom] is a auto zoom functionality while loading the map taking value from component.ts\r\n        (mapClick) is a functionality that takes whenever clicked on map, this.coords object will give\r\n         the lat and long results which we can set to lat and lng in component.ts to change runtime\r\n         [markerDraggable] is used to drag the marker on the map.\r\n         (dragEnd) is used to do something when the marker dragging stopped by user by calling the method \r\n         we might write in markerDragEnd()\r\n         (markerClick) will do something we write when a marker is clicked.\r\n\r\n     -->\r\n\r\n<!-- <agm-map  [latitude]=40.349841283655195 [longitude]=-94.8827696546299 [zoomControl]=\"true\"> -->\r\n<agm-map  [latitude]=lat [longitude]=lng [zoomControl]=\"true\">\r\n\r\n    <agm-marker *ngFor=\"let m of reports; let i=index\" [latitude]=m.location.lat [longitude]=m.location.lng>\r\n        <agm-info-window>\r\n            <strong>\r\n                <table style=\"width:30%\">\r\n                    <tr>\r\n                        <th>\r\n                            {{m.reportID}}\r\n                        </th>\r\n                    </tr>\r\n                    <tr id=\"black_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.black}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"red_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.red}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"yellow_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.yellow}}\r\n                        </td>\r\n                    </tr>\r\n                    <tr id=\"green_row\">\r\n                        <td align=\"center\">\r\n                            {{m.casualties.green}}\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </strong>\r\n        </agm-info-window>\r\n\r\n    </agm-marker>\r\n</agm-map>"
 
 /***/ }),
 
@@ -1059,7 +1215,7 @@ module.exports = "/* Assigned to Mouli and Kishan*/\r\n.container {\r\n  margin-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\" >\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/report\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" (click)=\"onArchive(item)\">Archive</button>\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf = \"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\" >\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <a routerLink=\"/dashboard\">\r\n            <!-- Image of incident -->\r\n            <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n          </a>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p>\r\n              <!-- Brief description of incident -->\r\n              <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ item.location }}\r\n            </p>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/report\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" (click)=\"dialog(item)\">Archive</button>\r\n              <!-- onArchive(item) -->\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf = \"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1075,6 +1231,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../archivedialog/archivedialog.component */ "./src/app/archivedialog/archivedialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1086,9 +1244,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(dataService) {
+    function DashboardComponent(dataService, dialogref) {
         this.dataService = dataService;
+        this.dialogref = dialogref;
         this.isLoading = false;
         this.id = { _id: String };
     }
@@ -1118,13 +1279,19 @@ var DashboardComponent = /** @class */ (function () {
             console.log('Error Occured');
         });
     };
+    DashboardComponent.prototype.dialog = function (item) {
+        this.dialogref.open(_archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_3__["ArchivedialogComponent"], {
+            width: '600px',
+            data: item
+        });
+    };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -1387,6 +1554,86 @@ var NavBarComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/report-dialog/report-dialog.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/report-dialog/report-dialog.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".pageHeading {\r\n    margin: auto;\r\n  }\r\n  \r\n  .text-style {\r\n    font-size: 20px;\r\n  }\r\n  "
+
+/***/ }),
+
+/***/ "./src/app/report-dialog/report-dialog.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/report-dialog/report-dialog.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  Hello\r\n</p>\r\n\r\n\r\n<button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/report-dialog/report-dialog.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/report-dialog/report-dialog.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ReportDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportDialogComponent", function() { return ReportDialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _common_report__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/report */ "./src/app/common/report.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ReportDialogComponent = /** @class */ (function () {
+    function ReportDialogComponent(thisDialogRef, data, ref) {
+        this.thisDialogRef = thisDialogRef;
+        this.data = data;
+        this.ref = ref;
+    }
+    ReportDialogComponent.prototype.ngOnInit = function () {
+        this.report = this.data;
+    };
+    ReportDialogComponent.prototype.onOk = function () {
+        this.ref.closeAll();
+    };
+    ReportDialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-report-dialog',
+            template: __webpack_require__(/*! ./report-dialog.component.html */ "./src/app/report-dialog/report-dialog.component.html"),
+            styles: [__webpack_require__(/*! ./report-dialog.component.css */ "./src/app/report-dialog/report-dialog.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"],
+            _common_report__WEBPACK_IMPORTED_MODULE_2__["Report"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+    ], ReportDialogComponent);
+    return ReportDialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/report/report.component.css":
 /*!*********************************************!*\
   !*** ./src/app/report/report.component.css ***!
@@ -1405,7 +1652,7 @@ module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Reports</h1>\r\n  <hr>\r\n\r\n<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" matSort class=\"mat-elevation-z8\">\r\n\r\n    <!-- Incident Name Column -->\r\n    <ng-container matColumnDef=\"incidentName\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Incident Name </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.incidentName}} </td>\r\n    </ng-container>\r\n\r\n<!-- Reported By Column -->\r\n<ng-container matColumnDef=\"reportedBy\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Reported By </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.reportedBy}} </td>\r\n</ng-container>\r\n\r\n<!-- Structural Damage Column -->\r\n<ng-container matColumnDef=\"structuralDamage\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Structural Damage </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.structuralDamage}} </td>\r\n</ng-container>\r\n\r\n<!-- Fire Column -->\r\n<ng-container matColumnDef=\"fire\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Fire </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.fire}} </td>\r\n</ng-container>\r\n\r\n<!-- Utilities Column -->\r\n<ng-container matColumnDef=\"utilities\">\r\n  <th mat-header-cell *matHeaderCellDef mat-sort-header class = \"table-header\"> Utilities </th>\r\n  <td mat-cell *matCellDef=\"let row\"> {{row.utilities}} </td>\r\n</ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Reports</h1>\r\n  <hr>\r\n\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n\r\n  <div class=\"mat-elevation-z8\">\r\n    <table mat-table [dataSource]=\"dataSource\" matSort class=\"mat-elevation-z8\">\r\n\r\n      <!-- Incident Name Column -->\r\n      <ng-container matColumnDef=\"incidentName\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Incident Name </th>\r\n        <td mat-cell *matCellDef=\"let row\"> {{row.incidentName}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Reported By Column -->\r\n      <ng-container matColumnDef=\"reportedBy\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Reported By </th>\r\n        <td mat-cell *matCellDef=\"let row\"> {{row.reportedBy}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Structural Damage Column -->\r\n      <ng-container matColumnDef=\"structuralDamage\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Structural Damage </th>\r\n        <td mat-cell *matCellDef=\"let row\"> {{row.structuralDamage}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Fire Column -->\r\n      <ng-container matColumnDef=\"fire\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Fire </th>\r\n        <td mat-cell *matCellDef=\"let row\"> {{row.fire}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Utilities Column -->\r\n      <ng-container matColumnDef=\"utilities\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Utilities </th>\r\n        <td mat-cell *matCellDef=\"let row\"> {{row.utilities}} </td>\r\n      </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\">\r\n      </tr>\r\n    </table>\r\n\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>"
 
 /***/ }),
 
@@ -1423,6 +1670,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../report-dialog/report-dialog.component */ "./src/app/report-dialog/report-dialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1436,11 +1684,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 /** Constants used to fill up our data base. */
 var ReportComponent = /** @class */ (function () {
-    function ReportComponent(router, dataService) {
+    function ReportComponent(router, dataService, dialog) {
         this.router = router;
         this.dataService = dataService;
+        this.dialog = dialog;
         this.displayedColumns = ['incidentName', 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.reports);
         // Assign the data to the data source for the table to render
@@ -1462,6 +1712,19 @@ var ReportComponent = /** @class */ (function () {
             this.dataSource.paginator.firstPage();
         }
     };
+    ReportComponent.prototype.rowClicked = function (row) {
+        var _this = this;
+        console.log(row);
+        var dialogRef = this.dialog.open(_report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_4__["ReportDialogComponent"], {
+            width: '950px',
+            height: '600px',
+            data: row
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log("result");
+            _this.dialogResult = result;
+        });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
@@ -1476,7 +1739,9 @@ var ReportComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./report.component.html */ "./src/app/report/report.component.html"),
             styles: [__webpack_require__(/*! ./report.component.css */ "./src/app/report/report.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], ReportComponent);
     return ReportComponent;
 }());
@@ -1503,7 +1768,7 @@ module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1550,6 +1815,7 @@ var ReviewApplicationComponent = /** @class */ (function () {
     }
     ReviewApplicationComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.dataSource.paginator = this.paginator;
         this.dataService.getApplicantsList()
             .subscribe(function (data) {
             _this.applicants = data['data'];
@@ -1565,6 +1831,9 @@ var ReviewApplicationComponent = /** @class */ (function () {
         filterValue = filterValue.trim(); // Remove whitespace
         filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
         this.dataSource.filter = filterValue;
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
     };
     ReviewApplicationComponent.prototype.rowClicked = function (row) {
         var _this = this;
@@ -1807,7 +2076,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\New folder (3)\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
