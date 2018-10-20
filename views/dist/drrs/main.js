@@ -405,6 +405,16 @@ var ApplicantacceptedComponent = /** @class */ (function () {
         this.data = data;
     }
     ApplicantacceptedComponent.prototype.ngOnInit = function () {
+        this.applicant = this.data;
+        this.applicant_name = this.applicant.firstName;
+        console.log("applicant is " + this.applicant.email);
+        console.log("applicant is " + this.applicant.firstName);
+        console.log("applicant is " + this.applicant.role);
+        // this.dataService.getApplicantsList()
+        //   .subscribe((data) => {
+        //     this.applicant = data['data'];
+        //     this.applicant_id=this.applicant.email;
+        //   });
     };
     ApplicantacceptedComponent.prototype.onClick = function () {
         this.ref.closeAll();
@@ -1603,7 +1613,7 @@ module.exports = ".pageHeading {\r\n    margin: auto;\r\n  }\r\n  \r\n  .text-st
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\n  <!-- mat-dialog-title -->\n  <hr>\n  <mat-dialog-content>\n    <!-- <div class=\"container\"> -->\n<div class=\"row text-style\">\n  <div class=\"col\">\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\n    <h3><u>Casualties: </u></h3>\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \n  </div>\n  <div class=\"col\">\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\n    <p><b>Fire: </b> {{ report.fire }} </p>\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\n    <p><b>Others: </b>{{ report.others }}</p>    \n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\n  </div>\n</div>\n\n</mat-dialog-content>\n<hr>\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\n</mat-dialog-actions>\n</div>"
+module.exports = "<div>\r\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\r\n  <!-- mat-dialog-title -->\r\n  <hr>\r\n  <mat-dialog-content>\r\n    <!-- <div class=\"container\"> -->\r\n<div class=\"row text-style\">\r\n  <div class=\"col\">\r\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\r\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\r\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\r\n    <h3><u>Casualties: </u></h3>\r\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \r\n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \r\n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \r\n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \r\n  </div>\r\n  <div class=\"col\">\r\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\r\n    <p><b>Fire: </b> {{ report.fire }} </p>\r\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\r\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\r\n    <p><b>Others: </b>{{ report.others }}</p>    \r\n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\r\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\r\n  </div>\r\n</div>\r\n\r\n</mat-dialog-content>\r\n<hr>\r\n<mat-dialog-actions>\r\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\r\n</mat-dialog-actions>\r\n</div>"
 
 /***/ }),
 
@@ -2120,7 +2130,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\s530468\Desktop\DRRS\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })

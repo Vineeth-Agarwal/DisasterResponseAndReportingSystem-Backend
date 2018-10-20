@@ -21,6 +21,7 @@ export class ApplicantacceptedComponent implements OnInit {
     this.applicant_name=this.applicant.firstName;
     console.log("applicant is "+ this.applicant.email)
     console.log("applicant is "+ this.applicant.firstName)
+    console.log("applicant is "+ this.applicant.role);
     // this.dataService.getApplicantsList()
     //   .subscribe((data) => {
     //     this.applicant = data['data'];
