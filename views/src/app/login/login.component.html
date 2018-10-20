@@ -9,6 +9,9 @@
    <!-- Header for login page -->
   <h1 class="pageHeading mat-display-1">Login </h1>
   <!-- Form provided to input login details -->
+  <div class="alert alert-danger" *ngIf="incorrectPassword">
+    <strong>Incorrect Email/Password</strong>
+  </div>
   <form novalidate (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
 
     <div class="form-group">
