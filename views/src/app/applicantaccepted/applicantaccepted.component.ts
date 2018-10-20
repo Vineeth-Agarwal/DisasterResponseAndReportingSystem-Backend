@@ -17,7 +17,18 @@ export class ApplicantacceptedComponent implements OnInit {
   constructor(private dataService: DataService,public ref: MatDialog,public thisDialogRef: MatDialogRef<MyDialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
 
   ngOnInit() {
+    this.applicant = this.data;
+    this.applicant_name=this.applicant.firstName;
+    console.log("applicant is "+ this.applicant.email)
+    console.log("applicant is "+ this.applicant.firstName)
+    // this.dataService.getApplicantsList()
+    //   .subscribe((data) => {
+    //     this.applicant = data['data'];
+    //     this.applicant_id=this.applicant.email;
+    //   });
+
   }
+
   onClick()
   {
     this.ref.closeAll();
