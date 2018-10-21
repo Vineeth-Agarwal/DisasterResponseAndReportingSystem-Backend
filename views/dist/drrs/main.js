@@ -71,7 +71,7 @@ var routes = [
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'reviewApplication', component: _review_application_review_application_component__WEBPACK_IMPORTED_MODULE_6__["ReviewApplicationComponent"] },
     { path: 'teams', component: _teams_teams_component__WEBPACK_IMPORTED_MODULE_7__["TeamsComponent"] },
-    { path: 'team1Details', component: _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_8__["Team1DetailsComponent"] },
+    { path: 'team1Details/:item._id', component: _team1_details_team1_details_component__WEBPACK_IMPORTED_MODULE_8__["Team1DetailsComponent"] },
     { path: 'archivedIncidents', component: _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_9__["ArchivedIncidentsComponent"] },
     { path: 'report', component: _report_report_component__WEBPACK_IMPORTED_MODULE_10__["ReportComponent"] },
     { path: 'cop', component: _cop_cop_component__WEBPACK_IMPORTED_MODULE_11__["COPComponent"] },
@@ -377,6 +377,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicantacceptedComponent", function() { return ApplicantacceptedComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _common_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/user */ "./src/app/common/user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -386,13 +388,33 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
 
 
 var ApplicantacceptedComponent = /** @class */ (function () {
-    function ApplicantacceptedComponent(ref) {
+    function ApplicantacceptedComponent(dataService, ref, thisDialogRef, data) {
+        this.dataService = dataService;
         this.ref = ref;
+        this.thisDialogRef = thisDialogRef;
+        this.data = data;
     }
     ApplicantacceptedComponent.prototype.ngOnInit = function () {
+        this.applicant = this.data;
+        this.applicant_name = this.applicant.firstName;
+        console.log("applicant is " + this.applicant.email);
+        console.log("applicant is " + this.applicant.firstName);
+        console.log("applicant is " + this.applicant.role);
+        // this.dataService.getApplicantsList()
+        //   .subscribe((data) => {
+        //     this.applicant = data['data'];
+        //     this.applicant_id=this.applicant.email;
+        //   });
     };
     ApplicantacceptedComponent.prototype.onClick = function () {
         this.ref.closeAll();
@@ -412,7 +434,8 @@ var ApplicantacceptedComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./applicantaccepted.component.html */ "./src/app/applicantaccepted/applicantaccepted.component.html"),
             styles: [__webpack_require__(/*! ./applicantaccepted.component.css */ "./src/app/applicantaccepted/applicantaccepted.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+        __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_3__["User"]])
     ], ApplicantacceptedComponent);
     return ApplicantacceptedComponent;
 }());
@@ -589,7 +612,7 @@ var ArchivedIncidentsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".button1{\r\n    margin-left: 350px;\r\n    \r\n}\r\n\r\n.button2{\r\n    margin-left: 380px;\r\n    \r\n}"
+module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */"
 
 /***/ }),
 
@@ -600,7 +623,7 @@ module.exports = ".button1{\r\n    margin-left: 350px;\r\n    \r\n}\r\n\r\n.butt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card>\n  \n\n  <mat-card-content>\n      <div class=\"text\" style=\"text-align:center\">\n          Do you want to archive the incident?\n          <br>\n          \n        </div>\n        \n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\n    \n  </mat-card-content>\n</mat-card>\n"
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Do you want to archive the incident?\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\r\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -737,6 +760,9 @@ var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
     }
+    DataService.prototype.login = function (loginData) {
+        return this.http.post("https://drrs.herokuapp.com/signin", loginData);
+    };
     DataService.prototype.getApplicantsList = function () {
         //   http call
         return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
@@ -776,6 +802,9 @@ var DataService = /** @class */ (function () {
         // http call
         return this.http.post('http://drrs.herokuapp.com/saveTeam', data);
         // return this.http.post('http://localhost:3000/saveTeam', data);
+    };
+    DataService.prototype.getTeamById = function (data) {
+        return this.http.get('http://drrs.herokuapp.com/getTeam/' + data);
     };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1318,7 +1347,7 @@ module.exports = ".logo {\r\n  width: 30%;\r\n  margin: 1em auto;\r\n  text-alig
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"logo\">\r\n    <img src=\"assets/images/EOC_logo.gif\" alt=\"EOC_logo\">\r\n </div>\r\n\r\n <div class=\"loginContainer\">\r\n   <!-- Header for login page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Login </h1>\r\n  <!-- Form provided to input login details -->\r\n  <form novalidate (ngSubmit)=\"onLogin(loginForm)\" #loginForm=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">\r\n        <b class=\"mat-title\">Email</b>\r\n      </label>\r\n      <!-- Input for emailID -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.email\" name=\"email\" email #email=\"ngModel\" id=\"inputEmail\" placeholder=\"Email\"\r\n        pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" required>\r\n      <!--\r\n        Email error block\r\n        by kishan\r\n      -->\r\n      <!-- Validation for emailID -->\r\n      <div *ngIf=\"(email.invalid && ( email.touched || email.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"email.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the email id\r\n        </div>\r\n        <div *ngIf=\"email.errors?.pattern &&  email.dirty\" class=\"mat-body-1\">\r\n            Please enter the valid email id\r\n        </div>\r\n      </div>\r\n\r\n      <!--\r\n        Password block\r\n        by kishan\r\n      -->\r\n      <label for=\"password\">\r\n        <b class=\"mat-title\">Password</b>\r\n      </label>\r\n      <!-- Input for password -->\r\n      <input type=\"password\" class=\"form-control\" [ngModel]=\"applicant.password\" name=\"password\" #password=\"ngModel\" id=\"inputpassword\"\r\n        placeholder=\"Password\" pattern=\"(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\" required>\r\n      <!-- password error block -->\r\n      <!-- Validation for password -->\r\n      <div *ngIf=\"(password.invalid && ( password.touched || password.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"password.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the password\r\n        </div>\r\n        <!-- <div *ngIf=\"password.errors?.pattern && password.dirty\">\r\n          Password must have UpperCase, LowerCase, Number/SpecialChar and mininmum 8 characters.\r\n        </div> -->\r\n      </div>\r\n    </div>\r\n      <!-- Button provided to submit login details -->\r\n     <button mat-raised-button color=\"primary\" class=\"btn primary\"> Login </button>\r\n  </form>\r\n  </div>\r\n"
+module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"logo\">\r\n    <img src=\"assets/images/EOC_logo.gif\" alt=\"EOC_logo\">\r\n </div>\r\n\r\n <div class=\"loginContainer\">\r\n   <!-- Header for login page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Login </h1>\r\n  <!-- Form provided to input login details -->\r\n  <div class=\"alert alert-danger\" *ngIf=\"incorrectPassword\">\r\n    <strong>Incorrect Email/Password</strong>\r\n  </div>\r\n  <form novalidate (ngSubmit)=\"onLogin(loginForm)\" #loginForm=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">\r\n        <b class=\"mat-title\">Email</b>\r\n      </label>\r\n      <!-- Input for emailID -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.email\" name=\"email\" email #email=\"ngModel\" id=\"inputEmail\" placeholder=\"Email\"\r\n        pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" required>\r\n      <!--\r\n        Email error block\r\n        by kishan\r\n      -->\r\n      <!-- Validation for emailID -->\r\n      <div *ngIf=\"(email.invalid && ( email.touched || email.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"email.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the email id\r\n        </div>\r\n        <div *ngIf=\"email.errors?.pattern &&  email.dirty\" class=\"mat-body-1\">\r\n            Please enter the valid email id\r\n        </div>\r\n      </div>\r\n\r\n      <!--\r\n        Password block\r\n        by kishan\r\n      -->\r\n      <label for=\"password\">\r\n        <b class=\"mat-title\">Password</b>\r\n      </label>\r\n      <!-- Input for password -->\r\n      <input type=\"password\" class=\"form-control\" [ngModel]=\"applicant.password\" name=\"password\" #password=\"ngModel\" id=\"inputpassword\"\r\n        placeholder=\"Password\" pattern=\"(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\" required>\r\n      <!-- password error block -->\r\n      <!-- Validation for password -->\r\n      <div *ngIf=\"(password.invalid && ( password.touched || password.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"password.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the password\r\n        </div>\r\n        <!-- <div *ngIf=\"password.errors?.pattern && password.dirty\">\r\n          Password must have UpperCase, LowerCase, Number/SpecialChar and mininmum 8 characters.\r\n        </div> -->\r\n      </div>\r\n    </div>\r\n      <!-- Button provided to submit login details -->\r\n     <button mat-raised-button color=\"primary\" class=\"btn primary\"> Login </button>\r\n  </form>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -1335,6 +1364,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _common_applicant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/applicant */ "./src/app/common/applicant.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1347,11 +1377,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(router) {
+    function LoginComponent(router, dataService) {
         this.router = router;
+        this.dataService = dataService;
         // for validation
         this.isSubmitted = false;
+        this.incorrectPassword = false;
         this.applicant = new _common_applicant__WEBPACK_IMPORTED_MODULE_1__["Applicant"]({
             email: ''
         });
@@ -1359,16 +1392,24 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.onLogin = function (_a) {
+        var _this = this;
         var value = _a.value, valid = _a.valid;
         console.log(value);
         console.log(valid);
         this.isSubmitted = true;
         if (value) {
             console.log(value);
-            this.router.navigate(['/dashboard']);
+            this.dataService.login(value)
+                .subscribe(function (data) {
+                console.log(data);
+                _this.router.navigate(['/dashboard']);
+            }, function (err) {
+                _this.incorrectPassword = true;
+                console.log('Wrong Email/Password');
+            });
         }
         else {
-            console.log('something went wrong');
+            console.log("Enter Email and password Both");
         }
     };
     LoginComponent = __decorate([
@@ -1377,7 +1418,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1572,7 +1613,7 @@ module.exports = ".pageHeading {\r\n    margin: auto;\r\n  }\r\n  \r\n  .text-st
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  Hello\r\n</p>\r\n\r\n\r\n<button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\r\n"
+module.exports = "<div>\r\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\r\n  <!-- mat-dialog-title -->\r\n  <hr>\r\n  <mat-dialog-content>\r\n    <!-- <div class=\"container\"> -->\r\n<div class=\"row text-style\">\r\n  <div class=\"col\">\r\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\r\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\r\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\r\n    <h3><u>Casualties: </u></h3>\r\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \r\n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \r\n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \r\n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \r\n  </div>\r\n  <div class=\"col\">\r\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\r\n    <p><b>Fire: </b> {{ report.fire }} </p>\r\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\r\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\r\n    <p><b>Others: </b>{{ report.others }}</p>    \r\n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\r\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\r\n  </div>\r\n</div>\r\n\r\n</mat-dialog-content>\r\n<hr>\r\n<mat-dialog-actions>\r\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\r\n</mat-dialog-actions>\r\n</div>"
 
 /***/ }),
 
@@ -1612,6 +1653,7 @@ var ReportDialogComponent = /** @class */ (function () {
     }
     ReportDialogComponent.prototype.ngOnInit = function () {
         this.report = this.data;
+        console.log(this.report);
     };
     ReportDialogComponent.prototype.onOk = function () {
         this.ref.closeAll();
@@ -1714,7 +1756,7 @@ var ReportComponent = /** @class */ (function () {
     };
     ReportComponent.prototype.rowClicked = function (row) {
         var _this = this;
-        console.log(row);
+        // console.log(row);
         var dialogRef = this.dialog.open(_report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_4__["ReportDialogComponent"], {
             width: '950px',
             height: '600px',
@@ -1889,7 +1931,7 @@ module.exports = "table {\r\n    width: 100%;\r\n  }\r\n\r\n  .container {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <!-- Header for team details page -->\r\n <div class=\"container\">\r\n <h1 class=\"pageHeading mat-display-1\">Team1 Members</h1>\r\n <hr>\r\n <b>Leader:</b> Jim Willaims\r\n <br>\r\n <b>Assistant Leader:</b> Jules Verne\r\n <div class=\"example-container mat-elevation-z8\">\r\n <!-- Table is provide with the team members details -->\r\n <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- firstName Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- lastName Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <th mat-header-cell *matHeaderCellDef> Email </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.Email}} </td>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <th mat-header-cell *matHeaderCellDef> County </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.County}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n        <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.Skills}} </td>\r\n      </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n </div>\r\n <br>\r\n <button mat-raised-button color=\"warn\" routerLink=\"/teams\"> Cancel </button>\r\n  </div>\r\n"
+module.exports = "<!--\r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <!-- Header for team details page -->\r\n <div class=\"container\">\r\n <h1 class=\"pageHeading mat-display-1\">Team1 Members</h1>\r\n <hr>\r\n <b>Leader:</b> Jim Willaims\r\n <br>\r\n <b>Assistant Leader:</b> Jules Verne\r\n <div class=\"example-container mat-elevation-z8\">\r\n <!-- Table is provide with the team members details -->\r\n <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- firstName Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- lastName Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <th mat-header-cell *matHeaderCellDef> Email </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <th mat-header-cell *matHeaderCellDef> County </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <!-- <ng-container matColumnDef=\"skills\">\r\n        <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n      </ng-container> -->\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n </div>\r\n <br>\r\n <button mat-raised-button color=\"warn\" routerLink=\"/teams\"> Cancel </button>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -1904,6 +1946,8 @@ module.exports = "<!--\r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author C
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Team1DetailsComponent", function() { return Team1DetailsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1914,19 +1958,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ELEMENT_DATA = [
-    { firstName: 'Jim', lastName: 'Williams', Email: 'WilliamsJ@gmail.com', County: 'Nodway', Skills: 'CERT Firefighter' },
-    { firstName: 'Jules', lastName: 'Verne', Email: 'Verne.J@Outlook.com', County: 'Vernon', Skills: 'CERT EMT-B' },
-    { firstName: 'Kate', lastName: 'Tomlins', Email: 'Katet@gmail.com', County: 'Nodway', Skills: 'CERT' },
-    { firstName: 'Amy', lastName: 'Yates', Email: 'Yates@yahoomail.com', County: 'Saint Louis', Skills: 'CERT LPN' },
-    { firstName: 'David', lastName: 'Cameron', Email: 'David@gmail.com', County: 'Nodway', Skills: 'CERT' },
-];
+
+
 var Team1DetailsComponent = /** @class */ (function () {
-    function Team1DetailsComponent() {
-        this.displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
-        this.dataSource = ELEMENT_DATA;
+    function Team1DetailsComponent(route, dataService) {
+        this.route = route;
+        this.dataService = dataService;
+        this.displayedColumns = ['firstName', 'lastName', 'email', 'county'];
     }
     Team1DetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.paramMap.subscribe(function (paramMap) {
+            _this.newTeamID = paramMap.get('item._id');
+            // console.log(this.newTeamID);
+        });
+        this.dataService.getTeamById(this.newTeamID)
+            .subscribe(function (data) {
+            _this.team = data['data'];
+            console.log(_this.team);
+            _this.dataSource = _this.team.members;
+        });
     };
     Team1DetailsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1934,7 +1985,7 @@ var Team1DetailsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./team1-details.component.html */ "./src/app/team1-details/team1-details.component.html"),
             styles: [__webpack_require__(/*! ./team1-details.component.css */ "./src/app/team1-details/team1-details.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], Team1DetailsComponent);
     return Team1DetailsComponent;
 }());
@@ -1961,7 +2012,7 @@ module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <button routerLink = \"/createTeams\" mat-raised-button color = \"primary\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <mat-spinner *ngIf = \"isLoading\"></mat-spinner>\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <a routerLink = \"/team1Details\">\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\"></a>\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <h2>{{ item.teamID }}</h2>\r\n   </mat-card-content>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n </div>\r\n </div>"
+module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <button routerLink = \"/createTeams\" mat-raised-button color = \"primary\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <mat-spinner *ngIf = \"isLoading\"></mat-spinner>\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <a [routerLink] = \"['/team1Details', item._id]\">\r\n    <!-- <a> -->\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a>\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <h2>{{ item.teamID }}</h2>\r\n   </mat-card-content>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n </div>\r\n </div>"
 
 /***/ }),
 
@@ -2000,6 +2051,9 @@ var TeamsComponent = /** @class */ (function () {
             _this.teams = data['data'];
             _this.isLoading = false;
         });
+    };
+    TeamsComponent.prototype.onClick = function (item) {
+        console.log(item._id);
     };
     TeamsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2076,7 +2130,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\New folder (3)\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -9,6 +9,11 @@ import { Team } from './team';
 })
 export class DataService {
   constructor(private http: HttpClient) { }
+
+  login(loginData){
+    return this.http.post("https://drrs.herokuapp.com/signin", loginData);
+  }
+
   getApplicantsList() {
     //   http call
     return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
