@@ -30,6 +30,7 @@ import { ApplicantdeniedComponent } from './applicantdenied/applicantdenied.comp
 import { Material } from './app.material';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { ArchivedialogComponent } from './archivedialog/archivedialog.component';
+import { TeamdialogComponent } from './teamdialog/teamdialog.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ArchivedialogComponent } from './archivedialog/archivedialog.component'
     ApplicantdeniedComponent,
     ReportComponent,
     ReportDialogComponent,
-    ArchivedialogComponent
+    ArchivedialogComponent,
+    TeamdialogComponent
   ],
   
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
