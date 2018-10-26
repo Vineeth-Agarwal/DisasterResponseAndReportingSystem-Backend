@@ -73,7 +73,8 @@ import { TeamdialogComponent } from './teamdialog/teamdialog.component';
     ApplicantacceptedComponent,
     ApplicantdeniedComponent,
     ReportDialogComponent,
-    ArchivedialogComponent
+    ArchivedialogComponent,
+    TeamdialogComponent
   ],
   
   providers: [],
