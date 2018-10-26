@@ -75,7 +75,7 @@ export class CreateTeamsComponent implements OnInit {
         .subscribe((data) => {
           console.log(data);
           console.log('success');
-          this.router.navigate(['/teams']);
+          this.router.navigate(['/teamdialog']);
         },
           error => {
             console.log('Error Occured');

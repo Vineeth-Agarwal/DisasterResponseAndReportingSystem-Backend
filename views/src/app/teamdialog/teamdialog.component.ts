@@ -16,17 +16,19 @@ export class TeamdialogComponent implements OnInit {
 
   yes()
   {
+    this.ref.closeAll();
+    // this.ref.open('CreateTeamsComponent');
     
    
-  let dialogReff=this.dialog.open(CreateTeamsComponent,{
-    width:'600px',
+  // let dialogReff=this.dialog.open(CreateTeamsComponent,{
+    // width:'600px',
     // data:this.user
 
-  });
-  dialogReff.afterClosed().subscribe(result=>{
+  // });
+  // dialogReff.afterClosed().subscribe(result=>{
     // console.log('Dialog closed: ${result}');
     // this.dialogResult=result;
-  })
+  // })
 }
 
   no()
