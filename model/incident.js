@@ -16,4 +16,4 @@ var incidentSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('incidents', incidentSchema);
+module.exports = mongoose.model('incident', incidentSchema);
