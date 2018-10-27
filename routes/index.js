@@ -128,17 +128,20 @@ router.put('/saveApplicationDecision', function (req, res, decision) {
   // if (req && !req.body) {
   //   return res.status(403).json({ msg: "Please provide applicant details" })
   // }
-
-  // var applicantObj = new applicant(req.body);
-  applicant.findByIdAndUpdate("5b451248463e263110b88080", { $set: { role: 'AcceptedApplicant' }}, { new: true }, function (err, data) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err: err })
-    }
-    else {
-      res.status(200).json({ msg: "applicant decision updated successfully", data: data })
-    }
-  });
-})
+  var received=req.body 
+    if(received.decision=="accept"){
+      var role = "AcceptedApplicant"}
+      else{
+      var role = "RejectedApplicant"}
+        applicant.findByIdAndUpdate("5b451248463e263110b88080", { $set: { role: role }}, { new: true }, function (err, data) {
+        if (err) {
+          res.status(403).json({ msg: "something bad", err: err })
+        }
+        else {
+          res.status(200).json({ msg: "applicant decision updated successfully", data: data })
+        }
+      });
+    })
 
 // get applicants List
 // These are the one who are applying for CERT Team
