@@ -148,11 +148,12 @@ router.put('/saveApplicationDecision', function (req, res, decision) {
 // get applicants List
 // These are the one who are applying for CERT Team
 router.get('/getApplicantsList', function (req, res, next) {
-  applicant.find({}, function (err, results) {
+  applicant.find({role:"Applicant"}, function (err, results) {
     if (err) {
       res.status(403).json({ msg: "something bad", err })
     }
     else {
+      // if(results.role=="Applicant")
       res.status(200).json({ msg: "applicant record fetched successfully", data: results })
     }
   })
