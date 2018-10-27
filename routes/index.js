@@ -129,11 +129,13 @@ router.put('/saveApplicationDecision', function (req, res, decision) {
   //   return res.status(403).json({ msg: "Please provide applicant details" })
   // }
   var received=req.body 
+  var id=req.id;
     if(received.decision=="accept"){
       var role = "AcceptedApplicant"}
       else{
       var role = "RejectedApplicant"}
-        applicant.findByIdAndUpdate("5b451248463e263110b88080", { $set: { role: role }}, { new: true }, function (err, data) {
+        // applicant.findByIdAndUpdate("5b451248463e263110b88080", { $set: { role: role }}, { new: true }, function (err, data) {
+        applicant.findByIdAndUpdate(id, { $set: { role: role }}, { new: true }, function (err, data) {
         if (err) {
           res.status(403).json({ msg: "something bad", err: err })
         }
