@@ -22,7 +22,10 @@ export class CreateTeamsComponent implements OnInit {
   a = Math.floor((Math.random() * 10000) + 1);
   team: Team;
   applicants: Applicant[];
-  //  displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
+  Leaders= {
+    leader: '',
+    asstLeader: ''
+  };
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
   dataSource = new MatTableDataSource<Applicant>(this.applicants)
   selection = new SelectionModel<Applicant>(true, []);
