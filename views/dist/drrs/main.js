@@ -257,12 +257,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./app.material */ "./src/app/app.material.ts");
 /* harmony import */ var _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./report-dialog/report-dialog.component */ "./src/app/report-dialog/report-dialog.component.ts");
 /* harmony import */ var _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./archivedialog/archivedialog.component */ "./src/app/archivedialog/archivedialog.component.ts");
+/* harmony import */ var _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./teamdialog/teamdialog.component */ "./src/app/teamdialog/teamdialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -311,7 +313,8 @@ var AppModule = /** @class */ (function () {
                 _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__["ApplicantdeniedComponent"],
                 _report_report_component__WEBPACK_IMPORTED_MODULE_13__["ReportComponent"],
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
-                _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"]
+                _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
+                _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
             imports: [
@@ -330,7 +333,8 @@ var AppModule = /** @class */ (function () {
                 _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_20__["ApplicantacceptedComponent"],
                 _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__["ApplicantdeniedComponent"],
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
-                _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"]
+                _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
+                _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -361,7 +365,7 @@ module.exports = ".button\r\n{\r\n  /* width: 150px; */\r\n  text-align: center;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Applicant Accepted!\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button\" mat-mini-fab color=\"primary\" (click)=\"onClick()\">Ok</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Applicant Accepted!\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button\" mat-mini-fab color=\"primary\" (click)=\"onClick()\">Ok</button>\r\n   <!-- <a mat-button routerLink=\"/reviewApplication\" routerLinkActive=\"mat-stroked-button\">Review Application</a>    -->\r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -379,6 +383,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 /* harmony import */ var _common_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/user */ "./src/app/common/user.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -397,8 +402,10 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
+
 var ApplicantacceptedComponent = /** @class */ (function () {
-    function ApplicantacceptedComponent(dataService, ref, thisDialogRef, data) {
+    function ApplicantacceptedComponent(router, dataService, ref, thisDialogRef, data) {
+        this.router = router;
         this.dataService = dataService;
         this.ref = ref;
         this.thisDialogRef = thisDialogRef;
@@ -406,27 +413,14 @@ var ApplicantacceptedComponent = /** @class */ (function () {
     }
     ApplicantacceptedComponent.prototype.ngOnInit = function () {
         this.applicant = this.data;
-        this.applicant_name = this.applicant.firstName;
-        console.log("applicant is " + this.applicant.email);
-        console.log("applicant is " + this.applicant.firstName);
-        console.log("applicant is " + this.applicant.role);
-        // this.dataService.getApplicantsList()
-        //   .subscribe((data) => {
-        //     this.applicant = data['data'];
-        //     this.applicant_id=this.applicant.email;
-        //   });
+        this.applicant.role = "AcceptedApplicant";
+        this.dataService.saveApplicantDecision(this.applicant)
+            .subscribe(function (data) {
+        });
     };
     ApplicantacceptedComponent.prototype.onClick = function () {
         this.ref.closeAll();
-        // let dialogRef=this.ref.open(ReviewApplicationComponent,{
-        //   // width:'600px',
-        //   // data:'hellooo',
-        //   // duration: '2000'
-        // });
-        // // dialogRef.afterClosed().subscribe(result=>{
-        // //   // console.log('Dialog closed: ${result}');
-        // //   // this.dialogResult=result;
-        // // })
+        window.location.reload(true);
     };
     ApplicantacceptedComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -434,8 +428,8 @@ var ApplicantacceptedComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./applicantaccepted.component.html */ "./src/app/applicantaccepted/applicantaccepted.component.html"),
             styles: [__webpack_require__(/*! ./applicantaccepted.component.css */ "./src/app/applicantaccepted/applicantaccepted.component.css")]
         }),
-        __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_3__["User"]])
+        __param(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_3__["User"]])
     ], ApplicantacceptedComponent);
     return ApplicantacceptedComponent;
 }());
@@ -612,7 +606,7 @@ var ArchivedIncidentsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */"
+module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */\r\n\r\n.text\r\n{\r\n    font-size: 20px;\r\n}"
 
 /***/ }),
 
@@ -623,7 +617,7 @@ module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Do you want to archive the incident?\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\r\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          <b>Do you want to archive the incident?</b> \r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\r\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -765,8 +759,14 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.getApplicantsList = function () {
         //   http call
-        return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
-        // return this.http.get('http://localhost:3000/getApplicantsList');
+        // return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+        return this.http.get('http://localhost:3000/getApplicantsList');
+    };
+    DataService.prototype.saveApplicantDecision = function (data) {
+        // http call  
+        // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+        return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+        // return this.http.post('http://localhost:3000/saveIncident', data);
     };
     DataService.prototype.getIncidentsList = function () {
         //   http call
@@ -1117,7 +1117,7 @@ module.exports = ".primary{\r\n    background: #673ab7;\r\n    color: white;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n<!-- Page not yet completed -->\r\n<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Create Team</h1>\r\n  <hr>\r\n\r\n  <!-- Form to input the team details -->\r\n  <form novalidate (ngSubmit)=\"onCreate(createTeam)\" #createTeam=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <!-- <label for=\"team\">\r\n          <b>Team Name</b>\r\n        </label> -->\r\n      <!--Input for team name -->\r\n      <!-- <input type=\"text\" class=\"form-control\" [ngModel]=\"team.teamname\" name=\"team name\" teamname #teamname=\"ngModel\" id=\"inputteamname\"\r\n          placeholder=\"Enter Team Name\" required>\r\n        <br> -->\r\n\r\n      <!-- TeamID should autogenerate -->\r\n      <label for=\"teamID\">\r\n        <b>Team ID</b>\r\n      </label>\r\n      <!-- <input type=\"text\" class=\"form-control\" [ngModel]=\"team.teamID\" name=\"teamID\" teamID #teamID=\"ngModel\" id=\"teamID\" placeholder=\"Team ID\"\r\n        required><br> -->\r\n      <input type=\"text\" class=\"form-control\" name=\"teamid\" value=\"team001\" disabled>\r\n    </div>\r\n\r\n    <!-- Table -->\r\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n              The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Checkbox Column -->\r\n      <ng-container matColumnDef=\"select\">\r\n        <th mat-header-cell *matHeaderCellDef>\r\n          <mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"selection.hasValue() && isAllSelected()\" [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n          </mat-checkbox>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\">\r\n          </mat-checkbox>\r\n        </td>\r\n      </ng-container>\r\n\r\n      <!-- First Name Column\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n      </ng-container> -->\r\n\r\n      <!-- First Name Column -->\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Last Name Column-->\r\n      <ng-container matColumnDef=\"lastName\">\r\n        <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"email\">\r\n          <th mat-header-cell *matHeaderCellDef> Email </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"dob\">\r\n            <th mat-header-cell *matHeaderCellDef> Date of Birth </th>\r\n            <td mat-cell *matCellDef=\"let element\"> {{element.dob}} </td>\r\n          </ng-container>\r\n\r\n          <ng-container matColumnDef=\"county\">\r\n              <th mat-header-cell *matHeaderCellDef> County </th>\r\n              <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"skills\">\r\n                <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n              </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"selection.toggle(row)\">\r\n      </tr>\r\n    </table>\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Leader\">\r\n        <mat-option *ngFor=\"let leader of selection.selected\" [value]=\"leader.firstName\">\r\n          {{leader.firstName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Assistant Leader\">\r\n        <mat-option *ngFor=\"let asstLeader of selection.selected\" [value]=\"asstLeader.firstName\">\r\n          {{asstLeader.firstName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n    <br>\r\n\r\n    <!-- Button provided to create team -->\r\n    <!-- <button class=\"btn primary\"> Create Team</button> -->\r\n    <div class=\"button-row\">\r\n      <button mat-raised-button color=\"primary\" type=\"submit\"> Create </button>\r\n      <button mat-raised-button color=\"warn\" routerLink=\"/teams\"> Cancel </button>\r\n    </div>\r\n\r\n  </form>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n<!-- Page not yet completed -->\r\n<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Create Team</h1>\r\n  <hr>\r\n\r\n  <!-- Form to input the team details -->\r\n  <form novalidate (ngSubmit)=\"onCreate(createTeam)\" #createTeam=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <!-- <label for=\"team\">\r\n          <b>Team Name</b>\r\n        </label> -->\r\n      <!--Input for team name -->\r\n      <!-- <input type=\"text\" class=\"form-control\" [ngModel]=\"team.teamname\" name=\"team name\" teamname #teamname=\"ngModel\" id=\"inputteamname\"\r\n          placeholder=\"Enter Team Name\" required>\r\n        <br> -->\r\n\r\n      <!-- TeamID should autogenerate -->\r\n      <label for=\"teamID\">\r\n        <b>Team ID :</b>\r\n      </label>\r\n      {{a}}\r\n    </div>\r\n\r\n    <!-- Table -->\r\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n              The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Checkbox Column -->\r\n      <ng-container matColumnDef=\"select\">\r\n        <th mat-header-cell *matHeaderCellDef>\r\n          <mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"selection.hasValue() && isAllSelected()\" [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n          </mat-checkbox>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\">\r\n          </mat-checkbox>\r\n        </td>\r\n      </ng-container>\r\n\r\n      <!-- First Name Column\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n      </ng-container> -->\r\n\r\n      <!-- First Name Column -->\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Last Name Column-->\r\n      <ng-container matColumnDef=\"lastName\">\r\n        <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"email\">\r\n          <th mat-header-cell *matHeaderCellDef> Email </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"dob\">\r\n            <th mat-header-cell *matHeaderCellDef> Date of Birth </th>\r\n            <td mat-cell *matCellDef=\"let element\"> {{element.dob}} </td>\r\n          </ng-container>\r\n\r\n          <ng-container matColumnDef=\"county\">\r\n              <th mat-header-cell *matHeaderCellDef> County </th>\r\n              <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"skills\">\r\n                <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n              </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"selection.toggle(row)\">\r\n      </tr>\r\n    </table>\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Leader\">\r\n        <mat-option *ngFor=\"let leader of selection.selected\" [value]=\"leader.firstName\">\r\n          {{leader.firstName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Assistant Leader\">\r\n        <mat-option *ngFor=\"let asstLeader of selection.selected\" [value]=\"asstLeader.firstName\">\r\n          {{asstLeader.firstName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n    <br>\r\n\r\n    <!-- Button provided to create team -->\r\n    <!-- <button class=\"btn primary\"> Create Team</button> -->\r\n    <div class=\"button-row\">\r\n      <button mat-raised-button color=\"primary\" type=\"submit\"> Create </button>\r\n      <button mat-raised-button color=\"warn\" routerLink=\"/teams\"> Cancel </button>\r\n    </div>\r\n\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1157,7 +1157,10 @@ var CreateTeamsComponent = /** @class */ (function () {
         this.router = router;
         this.dataService = dataService;
         this.a = Math.floor((Math.random() * 10000) + 1);
-        //  displayedColumns = ['firstName', 'lastName', 'email', 'county', 'skills'];
+        this.Leaders = {
+            leader: '',
+            asstLeader: ''
+        };
         this.displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.applicants);
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true, []);
@@ -1205,7 +1208,7 @@ var CreateTeamsComponent = /** @class */ (function () {
                 .subscribe(function (data) {
                 console.log(data);
                 console.log('success');
-                _this.router.navigate(['/teams']);
+                _this.router.navigate(['/teamdialog']);
             }, function (error) {
                 console.log('Error Occured');
             });
@@ -1994,6 +1997,93 @@ var Team1DetailsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/teamdialog/teamdialog.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/teamdialog/teamdialog.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */\r\n\r\n.text\r\n{\r\n    font-size: 20px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/teamdialog/teamdialog.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/teamdialog/teamdialog.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          <b>Do you want to create a team?</b> \r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button routerLink = \"/createTeams\" class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes()\">Yes</button>\r\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/teamdialog/teamdialog.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/teamdialog/teamdialog.component.ts ***!
+  \****************************************************/
+/*! exports provided: TeamdialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamdialogComponent", function() { return TeamdialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var TeamdialogComponent = /** @class */ (function () {
+    function TeamdialogComponent(dialog, ref, thisMatDialogRef) {
+        this.dialog = dialog;
+        this.ref = ref;
+        this.thisMatDialogRef = thisMatDialogRef;
+    }
+    TeamdialogComponent.prototype.ngOnInit = function () {
+    };
+    TeamdialogComponent.prototype.yes = function () {
+        this.ref.closeAll();
+        // this.ref.open('CreateTeamsComponent');
+        // let dialogReff=this.dialog.open(CreateTeamsComponent,{
+        // width:'600px',
+        // data:this.user
+        // });
+        // dialogReff.afterClosed().subscribe(result=>{
+        // console.log('Dialog closed: ${result}');
+        // this.dialogResult=result;
+        // })
+    };
+    TeamdialogComponent.prototype.no = function () {
+        this.ref.closeAll();
+    };
+    TeamdialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-teamdialog',
+            template: __webpack_require__(/*! ./teamdialog.component.html */ "./src/app/teamdialog/teamdialog.component.html"),
+            styles: [__webpack_require__(/*! ./teamdialog.component.css */ "./src/app/teamdialog/teamdialog.component.css")]
+        }),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]])
+    ], TeamdialogComponent);
+    return TeamdialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/teams/teams.component.css":
 /*!*******************************************!*\
   !*** ./src/app/teams/teams.component.css ***!
@@ -2012,7 +2102,7 @@ module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <button routerLink = \"/createTeams\" mat-raised-button color = \"primary\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <mat-spinner *ngIf = \"isLoading\"></mat-spinner>\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <a [routerLink] = \"['/team1Details', item._id]\">\r\n    <!-- <a> -->\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a>\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <h2>{{ item.teamID }}</h2>\r\n   </mat-card-content>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n </div>\r\n </div>"
+module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <button  mat-raised-button color = \"primary\" (click)=\"dialogue()\">Create Team</button>\r\n <!-- routerLink = \"/createTeams\" -->\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <mat-spinner *ngIf = \"isLoading\"></mat-spinner>\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <a [routerLink] = \"['/team1Details', item._id]\">\r\n    <!-- <a> -->\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a>\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <h2>{{ item.teamID }}</h2>\r\n   </mat-card-content>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n </div>\r\n </div>"
 
 /***/ }),
 
@@ -2028,6 +2118,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamsComponent", function() { return TeamsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../teamdialog/teamdialog.component */ "./src/app/teamdialog/teamdialog.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2039,9 +2131,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var TeamsComponent = /** @class */ (function () {
-    function TeamsComponent(dataService) {
+    function TeamsComponent(dataService, dialogref) {
         this.dataService = dataService;
+        this.dialogref = dialogref;
         this.isLoading = false;
     }
     TeamsComponent.prototype.ngOnInit = function () {
@@ -2055,13 +2150,19 @@ var TeamsComponent = /** @class */ (function () {
     TeamsComponent.prototype.onClick = function (item) {
         console.log(item._id);
     };
+    TeamsComponent.prototype.dialogue = function () {
+        this.dialogref.open(_teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_2__["TeamdialogComponent"], {
+            width: '600px'
+            // data:item
+        });
+    };
     TeamsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-teams',
             template: __webpack_require__(/*! ./teams.component.html */ "./src/app/teams/teams.component.html"),
             styles: [__webpack_require__(/*! ./teams.component.css */ "./src/app/teams/teams.component.css")]
         }),
-        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]])
     ], TeamsComponent);
     return TeamsComponent;
 }());
