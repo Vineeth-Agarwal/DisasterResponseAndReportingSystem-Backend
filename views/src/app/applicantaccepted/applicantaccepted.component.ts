@@ -19,7 +19,7 @@ export class ApplicantacceptedComponent implements OnInit {
 
   ngOnInit() {
     this.applicant = this.data;
-    this.applicant.role="AcceptedApplicant"
+    this.applicant.role="Applicant"
     this.dataService.saveApplicantDecision(this.applicant)
       .subscribe((data) => {
 
