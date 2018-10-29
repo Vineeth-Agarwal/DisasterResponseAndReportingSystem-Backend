@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { User } from '../common/user';
 import { MyDialogComponentComponent } from '../my-dialog-component/my-dialog-component.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-applicantaccepted',
@@ -14,38 +15,21 @@ import { MyDialogComponentComponent } from '../my-dialog-component/my-dialog-com
 export class ApplicantacceptedComponent implements OnInit {
   applicant: User;
   applicant_name:String;
-  constructor(private dataService: DataService,public ref: MatDialog,public thisDialogRef: MatDialogRef<MyDialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
+  constructor(private router: Router,private dataService: DataService,public ref: MatDialog,public thisDialogRef: MatDialogRef<MyDialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
 
   ngOnInit() {
     this.applicant = this.data;
-    this.applicant_name=this.applicant.firstName;
-    console.log("applicant is "+ this.applicant.email)
-    console.log("applicant is "+ this.applicant.firstName)
-    console.log("applicant is "+ this.applicant.role);
-    // this.dataService.getApplicantsList()
-    //   .subscribe((data) => {
-    //     this.applicant = data['data'];
-    //     this.applicant_id=this.applicant.email;
-    //   });
+    this.applicant.role="AcceptedApplicant"
+    this.dataService.saveApplicantDecision(this.applicant)
+      .subscribe((data) => {
 
+      });
   }
 
   onClick()
   {
     this.ref.closeAll();
-    // let dialogRef=this.ref.open(ReviewApplicationComponent,{
-    //   // width:'600px',
-    //   // data:'hellooo',
-    //   // duration: '2000'
-      
-
-    // });
-    // // dialogRef.afterClosed().subscribe(result=>{
-    // //   // console.log('Dialog closed: ${result}');
-    // //   // this.dialogResult=result;
-     
-    // // })
-      
+    window.location.reload(true);
   }
 
 }

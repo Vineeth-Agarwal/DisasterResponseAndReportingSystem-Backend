@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Incident } from './incident';
 import { Team } from './team';
+import { User } from './user';
 
 
 @Injectable({
@@ -16,10 +17,19 @@ export class DataService {
 
   getApplicantsList() {
     //   http call
-    return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
-    // return this.http.get('http://localhost:3000/getApplicantsList');
+    // return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+    return this.http.get('http://localhost:3000/getApplicantsList');
 
   }
+
+  saveApplicantDecision(data: User) {
+    // http call  
+    // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+    return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+    // return this.http.post('http://localhost:3000/saveIncident', data);
+
+  }
+
 
   getIncidentsList() {
     //   http call
@@ -59,6 +69,7 @@ export class DataService {
     // return this.http.post('http://localhost:3000/saveIncident', data);
 
   }
+
 
   saveTeam(data: Team) {
     // http call

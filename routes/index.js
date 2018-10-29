@@ -125,35 +125,30 @@ router.post('/saveApplicant', function (req, res, next) {
 })
 
 router.put('/saveApplicationDecision', function (req, res, decision) {
-  // if (req && !req.body) {
-  //   return res.status(403).json({ msg: "Please provide applicant details" })
-  // }
-  var received=req.body 
-  var id=req.id;
-    if(received.decision=="accept"){
-      var role = "AcceptedApplicant"}
-      else{
-      var role = "RejectedApplicant"}
-        // applicant.findByIdAndUpdate("5b451248463e263110b88080", { $set: { role: role }}, { new: true }, function (err, data) {
-        applicant.findByIdAndUpdate(id, { $set: { role: role }}, { new: true }, function (err, data) {
-        if (err) {
-          res.status(403).json({ msg: "something bad", err: err })
-        }
-        else {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide applicant details" })
+  }
+  console.log(req.body._id)
+  var id = req.body._id;
+  applicant.findByIdAndUpdate(id, { $set: { role: req.body.role } }, { new: true }, function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
           res.status(200).json({ msg: "applicant decision updated successfully", data: data })
-        }
-      });
-    })
+      
+    }
+  });
+})
 
 // get applicants List
 // These are the one who are applying for CERT Team
 router.get('/getApplicantsList', function (req, res, next) {
-  applicant.find({role:"Applicant"}, function (err, results) {
+  applicant.find({ role: "Applicant" }, function (err, results) {
     if (err) {
       res.status(403).json({ msg: "something bad", err })
     }
     else {
-      // if(results.role=="Applicant")
       res.status(200).json({ msg: "applicant record fetched successfully", data: results })
     }
   })
@@ -161,8 +156,7 @@ router.get('/getApplicantsList', function (req, res, next) {
 
 //last applicant record
 router.get('/getapplicantLast',
-  function (req,
-    res, next) {
+  function (req, res, next) {
     applicant.find({}, function (err, results) {
       var lastRecord
       // console.log(results.length);
@@ -220,7 +214,7 @@ router.post('/saveIncident', function (req, res, next) {
 
 // get incident - kishan
 router.get('/getIncidentsList', function (req, res, next) {
-  incident.find({isActive: 'true'}, function (err, results) {
+  incident.find({ isActive: 'true' }, function (err, results) {
     if (err) {
       res.status(403).json({ msg: "something bad", err })
     }
@@ -233,7 +227,7 @@ router.get('/getIncidentsList', function (req, res, next) {
 
 // get archive incident - kishan
 router.get('/getArchiveIncidents', function (req, res, next) {
-  incident.find({isActive: 'false'}, function (err, results) {
+  incident.find({ isActive: 'false' }, function (err, results) {
     if (err) {
       res.status(403).json({ msg: "something bad", err })
     }
@@ -249,7 +243,7 @@ router.put('/archiveIncident', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide details for report" })
   }
-  incident.findByIdAndUpdate(req.body, {isActive: 'false'}, function (err, data) {
+  incident.findByIdAndUpdate(req.body, { isActive: 'false' }, function (err, data) {
     if (err) {
       res.status(403).json({ msg: "something bad", err: err })
     }
