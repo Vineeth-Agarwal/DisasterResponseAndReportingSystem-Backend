@@ -90,23 +90,22 @@
     <br>
 
     <mat-form-field>
-      <mat-select placeholder="Select Leader">
-        <mat-option *ngFor="let leader of selection.selected" [value]="leader.firstName">
-          {{leader.firstName}}
+      <mat-select placeholder="Select Leader" [(value)]= "leader" id = "leader" name ="leader" >
+        <mat-option *ngFor="let leader of selection.selected" [value]="leader.firstName + leader.lastName">
+          {{leader.firstName}}  {{leader.lastName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-
-    <br>
+    <p>Leader: {{leader}} </p>
 
     <mat-form-field>
-      <mat-select placeholder="Select Assistant Leader">
-        <mat-option *ngFor="let asstLeader of selection.selected" [value]="asstLeader.firstName">
-          {{asstLeader.firstName}}
+      <mat-select placeholder="Select Assistant Leader" [(value)] = "asstLeader">
+        <mat-option *ngFor="let asstLeader of selection.selected" [value]="asstLeader.firstName + asstLeader.lastName">
+          {{asstLeader.firstName}} {{asstLeader.lastName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-
+    <p>Assistant Leader: {{asstLeader}} </p>
     <br>
 
     <!-- Button provided to create team -->
