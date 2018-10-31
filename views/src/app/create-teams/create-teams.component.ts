@@ -23,10 +23,7 @@ export class CreateTeamsComponent implements OnInit {
   a = Math.floor((Math.random() * 10000) + 1);
   team: Team;
   applicants: Applicant[];
-  Leaders= {
-    leader1: '',
-    asstLeader: ''
-  };
+ 
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
   dataSource = new MatTableDataSource<Applicant>(this.applicants)
   selection = new SelectionModel<Applicant>(true, []);
@@ -53,7 +50,11 @@ export class CreateTeamsComponent implements OnInit {
   constructor(private router: Router, private dataService: DataService) {
     this.team = new Team({
       teamID: '',
-      members: []
+      members: [],
+      leaders: {
+        leader: '',
+        asstLeader: ''
+      }
     });
   }
 
@@ -72,14 +73,14 @@ export class CreateTeamsComponent implements OnInit {
     this.team.teamID = "Team"+this.a;
     this.team.members = this.selection.selected;
     console.log(this.signupForm.value.leader);
-    //console.log(this.team);
-    // make http req. only if form is valid
+    console.log(this.team);
+    //make http req. only if form is valid
     if (valid) {
       this.dataService.saveTeam(this.team)
         .subscribe((data) => {
           console.log(data);
           console.log('success');
-          this.router.navigate(['/teamdialog']);
+           this.router.navigate(['/teams']);
         },
           error => {
             console.log('Error Occured');
