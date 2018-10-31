@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Applicant } from '../common/applicant';
 import { MatTableDataSource } from '@angular/material';
@@ -18,12 +19,12 @@ export interface Members {
 })
 
 export class CreateTeamsComponent implements OnInit {
-
+  @ViewChild('createTeam') signupForm: NgForm;
   a = Math.floor((Math.random() * 10000) + 1);
   team: Team;
   applicants: Applicant[];
   Leaders= {
-    leader: '',
+    leader1: '',
     asstLeader: ''
   };
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
@@ -70,8 +71,8 @@ export class CreateTeamsComponent implements OnInit {
     
     this.team.teamID = "Team"+this.a;
     this.team.members = this.selection.selected;
-        
-    console.log(this.team);
+    console.log(this.signupForm.value.leader);
+    //console.log(this.team);
     // make http req. only if form is valid
     if (valid) {
       this.dataService.saveTeam(this.team)
