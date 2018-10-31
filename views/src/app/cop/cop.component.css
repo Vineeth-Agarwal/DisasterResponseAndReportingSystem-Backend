@@ -1,5 +1,7 @@
 agm-map{
-    height: 620px;
+    height: 460px;
+    /* width:  1000px; */
+    align-self: flex-end;
 }
 
  th, td {
