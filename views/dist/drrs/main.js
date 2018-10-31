@@ -764,7 +764,7 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.saveApplicantDecision = function (data) {
         // http call  
-        return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+        return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
         // return this.http.put('http://localhost:3000/saveApplicationDecision', data);
     };
     DataService.prototype.getIncidentsList = function () {
@@ -1859,6 +1859,7 @@ var ReviewApplicationComponent = /** @class */ (function () {
     }
     ReviewApplicationComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log("entered here front");
         this.dataSource.paginator = this.paginator;
         this.dataService.getApplicantsList()
             .subscribe(function (data) {

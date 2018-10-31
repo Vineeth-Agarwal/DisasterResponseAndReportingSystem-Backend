@@ -28,6 +28,7 @@ export class ReviewApplicationComponent implements OnInit {
   constructor(private dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    console.log("entered here front")
     this.dataSource.paginator = this.paginator;
     this.dataService.getApplicantsList()
       .subscribe((data) => {
