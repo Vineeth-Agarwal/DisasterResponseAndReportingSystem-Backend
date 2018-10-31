@@ -36,7 +36,8 @@
       <!-- Checkbox Column -->
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
           </mat-checkbox>
         </th>
         <td mat-cell *matCellDef="let row">
@@ -64,24 +65,24 @@
       </ng-container>
 
       <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-        </ng-container>
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="dob">
-            <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
-            <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
-          </ng-container>
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+        <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+      </ng-container>
 
-          <ng-container matColumnDef="county">
-              <th mat-header-cell *matHeaderCellDef> County </th>
-              <td mat-cell *matCellDef="let element"> {{element.county}} </td>
-            </ng-container>
+      <ng-container matColumnDef="county">
+        <th mat-header-cell *matHeaderCellDef> County </th>
+        <td mat-cell *matCellDef="let element"> {{element.county}} </td>
+      </ng-container>
 
-            <ng-container matColumnDef="skills">
-                <th mat-header-cell *matHeaderCellDef> Skills </th>
-                <td mat-cell *matCellDef="let element"> {{element.skills}} </td>
-              </ng-container>
+      <ng-container matColumnDef="skills">
+        <th mat-header-cell *matHeaderCellDef> Skills </th>
+        <td mat-cell *matCellDef="let element"> {{element.skills}} </td>
+      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
@@ -90,16 +91,16 @@
     <br>
 
     <mat-form-field>
-      <mat-select placeholder="Select Leader" [(value)]= "leader" id = "leader" name ="leader" >
+      <mat-select placeholder="Select Leader" [(value)]="leader" id="leader" name="leader">
         <mat-option *ngFor="let leader of selection.selected" [value]="leader.firstName + leader.lastName">
-          {{leader.firstName}}  {{leader.lastName}}
+          {{leader.firstName}} {{leader.lastName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <p>Leader: {{leader}} </p>
 
     <mat-form-field>
-      <mat-select placeholder="Select Assistant Leader" [(value)] = "asstLeader">
+      <mat-select placeholder="Select Assistant Leader" [(value)]="asstLeader">
         <mat-option *ngFor="let asstLeader of selection.selected" [value]="asstLeader.firstName + asstLeader.lastName">
           {{asstLeader.firstName}} {{asstLeader.lastName}}
         </mat-option>
