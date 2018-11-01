@@ -2,10 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Applicant } from '../common/applicant';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DataService } from '../common/dataService';
 import { Team } from '../common/team';
+import { TeamdialogComponent } from '../teamdialog/teamdialog.component';
 
 export interface Members {
   value: string;
@@ -47,7 +48,7 @@ export class CreateTeamsComponent implements OnInit {
         
   }
 
-  constructor(private router: Router, private dataService: DataService) {
+  constructor(private router: Router, private dataService: DataService, public dialogref: MatDialog) {
     this.team = new Team({
       teamID: '',
       members: [],
@@ -87,4 +88,14 @@ export class CreateTeamsComponent implements OnInit {
           });
     }
   }
+
+  dialogue()
+  {
+    this.dialogref.open(TeamdialogComponent, {
+      width:'600px'
+      // data:item
+  });
+
+  }
+
 }
