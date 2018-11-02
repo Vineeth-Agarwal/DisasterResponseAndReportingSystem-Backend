@@ -23,10 +23,10 @@ export class ApplicantdeniedComponent implements OnInit {
       });
 
   }
-  onClickk()
+  onClick()
   {
     this.ref.closeAll();
-
+    window.location.reload(true);
   }
 
 }
