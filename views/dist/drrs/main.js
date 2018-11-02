@@ -456,7 +456,7 @@ module.exports = ".button\r\n{\r\n  /* width: 150px; */\r\n  text-align: center;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Applicant Denied!\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button\" mat-mini-fab color=\"primary\" (click)=\"onClickk()\">Ok</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          Applicant Denied!\r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button\" mat-mini-fab color=\"primary\" (click)=\"onClick()\">Ok</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -472,6 +472,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicantdeniedComponent", function() { return ApplicantdeniedComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _common_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/user */ "./src/app/common/user.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -481,16 +484,32 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
 
 
 var ApplicantdeniedComponent = /** @class */ (function () {
-    function ApplicantdeniedComponent(variable) {
-        this.variable = variable;
+    function ApplicantdeniedComponent(router, dataService, ref, thisDialogRef, data) {
+        this.router = router;
+        this.dataService = dataService;
+        this.ref = ref;
+        this.thisDialogRef = thisDialogRef;
+        this.data = data;
     }
     ApplicantdeniedComponent.prototype.ngOnInit = function () {
+        this.applicant = this.data;
+        this.applicant.role = "RejectedApplicant";
+        this.dataService.saveApplicantDecision(this.applicant)
+            .subscribe(function (data) {
+        });
     };
-    ApplicantdeniedComponent.prototype.onClickk = function () {
-        this.variable.closeAll();
+    ApplicantdeniedComponent.prototype.onClick = function () {
+        this.ref.closeAll();
+        window.location.reload(true);
     };
     ApplicantdeniedComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -498,7 +517,8 @@ var ApplicantdeniedComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./applicantdenied.component.html */ "./src/app/applicantdenied/applicantdenied.component.html"),
             styles: [__webpack_require__(/*! ./applicantdenied.component.css */ "./src/app/applicantdenied/applicantdenied.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+        __param(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_4__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_2__["User"]])
     ], ApplicantdeniedComponent);
     return ApplicantdeniedComponent;
 }());
@@ -1523,7 +1543,7 @@ var MyDialogComponentComponent = /** @class */ (function () {
         var _this = this;
         var dialogReff = this.dialog.open(_applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_4__["ApplicantdeniedComponent"], {
             width: '600px',
-            data: 'hellooo'
+            data: this.user
         });
         dialogReff.afterClosed().subscribe(function (result) {
             // console.log('Dialog closed: ${result}');
@@ -1627,7 +1647,7 @@ module.exports = ".pageHeading {\r\n    margin: auto;\r\n  }\r\n  \r\n  .text-st
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\r\n  <!-- mat-dialog-title -->\r\n  <hr>\r\n  <mat-dialog-content>\r\n    <!-- <div class=\"container\"> -->\r\n<div class=\"row text-style\">\r\n  <div class=\"col\">\r\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\r\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\r\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\r\n    <h3><u>Casualties: </u></h3>\r\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \r\n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \r\n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \r\n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \r\n  </div>\r\n  <div class=\"col\">\r\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\r\n    <p><b>Fire: </b> {{ report.fire }} </p>\r\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\r\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\r\n    <p><b>Others: </b>{{ report.others }}</p>    \r\n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\r\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\r\n  </div>\r\n</div>\r\n\r\n</mat-dialog-content>\r\n<hr>\r\n<mat-dialog-actions>\r\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\r\n</mat-dialog-actions>\r\n</div>"
+module.exports = "<div>\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\n  <!-- mat-dialog-title -->\n  <hr>\n  <mat-dialog-content>\n    <!-- <div class=\"container\"> -->\n<div class=\"row text-style\">\n  <div class=\"col\">\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\n    <h3><u>Casualties: </u></h3>\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \n  </div>\n  <div class=\"col\">\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\n    <p><b>Fire: </b> {{ report.fire }} </p>\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\n    <p><b>Others: </b>{{ report.others }}</p>    \n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\n  </div>\n</div>\n\n</mat-dialog-content>\n<hr>\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\n</mat-dialog-actions>\n</div>"
 
 /***/ }),
 
@@ -1871,7 +1891,6 @@ var ReviewApplicationComponent = /** @class */ (function () {
     }
     ReviewApplicationComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("entered here front");
         this.dataSource.paginator = this.paginator;
         this.dataService.getApplicantsList()
             .subscribe(function (data) {
@@ -2265,7 +2284,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\sree\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530468\Desktop\DRRS\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
