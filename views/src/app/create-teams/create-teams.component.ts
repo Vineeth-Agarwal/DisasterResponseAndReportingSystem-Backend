@@ -9,6 +9,7 @@ import { Team } from '../common/team';
 import { TeamdialogComponent } from '../teamdialog/teamdialog.component';
 
 export interface Members {
+
   value: string;
   viewValue: string;
 }
@@ -20,9 +21,11 @@ export interface Members {
 })
 
 export class CreateTeamsComponent implements OnInit {
+  
   @ViewChild('createTeam') signupForm: NgForm;
   a = Math.floor((Math.random() * 10000) + 1);
   team: Team;
+  saveTeam=false;
   applicants: Applicant[];
  
   displayedColumns = ['select', 'firstName', 'lastName', 'email', 'dob', 'county', 'skills'];
@@ -70,23 +73,17 @@ export class CreateTeamsComponent implements OnInit {
   onCreate({ value, valid }: { value: Team, valid: boolean }) {
     // alert("Incident module created successfully");
     // this.router.navigate(['/dashboard']);
-    
+  // if(this.saveTeam){
     this.team.teamID = "Team"+this.a;
     this.team.members = this.selection.selected;
     console.log(this.signupForm.value.leader);
     console.log(this.team);
     //make http req. only if form is valid
-    if (valid) {
-      this.dataService.saveTeam(this.team)
-        .subscribe((data) => {
-          console.log(data);
-          console.log('success');
-           this.router.navigate(['/teams']);
-        },
-          error => {
-            console.log('Error Occured');
-          });
-    }
+    this.dialogref.open(TeamdialogComponent, {
+      width:'600px',
+      data:this.team
+  });
+
   }
 
   dialogue()
@@ -95,6 +92,7 @@ export class CreateTeamsComponent implements OnInit {
       width:'600px'
       // data:item
   });
+  // this.onCreate(createTeam)
 
   }
 

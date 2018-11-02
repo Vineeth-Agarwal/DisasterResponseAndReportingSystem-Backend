@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { CreateTeamsComponent } from '../create-teams/create-teams.component';
+import { Team } from '../common/team';
+import { Router } from '@angular/router';
+import { DataService } from '../common/dataService';
 
 @Component({
   selector: 'app-teamdialog',
@@ -9,14 +12,28 @@ import { CreateTeamsComponent } from '../create-teams/create-teams.component';
 })
 export class TeamdialogComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public ref: MatDialog,@Inject(MAT_DIALOG_DATA) public thisMatDialogRef: MatDialogRef<TeamdialogComponent>) { }
+  team: Team;
+  constructor(private router: Router, private dataService: DataService, public dialog: MatDialog, public ref: MatDialog,@Inject(MAT_DIALOG_DATA) public thisMatDialogRef: MatDialogRef<TeamdialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Team) { }
 
   ngOnInit() {
   }
 
   yes()
   {
+    this.team = this.data;
     this.ref.closeAll();
+    // if (valid) {
+      this.dataService.saveTeam(this.team)
+        .subscribe((data) => {
+          console.log(data);
+          console.log('success');
+           this.router.navigate(['/teams']);
+        },
+          error => {
+            console.log('Error Occured');
+          });
+    // }
+  // }
     // this.ref.open('CreateTeamsComponent');
     
    
@@ -30,6 +47,8 @@ export class TeamdialogComponent implements OnInit {
     // this.dialogResult=result;
   // })
 }
+
+
 
   no()
   {
