@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'cop', component: COPComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({
