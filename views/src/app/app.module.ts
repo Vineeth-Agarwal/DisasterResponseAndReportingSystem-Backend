@@ -31,6 +31,8 @@ import { Material } from './app.material';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { ArchivedialogComponent } from './archivedialog/archivedialog.component';
 import { TeamdialogComponent } from './teamdialog/teamdialog.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -77,7 +79,7 @@ import { TeamdialogComponent } from './teamdialog/teamdialog.component';
     TeamdialogComponent
   ],
   
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 
   // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

@@ -12,6 +12,7 @@ import { Team1DetailsComponent } from './team1-details/team1-details.component';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { ReportComponent } from './report/report.component';
 import { COPComponent } from './cop/cop.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: 'createIncident', component: CreateIncidentComponent },
@@ -25,7 +26,10 @@ const routes: Routes = [
   // { path: 'report', component: ReportComponent },
   { path: 'reportById/:item.incidentID', component: ReportComponent },
   { path: 'cop', component: COPComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({

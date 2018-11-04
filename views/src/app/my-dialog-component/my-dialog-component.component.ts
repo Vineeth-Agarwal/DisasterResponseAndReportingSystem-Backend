@@ -40,7 +40,7 @@ export class MyDialogComponentComponent implements OnInit {
   deny() {
     let dialogReff=this.dialog.open(ApplicantdeniedComponent,{
       width:'600px',
-      data:'hellooo'
+      data:this.user
   
     });
     dialogReff.afterClosed().subscribe(result=>{

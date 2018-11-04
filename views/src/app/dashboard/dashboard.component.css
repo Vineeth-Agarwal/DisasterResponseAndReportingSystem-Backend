@@ -11,8 +11,13 @@
 .incident-card {
     /* max-width: 235px; */
     width: 255px;
-    min-height: 397px;
+    height: 500px;
     margin-top: 2em;
+}
+
+.mat-card-image{
+    width: 255px;
+    height: 165px;
 }
 
 /* for buttons - Create incident and Archived Incidents */

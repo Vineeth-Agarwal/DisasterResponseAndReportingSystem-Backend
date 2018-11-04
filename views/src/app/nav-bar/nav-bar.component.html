@@ -1,3 +1,4 @@
+<!-- <mat-toolbar color="primary" class="mat-elevation-z10" *ngIf="isLoggedIn$ | async as isLoggedIn"> -->
 <mat-toolbar color="primary" class="mat-elevation-z10">
   <span class="title mat-title">
     <a routerLink="/dashboard">DRRS</a>
@@ -6,5 +7,5 @@
   <a mat-button routerLink="/dashboard" routerLinkActive="mat-stroked-button">Dashboard</a>
   <a mat-button routerLink="/reviewApplication" routerLinkActive="mat-stroked-button">Review Application</a>
   <a mat-button routerLink="/cop" routerLinkActive="mat-stroked-button">Common Operating Picture</a>
-  <a mat-button routerLink="/login">Logout</a>
+  <a mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout</a>
 </mat-toolbar>
