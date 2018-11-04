@@ -1,6 +1,6 @@
 <div class="container">
   <!-- Header for the page -->
-  <h1>Reports</h1>
+  <h1>Incident: {{incidentID}}  Reports</h1>
   <hr>
 
   <mat-form-field>
@@ -10,11 +10,11 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-      <!-- Incident Name Column -->
+      <!-- Incident Name Column
       <ng-container matColumnDef="incidentName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Incident Name </th>
         <td mat-cell *matCellDef="let row"> {{row.incidentName}} </td>
-      </ng-container>
+      </ng-container> -->
 
       <!-- Reported By Column -->
       <ng-container matColumnDef="reportedBy">

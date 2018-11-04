@@ -23,7 +23,8 @@ export class ReportComponent implements OnInit {
   incidentID:string;
   incidentReportClicked:string;
   reports: Report[];
-  displayedColumns: string[] = ['incidentName', 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
+  // displayedColumns: string[] = ['incidentName', 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
+  displayedColumns: string[] = [ 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
   dataSource = new MatTableDataSource<Report>(this.reports);
   dialogResult: '';
 
