@@ -45,6 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _archived_incidents_archived_incidents_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./archived-incidents/archived-incidents.component */ "./src/app/archived-incidents/archived-incidents.component.ts");
 /* harmony import */ var _report_report_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./report/report.component */ "./src/app/report/report.component.ts");
 /* harmony import */ var _cop_cop_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./cop/cop.component */ "./src/app/cop/cop.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
 // Assigned to Kishan
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -52,6 +53,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -76,7 +78,10 @@ var routes = [
     // { path: 'report', component: ReportComponent },
     { path: 'reportById/:item.incidentID', component: _report_report_component__WEBPACK_IMPORTED_MODULE_10__["ReportComponent"] },
     { path: 'cop', component: _cop_cop_component__WEBPACK_IMPORTED_MODULE_11__["COPComponent"] },
-    { path: '', redirectTo: '/login', pathMatch: 'full' }
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"]] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: '**', redirectTo: '' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -164,13 +169,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Material", function() { return Material; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm5/table.es5.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -181,38 +188,39 @@ var Material = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             exports: [
                 _angular_cdk_table__WEBPACK_IMPORTED_MODULE_1__["CdkTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatAutocompleteModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatChipsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatStepperModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDatepickerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDividerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatExpansionModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatGridListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatMenuModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressSpinnerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRadioModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatRippleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSidenavModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSliderModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSlideToggleModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTabsModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTooltipModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatAutocompleteModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatChipsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatStepperModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDividerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatExpansionModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatMenuModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatProgressBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatRippleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSidenavModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSliderModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSlideToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTooltipModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
             ],
         })
     ], Material);
@@ -259,12 +267,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./report-dialog/report-dialog.component */ "./src/app/report-dialog/report-dialog.component.ts");
 /* harmony import */ var _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./archivedialog/archivedialog.component */ "./src/app/archivedialog/archivedialog.component.ts");
 /* harmony import */ var _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./teamdialog/teamdialog.component */ "./src/app/teamdialog/teamdialog.component.ts");
+/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -337,7 +349,7 @@ var AppModule = /** @class */ (function () {
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
                 _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"]
             ],
-            providers: [],
+            providers: [_auth_auth_service__WEBPACK_IMPORTED_MODULE_27__["AuthService"], _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
         })
     ], AppModule);
@@ -724,24 +736,111 @@ var ArchivedialogComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/common/applicant.ts":
-/*!*************************************!*\
-  !*** ./src/app/common/applicant.ts ***!
-  \*************************************/
-/*! exports provided: Applicant */
+/***/ "./src/app/auth/auth.guard.ts":
+/*!************************************!*\
+  !*** ./src/app/auth/auth.guard.ts ***!
+  \************************************/
+/*! exports provided: AuthGuard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Applicant", function() { return Applicant; });
-// Assigned to Kishan
-var Applicant = /** @class */ (function () {
-    function Applicant(values) {
-        if (values === void 0) { values = {}; }
-        /*Constructor initialization*/
-        Object.assign(this, values);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
     }
-    return Applicant;
+    AuthGuard.prototype.canActivate = function (next, state) {
+        var _this = this;
+        return this.authService.isLoggedIn.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (isLoggedIn) {
+            if (!isLoggedIn) {
+                _this.router.navigate(['/login']);
+                return false;
+            }
+            return true;
+        }));
+    };
+    AuthGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], AuthGuard);
+    return AuthGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/auth.service.ts":
+/*!**************************************!*\
+  !*** ./src/app/auth/auth.service.ts ***!
+  \**************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthService = /** @class */ (function () {
+    function AuthService(router) {
+        this.router = router;
+        this.loggedIn = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false); // {1}
+    }
+    Object.defineProperty(AuthService.prototype, "isLoggedIn", {
+        get: function () {
+            return this.loggedIn.asObservable(); // {2}
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AuthService.prototype.login = function (user) {
+        if (user.userName === 'Admin' && user.password === 'Admin') {
+            this.loggedIn.next(true);
+            this.router.navigate(['/dashboard']);
+        }
+    };
+    AuthService.prototype.logout = function () {
+        this.loggedIn.next(false);
+        this.router.navigate(['/login']);
+    };
+    AuthService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], AuthService);
+    return AuthService;
 }());
 
 
@@ -827,8 +926,8 @@ var DataService = /** @class */ (function () {
         return this.http.get('http://drrs.herokuapp.com/getTeam/' + data);
     };
     DataService.prototype.getReportById = function (data) {
-        return this.http.get('http://localhost:3000/getReportById/' + data);
-        // return this.http.get('http://drrs.herokuapp.com/getReportById/' + data);
+        // return this.http.get('http://localhost:3000/getReportById/'+ data);
+        return this.http.get('http://drrs.herokuapp.com/getReportById/' + data);
     };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1283,7 +1382,7 @@ module.exports = "/* Assigned to Mouli and Kishan*/\r\n.container {\r\n  margin-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <div [ngSwitch]=\"item.incidentName\">\r\n            <a *ngSwitchCase=\"'Earthquake'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Floods'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.4.jpg\" alt=\"Floods\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Hurricane'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.5.jpg\" alt=\"Hurricane\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Wildfire'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.2.jpg\" alt=\"Wildfire\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Tornado'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.3.jpg\" alt=\"Tornado\">\r\n            </a>\r\n            <a *ngSwitchDefault routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.6.jpg\" alt=\"Others\">\r\n            </a>\r\n          </div>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p>\r\n              <!-- Brief description of incident -->\r\n              <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ item.location }}\r\n            </p>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/report\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n              <button mat-raised-button color=\"warn\" (click)=\"dialog(item)\">Archive</button>\r\n              <!-- onArchive(item) -->\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf=\"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <div [ngSwitch]=\"item.incidentName\">\r\n            <a *ngSwitchCase=\"'Earthquake'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Floods'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.4.jpg\" alt=\"Floods\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Hurricane'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.5.jpg\" alt=\"Hurricane\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Wildfire'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.2.jpg\" alt=\"Wildfire\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Tornado'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.3.jpg\" alt=\"Tornado\">\r\n            </a>\r\n            <a *ngSwitchDefault routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.6.jpg\" alt=\"Others\">\r\n            </a>\r\n          </div>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p>\r\n              <!-- Brief description of incident -->\r\n              <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ item.location }}\r\n            </p>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <!-- <button mat-raised-button color=\"primary\" (click)=\"report(item.incidentID)\">Report</button> -->\r\n            <button mat-raised-button color=\"primary\" [routerLink] = \"['/reportById', item.incidentID]\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button>\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n\r\n            <button mat-raised-button color=\"warn\"  >Archive</button>\r\n              <!-- <button mat-raised-button color=\"warn\" (click)=\"dialog(item)\">Archive</button> -->\r\n              <!-- onArchive(item) -->\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf=\"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1389,7 +1488,7 @@ var DashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".logo {\r\n  width: 30%;\r\n  margin: 1em auto;\r\n  text-align: center;\r\n}\r\n\r\nimg {\r\n  width: 30%;\r\n}\r\n\r\n.loginContainer {\r\n    padding-left: 30em;\r\n    padding-right: 29em;\r\n    /* padding-top: 6em; */\r\n}\r\n\r\n/* .primary{\r\n    background: #673ab7;\r\n    color: white;\r\n    font-size: 1em;\r\n} */\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.form-group {\r\n  margin-top: 1em;\r\n}\r\n"
+module.exports = "mat-card {\r\n  max-width: 400px;\r\n  text-align: center;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n  margin-top: 3em;\r\n}\r\n\r\n.full-width-input {\r\n  width: 100%;\r\n}\r\n\r\n.logo {\r\n    width: 30%;\r\n    margin: 1em auto;\r\n    text-align: center;\r\n  }\r\n\r\nimg {\r\n    width: 30%;\r\n  }"
 
 /***/ }),
 
@@ -1400,7 +1499,7 @@ module.exports = ".logo {\r\n  width: 30%;\r\n  margin: 1em auto;\r\n  text-alig
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"logo\">\r\n    <img src=\"assets/images/EOC_logo.gif\" alt=\"EOC_logo\">\r\n </div>\r\n\r\n <div class=\"loginContainer\">\r\n   <!-- Header for login page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Login </h1>\r\n  <!-- Form provided to input login details -->\r\n  <div class=\"alert alert-danger\" *ngIf=\"incorrectPassword\">\r\n    <strong>Incorrect Email/Password</strong>\r\n  </div>\r\n  <form novalidate (ngSubmit)=\"onLogin(loginForm)\" #loginForm=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"email\">\r\n        <b class=\"mat-title\">Email</b>\r\n      </label>\r\n      <!-- Input for emailID -->\r\n      <input type=\"text\" class=\"form-control\" [ngModel]=\"applicant.email\" name=\"email\" email #email=\"ngModel\" id=\"inputEmail\" placeholder=\"Email\"\r\n        pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" required>\r\n      <!--\r\n        Email error block\r\n        by kishan\r\n      -->\r\n      <!-- Validation for emailID -->\r\n      <div *ngIf=\"(email.invalid && ( email.touched || email.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"email.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the email id\r\n        </div>\r\n        <div *ngIf=\"email.errors?.pattern &&  email.dirty\" class=\"mat-body-1\">\r\n            Please enter the valid email id\r\n        </div>\r\n      </div>\r\n\r\n      <!--\r\n        Password block\r\n        by kishan\r\n      -->\r\n      <label for=\"password\">\r\n        <b class=\"mat-title\">Password</b>\r\n      </label>\r\n      <!-- Input for password -->\r\n      <input type=\"password\" class=\"form-control\" [ngModel]=\"applicant.password\" name=\"password\" #password=\"ngModel\" id=\"inputpassword\"\r\n        placeholder=\"Password\" pattern=\"(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$\" required>\r\n      <!-- password error block -->\r\n      <!-- Validation for password -->\r\n      <div *ngIf=\"(password.invalid && ( password.touched || password.dirty)) || isSubmitted\" class=\"text-danger\">\r\n        <div *ngIf=\"password.errors?.required\" class=\"mat-body-1\">\r\n          Please enter the password\r\n        </div>\r\n        <!-- <div *ngIf=\"password.errors?.pattern && password.dirty\">\r\n          Password must have UpperCase, LowerCase, Number/SpecialChar and mininmum 8 characters.\r\n        </div> -->\r\n      </div>\r\n    </div>\r\n      <!-- Button provided to submit login details -->\r\n     <button mat-raised-button color=\"primary\" class=\"btn primary\"> Login </button>\r\n  </form>\r\n  </div>\r\n"
+module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"center\">\r\n   <h1>Disaster Response & Reporting System</h1>\r\n </div>\r\n <div class=\"logo\">\r\n    <img src=\"assets/images/EOC_logo.gif\" alt=\"EOC_logo\">\r\n </div>\r\n\r\n <div>\r\n    <mat-card>\r\n      <mat-card-content>\r\n        <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n          <p>Please login to continue</p>\r\n          <mat-form-field class=\"full-width-input\">\r\n            <input matInput placeholder=\"User\" formControlName=\"userName\" required>\r\n            <mat-error *ngIf=\"isFieldInvalid('userName')\">\r\n              Please inform your user name\r\n            </mat-error>\r\n          </mat-form-field>\r\n          <mat-form-field class=\"full-width-input\">\r\n            <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" required>\r\n            <mat-error *ngIf=\"isFieldInvalid('userName')\">\r\n              Please inform your password\r\n            </mat-error>\r\n          </mat-form-field>\r\n          <button mat-raised-button color=\"primary\" type=\"submit\">Login</button>\r\n        </form>\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </div>\r\n  "
 
 /***/ }),
 
@@ -1415,9 +1514,8 @@ module.exports = "<!--\r\n  Assigned to Hemanth\r\n -->\r\n <div class=\"logo\">
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _common_applicant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/applicant */ "./src/app/common/applicant.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../auth/auth.service */ "./src/app/auth/auth.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1430,40 +1528,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(router, dataService) {
-        this.router = router;
-        this.dataService = dataService;
-        // for validation
-        this.isSubmitted = false;
-        this.incorrectPassword = false;
-        this.applicant = new _common_applicant__WEBPACK_IMPORTED_MODULE_1__["Applicant"]({
-            email: ''
-        });
+    function LoginComponent(fb, authService) {
+        this.fb = fb;
+        this.authService = authService;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.form = this.fb.group({
+            userName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+        });
     };
-    LoginComponent.prototype.onLogin = function (_a) {
-        var _this = this;
-        var value = _a.value, valid = _a.valid;
-        console.log(value);
-        console.log(valid);
-        this.isSubmitted = true;
-        if (value) {
-            console.log(value);
-            this.dataService.login(value)
-                .subscribe(function (data) {
-                console.log(data);
-                _this.router.navigate(['/dashboard']);
-            }, function (err) {
-                _this.incorrectPassword = true;
-                console.log('Wrong Email/Password');
-            });
+    LoginComponent.prototype.isFieldInvalid = function (field) {
+        return ((!this.form.get(field).valid && this.form.get(field).touched) ||
+            (this.form.get(field).untouched && this.formSubmitAttempt));
+    };
+    LoginComponent.prototype.onSubmit = function () {
+        if (this.form.valid) {
+            this.authService.login(this.form.value);
         }
-        else {
-            console.log("Enter Email and password Both");
-        }
+        this.formSubmitAttempt = true;
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1471,7 +1555,8 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1603,7 +1688,7 @@ module.exports = ".title {\r\n  margin: auto;\r\n}\r\n\r\n.spacer {\r\n  flex: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z10\">\r\n  <span class=\"title mat-title\">\r\n    <a routerLink=\"/dashboard\">DRRS</a>\r\n  </span>\r\n  <span class=\"spacer\"></span>\r\n  <a mat-button routerLink=\"/dashboard\" routerLinkActive=\"mat-stroked-button\">Dashboard</a>\r\n  <a mat-button routerLink=\"/reviewApplication\" routerLinkActive=\"mat-stroked-button\">Review Application</a>\r\n  <a mat-button routerLink=\"/cop\" routerLinkActive=\"mat-stroked-button\">Common Operating Picture</a>\r\n  <a mat-button routerLink=\"/login\">Logout</a>\r\n</mat-toolbar>\r\n"
+module.exports = "<!-- <mat-toolbar color=\"primary\" class=\"mat-elevation-z10\" *ngIf=\"isLoggedIn$ | async as isLoggedIn\"> -->\r\n<mat-toolbar color=\"primary\" class=\"mat-elevation-z10\">\r\n  <span class=\"title mat-title\">\r\n    <a routerLink=\"/dashboard\">DRRS</a>\r\n  </span>\r\n  <span class=\"spacer\"></span>\r\n  <a mat-button routerLink=\"/dashboard\" routerLinkActive=\"mat-stroked-button\">Dashboard</a>\r\n  <a mat-button routerLink=\"/reviewApplication\" routerLinkActive=\"mat-stroked-button\">Review Application</a>\r\n  <a mat-button routerLink=\"/cop\" routerLinkActive=\"mat-stroked-button\">Common Operating Picture</a>\r\n  <a mat-button (click)=\"onLogout()\" *ngIf=\"isLoggedIn\">Logout</a>\r\n</mat-toolbar>\r\n"
 
 /***/ }),
 
@@ -1618,6 +1703,7 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"mat-elevation-z10\">\r\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavBarComponent", function() { return NavBarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../auth/auth.service */ "./src/app/auth/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1628,10 +1714,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var NavBarComponent = /** @class */ (function () {
-    function NavBarComponent() {
+    function NavBarComponent(authService) {
+        this.authService = authService;
     }
     NavBarComponent.prototype.ngOnInit = function () {
+        this.isLoggedIn$ = this.authService.isLoggedIn;
+    };
+    NavBarComponent.prototype.onLogout = function () {
+        this.authService.logout();
     };
     NavBarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1639,7 +1731,7 @@ var NavBarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./nav-bar.component.html */ "./src/app/nav-bar/nav-bar.component.html"),
             styles: [__webpack_require__(/*! ./nav-bar.component.css */ "./src/app/nav-bar/nav-bar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], NavBarComponent);
     return NavBarComponent;
 }());
@@ -1666,7 +1758,7 @@ module.exports = ".pageHeading {\r\n    margin: auto;\r\n  }\r\n  \r\n  .text-st
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\n  <!-- mat-dialog-title -->\n  <hr>\n  <mat-dialog-content>\n    <!-- <div class=\"container\"> -->\n<div class=\"row text-style\">\n  <div class=\"col\">\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\n    <h3><u>Casualties: </u></h3>\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \n  </div>\n  <div class=\"col\">\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\n    <p><b>Fire: </b> {{ report.fire }} </p>\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\n    <p><b>Others: </b>{{ report.others }}</p>    \n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\n  </div>\n</div>\n\n</mat-dialog-content>\n<hr>\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\n</mat-dialog-actions>\n</div>"
+module.exports = "<div>\r\n  <h1 class=\"pageHeading mat-display-1\">Report Details:</h1>\r\n  <!-- mat-dialog-title -->\r\n  <hr>\r\n  <mat-dialog-content>\r\n    <!-- <div class=\"container\"> -->\r\n<div class=\"row text-style\">\r\n  <div class=\"col\">\r\n    <p><b>Reported By: </b>{{ report.reportedBy }}</p>\r\n    <p><b>Incident Name: </b>{{ report.incidentName }}</p>\r\n    <p><b>location: </b>{{ report.location.lat + \" \" + report.location.lng }}</p>\r\n    <h3><u>Casualties: </u></h3>\r\n    <p class=\"text-danger font-weight-bold\">Red: {{ report.casualties.red }}</p> \r\n    <p class=\"text-warning font-weight-bold\">Yellow: {{ report.casualties.yellow }}</p> \r\n    <p class=\"text-success font-weight-bold\">Green: {{ report.casualties.green }}</p> \r\n    <p class=\"text-dark font-weight-bold\">Black: {{ report.casualties.black }}</p> \r\n  </div>\r\n  <div class=\"col\">\r\n    <p><b>Structural Damage: </b> {{ report.structuralDamage }} </p>\r\n    <p><b>Fire: </b> {{ report.fire }} </p>\r\n    <p><b>Utilities: </b>{{ report.utilities }}</p>\r\n    <p><b>Hazmat: </b>{{ report.hazmat }}</p>\r\n    <p><b>Others: </b>{{ report.others }}</p>    \r\n    <p *ngIf='report.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ report.files }}</a></p>\r\n    <p *ngIf='!report.files'><b>Certification: </b>No files uploaded</p>\r\n  </div>\r\n</div>\r\n\r\n</mat-dialog-content>\r\n<hr>\r\n<mat-dialog-actions>\r\n  <button mat-raised-button color=\"primary\" (click)=\"onOk()\">Ok</button>\r\n</mat-dialog-actions>\r\n</div>"
 
 /***/ }),
 
@@ -2311,7 +2403,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\s530468\Desktop\DRRS\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })

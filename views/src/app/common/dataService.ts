@@ -80,8 +80,8 @@ export class DataService {
   }
 
   getReportById(data: string) {
-        return this.http.get('http://localhost:3000/getReportById/'+ data);
-    // return this.http.get('http://drrs.herokuapp.com/getReportById/' + data);
+        // return this.http.get('http://localhost:3000/getReportById/'+ data);
+    return this.http.get('http://drrs.herokuapp.com/getReportById/' + data);
   }
 
 }
