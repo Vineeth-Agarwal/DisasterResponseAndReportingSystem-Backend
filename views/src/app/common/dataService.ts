@@ -56,7 +56,7 @@ export class DataService {
 
   getTeamList() {
     //   http call
-    return this.http.get('http://drrs.herokuapp.com/getTeamList');
+    return this.http.get('https://drrs.herokuapp.com/getTeamList');
     // return this.http.get('http://localhost:3000/getTeamList');
 
   }
@@ -71,17 +71,17 @@ export class DataService {
 
   saveTeam(data: Team) {
     // http call
-    return this.http.post('http://drrs.herokuapp.com/saveTeam', data);
+    return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
     // return this.http.post('http://localhost:3000/saveTeam', data);
   }
 
   getTeamById(data: string) {
-    return this.http.get('http://drrs.herokuapp.com/getTeam/' + data);
+    return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
   }
 
   getReportById(data: string) {
         // return this.http.get('http://localhost:3000/getReportById/'+ data);
-    return this.http.get('http://drrs.herokuapp.com/getReportById/' + data);
+    return this.http.get('https://drrs.herokuapp.com/getReportById/' + data);
   }
 
 }
