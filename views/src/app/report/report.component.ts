@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { DataService } from '../common/dataService';
 import { Report } from '../common/report';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ReportDialogComponent } from '../report-dialog/report-dialog.component';
 
 export interface UserData {
@@ -20,6 +20,8 @@ export interface UserData {
 })
 
 export class ReportComponent implements OnInit {
+  incidentID:string;
+  incidentReportClicked:string;
   reports: Report[];
   displayedColumns: string[] = ['incidentName', 'reportedBy', 'structuralDamage', 'fire', 'utilities'];
   dataSource = new MatTableDataSource<Report>(this.reports);
@@ -30,6 +32,7 @@ export class ReportComponent implements OnInit {
   
 
   constructor(
+    public route: ActivatedRoute,
     private router: Router, 
     private dataService: DataService,
     public dialog: MatDialog) {
@@ -39,9 +42,15 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    this.dataService.getReportsList()
+    // this.incidentReportClicked=this.r.get("data")
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.incidentID = paramMap.get('item.incidentID');
+      console.log("value of incidentID is "+this.incidentID);
+    })
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    // this.dataService.getReportsList()
+    this.dataService.getReportById(this.incidentID)
       .subscribe((data) => {
         this.reports = data['data'];
         this.dataSource = new MatTableDataSource<Report>(this.reports);

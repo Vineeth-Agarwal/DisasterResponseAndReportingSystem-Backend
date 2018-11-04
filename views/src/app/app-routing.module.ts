@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'team1Details/:item._id', component: Team1DetailsComponent },
   { path: 'archivedIncidents', component: ArchivedIncidentsComponent },
-  { path: 'report', component: ReportComponent },
+  // { path: 'report', component: ReportComponent },
+  { path: 'reportById/:item.incidentID', component: ReportComponent },
   { path: 'cop', component: COPComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];

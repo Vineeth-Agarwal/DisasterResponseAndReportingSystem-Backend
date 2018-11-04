@@ -3,6 +3,7 @@ import { DataService } from '../common/dataService';
 import { Incident } from '../common/incident';
 import { MatDialog } from '@angular/material';
 import { ArchivedialogComponent } from '../archivedialog/archivedialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   incidents: Incident[];
   isLoading = false;
   id = { _id: String };
-  constructor(private dataService: DataService, public dialogref: MatDialog) { }
+  constructor(private router: Router, private dataService: DataService, public dialogref: MatDialog) { }
 
   ngOnInit() {
     this.dataService.getIncidentsList()
@@ -51,4 +52,17 @@ export class DashboardComponent implements OnInit {
   });
   }
 
+  report(incident_id)
+  {
+    console.log("entered from dasboard report method "+incident_id)
+    // this.router.navigate(['/report', {
+      this.router.navigate(['/reportById', {      
+      data:incident_id }]
+    );
+ 
+  //   this.dialogref.open(ArchivedialogComponent, {
+  //     width:'600px',
+  //     data:incident_id
+  // });
+  }
 }

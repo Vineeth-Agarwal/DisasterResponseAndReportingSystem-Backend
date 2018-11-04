@@ -282,6 +282,24 @@ router.get('/getReportsList', function (req, res, next) {
   })
 });
 
+// get report by id
+router.get('/getReportById/:id', function (req, res, next) {
+
+  report.find({incidentName:req.params.id}, function (err, results) {
+    // Cheks for an error 
+    if (err) {
+      // Displays an error message
+      res.status(403).json({ msg: "something bad", err })
+    }
+    // if no error 
+    else {
+      // fetches the respective requested record successfully
+      res.status(200).json({ msg: "team record fetched successfully", data: results })
+    }
+  })
+});
+
+
 //save team-Sreevani Anoohya Tadiboina
 router.post('/saveTeam', function (req, res, next) {
   // Cheks of the request has been made and the request has no body
