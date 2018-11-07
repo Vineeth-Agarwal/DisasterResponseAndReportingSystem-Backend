@@ -32,6 +32,12 @@
      <!-- Team name -->
      <h2>{{ item.teamID }}</h2>
    </mat-card-content>
+   <mat-card-actions>
+      <!-- Report button is provided to retrive report of the incident module-->
+      <button mat-raised-button color="primary">Update</button>
+      <!-- Team button is provided to view team and its members in the incident module -->
+      <button mat-raised-button color="primary" color="warn" (click)="dialog(item)">Delete</button>
+      </mat-card-actions>
  </mat-card>
      </div>
    </div>

@@ -21,6 +21,7 @@ export class AuthService {
     if (user.userName === 'Admin' && user.password === 'Admin' ) { // {3}
       this.loggedIn.next(true);
       this.router.navigate(['/dashboard']);
+      console.log("Sucessfully logged in");
     }
   }
 

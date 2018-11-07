@@ -16,8 +16,7 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: 'createIncident', component: CreateIncidentComponent },
-  { path: 'createTeams', component: CreateTeamsComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'createTeams', component: CreateTeamsComponent},
   { path: 'login', component: LoginComponent },
   { path: 'reviewApplication', component: ReviewApplicationComponent },
   { path: 'teams', component: TeamsComponent },
@@ -27,8 +26,7 @@ const routes: Routes = [
   { path: 'reportById/:item.incidentID', component: ReportComponent },
   { path: 'cop', component: COPComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: '**', redirectTo: ''}
 ];
 
