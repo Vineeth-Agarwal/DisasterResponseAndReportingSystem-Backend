@@ -29,6 +29,7 @@ export class ApplicantacceptedComponent implements OnInit {
   onClick()
   {
     this.ref.closeAll();
+    // this.router.navigate(['/reviewApplication']);
     window.location.reload(true);
   }
 
