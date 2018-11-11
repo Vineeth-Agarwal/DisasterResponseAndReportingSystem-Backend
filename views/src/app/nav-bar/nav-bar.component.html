@@ -1,5 +1,5 @@
-<!-- <mat-toolbar color="primary" class="mat-elevation-z10" *ngIf="isLoggedIn$ | async as isLoggedIn"> -->
-<mat-toolbar color="primary" class="mat-elevation-z10">
+<mat-toolbar color="primary" class="mat-elevation-z10" *ngIf="isLoggedIn$ ">
+<!-- <mat-toolbar color="primary" class="mat-elevation-z10"> -->
   <span class="title mat-title">
     <a routerLink="/dashboard">DRRS</a>
   </span>
@@ -10,3 +10,6 @@
   <!-- <a mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout</a> -->
   <a mat-button (click)="onLogout()">Logout</a>
 </mat-toolbar>
+<ng-template #loading>
+    Loading stuff...
+  </ng-template>

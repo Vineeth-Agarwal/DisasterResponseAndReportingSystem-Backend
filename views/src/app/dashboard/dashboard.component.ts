@@ -59,10 +59,21 @@ export class DashboardComponent implements OnInit {
       this.router.navigate(['/reportById', {      
       data:incident_id }]
     );
+
+    
  
   //   this.dialogref.open(ArchivedialogComponent, {
   //     width:'600px',
   //     data:incident_id
   // });
   }
+
+  teams(incident_id)
+    {
+      console.log("entered from dasboard teams method "+incident_id)
+      // this.router.navigate(['/report', {
+        this.router.navigate(['/TeamsById', {      
+        data:incident_id }]
+      );
+}
 }
