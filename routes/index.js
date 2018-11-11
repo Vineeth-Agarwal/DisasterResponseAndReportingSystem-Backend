@@ -299,6 +299,22 @@ router.get('/getReportById/:id', function (req, res, next) {
   })
 });
 
+// router.get('/getTeamsById/:id', function (req, res, next) {
+
+//   report.find({incidentName:req.params.id}, function (err, results) {
+//     // Cheks for an error 
+//     if (err) {
+//       // Displays an error message
+//       res.status(403).json({ msg: "something bad", err })
+//     }
+//     // if no error 
+//     else {
+//       // fetches the respective requested record successfully
+//       res.status(200).json({ msg: "teams fetched successfully", data: results })
+//     }
+//   })
+// });
+
 
 //save team-Sreevani Anoohya Tadiboina
 router.post('/saveTeam', function (req, res, next) {
@@ -324,7 +340,7 @@ router.post('/saveTeam', function (req, res, next) {
   });
 })
 
-// get team list-Sreevani Anoohya Tadiboina
+get team list-Sreevani Anoohya Tadiboina
 router.get('/getTeamList', function (req, res, next) {
   team.find({}, function (err, results) {
     // Cheks for an error 

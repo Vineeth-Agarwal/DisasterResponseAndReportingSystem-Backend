@@ -4,6 +4,7 @@ export class Team {
 
     teamID: string;
     // teamName: string;
+    incidentID: string;
     members:  Applicant[]
 
     constructor(values: Object = {}) {

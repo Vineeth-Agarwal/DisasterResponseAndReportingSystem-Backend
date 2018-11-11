@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'reviewApplication', component: ReviewApplicationComponent },
   { path: 'teams', component: TeamsComponent },
+  // { path: 'teamsById/:item.incidentID', component: TeamsComponent },
   { path: 'team1Details/:item._id', component: Team1DetailsComponent },
   { path: 'archivedIncidents', component: ArchivedIncidentsComponent },
   // { path: 'report', component: ReportComponent },

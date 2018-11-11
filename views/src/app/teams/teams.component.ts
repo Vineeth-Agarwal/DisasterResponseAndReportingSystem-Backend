@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../common/dataService';
 import { Team } from '../common/team';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TeamdialogComponent } from '../teamdialog/teamdialog.component';
 import { MatDialog } from '@angular/material';
 
@@ -12,8 +13,13 @@ import { MatDialog } from '@angular/material';
 export class TeamsComponent implements OnInit {
  
   teams: Team[];
+  incidentID:string;
   isLoading = false;
-  constructor(private dataService: DataService, public dialogref: MatDialog) { }
+  constructor(public route: ActivatedRoute,
+    private router: Router, 
+    private dataService: DataService,
+    public dialogref: MatDialog) {
+  }
 
   ngOnInit() {
     this.dataService.getTeamList()
@@ -21,6 +27,19 @@ export class TeamsComponent implements OnInit {
         this.teams = data['data'];
         this.isLoading = false;
       });
+
+    // // this.incidentReportClicked=this.r.get("data")
+    // this.route.paramMap.subscribe((paramMap: ParamMap) => {
+    //   this.incidentID = paramMap.get('item.incidentID');
+    //   console.log("value of incidentID is "+this.incidentID);
+    // })
+    // // this.dataSource.paginator = this.paginator;
+    // // this.dataSource.sort = this.sort;
+    // // this.dataService.getReportsList()
+    // this.dataService.getTeamsById(this.incidentID)
+    //   .subscribe((data) => {
+    //     this.teams = data['data'];
+    //   });
   }
 
   onClick(item){

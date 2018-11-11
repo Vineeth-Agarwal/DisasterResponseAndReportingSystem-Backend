@@ -21,6 +21,7 @@ export class TeamdialogComponent implements OnInit {
   yes()
   {
     this.team = this.data;
+    // this.team.incidentID =
     this.ref.closeAll();
     // if (valid) {
       this.dataService.saveTeam(this.team)
