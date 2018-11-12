@@ -340,7 +340,7 @@ router.post('/saveTeam', function (req, res, next) {
   });
 })
 
-get team list-Sreevani Anoohya Tadiboina
+//get team list-Sreevani Anoohya Tadiboina
 router.get('/getTeamList', function (req, res, next) {
   team.find({}, function (err, results) {
     // Cheks for an error 
