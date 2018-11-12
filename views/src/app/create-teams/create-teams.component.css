@@ -1,13 +1,19 @@
 .primary{
-    background: #673ab7;
-    color: white;
-    font-size: 1em;
+  background: #673ab7;
+  color: white;
+  font-size: 1em;
+}
+table {
+  width: 100%;
+}
+.button-row button {
+  margin-right: 8px;
 }
 
-table {
-    width: 100%;
-  }
+.mat-header-cell {
+  text-align: center;
+}
 
-  .button-row button {
-    margin-right: 8px;
-  }
+.mat-cell {
+  text-align: center;
+}
