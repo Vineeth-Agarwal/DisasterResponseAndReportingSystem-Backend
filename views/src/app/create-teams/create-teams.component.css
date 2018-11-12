@@ -11,9 +11,11 @@ table {
 }
 
 .mat-header-cell {
+  padding: 12px;
   text-align: center;
 }
 
 .mat-cell {
+  padding: 12px;
   text-align: center;
 }
