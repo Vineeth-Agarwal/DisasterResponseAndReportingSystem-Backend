@@ -47,6 +47,12 @@ export class DataService {
     return this.http.put('http://localhost:3000/archiveIncident', data);
   }
 
+  deleteTeam(data) {
+    //   http call
+    // return this.http.put('https://drrs.herokuapp.com/deleteTeam', data);
+    return this.http.put('http://localhost:3000/deleteTeam', data);
+  }
+
   getReportsList() {
     //   http call
     // return this.http.get('https://drrs.herokuapp.com/getReportsList');

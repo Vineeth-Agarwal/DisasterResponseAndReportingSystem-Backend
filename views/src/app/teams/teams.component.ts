@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
- 
+  id = { _id: String };
   teams: Team[];
   incidentID:string;
   isLoading = false;
@@ -44,6 +44,24 @@ export class TeamsComponent implements OnInit {
 
   onClick(item){
     console.log(item._id);
+  }
+
+  delete(item){
+    this.id = { _id: item._id };
+    console.log(this.id);
+    this.dataService.deleteTeam(this.id)
+      .subscribe((data) => {
+        this.dataService.getTeamList()
+        .subscribe((dataT) => {
+        this.teams = dataT['data'];
+        this.isLoading = false;
+      });
+      item.isActive = false;
+      console.log('success');
+    },
+      error => {
+        console.log('Error Occured');
+      });
   }
 
   dialogue()

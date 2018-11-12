@@ -254,6 +254,21 @@ router.put('/archiveIncident', function (req, res, next) {
   });
 })
 
+// DeleteTeam
+router.put('/deleteTeam', function (req, res, next) {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide details for report" })
+  }
+  incident.findByIdAndUpdate(req.body, { isActive: 'false' }, function (err, data) {
+    if (err) {
+      res.status(403).json({ msg: "something bad", err: err })
+    }
+    else {
+      res.status(200).json({ msg: "Team deleted successfully", data: data })
+    }
+  });
+})
+
 // save report
 router.post('/saveReport', function (req, res, next) {
   if (req && !req.body) {
