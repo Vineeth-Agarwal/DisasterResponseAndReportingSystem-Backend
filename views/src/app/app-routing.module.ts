@@ -17,10 +17,11 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path: 'createIncident', component: CreateIncidentComponent },
   { path: 'createTeams', component: CreateTeamsComponent},
+  // { path: 'createTeamsByID/incidentID', component: CreateTeamsComponent},
   { path: 'login', component: LoginComponent },
   { path: 'reviewApplication', component: ReviewApplicationComponent },
-  { path: 'teams', component: TeamsComponent },
-  // { path: 'teamsById/:item.incidentID', component: TeamsComponent },
+  //{ path: 'teams', component: TeamsComponent },
+  { path: 'teamsById/:item.incidentID', component: TeamsComponent },
   { path: 'team1Details/:item._id', component: Team1DetailsComponent },
   { path: 'archivedIncidents', component: ArchivedIncidentsComponent },
   // { path: 'report', component: ReportComponent },

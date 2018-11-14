@@ -92,8 +92,8 @@ export class DataService {
   }
 
   getTeamsById(data: string) {
-    // return this.http.get('http://localhost:3000/getTeamsById/'+ data);
-    return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
+     return this.http.get('http://localhost:3000/getTeamsById/'+ data);
+    // return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
 }
 
 }

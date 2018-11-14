@@ -4,14 +4,13 @@
  <!-- @Author Chandra Mouli Kantipudi -->
  <div class="container">
     <!-- Header for the dashboard page -->
- <h1 class="pageHeading mat-display-1">Teams</h1>
+ <h1 class="pageHeading mat-display-1">Teams of {{incidentID}}</h1>
  <hr>
  <div class="row">
     <div class="col">
  <!-- Create team button provided to route to create team page -->
- <button routerLink = "/createTeams"  mat-raised-button color = "primary" >Create Team</button>
- <!-- <button  mat-raised-button color = "primary" (click)="dialogue()">Create Team</button> -->
- <!-- routerLink = "/createTeams" -->
+ <!-- <button [routerLink] = "['createTeamsByID/', incidentID]" mat-raised-button color = "primary" >Create Team</button> -->
+ <button  mat-raised-button color = "primary" routerLink = "/createTeams">Create Team</button>
     </div>
  </div>
 

@@ -259,7 +259,7 @@ router.put('/deleteTeam', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide details for report" })
   }
-  incident.findByIdAndUpdate(req.body, { isActive: 'false' }, function (err, data) {
+  team.findByIdAndUpdate(req.body, { isActive: 'false' }, function (err, data) {
     if (err) {
       res.status(403).json({ msg: "something bad", err: err })
     }
@@ -299,7 +299,6 @@ router.get('/getReportsList', function (req, res, next) {
 
 // get report by id
 router.get('/getReportById/:id', function (req, res, next) {
-
   report.find({incidentName:req.params.id}, function (err, results) {
     // Cheks for an error 
     if (err) {
@@ -314,21 +313,21 @@ router.get('/getReportById/:id', function (req, res, next) {
   })
 });
 
-// router.get('/getTeamsById/:id', function (req, res, next) {
-
-//   report.find({incidentName:req.params.id}, function (err, results) {
-//     // Cheks for an error 
-//     if (err) {
-//       // Displays an error message
-//       res.status(403).json({ msg: "something bad", err })
-//     }
-//     // if no error 
-//     else {
-//       // fetches the respective requested record successfully
-//       res.status(200).json({ msg: "teams fetched successfully", data: results })
-//     }
-//   })
-// });
+router.get('/getTeamsById/:id', function (req, res, next) {
+console.log(req.params.id);
+  team.find({incidentID:req.params.id}, function (err, results) {
+    // Cheks for an error 
+    if (err) {
+      // Displays an error message
+      res.status(403).json({ msg: "something bad", err })
+    }
+    // if no error 
+    else {
+      // fetches the respective requested record successfully
+      res.status(200).json({ msg: "teams fetched successfully", data: results })
+    }
+  })
+});
 
 
 //save team-Sreevani Anoohya Tadiboina
@@ -355,21 +354,21 @@ router.post('/saveTeam', function (req, res, next) {
   });
 })
 
-//get team list-Sreevani Anoohya Tadiboina
-router.get('/getTeamList', function (req, res, next) {
-  team.find({}, function (err, results) {
-    // Cheks for an error 
-    if (err) {
-      // Displays an error message
-      res.status(403).json({ msg: "something bad", err })
-    }
-    // if no error 
-    else {
-      // fetches the respective requested record successfully
-      res.status(200).json({ msg: "team record fetched successfully", data: results })
-    }
-  })
-});
+// //get team list-Sreevani Anoohya Tadiboina
+// router.get('/getTeamList', function (req, res, next) {
+//   team.find({}, function (err, results) {
+//     // Cheks for an error 
+//     if (err) {
+//       // Displays an error message
+//       res.status(403).json({ msg: "something bad", err })
+//     }
+//     // if no error 
+//     else {
+//       // fetches the respective requested record successfully
+//       res.status(200).json({ msg: "team record fetched successfully", data: results })
+//     }
+//   })
+// });
 
 // get team by id
 router.get('/getTeam/:id', function (req, res, next) {

@@ -22,24 +22,24 @@ export class TeamsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getTeamList()
+    // this.dataService.getTeamList()
+    //   .subscribe((data) => {
+    //     this.teams = data['data'];
+    //     this.isLoading = false;
+    //   });
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.incidentID = paramMap.get('item.incidentID');
+      console.log("value of incidentID is "+this.incidentID);
+    })
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    // this.dataService.getReportsList()
+    this.dataService.getTeamsById(this.incidentID)
       .subscribe((data) => {
         this.teams = data['data'];
         this.isLoading = false;
+        console.log(this.teams);
       });
-
-    // // this.incidentReportClicked=this.r.get("data")
-    // this.route.paramMap.subscribe((paramMap: ParamMap) => {
-    //   this.incidentID = paramMap.get('item.incidentID');
-    //   console.log("value of incidentID is "+this.incidentID);
-    // })
-    // // this.dataSource.paginator = this.paginator;
-    // // this.dataSource.sort = this.sort;
-    // // this.dataService.getReportsList()
-    // this.dataService.getTeamsById(this.incidentID)
-    //   .subscribe((data) => {
-    //     this.teams = data['data'];
-    //   });
   }
 
   onClick(item){
@@ -48,20 +48,21 @@ export class TeamsComponent implements OnInit {
 
   delete(item){
     this.id = { _id: item._id };
-    console.log(this.id);
+    // console.log(this.id);
     this.dataService.deleteTeam(this.id)
       .subscribe((data) => {
-        this.dataService.getTeamList()
-        .subscribe((dataT) => {
-        this.teams = dataT['data'];
+        console.log(data);
+        this.dataService.getTeamsById(this.incidentID)
+        .subscribe((dataInci) => {
+        this.teams = dataInci['data'];
         this.isLoading = false;
       });
-      item.isActive = false;
-      console.log('success');
-    },
-      error => {
-        console.log('Error Occured');
-      });
+        item.isActive = false;
+        console.log('success');
+      },
+        error => {
+          console.log('Error Occured');
+        });
   }
 
   dialogue()
