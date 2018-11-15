@@ -48,7 +48,7 @@ export class TeamsComponent implements OnInit {
 
   delete(item){
     this.id = { _id: item._id };
-    // console.log(this.id);
+    console.log(this.id);
     this.dataService.deleteTeam(this.id)
       .subscribe((data) => {
         console.log(data);

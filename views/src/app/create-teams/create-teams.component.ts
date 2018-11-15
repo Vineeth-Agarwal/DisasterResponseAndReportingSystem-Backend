@@ -54,6 +54,7 @@ export class CreateTeamsComponent implements OnInit {
   constructor(private router: Router, private dataService: DataService, public dialogref: MatDialog) {
     this.team = new Team({
       teamID: '',
+      isActive : false,
       members: [],
       leaders: {
         leader: '',
@@ -76,6 +77,7 @@ export class CreateTeamsComponent implements OnInit {
   // if(this.saveTeam){
     this.team.teamID = "Team"+this.a;
     this.team.members = this.selection.selected;
+    this.team.isActive = true;
     this.team.incidentID = "Hurricane_20181031";
     console.log(this.signupForm.value.leader);
     console.log(this.team);

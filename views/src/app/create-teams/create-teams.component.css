@@ -3,6 +3,15 @@
   color: white;
   font-size: 1em;
 }
+
+.container {
+  margin-top: 1em;
+}
+
+.pageHeading {
+  margin: auto;
+}
+
 table {
   width: 100%;
 }

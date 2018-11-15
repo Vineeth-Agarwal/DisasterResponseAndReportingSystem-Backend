@@ -6,6 +6,10 @@
   margin: auto;
 }
 
+table {
+  width: 100%;
+}
+
 .table-container {
     display: flex;
     flex-direction: column;

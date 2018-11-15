@@ -8,6 +8,10 @@ var Schema = mongoose.Schema;
 var teamSchema = new Schema({
     teamID: String,
     incidentID: String,
+    isActive: {
+        type: Boolean,
+        default: 'true',
+      },
     // teamName: String,
     members: [{
         firstName: String,

@@ -315,7 +315,7 @@ router.get('/getReportById/:id', function (req, res, next) {
 
 router.get('/getTeamsById/:id', function (req, res, next) {
 console.log(req.params.id);
-  team.find({incidentID:req.params.id}, function (err, results) {
+  team.find({incidentID:req.params.id, isActive:'true'}, function (err, results) {
     // Cheks for an error 
     if (err) {
       // Displays an error message
