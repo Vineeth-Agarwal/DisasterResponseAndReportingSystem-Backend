@@ -145,7 +145,7 @@ router.put('/saveApplicationDecision', function (req, res, decision) {
 // These are the one who are applying for CERT Team
 router.get('/getApplicantsList', function (req, res, next) {
   console.log("entered here")
-  applicant.find({ role: "AcceptedApplicant" }, function (err, results) {
+  applicant.find({ role: "Applicant" }, function (err, results) {
     if (err) {
       res.status(403).json({ msg: "something bad", err })
     }
