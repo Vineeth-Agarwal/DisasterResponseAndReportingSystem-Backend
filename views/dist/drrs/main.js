@@ -885,65 +885,65 @@ var DataService = /** @class */ (function () {
     // }
     DataService.prototype.getApplicantsList = function () {
         //   http call
-        // return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
-        return this.http.get('http://localhost:3000/getApplicantsList');
+        return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+        // return this.http.get('http://localhost:3000/getApplicantsList');
     };
     DataService.prototype.saveApplicantDecision = function (data) {
         // http call  
-        // return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
-        return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+        return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
+        // return this.http.put('http://localhost:3000/saveApplicationDecision', data);
     };
     DataService.prototype.getIncidentsList = function () {
         //   http call
-        // return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
-        return this.http.get('http://localhost:3000/getIncidentsList');
+        return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
+        // return this.http.get('http://localhost:3000/getIncidentsList');
     };
     DataService.prototype.getArciveIncident = function () {
         //   http call
-        // return this.http.get('https://drrs.herokuapp.com/getArchiveIncidents');
-        return this.http.get('http://localhost:3000/getArchiveIncidents');
+        return this.http.get('https://drrs.herokuapp.com/getArchiveIncidents');
+        // return this.http.get('http://localhost:3000/getArchiveIncidents');
     };
     DataService.prototype.archiveIncident = function (data) {
         //   http call
-        // return this.http.put('https://drrs.herokuapp.com/archiveIncident', data);
-        return this.http.put('http://localhost:3000/archiveIncident', data);
+        return this.http.put('https://drrs.herokuapp.com/archiveIncident', data);
+        // return this.http.put('http://localhost:3000/archiveIncident', data);
     };
     DataService.prototype.deleteTeam = function (data) {
         //   http call
-        // return this.http.put('https://drrs.herokuapp.com/deleteTeam', data);
-        return this.http.put('http://localhost:3000/deleteTeam', data);
+        return this.http.put('https://drrs.herokuapp.com/deleteTeam', data);
+        // return this.http.put('http://localhost:3000/deleteTeam', data);
     };
     DataService.prototype.getReportsList = function () {
         //   http call
-        // return this.http.get('https://drrs.herokuapp.com/getReportsList');
-        return this.http.get('http://localhost:3000/getReportsList');
+        return this.http.get('https://drrs.herokuapp.com/getReportsList');
+        // return this.http.get('http://localhost:3000/getReportsList');
     };
     DataService.prototype.getTeamList = function () {
         //   http call
-        // return this.http.get('https://drrs.herokuapp.com/getTeamList');
-        return this.http.get('http://localhost:3000/getTeamList');
+        return this.http.get('https://drrs.herokuapp.com/getTeamList');
+        // return this.http.get('http://localhost:3000/getTeamList');
     };
     DataService.prototype.saveIncident = function (data) {
         // http call
-        // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
-        return this.http.post('http://localhost:3000/saveIncident', data);
+        return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+        // return this.http.post('http://localhost:3000/saveIncident', data);
     };
     DataService.prototype.saveTeam = function (data) {
         // http call
-        // return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
-        return this.http.post('http://localhost:3000/saveTeam', data);
+        return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
+        //  return this.http.post('http://localhost:3000/saveTeam', data);
     };
     DataService.prototype.getTeamById = function (data) {
-        return this.http.get('http://localhost:3000/getTeam/' + data);
-        // return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
+        // return this.http.get('http://localhost:3000/getTeam/' + data);
+        return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
     };
     DataService.prototype.getReportById = function (data) {
-        return this.http.get('http://localhost:3000/getReportById/' + data);
-        // return this.http.get('https://drrs.herokuapp.com/getReportById/' + data);
+        // return this.http.get('http://localhost:3000/getReportById/'+ data);
+        return this.http.get('https://drrs.herokuapp.com/getReportById/' + data);
     };
     DataService.prototype.getTeamsById = function (data) {
-        return this.http.get('http://localhost:3000/getTeamsById/' + data);
-        // return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
+        //  return this.http.get('http://localhost:3000/getTeamsById/'+ data);
+        return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
     };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

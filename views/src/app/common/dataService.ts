@@ -17,83 +17,83 @@ export class DataService {
 
   getApplicantsList() {
     //   http call
-   // return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
-    return this.http.get('http://localhost:3000/getApplicantsList');
+   return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+    // return this.http.get('http://localhost:3000/getApplicantsList');
 
   }
 
   saveApplicantDecision(data: User) {
     // http call  
-    // return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
-    return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+    return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
+    // return this.http.put('http://localhost:3000/saveApplicationDecision', data);
   }
 
 
   getIncidentsList() {
     //   http call
-    // return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
-    return this.http.get('http://localhost:3000/getIncidentsList');
+    return this.http.get('https://drrs.herokuapp.com/getIncidentsList');
+    // return this.http.get('http://localhost:3000/getIncidentsList');
   }
 
   getArciveIncident() {
     //   http call
-    // return this.http.get('https://drrs.herokuapp.com/getArchiveIncidents');
-    return this.http.get('http://localhost:3000/getArchiveIncidents');
+    return this.http.get('https://drrs.herokuapp.com/getArchiveIncidents');
+    // return this.http.get('http://localhost:3000/getArchiveIncidents');
   }
 
   archiveIncident(data) {
     //   http call
-    // return this.http.put('https://drrs.herokuapp.com/archiveIncident', data);
-    return this.http.put('http://localhost:3000/archiveIncident', data);
+    return this.http.put('https://drrs.herokuapp.com/archiveIncident', data);
+    // return this.http.put('http://localhost:3000/archiveIncident', data);
   }
 
   deleteTeam(data) {
     //   http call
-    // return this.http.put('https://drrs.herokuapp.com/deleteTeam', data);
-    return this.http.put('http://localhost:3000/deleteTeam', data);
+    return this.http.put('https://drrs.herokuapp.com/deleteTeam', data);
+    // return this.http.put('http://localhost:3000/deleteTeam', data);
   }
 
   getReportsList() {
     //   http call
-    // return this.http.get('https://drrs.herokuapp.com/getReportsList');
-    return this.http.get('http://localhost:3000/getReportsList');
+    return this.http.get('https://drrs.herokuapp.com/getReportsList');
+    // return this.http.get('http://localhost:3000/getReportsList');
 
   }
 
   getTeamList() {
     //   http call
-    // return this.http.get('https://drrs.herokuapp.com/getTeamList');
-    return this.http.get('http://localhost:3000/getTeamList');
+    return this.http.get('https://drrs.herokuapp.com/getTeamList');
+    // return this.http.get('http://localhost:3000/getTeamList');
 
   }
 
   saveIncident(data: Incident) {
     // http call
-    // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
-    return this.http.post('http://localhost:3000/saveIncident', data);
+    return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+    // return this.http.post('http://localhost:3000/saveIncident', data);
 
   }
 
 
   saveTeam(data: Team) {
     // http call
-    // return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
-     return this.http.post('http://localhost:3000/saveTeam', data);
+    return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
+    //  return this.http.post('http://localhost:3000/saveTeam', data);
   }
 
   getTeamById(data: string) {
-    return this.http.get('http://localhost:3000/getTeam/' + data);
-    // return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
+    // return this.http.get('http://localhost:3000/getTeam/' + data);
+    return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
   }
 
   getReportById(data: string) {
-        return this.http.get('http://localhost:3000/getReportById/'+ data);
-    // return this.http.get('https://drrs.herokuapp.com/getReportById/' + data);
+        // return this.http.get('http://localhost:3000/getReportById/'+ data);
+    return this.http.get('https://drrs.herokuapp.com/getReportById/' + data);
   }
 
   getTeamsById(data: string) {
-     return this.http.get('http://localhost:3000/getTeamsById/'+ data);
-    // return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
+    //  return this.http.get('http://localhost:3000/getTeamsById/'+ data);
+    return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
 }
 
 }
