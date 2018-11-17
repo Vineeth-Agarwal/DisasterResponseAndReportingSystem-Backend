@@ -22,9 +22,8 @@ var User = require("../model/user")
 // file upload
 var upload = multer({
   storage: multer.diskStorage({
-    destination: function (req, file, callback) {
-      callback(null, "./views/dist/drrs/assets/upload");
-    },
+    destination: "./public/assets",
+    
     filename: function (req, file, callback) {
       var ext = path.extname(file.originalname);
       callback(null, Date.now() + ext);
@@ -32,12 +31,13 @@ var upload = multer({
   }),
 }).array("file");
 
+// router.post('/saveApplicant', function (req, res, next) {
 router.post('/upload', function (req, res, next) {
   upload(req, res, function (err) {
     if (err) {
       return res.status(403).json({ message: err });
     }
-    console.log(req.files)
+    console.log("file name is "+ req.files)
     // res.send();
     if (req && !req.body) {
       return res.status(403).json({ msg: "Please provide applicant details" })
@@ -113,7 +113,16 @@ router.post('/saveApplicant', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide applicant details" })
   }
+
+  console.log("file name"+req.body.filename)
+  // .files.filename)
   var applicantObj = new applicant(req.body);
+  upload(applicantObj, res, function (err) {
+    if (err) {
+      return res.status(403).json({ message: err });
+    }
+  });
+  console.log("obj is "+ applicantObj)
   applicantObj.save(function (err, data) {
     if (err) {
       res.status(403).json({ msg: "something bad", err: err })
@@ -340,7 +349,7 @@ router.post('/saveTeam', function (req, res, next) {
   });
 })
 
-get team list-Sreevani Anoohya Tadiboina
+// get team list-Sreevani Anoohya Tadiboina
 router.get('/getTeamList', function (req, res, next) {
   team.find({}, function (err, results) {
     // Cheks for an error 
