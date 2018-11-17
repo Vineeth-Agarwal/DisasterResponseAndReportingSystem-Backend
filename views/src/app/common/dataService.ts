@@ -11,13 +11,13 @@ import { User } from './user';
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  login(loginData){
-    return this.http.post("https://drrs.herokuapp.com/signin", loginData);
-  }
+  // login(loginData){
+  //   return this.http.post("https://drrs.herokuapp.com/signin", loginData);
+  // }
 
   getApplicantsList() {
     //   http call
-    return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+   return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
     // return this.http.get('http://localhost:3000/getApplicantsList');
 
   }
@@ -47,6 +47,12 @@ export class DataService {
     // return this.http.put('http://localhost:3000/archiveIncident', data);
   }
 
+  deleteTeam(data) {
+    //   http call
+    return this.http.put('https://drrs.herokuapp.com/deleteTeam', data);
+    // return this.http.put('http://localhost:3000/deleteTeam', data);
+  }
+
   getReportsList() {
     //   http call
     return this.http.get('https://drrs.herokuapp.com/getReportsList');
@@ -71,11 +77,12 @@ export class DataService {
 
   saveTeam(data: Team) {
     // http call
-    //return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
-     return this.http.post('http://localhost:3000/saveTeam', data);
+    return this.http.post('https://drrs.herokuapp.com/saveTeam', data);
+    //  return this.http.post('http://localhost:3000/saveTeam', data);
   }
 
   getTeamById(data: string) {
+    // return this.http.get('http://localhost:3000/getTeam/' + data);
     return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
   }
 
@@ -85,8 +92,8 @@ export class DataService {
   }
 
   getTeamsById(data: string) {
-    return this.http.get('http://localhost:3000/getTeamsById/'+ data);
-    //return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
+    //  return this.http.get('http://localhost:3000/getTeamsById/'+ data);
+    return this.http.get('https://drrs.herokuapp.com/getTeamsById/' + data);
 }
 
 }

@@ -5,6 +5,7 @@ export class Team {
     teamID: string;
     // teamName: string;
     incidentID: string;
+    isActive: Boolean;
     members:  Applicant[]
 
     constructor(values: Object = {}) {

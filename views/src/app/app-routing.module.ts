@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ReviewApplicationComponent } from './review-application/review-application.component';
 import { TeamsComponent } from './teams/teams.component';
 import { Team1DetailsComponent } from './team1-details/team1-details.component';
+import { UpdateTeamComponent } from './update-team/update-team.component';
 import { ArchivedIncidentsComponent } from './archived-incidents/archived-incidents.component';
 import { ReportComponent } from './report/report.component';
 import { COPComponent } from './cop/cop.component';
@@ -16,12 +17,14 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: 'createIncident', component: CreateIncidentComponent },
-  { path: 'createTeams', component: CreateTeamsComponent},
+  { path: 'createTeams/:incidentID', component: CreateTeamsComponent},
+  // { path: 'createTeamsByID/incidentID', component: CreateTeamsComponent},
   { path: 'login', component: LoginComponent },
   { path: 'reviewApplication', component: ReviewApplicationComponent },
-  { path: 'teams', component: TeamsComponent },
-  // { path: 'teamsById/:item.incidentID', component: TeamsComponent },
+  //{ path: 'teams', component: TeamsComponent },
+  { path: 'teamsById/:item.incidentID', component: TeamsComponent },
   { path: 'team1Details/:item._id', component: Team1DetailsComponent },
+  { path: 'updateTeam/:item._id', component: UpdateTeamComponent },
   { path: 'archivedIncidents', component: ArchivedIncidentsComponent },
   // { path: 'report', component: ReportComponent },
   { path: 'reportById/:item.incidentID', component: ReportComponent },

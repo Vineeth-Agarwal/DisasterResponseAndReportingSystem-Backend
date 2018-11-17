@@ -33,6 +33,7 @@ import { ArchivedialogComponent } from './archivedialog/archivedialog.component'
 import { TeamdialogComponent } from './teamdialog/teamdialog.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { UpdateTeamComponent } from './update-team/update-team.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AuthService } from './auth/auth.service';
     ReportComponent,
     ReportDialogComponent,
     ArchivedialogComponent,
-    TeamdialogComponent
+    TeamdialogComponent,
+    UpdateTeamComponent
   ],
   
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

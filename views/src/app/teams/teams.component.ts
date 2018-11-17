@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
- 
+  id = { _id: String };
   teams: Team[];
   incidentID:string;
   isLoading = false;
@@ -22,28 +22,47 @@ export class TeamsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getTeamList()
+    // this.dataService.getTeamList()
+    //   .subscribe((data) => {
+    //     this.teams = data['data'];
+    //     this.isLoading = false;
+    //   });
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.incidentID = paramMap.get('item.incidentID');
+      console.log("value of incidentID is "+this.incidentID);
+    })
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    // this.dataService.getReportsList()
+    this.dataService.getTeamsById(this.incidentID)
       .subscribe((data) => {
         this.teams = data['data'];
         this.isLoading = false;
+        console.log(this.teams);
       });
-
-    // // this.incidentReportClicked=this.r.get("data")
-    // this.route.paramMap.subscribe((paramMap: ParamMap) => {
-    //   this.incidentID = paramMap.get('item.incidentID');
-    //   console.log("value of incidentID is "+this.incidentID);
-    // })
-    // // this.dataSource.paginator = this.paginator;
-    // // this.dataSource.sort = this.sort;
-    // // this.dataService.getReportsList()
-    // this.dataService.getTeamsById(this.incidentID)
-    //   .subscribe((data) => {
-    //     this.teams = data['data'];
-    //   });
   }
 
   onClick(item){
     console.log(item._id);
+  }
+
+  delete(item){
+    this.id = { _id: item._id };
+    console.log(this.id);
+    this.dataService.deleteTeam(this.id)
+      .subscribe((data) => {
+        console.log(data);
+        this.dataService.getTeamsById(this.incidentID)
+        .subscribe((dataInci) => {
+        this.teams = dataInci['data'];
+        this.isLoading = false;
+      });
+        item.isActive = false;
+        console.log('success');
+      },
+        error => {
+          console.log('Error Occured');
+        });
   }
 
   dialogue()

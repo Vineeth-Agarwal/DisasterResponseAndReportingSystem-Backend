@@ -4,23 +4,22 @@
  <!-- @Author Chandra Mouli Kantipudi -->
  <div class="container">
     <!-- Header for the dashboard page -->
- <h1 class="pageHeading mat-display-1">Teams</h1>
+ <h1 class="pageHeading mat-display-1">Teams of {{incidentID}}</h1>
  <hr>
  <div class="row">
     <div class="col">
  <!-- Create team button provided to route to create team page -->
- <button routerLink = "/createTeams"  mat-raised-button color = "primary" >Create Team</button>
- <!-- <button  mat-raised-button color = "primary" (click)="dialogue()">Create Team</button> -->
- <!-- routerLink = "/createTeams" -->
+ <!-- <button [routerLink] = "['createTeamsByID/', incidentID]" mat-raised-button color = "primary" >Create Team</button> -->
+ <button  mat-raised-button color = "primary" [routerLink] = "['/createTeams', incidentID]">Create Team</button>
     </div>
  </div>
 
  <br>
 
  <div class ="row">
-   <mat-spinner *ngIf = "isLoading"></mat-spinner>
+   <!-- <mat-spinner *ngIf = "item.isActive"></mat-spinner> -->
    <div *ngFor="let item of teams; let i = index">
-     <div class="col-4 text-center">
+     <div class="col-4 text-center" *ngIf = "item.isActive">
  <!-- The team modules are shown using cards. Card has image of team and team name -->
  <mat-card *ngIf ="teams.length > 0 && !isLoading" class="incident-card mat-elevation-z5" >
     <!-- Image for team is provided when clicked on image it redirects to the team page -->
@@ -34,9 +33,9 @@
    </mat-card-content>
    <mat-card-actions>
       <!-- Report button is provided to retrive report of the incident module-->
-      <button mat-raised-button color="primary">Update</button>
+      <button mat-raised-button color="primary" [routerLink] = "['/updateTeam', item._id]">Update</button>
       <!-- Team button is provided to view team and its members in the incident module -->
-      <button mat-raised-button color="primary" color="warn" (click)="dialog(item)">Delete</button>
+      <button mat-raised-button color="primary" color="warn" (click)="delete(item)">Delete</button>
       </mat-card-actions>
  </mat-card>
      </div>
