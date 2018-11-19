@@ -5,8 +5,11 @@ export class Team {
     teamID: string;
     // teamName: string;
     incidentID: string;
-    isActive: Boolean;
+    isActive: boolean;
+    leader: string;
+    asstLeader: string;
     members:  Applicant[]
+    
 
     constructor(values: Object = {}) {
         /*Constructor initialization*/

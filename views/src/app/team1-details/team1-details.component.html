@@ -4,11 +4,11 @@
  <!-- @Author Chandra Mouli Kantipudi -->
  <!-- Header for team details page -->
  <div class="container">
- <h1 class="pageHeading mat-display-1">Team1 Members</h1>
+ <h1 class="pageHeading mat-display-1">{{ team.teamID }} Members</h1>
  <hr>
- <!-- <b>Leader:</b> Jim Willaims
+ <b>Leader:</b> {{ team.leader }}
  <br>
- <b>Assistant Leader:</b> Jules Verne -->
+ <b>Assistant Leader:</b> {{ team.asstLeader }}
  <div class="example-container mat-elevation-z8">
  <!-- Table is provide with the team members details -->
  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

@@ -21,12 +21,14 @@ export class TeamdialogComponent implements OnInit {
   yes()
   {
     this.team = this.data;
+    console.log(this.team);
     // this.team.incidentID =
     this.ref.closeAll();
     // if (valid) {
       this.dataService.saveTeam(this.team)
         .subscribe((data) => {
           console.log(data);
+          console.log(this.team);
           console.log('success');
            this.router.navigate(['/teamsById', this.team.incidentID]);
         },

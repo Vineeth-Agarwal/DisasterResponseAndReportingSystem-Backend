@@ -23,13 +23,16 @@
  <!-- The team modules are shown using cards. Card has image of team and team name -->
  <mat-card *ngIf ="teams.length > 0 && !isLoading" class="incident-card mat-elevation-z5" >
     <!-- Image for team is provided when clicked on image it redirects to the team page -->
-   <a [routerLink] = "['/team1Details', item._id]">
-    <!-- <a> -->
+   <!-- <a [routerLink] = "['/team1Details', item._id]">
    <img mat-card-image [src]="'assets/images/teams/'+ (i%5) +'.jpg'" alt="Team1">
-   </a>
+   </a> -->
    <mat-card-content >
      <!-- Team name -->
+     <a [routerLink] = "['/team1Details', item._id]">
      <h2>{{ item.teamID }}</h2>
+     </a>
+     <p><b>Leader: {{ item.leader }}</b></p>
+     <p><b>AsstLeader: {{ item.asstLeader }}</b></p>
    </mat-card-content>
    <mat-card-actions>
       <!-- Report button is provided to retrive report of the incident module-->
@@ -40,5 +43,6 @@
  </mat-card>
      </div>
    </div>
+   <p class="mat-title" *ngIf="!teams?.length">No Teams are Created for this Incident!</p>
  </div>
  </div>
