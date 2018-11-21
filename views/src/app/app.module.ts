@@ -34,6 +34,7 @@ import { TeamdialogComponent } from './teamdialog/teamdialog.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { UpdateTeamComponent } from './update-team/update-team.component';
+import { TeamdeleteComponent } from './teamdelete/teamdelete.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { UpdateTeamComponent } from './update-team/update-team.component';
     ReportDialogComponent,
     ArchivedialogComponent,
     TeamdialogComponent,
-    UpdateTeamComponent
+    UpdateTeamComponent,
+    TeamdeleteComponent
   ],
   
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -78,7 +80,8 @@ import { UpdateTeamComponent } from './update-team/update-team.component';
     ApplicantdeniedComponent,
     ReportDialogComponent,
     ArchivedialogComponent,
-    TeamdialogComponent
+    TeamdialogComponent,
+    TeamdeleteComponent
   ],
   
   providers: [AuthService, AuthGuard],
