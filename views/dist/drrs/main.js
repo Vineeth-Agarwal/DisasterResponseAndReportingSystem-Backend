@@ -271,12 +271,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
 /* harmony import */ var _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./update-team/update-team.component */ "./src/app/update-team/update-team.component.ts");
+/* harmony import */ var _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./teamdelete/teamdelete.component */ "./src/app/teamdelete/teamdelete.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -331,7 +333,8 @@ var AppModule = /** @class */ (function () {
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
                 _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"],
-                _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__["UpdateTeamComponent"]
+                _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__["UpdateTeamComponent"],
+                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
             imports: [
@@ -351,7 +354,8 @@ var AppModule = /** @class */ (function () {
                 _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__["ApplicantdeniedComponent"],
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
-                _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"]
+                _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"],
+                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"]
             ],
             providers: [_auth_auth_service__WEBPACK_IMPORTED_MODULE_27__["AuthService"], _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -2173,6 +2177,111 @@ var Team1DetailsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/teamdelete/teamdelete.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/teamdelete/teamdelete.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */\r\n\r\n.text\r\n{\r\n    font-size: 20px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/teamdelete/teamdelete.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/teamdelete/teamdelete.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<mat-card>\n  \n\n  <mat-card-content>\n      <div class=\"text\" style=\"text-align:center\">\n          <b>Do you want to delete the team?</b> \n          <br>\n          \n        </div>\n        \n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\n    \n  </mat-card-content>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/teamdelete/teamdelete.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/teamdelete/teamdelete.component.ts ***!
+  \****************************************************/
+/*! exports provided: TeamdeleteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamdeleteComponent", function() { return TeamdeleteComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_team__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/team */ "./src/app/common/team.ts");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var TeamdeleteComponent = /** @class */ (function () {
+    // constructor(private dataService: DataService, public ref: MatDialog,@Inject(MAT_DIALOG_DATA) public data: Team, public thisMatDialogRef: MatDialogRef<TeamdeleteComponent>) {}
+    function TeamdeleteComponent(dataService, ref, data, thisMatDialogRef) {
+        this.dataService = dataService;
+        this.ref = ref;
+        this.data = data;
+        this.thisMatDialogRef = thisMatDialogRef;
+        this.id = { _id: String };
+        this.isLoading = false;
+    }
+    TeamdeleteComponent.prototype.ngOnInit = function () {
+        this.team = this.data;
+        this.teams = this.data['data'];
+        this.isLoading = false;
+    };
+    TeamdeleteComponent.prototype.yes = function (item) {
+        var _this = this;
+        this.thisMatDialogRef.close();
+        this.id = { _id: item._id };
+        console.log(this.id);
+        this.dataService.deleteTeam(this.id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.dataService.getTeamsById(_this.incidentID)
+                .subscribe(function (dataInci) {
+                _this.teams = dataInci['data'];
+                _this.isLoading = false;
+            });
+            item.isActive = false;
+            console.log('success');
+        }, function (error) {
+            console.log('Error Occured');
+        });
+    };
+    TeamdeleteComponent.prototype.no = function () {
+        this.ref.closeAll();
+    };
+    TeamdeleteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-teamdelete',
+            template: __webpack_require__(/*! ./teamdelete.component.html */ "./src/app/teamdelete/teamdelete.component.html"),
+            styles: [__webpack_require__(/*! ./teamdelete.component.css */ "./src/app/teamdelete/teamdelete.component.css")]
+        }),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _common_team__WEBPACK_IMPORTED_MODULE_1__["Team"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"]])
+    ], TeamdeleteComponent);
+    return TeamdeleteComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/teamdialog/teamdialog.component.css":
 /*!*****************************************************!*\
   !*** ./src/app/teamdialog/teamdialog.component.css ***!
@@ -2303,7 +2412,7 @@ module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams of {{incidentID}}</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <!-- <button [routerLink] = \"['createTeamsByID/', incidentID]\" mat-raised-button color = \"primary\" >Create Team</button> -->\r\n <button  mat-raised-button color = \"primary\" [routerLink] = \"['/createTeams', incidentID]\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <!-- <mat-spinner *ngIf = \"item.isActive\"></mat-spinner> -->\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\" *ngIf = \"item.isActive\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <!-- <a [routerLink] = \"['/team1Details', item._id]\">\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a> -->\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <a [routerLink] = \"['/team1Details', item._id]\">\r\n     <h2>{{ item.teamID }}</h2>\r\n     </a>\r\n     <p><b>Leader: {{ item.leader }}</b></p>\r\n     <p><b>AsstLeader: {{ item.asstLeader }}</b></p>\r\n   </mat-card-content>\r\n   <mat-card-actions>\r\n      <!-- Report button is provided to retrive report of the incident module-->\r\n      <button mat-raised-button color=\"primary\" [routerLink] = \"['/updateTeam', item._id]\">Update</button>\r\n      <!-- Team button is provided to view team and its members in the incident module -->\r\n      <button mat-raised-button color=\"primary\" color=\"warn\" (click)=\"delete(item)\">Delete</button>\r\n      </mat-card-actions>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n   <p class=\"mat-title\" *ngIf=\"!teams?.length\">No Teams are Created for this Incident!</p>\r\n </div>\r\n </div>"
+module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams of {{incidentID}}</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <!-- <button [routerLink] = \"['createTeamsByID/', incidentID]\" mat-raised-button color = \"primary\" >Create Team</button> -->\r\n <button  mat-raised-button color = \"primary\" [routerLink] = \"['/createTeams', incidentID]\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <!-- <mat-spinner *ngIf = \"item.isActive\"></mat-spinner> -->\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\" *ngIf = \"item.isActive\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <!-- <a [routerLink] = \"['/team1Details', item._id]\">\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a> -->\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <a [routerLink] = \"['/team1Details', item._id]\">\r\n     <h2>{{ item.teamID }}</h2>\r\n     </a>\r\n     <p><b>Leader: {{ item.leader }}</b></p>\r\n     <p><b>AsstLeader: {{ item.asstLeader }}</b></p>\r\n   </mat-card-content>\r\n   <mat-card-actions>\r\n      <!-- Report button is provided to retrive report of the incident module-->\r\n      <button mat-raised-button color=\"primary\" [routerLink] = \"['/updateTeam', item._id]\">Update</button>\r\n      <!-- Team button is provided to view team and its members in the incident module -->\r\n      <button mat-raised-button color=\"primary\" color=\"warn\" (click)=\"delette(item)\">Delete</button>\r\n      </mat-card-actions>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n   <p class=\"mat-title\" *ngIf=\"!teams?.length\">No Teams are Created for this Incident!</p>\r\n </div>\r\n </div>"
 
 /***/ }),
 
@@ -2322,6 +2431,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../teamdialog/teamdialog.component */ "./src/app/teamdialog/teamdialog.component.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../teamdelete/teamdelete.component */ "./src/app/teamdelete/teamdelete.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2331,6 +2441,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2393,6 +2504,12 @@ var TeamsComponent = /** @class */ (function () {
             // data:item
         });
     };
+    TeamsComponent.prototype.delette = function (item) {
+        this.dialogref.open(_teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_5__["TeamdeleteComponent"], {
+            width: '600px',
+            data: item
+        });
+    };
     TeamsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-teams',
@@ -2429,7 +2546,7 @@ module.exports = ".container {\r\n    margin-top: 1em;\r\n  }\r\n\r\n  .pageHead
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <!-- Header for the dashboard page -->\n<h1 class=\"pageHeading mat-display-1\">Update Team</h1>\n<hr>\n<p>\n  <img src=\"assets/images/update.jpg\" alt=\"Wildfire\">\n</p>\n<button mat-raised-button color=\"primary\">Teams</button>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n<h1 class=\"pageHeading mat-display-1\">Update Team</h1>\r\n<hr>\r\n<p>\r\n  <img src=\"assets/images/update.jpg\" alt=\"Wildfire\">\r\n</p>\r\n<button mat-raised-button color=\"primary\">Teams</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2534,7 +2651,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530469\OneDrive - nwmissouri.edu\Fall 2018\GDP-2\Working branch\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\sr\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
