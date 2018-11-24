@@ -826,6 +826,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AuthService = /** @class */ (function () {
     function AuthService(router) {
         this.router = router;
+        this.message = "Incorrect Usename or Passsword";
         this.loggedIn = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false); // {1}
     }
     Object.defineProperty(AuthService.prototype, "isLoggedIn", {
@@ -840,6 +841,11 @@ var AuthService = /** @class */ (function () {
             this.loggedIn.next(true);
             this.router.navigate(['/dashboard']);
             console.log("Sucessfully logged in");
+            alert("Sucessfully logged in");
+        }
+        else {
+            console.log("Incorrect Usename or Passsword");
+            alert(this.message);
         }
     };
     AuthService.prototype.logout = function () {
@@ -2195,7 +2201,7 @@ module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card>\n  \n\n  <mat-card-content>\n      <div class=\"text\" style=\"text-align:center\">\n          <b>Do you want to delete the team?</b> \n          <br>\n          \n        </div>\n        \n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\n    \n  </mat-card-content>\n</mat-card>\n"
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          <b>Do you want to delete the team?</b> \r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\r\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -2651,7 +2657,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\sr\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
