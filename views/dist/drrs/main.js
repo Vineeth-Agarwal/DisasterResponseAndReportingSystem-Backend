@@ -438,7 +438,7 @@ var ApplicantacceptedComponent = /** @class */ (function () {
     }
     ApplicantacceptedComponent.prototype.ngOnInit = function () {
         this.applicant = this.data;
-        this.applicant.role = "Applicant";
+        this.applicant.role = "AcceptedApplicant";
         this.dataService.saveApplicantDecision(this.applicant)
             .subscribe(function (data) {
         });
@@ -915,8 +915,8 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.saveApplicantDecision = function (data) {
         // http call  
-        // return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
-        return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+        return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
+        // return this.http.put('http://localhost:3000/saveApplicationDecision', data);
     };
     DataService.prototype.getIncidentsList = function () {
         //   http call
@@ -950,8 +950,8 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.saveIncident = function (data) {
         // http call
-        // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
-        return this.http.post('http://localhost:3000/saveIncident', data);
+        return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+        // return this.http.post('http://localhost:3000/saveIncident', data);
     };
     DataService.prototype.saveTeam = function (data) {
         // http call

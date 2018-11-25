@@ -24,8 +24,8 @@ export class DataService {
 
   saveApplicantDecision(data: User) {
     // http call  
-    // return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
-    return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+    return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
+    // return this.http.put('http://localhost:3000/saveApplicationDecision', data);
   }
 
 
@@ -69,8 +69,8 @@ export class DataService {
 
   saveIncident(data: Incident) {
     // http call
-    // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
-    return this.http.post('http://localhost:3000/saveIncident', data);
+    return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+    // return this.http.post('http://localhost:3000/saveIncident', data);
 
   }
 
