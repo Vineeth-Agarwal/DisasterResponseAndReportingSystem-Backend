@@ -272,12 +272,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
 /* harmony import */ var _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./update-team/update-team.component */ "./src/app/update-team/update-team.component.ts");
 /* harmony import */ var _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./teamdelete/teamdelete.component */ "./src/app/teamdelete/teamdelete.component.ts");
+/* harmony import */ var _logindialog_logindialog_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./logindialog/logindialog.component */ "./src/app/logindialog/logindialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -334,7 +336,8 @@ var AppModule = /** @class */ (function () {
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
                 _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"],
                 _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__["UpdateTeamComponent"],
-                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"]
+                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"],
+                _logindialog_logindialog_component__WEBPACK_IMPORTED_MODULE_30__["LogindialogComponent"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
             imports: [
@@ -355,7 +358,8 @@ var AppModule = /** @class */ (function () {
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
                 _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"],
-                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"]
+                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"],
+                _logindialog_logindialog_component__WEBPACK_IMPORTED_MODULE_30__["LogindialogComponent"]
             ],
             providers: [_auth_auth_service__WEBPACK_IMPORTED_MODULE_27__["AuthService"], _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -811,6 +815,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _logindialog_logindialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../logindialog/logindialog.component */ "./src/app/logindialog/logindialog.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -823,9 +829,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var AuthService = /** @class */ (function () {
-    function AuthService(router) {
+    function AuthService(router, ref, dialogref) {
         this.router = router;
+        this.ref = ref;
+        this.dialogref = dialogref;
         this.message = "Incorrect Usename or Passsword";
         this.loggedIn = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false); // {1}
     }
@@ -839,9 +849,12 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.login = function (user) {
         if (user.userName === 'Admin' && user.password === 'Admin') {
             this.loggedIn.next(true);
-            this.router.navigate(['/dashboard']);
-            console.log("Sucessfully logged in");
-            alert("Sucessfully logged in");
+            this.dialogref.open(_logindialog_logindialog_component__WEBPACK_IMPORTED_MODULE_3__["LogindialogComponent"], {
+                width: '600px',
+            });
+            // this.router.navigate(['/dashboard']);
+            // console.log("Sucessfully logged in");
+            // alert("Sucessfully logged in")
         }
         else {
             console.log("Incorrect Usename or Passsword");
@@ -854,7 +867,9 @@ var AuthService = /** @class */ (function () {
     };
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
     ], AuthService);
     return AuthService;
 }());
@@ -900,8 +915,8 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.saveApplicantDecision = function (data) {
         // http call  
-        return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
-        // return this.http.put('http://localhost:3000/saveApplicationDecision', data);
+        // return this.http.put('https://drrs.herokuapp.com/saveApplicationDecision', data);
+        return this.http.put('http://localhost:3000/saveApplicationDecision', data);
     };
     DataService.prototype.getIncidentsList = function () {
         //   http call
@@ -935,8 +950,8 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.saveIncident = function (data) {
         // http call
-        return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
-        // return this.http.post('http://localhost:3000/saveIncident', data);
+        // return this.http.post('https://drrs.herokuapp.com/saveIncident', data);
+        return this.http.post('http://localhost:3000/saveIncident', data);
     };
     DataService.prototype.saveTeam = function (data) {
         // http call
@@ -1594,6 +1609,83 @@ var LoginComponent = /** @class */ (function () {
             _auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/logindialog/logindialog.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/logindialog/logindialog.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".button1{\r\n    margin-left: 245px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */\r\n\r\n.text\r\n{\r\n    font-size: 20px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/logindialog/logindialog.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/logindialog/logindialog.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          <b>Login Successful!</b> \r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes()\">OK</button>\r\n        <!-- <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button> -->\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/logindialog/logindialog.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/logindialog/logindialog.component.ts ***!
+  \******************************************************/
+/*! exports provided: LogindialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogindialogComponent", function() { return LogindialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LogindialogComponent = /** @class */ (function () {
+    function LogindialogComponent(ref, router) {
+        this.ref = ref;
+        this.router = router;
+    }
+    LogindialogComponent.prototype.ngOnInit = function () {
+    };
+    LogindialogComponent.prototype.yes = function () {
+        this.ref.closeAll();
+        this.router.navigate(['/dashboard']);
+        console.log("Sucessfully logged in");
+    };
+    LogindialogComponent.prototype.no = function () {
+        this.ref.closeAll();
+    };
+    LogindialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-logindialog',
+            template: __webpack_require__(/*! ./logindialog.component.html */ "./src/app/logindialog/logindialog.component.html"),
+            styles: [__webpack_require__(/*! ./logindialog.component.css */ "./src/app/logindialog/logindialog.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], LogindialogComponent);
+    return LogindialogComponent;
 }());
 
 
@@ -2657,7 +2749,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\s530671\Desktop\Fall 2018\GDP-II\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })
