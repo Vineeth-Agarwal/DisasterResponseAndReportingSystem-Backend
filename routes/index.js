@@ -17,47 +17,45 @@ var fcm = new FCM(serverKey)
 var path = require("path")
 var User = require("../model/user")
 
+// testing file save below
 
-
-// file upload
-var upload = multer({
-  storage: multer.diskStorage({
-    destination: "./public/assets",
-    
-    filename: function (req, file, callback) {
-      var ext = path.extname(file.originalname);
-      callback(null, Date.now() + ext);
-    }
-  }),
-}).array("file");
-
-// router.post('/saveApplicant', function (req, res, next) {
-router.post('/upload', function (req, res, next) {
+router.post('/saveApplicant', (req, res) => {
+  if (req && !req.body) {
+    return res.status(403).json({ msg: "Please provide applicant details" })
+  }
   upload(req, res, function (err) {
     if (err) {
       return res.status(403).json({ message: err });
     }
-    console.log("file name is "+ req.files)
-    // res.send();
-    if (req && !req.body) {
-      return res.status(403).json({ msg: "Please provide applicant details" })
-    }
-    // var bodyData = JOSN req.body
+    var applicantObj = new applicant(JSON.parse(req.body.formData));
+    console.log(applicantObj)
+    applicantObj.save(function (err, data) {
+  if (err) {
+    res.status(403).json({ msg: "something bad", err: err })
+  }
+  else {
+    res.status(200).json({ msg: "user record saved successfully", data: data })
+  }
+});
 
-    var userObj = new User(JSON.parse(req.body.data));
-    req.files.forEach(ele => {
-      userObj.files.push("/assets/upload/" + ele.filename);
-    });
-    userObj.save(function (err, data) {
-      if (err) {
-        res.status(403).json({ msg: "something bad", err: err })
-      }
-      else {
-        res.status(200).json({ msg: "user record saved successfully", data: data })
-      }
-    });
+    console.log("Json value is "+req.body.formData)
+    console.log("limitation value is "+req.body.formData.limitations)    
   });
-})
+
+
+});
+// file upload
+var upload = multer({
+  storage: multer.diskStorage({
+    destination: "public/assets/upload",
+    
+    filename: function (req, file, callback) {
+      var ext = path.extname(file.originalname);
+      console.log("file ext is "+ext)
+      callback(null, Date.now() + ext);
+    }
+  }),
+}).array("files"); 
 
 
 
@@ -107,37 +105,14 @@ router.get('/getMemberList', function (req, res, next) {
 });
 
 
-// save applicant
-// These are the one who are applying for CERT Team
-router.post('/saveApplicant', function (req, res, next) {
-  if (req && !req.body) {
-    return res.status(403).json({ msg: "Please provide applicant details" })
-  }
 
-  console.log("file name"+req.body.filename)
-  // .files.filename)
-  var applicantObj = new applicant(req.body);
-  upload(applicantObj, res, function (err) {
-    if (err) {
-      return res.status(403).json({ message: err });
-    }
-  });
-  console.log("obj is "+ applicantObj)
-  applicantObj.save(function (err, data) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err: err })
-    }
-    else {
-      res.status(200).json({ msg: "applicant record saved successfully", data: data })
-    }
-  });
-})
 
 router.put('/saveApplicationDecision', function (req, res, decision) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide applicant details" })
   }
-  console.log(req.body._id)
+  console.log("req is "+req.body)
+  console.log("role is "+req.body.role)
   var id = req.body._id;
   applicant.findByIdAndUpdate(id, { $set: { role: req.body.role } }, { new: true }, function (err, data) {
     if (err) {
@@ -192,6 +167,7 @@ router.post('/saveIncident', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide incident details" })
   }
+  console.log(req.body)
   var incidentObj = new incident(req.body);
   // push notification
   const messageDetails = {
