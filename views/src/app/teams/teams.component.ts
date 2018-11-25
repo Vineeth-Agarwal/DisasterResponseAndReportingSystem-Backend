@@ -4,6 +4,7 @@ import { Team } from '../common/team';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TeamdialogComponent } from '../teamdialog/teamdialog.component';
 import { MatDialog } from '@angular/material';
+import { TeamdeleteComponent } from '../teamdelete/teamdelete.component';
 
 @Component({
   selector: 'app-teams',
@@ -70,6 +71,15 @@ export class TeamsComponent implements OnInit {
     this.dialogref.open(TeamdialogComponent, {
       width:'600px'
       // data:item
+  });
+
+  }
+
+  delette(item)
+  {
+    this.dialogref.open(TeamdeleteComponent, {
+      width:'600px',
+      data:item
   });
 
   }

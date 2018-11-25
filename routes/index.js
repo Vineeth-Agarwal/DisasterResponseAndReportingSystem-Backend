@@ -121,6 +121,7 @@ router.put('/saveApplicationDecision', function (req, res, decision) {
     else {
           res.status(200).json({ msg: "applicant decision updated successfully", data: data })
       
+          
     }
   });
 })

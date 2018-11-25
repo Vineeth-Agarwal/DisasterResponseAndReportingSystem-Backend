@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Applicant } from '../common/applicant';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -9,7 +9,6 @@ import { Team } from '../common/team';
 import { TeamdialogComponent } from '../teamdialog/teamdialog.component';
 
 export interface Members {
-
   value: string;
   viewValue: string;
 }
@@ -21,7 +20,7 @@ export interface Members {
 })
 
 export class CreateTeamsComponent implements OnInit {
-  
+  inciID : string;
   @ViewChild('createTeam') signupForm: NgForm;
   a = Math.floor((Math.random() * 10000) + 1);
   team: Team;
@@ -51,15 +50,16 @@ export class CreateTeamsComponent implements OnInit {
         
   }
 
-  constructor(private router: Router, private dataService: DataService, public dialogref: MatDialog) {
+  constructor(public route: ActivatedRoute,
+    private router: Router, 
+    private dataService: DataService, 
+    public dialogref: MatDialog) {
     this.team = new Team({
       teamID: '',
-      isActive : false,
       members: [],
-      leaders: {
-        leader: '',
-        asstLeader: ''
-      }
+      leader: '',
+      asstLeader: '',
+      isActive: false
     });
   }
 
@@ -69,16 +69,21 @@ export class CreateTeamsComponent implements OnInit {
         this.applicants = data['data'];
         this.dataSource = new MatTableDataSource<Applicant>(this.applicants);
       });
+      this.route.paramMap.subscribe((paramMap: ParamMap) => {
+        this.inciID = paramMap.get('incidentID');
+        console.log("value of incidentID is "+this.inciID);
+      })
   }
 
-  onCreate() {
-    // alert("Incident module created successfully");
+  onCreate() {    // alert("Incident module created successfully");
     // this.router.navigate(['/dashboard']);
   // if(this.saveTeam){
     this.team.teamID = "Team"+this.a;
     this.team.members = this.selection.selected;
     this.team.isActive = true;
-    this.team.incidentID = "Hurricane_20181031";
+    this.team.incidentID = this.inciID;
+    this.team.leader = this.signupForm.value.leader;
+    this.team.asstLeader = this.signupForm.value.asstLeader;
     console.log(this.signupForm.value.leader);
     console.log(this.team);
     //make http req. only if form is valid
@@ -86,17 +91,16 @@ export class CreateTeamsComponent implements OnInit {
       width:'600px',
       data:this.team
   });
-
   }
 
-  dialogue()
-  {
-    this.dialogref.open(TeamdialogComponent, {
-      width:'600px'
-      // data:item
-  });
-  // this.onCreate(createTeam)
+  // dialogue()
+  // {
+  //   this.dialogref.open(TeamdialogComponent, {
+  //     width:'600px'
+  //     // data:item
+  // });
+  // // this.onCreate(createTeam)
 
-  }
+  // }
 
 }

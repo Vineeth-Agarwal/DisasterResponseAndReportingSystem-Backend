@@ -271,12 +271,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth/auth.service */ "./src/app/auth/auth.service.ts");
 /* harmony import */ var _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./update-team/update-team.component */ "./src/app/update-team/update-team.component.ts");
+/* harmony import */ var _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./teamdelete/teamdelete.component */ "./src/app/teamdelete/teamdelete.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -331,7 +333,8 @@ var AppModule = /** @class */ (function () {
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
                 _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"],
-                _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__["UpdateTeamComponent"]
+                _update_team_update_team_component__WEBPACK_IMPORTED_MODULE_28__["UpdateTeamComponent"],
+                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
             imports: [
@@ -351,7 +354,8 @@ var AppModule = /** @class */ (function () {
                 _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_21__["ApplicantdeniedComponent"],
                 _report_dialog_report_dialog_component__WEBPACK_IMPORTED_MODULE_23__["ReportDialogComponent"],
                 _archivedialog_archivedialog_component__WEBPACK_IMPORTED_MODULE_24__["ArchivedialogComponent"],
-                _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"]
+                _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_25__["TeamdialogComponent"],
+                _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_29__["TeamdeleteComponent"]
             ],
             providers: [_auth_auth_service__WEBPACK_IMPORTED_MODULE_27__["AuthService"], _auth_auth_guard__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
@@ -822,6 +826,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var AuthService = /** @class */ (function () {
     function AuthService(router) {
         this.router = router;
+        this.message = "Incorrect Usename or Passsword";
         this.loggedIn = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false); // {1}
     }
     Object.defineProperty(AuthService.prototype, "isLoggedIn", {
@@ -836,6 +841,11 @@ var AuthService = /** @class */ (function () {
             this.loggedIn.next(true);
             this.router.navigate(['/dashboard']);
             console.log("Sucessfully logged in");
+            alert("Sucessfully logged in");
+        }
+        else {
+            console.log("Incorrect Usename or Passsword");
+            alert(this.message);
         }
     };
     AuthService.prototype.logout = function () {
@@ -1256,7 +1266,7 @@ module.exports = ".primary{\r\n  background: #673ab7;\r\n  color: white;\r\n  fo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n<!-- Page not yet completed -->\r\n<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Create Team</h1>\r\n  <hr>\r\n\r\n  <!-- Form to input the team details -->\r\n  <form novalidate (ngSubmit)=\"onCreate(createTeam)\" #createTeam=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <!-- <label for=\"team\">\r\n          <b>Team Name</b>\r\n        </label> -->\r\n      <!--Input for team name -->\r\n      <!-- <input type=\"text\" class=\"form-control\" [ngModel]=\"team.teamname\" name=\"team name\" teamname #teamname=\"ngModel\" id=\"inputteamname\"\r\n          placeholder=\"Enter Team Name\" required>\r\n        <br> -->\r\n\r\n      <!-- TeamID should autogenerate -->\r\n      <label for=\"teamID\">\r\n        <b>Team ID :</b>\r\n      </label>\r\n      {{a}}\r\n    </div>\r\n\r\n    <!-- Table -->\r\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n              The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Checkbox Column -->\r\n      <ng-container matColumnDef=\"select\">\r\n        <th mat-header-cell *matHeaderCellDef>\r\n          <mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"selection.hasValue() && isAllSelected()\"\r\n            [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n          </mat-checkbox>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\">\r\n          </mat-checkbox>\r\n        </td>\r\n      </ng-container>\r\n\r\n      <!-- First Name Column\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n      </ng-container> -->\r\n\r\n      <!-- First Name Column -->\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Last Name Column-->\r\n      <ng-container matColumnDef=\"lastName\">\r\n        <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"email\">\r\n        <th mat-header-cell *matHeaderCellDef> Email </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"dob\">\r\n        <th mat-header-cell *matHeaderCellDef> Date of Birth </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.dob}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"county\">\r\n        <th mat-header-cell *matHeaderCellDef> County </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"skills\">\r\n        <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n      </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"selection.toggle(row)\">\r\n      </tr>\r\n    </table>\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Leader\" [(value)]=\"leader\" id=\"leader\" name=\"leader\">\r\n        <mat-option *ngFor=\"let leader of selection.selected\" [value]=\"leader.firstName + leader.lastName\">\r\n          {{leader.firstName}} {{leader.lastName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <p>Leader: {{leader}} </p>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Assistant Leader\" [(value)]=\"asstLeader\">\r\n        <mat-option *ngFor=\"let asstLeader of selection.selected\" [value]=\"asstLeader.firstName + asstLeader.lastName\">\r\n          {{asstLeader.firstName}} {{asstLeader.lastName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <p>Assistant Leader: {{asstLeader}} </p>\r\n    <br>\r\n\r\n    <!-- Button provided to create team -->\r\n    <!-- <button class=\"btn primary\"> Create Team</button> -->\r\n    <div class=\"button-row\">\r\n       <!-- <button  mat-raised-button color = \"primary\" (click)=\"dialogue()\">Create Team</button> -->\r\n      <button mat-raised-button color=\"primary\" (click)=\"dialogue()\"> Create </button>\r\n      <button mat-raised-button color=\"warn\" [routerLink]=\"['/teamsById', 'Hurricane_20181031']\"> Cancel </button>\r\n    </div>\r\n\r\n  </form>\r\n</div>"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n<!-- Page not yet completed -->\r\n<div class=\"container\">\r\n  <!-- Header for the page -->\r\n  <h1>Create Team</h1>\r\n  <hr>\r\n\r\n  <!-- Form to input the team details -->\r\n  <form novalidate (ngSubmit)=\"onCreate(createTeam)\" #createTeam=\"ngForm\">\r\n\r\n    <div class=\"form-group\">\r\n      <!-- <label for=\"team\">\r\n          <b>Team Name</b>\r\n        </label> -->\r\n      <!--Input for team name -->\r\n      <!-- <input type=\"text\" class=\"form-control\" [ngModel]=\"team.teamname\" name=\"team name\" teamname #teamname=\"ngModel\" id=\"inputteamname\"\r\n          placeholder=\"Enter Team Name\" required>\r\n        <br> -->\r\n\r\n      <!-- TeamID should autogenerate -->\r\n      <label for=\"teamID\">\r\n        <b>Team ID :</b>\r\n      </label>\r\n      {{a}}\r\n    </div>\r\n\r\n    <!-- Table -->\r\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n      <!--- Note that these columns can be defined in any order.\r\n              The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n      <!-- Checkbox Column -->\r\n      <ng-container matColumnDef=\"select\">\r\n        <th mat-header-cell *matHeaderCellDef>\r\n          <mat-checkbox (change)=\"$event ? masterToggle() : null\" [checked]=\"selection.hasValue() && isAllSelected()\"\r\n            [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n          </mat-checkbox>\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\">\r\n          <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\">\r\n          </mat-checkbox>\r\n        </td>\r\n      </ng-container>\r\n\r\n      <!-- First Name Column\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let element\"> {{element.firstName }} </mat-cell>\r\n      </ng-container> -->\r\n\r\n      <!-- First Name Column -->\r\n      <ng-container matColumnDef=\"firstName\">\r\n        <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n      </ng-container>\r\n\r\n      <!-- Last Name Column-->\r\n      <ng-container matColumnDef=\"lastName\">\r\n        <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"email\">\r\n        <th mat-header-cell *matHeaderCellDef> Email </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"dob\">\r\n        <th mat-header-cell *matHeaderCellDef> Date of Birth </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.dob}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"county\">\r\n        <th mat-header-cell *matHeaderCellDef> County </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n      </ng-container>\r\n\r\n      <ng-container matColumnDef=\"skills\">\r\n        <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n      </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"selection.toggle(row)\">\r\n      </tr>\r\n    </table>\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Leader\" id=\"leader\" name=\"leader\" \r\n      ngModel\r\n      [value]=\"leader\"\r\n      required>\r\n        <mat-option *ngFor=\"let leader of selection.selected\" [value]=\"leader.firstName + leader.lastName\">\r\n          {{leader.firstName}} {{leader.lastName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <br>\r\n\r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Select Assistant Leader\" id=\"asstLeader\" name=\"asstLeader\"\r\n      ngModel\r\n      [value]=\"asstLeader\"\r\n      required>\r\n        <mat-option *ngFor=\"let asstLeader of selection.selected\" [value]=\"asstLeader.firstName + asstLeader.lastName\">\r\n          {{asstLeader.firstName}} {{asstLeader.lastName}}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <br>\r\n\r\n    <!-- Button provided to create team -->\r\n    <!-- <button class=\"btn primary\"> Create Team</button> -->\r\n    <div class=\"button-row\">\r\n       <!-- <button  mat-raised-button color = \"primary\" (click)=\"dialogue()\">Create Team</button> -->\r\n      <button mat-raised-button color=\"primary\"> Create </button>\r\n      <button mat-raised-button color=\"warn\" [routerLink]=\"['/teamsById', inciID]\"> Cancel </button>\r\n    </div>\r\n\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -1296,7 +1306,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CreateTeamsComponent = /** @class */ (function () {
-    function CreateTeamsComponent(router, dataService, dialogref) {
+    function CreateTeamsComponent(route, router, dataService, dialogref) {
+        this.route = route;
         this.router = router;
         this.dataService = dataService;
         this.dialogref = dialogref;
@@ -1307,12 +1318,10 @@ var CreateTeamsComponent = /** @class */ (function () {
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
         this.team = new _common_team__WEBPACK_IMPORTED_MODULE_6__["Team"]({
             teamID: '',
-            isActive: false,
             members: [],
-            leaders: {
-                leader: '',
-                asstLeader: ''
-            }
+            leader: '',
+            asstLeader: '',
+            isActive: false
         });
     }
     /** Whether the number of selected elements matches the total number of rows. */
@@ -1339,15 +1348,20 @@ var CreateTeamsComponent = /** @class */ (function () {
             _this.applicants = data['data'];
             _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](_this.applicants);
         });
+        this.route.paramMap.subscribe(function (paramMap) {
+            _this.inciID = paramMap.get('incidentID');
+            console.log("value of incidentID is " + _this.inciID);
+        });
     };
     CreateTeamsComponent.prototype.onCreate = function () {
-        // alert("Incident module created successfully");
         // this.router.navigate(['/dashboard']);
         // if(this.saveTeam){
         this.team.teamID = "Team" + this.a;
         this.team.members = this.selection.selected;
         this.team.isActive = true;
-        this.team.incidentID = "Hurricane_20181031";
+        this.team.incidentID = this.inciID;
+        this.team.leader = this.signupForm.value.leader;
+        this.team.asstLeader = this.signupForm.value.asstLeader;
         console.log(this.signupForm.value.leader);
         console.log(this.team);
         //make http req. only if form is valid
@@ -1355,13 +1369,6 @@ var CreateTeamsComponent = /** @class */ (function () {
             width: '600px',
             data: this.team
         });
-    };
-    CreateTeamsComponent.prototype.dialogue = function () {
-        this.dialogref.open(_teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_7__["TeamdialogComponent"], {
-            width: '600px'
-            // data:item
-        });
-        // this.onCreate(createTeam)
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('createTeam'),
@@ -1373,7 +1380,10 @@ var CreateTeamsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create-teams.component.html */ "./src/app/create-teams/create-teams.component.html"),
             styles: [__webpack_require__(/*! ./create-teams.component.css */ "./src/app/create-teams/create-teams.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _common_dataService__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _common_dataService__WEBPACK_IMPORTED_MODULE_5__["DataService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]])
     ], CreateTeamsComponent);
     return CreateTeamsComponent;
 }());
@@ -1400,7 +1410,7 @@ module.exports = "/* Assigned to Mouli and Kishan*/\r\n.container {\r\n  margin-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <div [ngSwitch]=\"item.incidentName\">\r\n            <a *ngSwitchCase=\"'Earthquake'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Floods'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.4.jpg\" alt=\"Floods\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Hurricane'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.5.jpg\" alt=\"Hurricane\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Wildfire'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.2.jpg\" alt=\"Wildfire\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Tornado'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.3.jpg\" alt=\"Tornado\">\r\n            </a>\r\n            <a *ngSwitchDefault routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.6.jpg\" alt=\"Others\">\r\n            </a>\r\n          </div>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p>\r\n              <!-- Brief description of incident -->\r\n              <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ item.location }}\r\n            </p>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <!-- <button mat-raised-button color=\"primary\" (click)=\"report(item.incidentID)\">Report</button> -->\r\n            <button mat-raised-button color=\"primary\" [routerLink] = \"['/reportById', item.incidentID]\">Report</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" [routerLink] = \"['/teamsById', item.incidentID]\">Team</button>\r\n            <!-- <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button> -->\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n\r\n            <!-- <button mat-raised-button color=\"warn\"  >Archive</button> -->\r\n              <button mat-raised-button color=\"warn\" (click)=\"dialog(item)\">Archive</button>\r\n              <!-- onArchive(item) -->\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf=\"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>"
+module.exports = "<!--\r\n  Assigned to Chandra mouli\r\n -->\r\n<!-- @Author Chandra Mouli Kantipudi -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n  <h1 class=\"pageHeading mat-display-1\">Dashboard</h1>\r\n  <hr>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <!-- Create incident button provided to route to create incident page -->\r\n      <button routerLink=\"/createIncident\" mat-raised-button color=\"primary\" class=\"buttons\">Create Incident</button>\r\n    </div>\r\n\r\n    <div class=\"col text-right\">\r\n      <!-- Archived Incidents button provided to route to Archived Incidents page -->\r\n      <button routerLink=\"/archivedIncidents\" mat-raised-button color=\"primary\" class=\"buttons\">Archived Incidents</button>\r\n    </div>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"row\">\r\n    <!-- <mat-spinner *ngIf=\"isLoading\"></mat-spinner> -->\r\n    <div *ngFor=\"let item of incidents\">\r\n      <div class=\"col-4 text-center\" *ngIf=\"item.isActive\">\r\n        <!-- The incident modules are shown using cards. Card has image of incident,\r\n        brief description and two buttons edit and archive -->\r\n        <mat-card *ngIf=\"incidents.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\">\r\n          <div [ngSwitch]=\"item.incidentName\">\r\n            <a *ngSwitchCase=\"'Earthquake'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.1.jpg\" alt=\"Earthquake\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Floods'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.4.jpg\" alt=\"Floods\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Hurricane'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.5.jpg\" alt=\"Hurricane\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Wildfire'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.2.jpg\" alt=\"Wildfire\">\r\n            </a>\r\n            <a *ngSwitchCase=\"'Tornado'\" routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.3.jpg\" alt=\"Tornado\">\r\n            </a>\r\n            <a *ngSwitchDefault routerLink=\"/dashboard\">\r\n              <!-- Image of incident -->\r\n              <img mat-card-image src=\"assets/images/incidents/img.6.jpg\" alt=\"Others\">\r\n            </a>\r\n          </div>\r\n          <mat-card-content>\r\n            <!-- Name of incident -->\r\n            <h2>{{ item.incidentName }}</h2>\r\n            <p>\r\n              <!-- Brief description of incident -->\r\n              <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i> {{ item.location }}\r\n            </p>\r\n            <p class=\"p-height\">\r\n              <!-- Brief description of incident -->\r\n              {{ item.description }}\r\n            </p>\r\n          </mat-card-content>\r\n          <mat-card-actions>\r\n            <!-- Report button is provided to retrive report of the incident module-->\r\n            <!-- <button mat-raised-button color=\"primary\" (click)=\"report(item.incidentID)\">Report</button> -->\r\n            <button mat-raised-button color=\"primary\" [routerLink] = \"['/reportById', item.incidentID]\">Reports</button>\r\n            <!-- Team button is provided to view team and its members in the incident module -->\r\n            <button mat-raised-button color=\"primary\" [routerLink] = \"['/teamsById', item.incidentID]\">Teams</button>\r\n            <!-- <button mat-raised-button color=\"primary\" routerLink=\"/teams\">Team</button> -->\r\n            <!-- Archive button is provided to archive the incident module -->\r\n            <div class=\"mt-archive\">\r\n\r\n            <!-- <button mat-raised-button color=\"warn\"  >Archive</button> -->\r\n              <button mat-raised-button color=\"warn\" (click)=\"dialog(item)\">Archive</button>\r\n              <!-- onArchive(item) -->\r\n            </div>\r\n          </mat-card-actions>\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n    <p class=\"mat-title\" *ngIf=\"!incidents?.length\">No incident to show!</p>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1989,7 +1999,7 @@ module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2099,7 +2109,7 @@ var ReviewApplicationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n    width: 100%;\r\n  }\r\n\r\n  .container {\r\n    margin-top: 1em;\r\n  }\r\n\r\n  .pageHeading {\r\n    margin: auto;\r\n  }\r\n\r\n  .example-container {\r\n      display: flex;\r\n      flex-direction: column;\r\n      min-width: 300px;\r\n    }\r\n\r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n\r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n\r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n  .table-header{\r\n    font-size: 18px;\r\n    color: black;\r\n  }\r\n  \r\n  "
+module.exports = "table {\r\n    width: 100%;\r\n  }\r\n\r\n  .container {\r\n    margin-top: 1em;\r\n  }\r\n\r\n  .pageHeading {\r\n    margin: auto;\r\n  }\r\n\r\n  .example-container {\r\n      margin-top: 1em;\r\n      display: flex;\r\n      flex-direction: column;\r\n      min-width: 300px;\r\n    }\r\n\r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n\r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n\r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n  .table-header{\r\n    font-size: 18px;\r\n    color: black;\r\n  }\r\n  \r\n  "
 
 /***/ }),
 
@@ -2110,7 +2120,7 @@ module.exports = "table {\r\n    width: 100%;\r\n  }\r\n\r\n  .container {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <!-- Header for team details page -->\r\n <div class=\"container\">\r\n <h1 class=\"pageHeading mat-display-1\">Team1 Members</h1>\r\n <hr>\r\n <!-- <b>Leader:</b> Jim Willaims\r\n <br>\r\n <b>Assistant Leader:</b> Jules Verne -->\r\n <div class=\"example-container mat-elevation-z8\">\r\n <!-- Table is provide with the team members details -->\r\n <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- firstName Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- lastName Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <th mat-header-cell *matHeaderCellDef> Email </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <th mat-header-cell *matHeaderCellDef> County </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <!-- <ng-container matColumnDef=\"skills\">\r\n        <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n      </ng-container> -->\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n </div>\r\n <br>\r\n <button mat-raised-button color=\"warn\" [routerLink]=\"['/teamsById', team.incidentID]\"> Cancel </button>\r\n  </div>\r\n"
+module.exports = "<!--\r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <!-- Header for team details page -->\r\n <div class=\"container\">\r\n <h1 class=\"pageHeading mat-display-1\">{{ team.teamID }} Members</h1>\r\n <hr>\r\n <b>Leader:</b> {{ team.leader }}\r\n <br>\r\n <b>Assistant Leader:</b> {{ team.asstLeader }}\r\n <div class=\"example-container mat-elevation-z8\">\r\n <!-- Table is provide with the team members details -->\r\n <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- firstName Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <th mat-header-cell *matHeaderCellDef> First Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.firstName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- lastName Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <th mat-header-cell *matHeaderCellDef> Last Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.lastName}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <th mat-header-cell *matHeaderCellDef> Email </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <th mat-header-cell *matHeaderCellDef> County </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.county}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <!-- <ng-container matColumnDef=\"skills\">\r\n        <th mat-header-cell *matHeaderCellDef> Skills </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.skills}} </td>\r\n      </ng-container> -->\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n </div>\r\n <br>\r\n <button mat-raised-button color=\"warn\" [routerLink]=\"['/teamsById', team.incidentID]\"> Cancel </button>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -2167,6 +2177,111 @@ var Team1DetailsComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _common_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], Team1DetailsComponent);
     return Team1DetailsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/teamdelete/teamdelete.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/teamdelete/teamdelete.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".button1{\r\n    margin-left: 200px;\r\n    margin-top: 10px;\r\n    \r\n}\r\n\r\n/* .button2{\r\n    margin-left: 380px;\r\n    \r\n} */\r\n\r\n.text\r\n{\r\n    font-size: 20px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/teamdelete/teamdelete.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/teamdelete/teamdelete.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<mat-card>\r\n  \r\n\r\n  <mat-card-content>\r\n      <div class=\"text\" style=\"text-align:center\">\r\n          <b>Do you want to delete the team?</b> \r\n          <br>\r\n          \r\n        </div>\r\n        \r\n        <button class=\"button1\" mat-mini-fab color=\"primary\" (click)=\"yes(data)\">Yes</button>\r\n        <button class=\"button2\" mat-mini-fab color=\"warn\" (click)=\"no()\">No</button>\r\n    \r\n  </mat-card-content>\r\n</mat-card>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/teamdelete/teamdelete.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/teamdelete/teamdelete.component.ts ***!
+  \****************************************************/
+/*! exports provided: TeamdeleteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamdeleteComponent", function() { return TeamdeleteComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_team__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/team */ "./src/app/common/team.ts");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var TeamdeleteComponent = /** @class */ (function () {
+    // constructor(private dataService: DataService, public ref: MatDialog,@Inject(MAT_DIALOG_DATA) public data: Team, public thisMatDialogRef: MatDialogRef<TeamdeleteComponent>) {}
+    function TeamdeleteComponent(dataService, ref, data, thisMatDialogRef) {
+        this.dataService = dataService;
+        this.ref = ref;
+        this.data = data;
+        this.thisMatDialogRef = thisMatDialogRef;
+        this.id = { _id: String };
+        this.isLoading = false;
+    }
+    TeamdeleteComponent.prototype.ngOnInit = function () {
+        this.team = this.data;
+        this.teams = this.data['data'];
+        this.isLoading = false;
+    };
+    TeamdeleteComponent.prototype.yes = function (item) {
+        var _this = this;
+        this.thisMatDialogRef.close();
+        this.id = { _id: item._id };
+        console.log(this.id);
+        this.dataService.deleteTeam(this.id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.dataService.getTeamsById(_this.incidentID)
+                .subscribe(function (dataInci) {
+                _this.teams = dataInci['data'];
+                _this.isLoading = false;
+            });
+            item.isActive = false;
+            console.log('success');
+        }, function (error) {
+            console.log('Error Occured');
+        });
+    };
+    TeamdeleteComponent.prototype.no = function () {
+        this.ref.closeAll();
+    };
+    TeamdeleteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-teamdelete',
+            template: __webpack_require__(/*! ./teamdelete.component.html */ "./src/app/teamdelete/teamdelete.component.html"),
+            styles: [__webpack_require__(/*! ./teamdelete.component.css */ "./src/app/teamdelete/teamdelete.component.css")]
+        }),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _common_team__WEBPACK_IMPORTED_MODULE_1__["Team"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"]])
+    ], TeamdeleteComponent);
+    return TeamdeleteComponent;
 }());
 
 
@@ -2241,12 +2356,14 @@ var TeamdialogComponent = /** @class */ (function () {
     TeamdialogComponent.prototype.yes = function () {
         var _this = this;
         this.team = this.data;
+        console.log(this.team);
         // this.team.incidentID =
         this.ref.closeAll();
         // if (valid) {
         this.dataService.saveTeam(this.team)
             .subscribe(function (data) {
             console.log(data);
+            console.log(_this.team);
             console.log('success');
             _this.router.navigate(['/teamsById', _this.team.incidentID]);
         }, function (error) {
@@ -2290,7 +2407,7 @@ var TeamdialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n/* cards */\r\n\r\n.incident-card {\r\n    /* max-width: 235px; */\r\n    width: 255px;\r\n    min-height: 300px;\r\n    max-height: 255px;\r\n    margin-top: 2em;\r\n}\r\n\r\n/* for buttons - Create incident and Archived Incidents */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n}\r\n\r\n/* Describtion height */\r\n\r\n.p-height{\r\n    height: 6em;\r\n}\r\n\r\n.mt-archive{\r\n    margin-top: 0.4em;\r\n}\r\n\r\nmat-grid-tile {\r\n    background: lightblue;\r\n  }\r\n\r\n  \r\n  "
+module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n/* cards */\r\n\r\n.incident-card {\r\n    /* max-width: 235px; */\r\n    width: 255px;\r\n    min-height: 236px;\r\n    max-height: 236x;\r\n    margin-top: 2em;\r\n}\r\n\r\n/* for buttons - Create incident and Archived Incidents */\r\n\r\n.buttons {\r\n    font-size: 1em;\r\n}\r\n\r\n/* Describtion height */\r\n\r\n.p-height{\r\n    height: 6em;\r\n}\r\n\r\n.mt-archive{\r\n    margin-top: 0.4em;\r\n}\r\n\r\nmat-grid-tile {\r\n    background: lightblue;\r\n  }\r\n\r\n  \r\n  "
 
 /***/ }),
 
@@ -2301,7 +2418,7 @@ module.exports = ".container {\r\n  margin-top: 1em;\r\n}\r\n\r\n.pageHeading {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams of {{incidentID}}</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <!-- <button [routerLink] = \"['createTeamsByID/', incidentID]\" mat-raised-button color = \"primary\" >Create Team</button> -->\r\n <button  mat-raised-button color = \"primary\" [routerLink] = \"['/createTeams', incidentID]\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <!-- <mat-spinner *ngIf = \"item.isActive\"></mat-spinner> -->\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\" *ngIf = \"item.isActive\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <a [routerLink] = \"['/team1Details', item._id]\">\r\n    <!-- <a> -->\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a>\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <h2>{{ item.teamID }}</h2>\r\n   </mat-card-content>\r\n   <mat-card-actions>\r\n      <!-- Report button is provided to retrive report of the incident module-->\r\n      <button mat-raised-button color=\"primary\" [routerLink] = \"['/updateTeam', item._id]\">Update</button>\r\n      <!-- Team button is provided to view team and its members in the incident module -->\r\n      <button mat-raised-button color=\"primary\" color=\"warn\" (click)=\"delete(item)\">Delete</button>\r\n      </mat-card-actions>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n </div>\r\n </div>"
+module.exports = "<!-- \r\n  Assigned to Chandra Mouli\r\n -->\r\n <!-- @Author Chandra Mouli Kantipudi -->\r\n <div class=\"container\">\r\n    <!-- Header for the dashboard page -->\r\n <h1 class=\"pageHeading mat-display-1\">Teams of {{incidentID}}</h1>\r\n <hr>\r\n <div class=\"row\">\r\n    <div class=\"col\">\r\n <!-- Create team button provided to route to create team page -->\r\n <!-- <button [routerLink] = \"['createTeamsByID/', incidentID]\" mat-raised-button color = \"primary\" >Create Team</button> -->\r\n <button  mat-raised-button color = \"primary\" [routerLink] = \"['/createTeams', incidentID]\">Create Team</button>\r\n    </div>\r\n </div>\r\n\r\n <br>\r\n\r\n <div class =\"row\">\r\n   <!-- <mat-spinner *ngIf = \"item.isActive\"></mat-spinner> -->\r\n   <div *ngFor=\"let item of teams; let i = index\">\r\n     <div class=\"col-4 text-center\" *ngIf = \"item.isActive\">\r\n <!-- The team modules are shown using cards. Card has image of team and team name -->\r\n <mat-card *ngIf =\"teams.length > 0 && !isLoading\" class=\"incident-card mat-elevation-z5\" >\r\n    <!-- Image for team is provided when clicked on image it redirects to the team page -->\r\n   <!-- <a [routerLink] = \"['/team1Details', item._id]\">\r\n   <img mat-card-image [src]=\"'assets/images/teams/'+ (i%5) +'.jpg'\" alt=\"Team1\">\r\n   </a> -->\r\n   <mat-card-content >\r\n     <!-- Team name -->\r\n     <a [routerLink] = \"['/team1Details', item._id]\">\r\n     <h2>{{ item.teamID }}</h2>\r\n     </a>\r\n     <p><b>Leader: {{ item.leader }}</b></p>\r\n     <p><b>AsstLeader: {{ item.asstLeader }}</b></p>\r\n   </mat-card-content>\r\n   <mat-card-actions>\r\n      <!-- Report button is provided to retrive report of the incident module-->\r\n      <button mat-raised-button color=\"primary\" [routerLink] = \"['/updateTeam', item._id]\">Update</button>\r\n      <!-- Team button is provided to view team and its members in the incident module -->\r\n      <button mat-raised-button color=\"primary\" color=\"warn\" (click)=\"delette(item)\">Delete</button>\r\n      </mat-card-actions>\r\n </mat-card>\r\n     </div>\r\n   </div>\r\n   <p class=\"mat-title\" *ngIf=\"!teams?.length\">No Teams are Created for this Incident!</p>\r\n </div>\r\n </div>"
 
 /***/ }),
 
@@ -2320,6 +2437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _teamdialog_teamdialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../teamdialog/teamdialog.component */ "./src/app/teamdialog/teamdialog.component.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../teamdelete/teamdelete.component */ "./src/app/teamdelete/teamdelete.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2329,6 +2447,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2391,6 +2510,12 @@ var TeamsComponent = /** @class */ (function () {
             // data:item
         });
     };
+    TeamsComponent.prototype.delette = function (item) {
+        this.dialogref.open(_teamdelete_teamdelete_component__WEBPACK_IMPORTED_MODULE_5__["TeamdeleteComponent"], {
+            width: '600px',
+            data: item
+        });
+    };
     TeamsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-teams',
@@ -2416,7 +2541,7 @@ var TeamsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n    margin-top: 1em;\r\n  }\r\n\r\n  .pageHeading {\r\n    margin: auto;\r\n  }\r\n\r\n  img {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 50%;\r\n}"
+module.exports = ".container {\r\n    margin-top: 1em;\r\n  }\r\n\r\n  .pageHeading {\r\n    margin: auto;\r\n  }\r\n\r\n  img {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 50%;\r\n}\r\n\r\n  button{  \r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}"
 
 /***/ }),
 
@@ -2427,7 +2552,7 @@ module.exports = ".container {\r\n    margin-top: 1em;\r\n  }\r\n\r\n  .pageHead
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n<h1 class=\"pageHeading mat-display-1\">Update Team</h1>\r\n<hr>\r\n<p>\r\n  <img src=\"assets/images/update.jpg\" alt=\"Wildfire\">\r\n</p>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <!-- Header for the dashboard page -->\r\n<h1 class=\"pageHeading mat-display-1\">Update Team</h1>\r\n<hr>\r\n<p>\r\n  <img src=\"assets/images/update.jpg\" alt=\"Wildfire\">\r\n</p>\r\n<button mat-raised-button color=\"primary\">Teams</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2532,7 +2657,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\sr\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\main.ts */"./src/main.ts");
 
 
 /***/ })

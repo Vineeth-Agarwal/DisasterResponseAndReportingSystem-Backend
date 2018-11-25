@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\sr\DisasterResponseAndReportingSystem-Backend\views\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\S530488\Desktop\DisasterResponseAndReportingSystem-Backend\views\src\styles.css */"./src/styles.css");
 
 
 /***/ })
