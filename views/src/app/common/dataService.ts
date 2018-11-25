@@ -17,8 +17,8 @@ export class DataService {
 
   getApplicantsList() {
     //   http call
-   return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
-    // return this.http.get('http://localhost:3000/getApplicantsList');
+  //  return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+    return this.http.get('http://localhost:3000/getApplicantsList');
 
   }
 
@@ -85,6 +85,12 @@ export class DataService {
     // return this.http.get('http://localhost:3000/getTeam/' + data);
     return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
   }
+
+  getFileById() {
+    return this.http.get('http://localhost:3000/certification/');
+    // return this.http.get('https://drrs.herokuapp.com/certification/' + data);
+  }
+
 
   getReportById(data: string) {
         // return this.http.get('http://localhost:3000/getReportById/'+ data);

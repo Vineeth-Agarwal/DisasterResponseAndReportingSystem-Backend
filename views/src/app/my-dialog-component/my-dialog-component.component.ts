@@ -6,6 +6,7 @@ import { User } from '../common/user';
 import { MatDialog} from '@angular/material';
 import { ApplicantacceptedComponent } from '../applicantaccepted/applicantaccepted.component';
 import { ApplicantdeniedComponent } from '../applicantdenied/applicantdenied.component';
+import { DataService } from '../common/dataService';
 
 
 @Component({
@@ -15,12 +16,21 @@ import { ApplicantdeniedComponent } from '../applicantdenied/applicantdenied.com
 })
 export class MyDialogComponentComponent implements OnInit {
   dialogResult="";
-
+  temp="";
+  // dataService:DataService;
   user: User;
-  constructor(public dialog: MatDialog, public thisDialogRef: MatDialogRef<MyDialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
+  constructor(private dataService: DataService, public dialog: MatDialog, public thisDialogRef: MatDialogRef<MyDialogComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
 
   ngOnInit() {
     this.user = this.data;
+    this.temp="/certification/EmptyUpload.PNG"
+    var tempup="http://localhost:3000/public/assets/upload/"
+    var href=tempup+this.user.files ;
+    // document.getElementById("file").setAttribute('href', "http://localhost:3000/certifications");
+    // $("#file").href=
+    // $("#file").attr("href", "https://www.w3schools.com/jquery/");
+
+
   }
 
   accept() {
@@ -35,7 +45,17 @@ export class MyDialogComponentComponent implements OnInit {
     })
   }
 
-  
+
+  downloadFile(){
+    this.dataService.getFileById()
+    .subscribe((data) => {
+      console.log(data);
+      console.log('success');
+    },
+      error => {
+        console.log('Error Occured');
+      });
+  }
 
   deny() {
     let dialogReff=this.dialog.open(ApplicantdeniedComponent,{

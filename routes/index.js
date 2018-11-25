@@ -51,8 +51,9 @@ var upload = multer({
     
     filename: function (req, file, callback) {
       var ext = path.extname(file.originalname);
-      console.log("file ext is "+ext)
-      callback(null, Date.now() + ext);
+      console.log("file ext is "+file.originalname)
+      callback(null, file.originalname // +Date.now() 
+      );
     }
   }),
 }).array("files"); 
@@ -240,7 +241,12 @@ router.post('/saveReport', function (req, res, next) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide details for report" })
   }
-  var reportObj = new report(req.body);
+  upload(req, res, function (err) {
+    if (err) {
+      return res.status(403).json({ message: err });
+    }
+
+  var reportObj = new report(JSON.parse(req.body.formData));
   reportObj.save(function (err, data) {
     if (err) {
       res.status(403).json({ msg: "something bad", err: err })
@@ -248,8 +254,13 @@ router.post('/saveReport', function (req, res, next) {
     else {
       res.status(200).json({ msg: "Report saved successfully", data: data })
     }
+    });
+    console.log("Json value is "+req.body.formData)
+    // console.log("limitation value is "+req.body.formData.limitations)    
   });
-})
+
+
+});
 
 // get reports List
 router.get('/getReportsList', function (req, res, next) {
@@ -359,9 +370,11 @@ router.get('/incidentReport', function (req, res, next) {
 });
 
 // certification
-router.get('/certification', function (req, res, next) {
+router.get('/certification/:id', function (req, res, next) {
   // fetches the respective requested record successfully
-  res.download("./public/assets/cert-certificate.jpg");
+
+  console.log("enered certification"+ req.params.id)
+  res.status(200).download("./public/assets/upload/"+req.params.id);
 });
 
 module.exports = router;

@@ -22,7 +22,11 @@
       <p><b>Skills: </b> {{ user.skills }} </p>
       <p><b>Lisence Number: </b> {{ user.licenseNumber }} </p>
       <p><b>Limitations: </b>{{ user.limitations }}</p>
-      <p *ngIf='user.files'><b>Certification: </b><a href="http://localhost:3000/certification">{{ user.files }}</a></p>
+      <!-- <p *ngIf='user.files'><b>Certification: </b><a id="file" href="http://localhost:3000/certification">{{ user.files }}</a></p> -->
+      <p *ngIf='user.files'><b>Certification: </b>
+        <!-- <span class="files" (click)="downloadFile()">{{ user.files }}</span> -->
+        <a id="file" href="{{temp}}" >{{ user.files }}</a>
+      </p>
       <p *ngIf='!user.files'><b>Certification: </b>No files uploaded</p>
     </div>
   </div>
@@ -35,3 +39,4 @@
     <button mat-raised-button color="warn" (click)="deny()">Deny</button>
   </mat-dialog-actions>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

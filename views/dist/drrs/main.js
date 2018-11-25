@@ -910,8 +910,8 @@ var DataService = /** @class */ (function () {
     // }
     DataService.prototype.getApplicantsList = function () {
         //   http call
-        return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
-        // return this.http.get('http://localhost:3000/getApplicantsList');
+        //  return this.http.get('https://drrs.herokuapp.com/getApplicantsList');
+        return this.http.get('http://localhost:3000/getApplicantsList');
     };
     DataService.prototype.saveApplicantDecision = function (data) {
         // http call  
@@ -961,6 +961,10 @@ var DataService = /** @class */ (function () {
     DataService.prototype.getTeamById = function (data) {
         // return this.http.get('http://localhost:3000/getTeam/' + data);
         return this.http.get('https://drrs.herokuapp.com/getTeam/' + data);
+    };
+    DataService.prototype.getFileById = function () {
+        return this.http.get('http://localhost:3000/certification/');
+        // return this.http.get('https://drrs.herokuapp.com/certification/' + data);
     };
     DataService.prototype.getReportById = function (data) {
         // return this.http.get('http://localhost:3000/getReportById/'+ data);
@@ -1699,7 +1703,7 @@ var LogindialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.text-style {\r\n  font-size: 20px;\r\n}\r\n"
+module.exports = ".pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.text-style {\r\n  font-size: 20px;\r\n}\r\n\r\n.files {\r\n  color:blue;\r\n  cursor:pointer;\r\n}"
 
 /***/ }),
 
@@ -1710,7 +1714,7 @@ module.exports = ".pageHeading {\r\n  margin: auto;\r\n}\r\n\r\n.text-style {\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <h1 class=\"pageHeading mat-display-1\">Applicant Details:</h1>\r\n    <!-- mat-dialog-title -->\r\n    <hr>\r\n    <mat-dialog-content>\r\n      <!-- <div class=\"container\"> -->\r\n  <div class=\"row text-style\">\r\n    <div class=\"col\">\r\n      <h3><u>Personal Details:</u></h3>\r\n      <p><b>First Name: </b>{{ user.firstName }}</p>\r\n      <p><b>Second Name: </b>{{ user.lastName }}</p>\r\n      <p><b>Email Id: </b>{{ user.email }}</p>\r\n      <p><b>Date of Birth: </b>{{ user.dob | date: 'dd/MM/yyyy' }}</p>\r\n      <p><b>Mobile Number: </b> {{ user.mobileNumber }}</p>\r\n      <h3><u>Address: </u></h3>\r\n      {{ user.address1 }},<br>\r\n      {{ user.address2 }}, {{ user.county }},<br>\r\n      {{ user.city }}, {{ user.state }}, {{ user.country }}\r\n    </div>\r\n    <div class=\"col\">\r\n      <h3><u>Additional Details:</u></h3>\r\n      <p><b>Skills: </b> {{ user.skills }} </p>\r\n      <p><b>Lisence Number: </b> {{ user.licenseNumber }} </p>\r\n      <p><b>Limitations: </b>{{ user.limitations }}</p>\r\n      <p *ngIf='user.files'><b>Certification: </b><a href=\"http://localhost:3000/certification\">{{ user.files }}</a></p>\r\n      <p *ngIf='!user.files'><b>Certification: </b>No files uploaded</p>\r\n    </div>\r\n  </div>\r\n  <!-- </div> -->\r\n    <!-- <strong>{{data}}</strong> -->\r\n  </mat-dialog-content>\r\n  <hr>\r\n  <mat-dialog-actions>\r\n    <button mat-raised-button color=\"primary\" (click)=\"accept()\">Accept</button>\r\n    <button mat-raised-button color=\"warn\" (click)=\"deny()\">Deny</button>\r\n  </mat-dialog-actions>\r\n  </div>\r\n"
+module.exports = "<div>\r\n    <h1 class=\"pageHeading mat-display-1\">Applicant Details:</h1>\r\n    <!-- mat-dialog-title -->\r\n    <hr>\r\n    <mat-dialog-content>\r\n      <!-- <div class=\"container\"> -->\r\n  <div class=\"row text-style\">\r\n    <div class=\"col\">\r\n      <h3><u>Personal Details:</u></h3>\r\n      <p><b>First Name: </b>{{ user.firstName }}</p>\r\n      <p><b>Second Name: </b>{{ user.lastName }}</p>\r\n      <p><b>Email Id: </b>{{ user.email }}</p>\r\n      <p><b>Date of Birth: </b>{{ user.dob | date: 'dd/MM/yyyy' }}</p>\r\n      <p><b>Mobile Number: </b> {{ user.mobileNumber }}</p>\r\n      <h3><u>Address: </u></h3>\r\n      {{ user.address1 }},<br>\r\n      {{ user.address2 }}, {{ user.county }},<br>\r\n      {{ user.city }}, {{ user.state }}, {{ user.country }}\r\n    </div>\r\n    <div class=\"col\">\r\n      <h3><u>Additional Details:</u></h3>\r\n      <p><b>Skills: </b> {{ user.skills }} </p>\r\n      <p><b>Lisence Number: </b> {{ user.licenseNumber }} </p>\r\n      <p><b>Limitations: </b>{{ user.limitations }}</p>\r\n      <!-- <p *ngIf='user.files'><b>Certification: </b><a id=\"file\" href=\"http://localhost:3000/certification\">{{ user.files }}</a></p> -->\r\n      <p *ngIf='user.files'><b>Certification: </b>\r\n        <!-- <span class=\"files\" (click)=\"downloadFile()\">{{ user.files }}</span> -->\r\n        <a id=\"file\" href=\"{{temp}}\" >{{ user.files }}</a>\r\n      </p>\r\n      <p *ngIf='!user.files'><b>Certification: </b>No files uploaded</p>\r\n    </div>\r\n  </div>\r\n  <!-- </div> -->\r\n    <!-- <strong>{{data}}</strong> -->\r\n  </mat-dialog-content>\r\n  <hr>\r\n  <mat-dialog-actions>\r\n    <button mat-raised-button color=\"primary\" (click)=\"accept()\">Accept</button>\r\n    <button mat-raised-button color=\"warn\" (click)=\"deny()\">Deny</button>\r\n  </mat-dialog-actions>\r\n  </div>\r\n  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>"
 
 /***/ }),
 
@@ -1729,6 +1733,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/user */ "./src/app/common/user.ts");
 /* harmony import */ var _applicantaccepted_applicantaccepted_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../applicantaccepted/applicantaccepted.component */ "./src/app/applicantaccepted/applicantaccepted.component.ts");
 /* harmony import */ var _applicantdenied_applicantdenied_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../applicantdenied/applicantdenied.component */ "./src/app/applicantdenied/applicantdenied.component.ts");
+/* harmony import */ var _common_dataService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/dataService */ "./src/app/common/dataService.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1749,15 +1754,24 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
+
 var MyDialogComponentComponent = /** @class */ (function () {
-    function MyDialogComponentComponent(dialog, thisDialogRef, data) {
+    function MyDialogComponentComponent(dataService, dialog, thisDialogRef, data) {
+        this.dataService = dataService;
         this.dialog = dialog;
         this.thisDialogRef = thisDialogRef;
         this.data = data;
         this.dialogResult = "";
+        this.temp = "";
     }
     MyDialogComponentComponent.prototype.ngOnInit = function () {
         this.user = this.data;
+        this.temp = "/certification/EmptyUpload.PNG";
+        var tempup = "http://localhost:3000/public/assets/upload/";
+        var href = tempup + this.user.files;
+        // document.getElementById("file").setAttribute('href', "http://localhost:3000/certifications");
+        // $("#file").href=
+        // $("#file").attr("href", "https://www.w3schools.com/jquery/");
     };
     MyDialogComponentComponent.prototype.accept = function () {
         var _this = this;
@@ -1768,6 +1782,15 @@ var MyDialogComponentComponent = /** @class */ (function () {
         dialogReff.afterClosed().subscribe(function (result) {
             // console.log('Dialog closed: ${result}');
             _this.dialogResult = result;
+        });
+    };
+    MyDialogComponentComponent.prototype.downloadFile = function () {
+        this.dataService.getFileById()
+            .subscribe(function (data) {
+            console.log(data);
+            console.log('success');
+        }, function (error) {
+            console.log('Error Occured');
         });
     };
     MyDialogComponentComponent.prototype.deny = function () {
@@ -1787,8 +1810,8 @@ var MyDialogComponentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./my-dialog-component.component.html */ "./src/app/my-dialog-component/my-dialog-component.component.html"),
             styles: [__webpack_require__(/*! ./my-dialog-component.component.css */ "./src/app/my-dialog-component/my-dialog-component.component.css")]
         }),
-        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_2__["User"]])
+        __param(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_common_dataService__WEBPACK_IMPORTED_MODULE_5__["DataService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], _common_user__WEBPACK_IMPORTED_MODULE_2__["User"]])
     ], MyDialogComponentComponent);
     return MyDialogComponentComponent;
 }());
@@ -2091,7 +2114,7 @@ module.exports = "/* Assigned to kishan */\r\n.container {\r\n  margin-top: 1em;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  <!-- <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator> -->\r\n</div>\r\n</div>\r\n"
+module.exports = "<!--\r\n  Assigned to Sreevani and kishan\r\n -->\r\n\r\n<div class=\"container\">\r\n  <!-- Header for Review Applications -->\r\n<h1 class=\"pageHeading mat-display-1\">Review Applications</h1>\r\n<hr>\r\n\r\n<div class=\"table-container mat-elevation-z8\">\r\n  <div class=\"filter-header\">\r\n    <mat-form-field>\r\n      <!-- Filter provided to filter the table data -->\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n  <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- First Name Column -->\r\n    <ng-container matColumnDef=\"firstName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> First Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.firstName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Last Name Column -->\r\n    <ng-container matColumnDef=\"lastName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Last Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.lastName }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Email Column -->\r\n    <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Email </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.email}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Date of Birth Column -->\r\n    <ng-container matColumnDef=\"dob\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Date of Birth </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.dob}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- County Column -->\r\n    <ng-container matColumnDef=\"county\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> County </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.county}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Skills Column -->\r\n    <ng-container matColumnDef=\"skills\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header class=\"table-header\"> Skills </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\" class=\"table-cell\"> {{element.skills}} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click) = \"rowClicked(row)\"></mat-row>\r\n  </mat-table>\r\n  <!-- <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator> -->\r\n  <mat-paginator #paginator [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 20]\" [showFirstLastButtons]=\"true\">\r\n  </mat-paginator>\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
