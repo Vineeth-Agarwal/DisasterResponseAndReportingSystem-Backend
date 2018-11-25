@@ -73,24 +73,6 @@ router.route('/signup').post(users.signup);
 // Check user logged in or not
 router.route('/isLoggedIn').get(users.isLoggedIn);
 
-
-// save members- Hemanth
-// These are the one who are selected for CERT team
-router.post('/saveMembers', function (req, res, next) {
-  if (req && !req.body) {
-    return res.status(403).json({ msg: "Please provide member details" })
-  }
-  var memberObj = new membere(req.body);
-  memberObj.save(function (err, data) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err: err })
-    }
-    else {
-      res.status(200).json({ msg: "Members record saved successfully", data: data })
-    }
-  });
-})
-
 // get member List- Hemanth
 // These are the one who are selected for CERT team
 router.get('/getMemberList', function (req, res, next) {
@@ -103,8 +85,6 @@ router.get('/getMemberList', function (req, res, next) {
     }
   })
 });
-
-
 
 
 router.put('/saveApplicationDecision', function (req, res, decision) {
