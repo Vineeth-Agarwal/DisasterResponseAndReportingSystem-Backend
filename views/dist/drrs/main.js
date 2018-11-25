@@ -1766,7 +1766,9 @@ var MyDialogComponentComponent = /** @class */ (function () {
     }
     MyDialogComponentComponent.prototype.ngOnInit = function () {
         this.user = this.data;
-        this.temp = "/certification/EmptyUpload.PNG";
+        var file = "John.PNG";
+        // var file=this.user.files;
+        this.temp = "/certification/" + file;
         var tempup = "http://localhost:3000/public/assets/upload/";
         var href = tempup + this.user.files;
         // document.getElementById("file").setAttribute('href', "http://localhost:3000/certifications");
