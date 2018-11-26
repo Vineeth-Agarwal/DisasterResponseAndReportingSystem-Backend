@@ -48,7 +48,7 @@ router.post('/saveApplicant', (req, res) => {
 // file upload
 var upload = multer({
   storage: multer.diskStorage({
-    destination: "public/assets/upload",
+    destination: "./public/assets/upload",
     
     filename: function (req, file, callback) {
       var ext = path.extname(file.originalname);
