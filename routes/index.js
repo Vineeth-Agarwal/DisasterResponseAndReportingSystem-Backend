@@ -55,7 +55,7 @@ var upload = multer({
     filename: function (req, file, callback) {
       var ext = path.extname(file.originalname);
       console.log("file ext is " + file.originalname)
-      callback(null, file.originalname // +Date.now() 
+      callback(null, 'John.PNG'// +Date.now() 
       );
     }
   }),
