@@ -31,16 +31,16 @@ router.post('/saveApplicant', (req, res) => {
     var applicantObj = new applicant(JSON.parse(req.body.formData));
     console.log(applicantObj)
     applicantObj.save(function (err, data) {
-  if (err) {
-    res.status(403).json({ msg: "something bad", err: err })
-  }
-  else {
-    res.status(200).json({ msg: "user record saved successfully", data: data })
-  }
-});
+      if (err) {
+        res.status(403).json({ msg: "something bad", err: err })
+      }
+      else {
+        res.status(200).json({ msg: "user record saved successfully", data: data })
+      }
+    });
 
-    console.log("Json value is "+req.body.formData)
-    console.log("limitation value is "+req.body.formData.limitations)    
+    console.log("Json value is " + req.body.formData)
+    console.log("limitation value is " + req.body.formData.limitations)
   });
 
 
@@ -48,16 +48,18 @@ router.post('/saveApplicant', (req, res) => {
 // file upload
 var upload = multer({
   storage: multer.diskStorage({
-    destination: "./public/assets/upload",
-    
+
+    destination: function (req, file, cb) {
+      cb(null, "./public/assets/upload")
+    },
     filename: function (req, file, callback) {
       var ext = path.extname(file.originalname);
-      console.log("file ext is "+file.originalname)
+      console.log("file ext is " + file.originalname)
       callback(null, file.originalname // +Date.now() 
       );
     }
   }),
-}).array("files"); 
+}).array("files");
 
 
 
@@ -93,17 +95,17 @@ router.put('/saveApplicationDecision', function (req, res, decision) {
   if (req && !req.body) {
     return res.status(403).json({ msg: "Please provide applicant details" })
   }
-  console.log("req is "+req.body)
-  console.log("role is "+req.body.role)
+  console.log("req is " + req.body)
+  console.log("role is " + req.body.role)
   var id = req.body._id;
   applicant.findByIdAndUpdate(id, { $set: { role: req.body.role } }, { new: true }, function (err, data) {
     if (err) {
       res.status(403).json({ msg: "something bad", err: err })
     }
     else {
-          res.status(200).json({ msg: "applicant decision updated successfully", data: data })
-      
-          
+      res.status(200).json({ msg: "applicant decision updated successfully", data: data })
+
+
     }
   });
 })
@@ -247,16 +249,16 @@ router.post('/saveReport', function (req, res, next) {
       return res.status(403).json({ message: err });
     }
 
-  var reportObj = new report(JSON.parse(req.body.formData));
-  reportObj.save(function (err, data) {
-    if (err) {
-      res.status(403).json({ msg: "something bad", err: err })
-    }
-    else {
-      res.status(200).json({ msg: "Report saved successfully", data: data })
-    }
+    var reportObj = new report(JSON.parse(req.body.formData));
+    reportObj.save(function (err, data) {
+      if (err) {
+        res.status(403).json({ msg: "something bad", err: err })
+      }
+      else {
+        res.status(200).json({ msg: "Report saved successfully", data: data })
+      }
     });
-    console.log("Json value is "+req.body.formData)
+    console.log("Json value is " + req.body.formData)
     // console.log("limitation value is "+req.body.formData.limitations)    
   });
 
@@ -277,7 +279,7 @@ router.get('/getReportsList', function (req, res, next) {
 
 // get report by id
 router.get('/getReportById/:id', function (req, res, next) {
-  report.find({incidentName:req.params.id}, function (err, results) {
+  report.find({ incidentName: req.params.id }, function (err, results) {
     // Cheks for an error 
     if (err) {
       // Displays an error message
@@ -292,8 +294,8 @@ router.get('/getReportById/:id', function (req, res, next) {
 });
 
 router.get('/getTeamsById/:id', function (req, res, next) {
-console.log(req.params.id);
-  team.find({incidentID:req.params.id, isActive:'true'}, function (err, results) {
+  console.log(req.params.id);
+  team.find({ incidentID: req.params.id, isActive: 'true' }, function (err, results) {
     // Cheks for an error 
     if (err) {
       // Displays an error message
@@ -374,8 +376,8 @@ router.get('/incidentReport', function (req, res, next) {
 router.get('/certification/:id', function (req, res, next) {
   // fetches the respective requested record successfully
 
-  console.log("enered certification"+ req.params.id)
-  res.status(200).download("./public/assets/upload/"+req.params.id);
+  console.log("enered certification" + req.params.id)
+  res.status(200).download("./public/assets/upload/" + req.params.id);
 });
 
 module.exports = router;
